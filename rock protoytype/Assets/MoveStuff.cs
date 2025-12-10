@@ -61,8 +61,12 @@ public class move22 : MonoBehaviour
     private int start = 0;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        if (stone_MAX<=0)
+        {
+            stone_MAX = 5;
+        }
         start = 0;
         RectTransform rockrect = stone_IMG.GetComponent<RectTransform>();
         RectTransform rockrect2 = stone_DARK.GetComponent<RectTransform>();
@@ -102,7 +106,7 @@ public class move22 : MonoBehaviour
 
             }
 
-
+            stone = stone_MAX;
         }
 
         manaPOS -= ((70 * stone_MAX) / 2);

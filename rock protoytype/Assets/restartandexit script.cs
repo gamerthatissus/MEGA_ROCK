@@ -35,7 +35,7 @@ public class eeee : MonoBehaviour
 
     void restartgame()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("SampleScene");
     }
 
 
