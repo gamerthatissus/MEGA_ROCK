@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 26
-  productGUID: ec21f979c31e1aa4fabe1c643b425663
+  productGUID: 7226046aeb43d774dab33d7265c0b16c
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: ROCK
+  productName: rock protoytype
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -635,14 +635,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: ROCK
+  metroPackageName: rock protoytype
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: ROCK
+  metroApplicationDescription: rock protoytype
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -711,10 +711,10 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: ebaec6f1-d284-4a5c-806b-793375be7a70
+  cloudProjectId: d514d3a2-dae2-4f90-8de1-4e0c6c640b06
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: ROCK 2025-12-10_11-27-44
+  projectName: rock protoytype
   organizationId: hpro_gaming
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
