@@ -122,6 +122,78 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &7025161
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7025162}
+  - component: {fileID: 7025164}
+  - component: {fileID: 7025163}
+  m_Layer: 5
+  m_Name: dark stone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7025162
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7025161}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 202687922}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -16, y: -287.4}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7025163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7025161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: 1feaf1a1f376ef74995053c9f0e74e00, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &7025164
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7025161}
+  m_CullTransparentMesh: 1
 --- !u!1 &7139118
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +206,7 @@ GameObject:
   - component: {fileID: 7139122}
   - component: {fileID: 7139121}
   - component: {fileID: 7139120}
-  m_Layer: 5
+  m_Layer: 25
   m_Name: e
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -322,7 +394,7 @@ GameObject:
   - component: {fileID: 143514256}
   - component: {fileID: 143514258}
   - component: {fileID: 143514257}
-  m_Layer: 5
+  m_Layer: 25
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -587,7 +659,7 @@ GameObject:
   - component: {fileID: 202687921}
   - component: {fileID: 202687920}
   - component: {fileID: 202687919}
-  m_Layer: 5
+  m_Layer: 25
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -682,6 +754,8 @@ RectTransform:
   - {fileID: 1503044652}
   - {fileID: 270644040}
   - {fileID: 902245720}
+  - {fileID: 7025162}
+  - {fileID: 274061327}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -700,7 +774,7 @@ GameObject:
   - component: {fileID: 215112259}
   - component: {fileID: 215112261}
   - component: {fileID: 215112260}
-  m_Layer: 5
+  m_Layer: 25
   m_Name: text Text (TMP) (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -964,7 +1038,7 @@ GameObject:
   - component: {fileID: 270644040}
   - component: {fileID: 270644042}
   - component: {fileID: 270644041}
-  m_Layer: 5
+  m_Layer: 25
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1089,6 +1163,78 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 270644039}
   m_CullTransparentMesh: 1
+--- !u!1 &274061326
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 274061327}
+  - component: {fileID: 274061329}
+  - component: {fileID: 274061328}
+  m_Layer: 25
+  m_Name: stone1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &274061327
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274061326}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 202687922}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -16, y: -286}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &274061328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274061326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: 1feaf1a1f376ef74995053c9f0e74e00, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &274061329
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274061326}
+  m_CullTransparentMesh: 1
 --- !u!1 &280808251
 GameObject:
   m_ObjectHideFlags: 0
@@ -1099,7 +1245,7 @@ GameObject:
   m_Component:
   - component: {fileID: 280808252}
   - component: {fileID: 280808253}
-  m_Layer: 5
+  m_Layer: 25
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1190,13 +1336,13 @@ GameObject:
   - component: {fileID: 319528527}
   - component: {fileID: 319528529}
   - component: {fileID: 319528528}
-  m_Layer: 5
+  m_Layer: 25
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &319528527
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1214,7 +1360,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -20.599976, y: -264.5}
+  m_AnchoredPosition: {x: -15, y: -222}
   m_SizeDelta: {x: -1720, y: -1021.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &319528528
@@ -1266,7 +1412,7 @@ GameObject:
   - component: {fileID: 322746806}
   - component: {fileID: 322746808}
   - component: {fileID: 322746807}
-  m_Layer: 5
+  m_Layer: 25
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1289,7 +1435,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 18.999983, y: -4.9999695}
+  m_AnchoredPosition: {x: 7, y: -6}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &322746807
@@ -1401,7 +1547,7 @@ GameObject:
   - component: {fileID: 373028066}
   - component: {fileID: 373028065}
   - component: {fileID: 373028064}
-  m_Layer: 5
+  m_Layer: 25
   m_Name: e
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1521,7 +1667,7 @@ GameObject:
   - component: {fileID: 502337781}
   - component: {fileID: 502337783}
   - component: {fileID: 502337782}
-  m_Layer: 5
+  m_Layer: 25
   m_Name: e
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1597,7 +1743,7 @@ GameObject:
   - component: {fileID: 506863036}
   - component: {fileID: 506863038}
   - component: {fileID: 506863037}
-  m_Layer: 5
+  m_Layer: 25
   m_Name: move 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1825,7 +1971,7 @@ GameObject:
   - component: {fileID: 521614376}
   - component: {fileID: 521614378}
   - component: {fileID: 521614377}
-  m_Layer: 5
+  m_Layer: 25
   m_Name: mana 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2217,7 +2363,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 610364248}
-  m_Layer: 5
+  m_Layer: 25
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2255,7 +2401,7 @@ GameObject:
   - component: {fileID: 627937972}
   - component: {fileID: 627937974}
   - component: {fileID: 627937973}
-  m_Layer: 5
+  m_Layer: 25
   m_Name: e
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2595,7 +2741,7 @@ GameObject:
   - component: {fileID: 796394054}
   - component: {fileID: 796394056}
   - component: {fileID: 796394055}
-  m_Layer: 5
+  m_Layer: 25
   m_Name: move4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2732,7 +2878,7 @@ GameObject:
   - component: {fileID: 844006116}
   - component: {fileID: 844006115}
   - component: {fileID: 844006114}
-  m_Layer: 5
+  m_Layer: 25
   m_Name: e
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2852,7 +2998,7 @@ GameObject:
   - component: {fileID: 902245720}
   - component: {fileID: 902245722}
   - component: {fileID: 902245721}
-  m_Layer: 5
+  m_Layer: 25
   m_Name: controls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2929,7 +3075,7 @@ GameObject:
   - component: {fileID: 985224658}
   - component: {fileID: 985224657}
   - component: {fileID: 985224656}
-  m_Layer: 5
+  m_Layer: 25
   m_Name: e
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3439,7 +3585,7 @@ GameObject:
   - component: {fileID: 1150900810}
   - component: {fileID: 1150900812}
   - component: {fileID: 1150900811}
-  m_Layer: 5
+  m_Layer: 25
   m_Name: mana 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3909,7 +4055,7 @@ GameObject:
   - component: {fileID: 1277868644}
   - component: {fileID: 1277868646}
   - component: {fileID: 1277868645}
-  m_Layer: 5
+  m_Layer: 25
   m_Name: move3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4045,7 +4191,7 @@ GameObject:
   - component: {fileID: 1283695177}
   - component: {fileID: 1283695179}
   - component: {fileID: 1283695178}
-  m_Layer: 5
+  m_Layer: 25
   m_Name: mana2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4181,7 +4327,7 @@ GameObject:
   - component: {fileID: 1346234570}
   - component: {fileID: 1346234572}
   - component: {fileID: 1346234571}
-  m_Layer: 5
+  m_Layer: 25
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4254,7 +4400,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1346876439}
-  m_Layer: 5
+  m_Layer: 25
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9121,7 +9267,7 @@ GameObject:
   - component: {fileID: 1470443500}
   - component: {fileID: 1470443502}
   - component: {fileID: 1470443501}
-  m_Layer: 5
+  m_Layer: 25
   m_Name: mana 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9257,7 +9403,7 @@ GameObject:
   - component: {fileID: 1499495837}
   - component: {fileID: 1499495839}
   - component: {fileID: 1499495838}
-  m_Layer: 5
+  m_Layer: 25
   m_Name: e
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9334,7 +9480,7 @@ GameObject:
   - component: {fileID: 1503044655}
   - component: {fileID: 1503044654}
   - component: {fileID: 1503044653}
-  m_Layer: 5
+  m_Layer: 25
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9602,6 +9748,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98dee303a8f0f9b4d98ad676d0cfa689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stone_IMG: {fileID: 274061328}
+  stone_DARK: {fileID: 7025163}
   mana1: {fileID: 1470443501}
   mana2: {fileID: 1283695178}
   mana3: {fileID: 1150900811}
@@ -9612,6 +9760,7 @@ MonoBehaviour:
   move4: {fileID: 796394055}
   hp: 100
   hpbar: {fileID: 280808253}
+  gameScreen: {fileID: 202687921}
   stoneTEXT: {fileID: 322746807}
   insidemove: {fileID: 1694147099}
   outsidemove: {fileID: 1161303639}
@@ -9623,6 +9772,7 @@ MonoBehaviour:
   minfriction: 0.4
   maxfriction: 1.2
   amountoflanchers: 0
+  stone_MAX: 5
   stone: 5
   mouseposstart: {x: 0, y: 0, z: 0}
   mousepos: {x: 0, y: 0, z: 0}
@@ -9649,7 +9799,7 @@ GameObject:
   - component: {fileID: 1788024114}
   - component: {fileID: 1788024116}
   - component: {fileID: 1788024115}
-  m_Layer: 5
+  m_Layer: 25
   m_Name: e
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9725,7 +9875,7 @@ GameObject:
   - component: {fileID: 1949164981}
   - component: {fileID: 1949164983}
   - component: {fileID: 1949164982}
-  m_Layer: 5
+  m_Layer: 25
   m_Name: move2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9991,7 +10141,7 @@ GameObject:
   - component: {fileID: 2109089696}
   - component: {fileID: 2109089698}
   - component: {fileID: 2109089697}
-  m_Layer: 5
+  m_Layer: 25
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
