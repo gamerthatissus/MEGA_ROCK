@@ -58,6 +58,13 @@ public class move22 : MonoBehaviour
     private RawImage stone8;
     private RawImage stone9;
     private RawImage stone10;
+    private RawImage stone11;
+    private RawImage stone12;
+    private RawImage stone13;
+    private RawImage stone14;
+    private RawImage stone15;
+    private RawImage stone16;
+
     private int start = 0;
 
     // Start is called before the first frame update
@@ -90,7 +97,7 @@ public class move22 : MonoBehaviour
 
         manaPOS2 -= ((70 * stone_MAX) / 2);
         rockrect2.localPosition = new Vector3(manaPOS2, -272, 0);
-        for (int i = 1; i < 10; i++)
+        for (int i = 1; i < 16; i++)
         {
             Object NEWmana = Instantiate(stone_DARK.gameObject);
             RectTransform CLONEpos = NEWmana.GetComponent<RectTransform>();
@@ -112,7 +119,7 @@ public class move22 : MonoBehaviour
         manaPOS -= ((70 * stone_MAX) / 2);
         rockrect.localPosition = new Vector3(manaPOS, -272, 0);
 
-        for (int i = 1; i < 10; i++)
+        for (int i = 1; i < 16; i++)
         {
             Object NEWmana = Instantiate(stone_IMG.gameObject);
             RectTransform CLONEpos = NEWmana.GetComponent<RectTransform>();
@@ -140,6 +147,12 @@ public class move22 : MonoBehaviour
         stone8 = GameObject.Find("stone8").GetComponent<RawImage>();
         stone9 = GameObject.Find("stone9").GetComponent<RawImage>();
         stone10 = GameObject.Find("stone10").GetComponent<RawImage>();
+        stone11 = GameObject.Find("stone11").GetComponent<RawImage>();
+        stone12 = GameObject.Find("stone12").GetComponent<RawImage>();
+        stone13 = GameObject.Find("stone13").GetComponent<RawImage>();
+        stone14 = GameObject.Find("stone14").GetComponent<RawImage>();
+        stone15 = GameObject.Find("stone15").GetComponent<RawImage>();
+        stone16 = GameObject.Find("stone16").GetComponent<RawImage>();
         start = 1;
     }
     
@@ -167,8 +180,14 @@ if (start==1)
                     stone8.enabled = false;
                     stone9.enabled = false;
                     stone10.enabled = false;
+                   
+                    stone11.enabled = false;
+                    stone12.enabled = false;
+                    stone13.enabled = false;
+                    stone14.enabled = false;
 
-
+                    stone15.enabled = false;
+                    stone16.enabled = false;
                     break;
                 case 1:
                     stone_IMG.enabled = true;
@@ -182,6 +201,14 @@ if (start==1)
                     stone9.enabled = false;
                     stone10.enabled = false;
 
+                    stone11.enabled = false;
+                    stone12.enabled = false;
+                    stone13.enabled = false;
+                    stone14.enabled = false;
+
+
+                    stone15.enabled = false;
+                    stone16.enabled = false;
 
                     break;
 
@@ -196,6 +223,14 @@ if (start==1)
                     stone8.enabled = false;
                     stone9.enabled = false;
                     stone10.enabled = false;
+
+                    stone11.enabled = false;
+                    stone12.enabled = false;
+                    stone13.enabled = false;
+                    stone14.enabled = false;
+
+                    stone15.enabled = false;
+                    stone16.enabled = false;
                     break;
 
                 case 3:
@@ -209,6 +244,14 @@ if (start==1)
                     stone8.enabled = false;
                     stone9.enabled = false;
                     stone10.enabled = false;
+
+                    stone11.enabled = false;
+                    stone12.enabled = false;
+                    stone13.enabled = false;
+                    stone14.enabled = false;
+
+                    stone15.enabled = false;
+                    stone16.enabled = false;
                     break;
 
                 case 4:
@@ -222,6 +265,14 @@ if (start==1)
                     stone8.enabled = false;
                     stone9.enabled = false;
                     stone10.enabled = false;
+
+                    stone11.enabled = false;
+                    stone12.enabled = false;
+                    stone13.enabled = false;
+                    stone14.enabled = false;
+
+                    stone15.enabled = false;
+                    stone16.enabled = false;
                     break;
 
                 case 5:
@@ -235,6 +286,14 @@ if (start==1)
                     stone8.enabled = false;
                     stone9.enabled = false;
                     stone10.enabled = false;
+
+                    stone11.enabled = false;
+                    stone12.enabled = false;
+                    stone13.enabled = false;
+                    stone14.enabled = false;
+
+                    stone15.enabled = false;
+                    stone16.enabled = false;
                     break;
 
                 case 6:
@@ -248,6 +307,14 @@ if (start==1)
                     stone8.enabled = false;
                     stone9.enabled = false;
                     stone10.enabled = false;
+
+                    stone11.enabled = false;
+                    stone12.enabled = false;
+                    stone13.enabled = false;
+                    stone14.enabled = false;
+
+                    stone15.enabled = false;
+                    stone16.enabled = false;
                     break;
 
                 case 7:
@@ -261,6 +328,14 @@ if (start==1)
                     stone8.enabled = false;
                     stone9.enabled = false;
                     stone10.enabled = false;
+
+                    stone11.enabled = false;
+                    stone12.enabled = false;
+                    stone13.enabled = false;
+                    stone14.enabled = false;
+
+                    stone15.enabled = false;
+                    stone16.enabled = false;
                     break;
 
                 case 8:
@@ -274,6 +349,14 @@ if (start==1)
                     stone8.enabled = true;
                     stone9.enabled = false;
                     stone10.enabled = false;
+
+                    stone11.enabled = false;
+                    stone12.enabled = false;
+                    stone13.enabled = false;
+                    stone14.enabled = false;
+
+                    stone15.enabled = false;
+                    stone16.enabled = false;
                     break;
 
                 case 9:
@@ -287,6 +370,14 @@ if (start==1)
                     stone8.enabled = true;
                     stone9.enabled = true;
                     stone10.enabled = false;
+
+                    stone11.enabled = false;
+                    stone12.enabled = false;
+                    stone13.enabled = false;
+                    stone14.enabled = false;
+
+                    stone15.enabled = false;
+                    stone16.enabled = false;
                     break;
 
                 case 10:
@@ -300,9 +391,143 @@ if (start==1)
                     stone8.enabled = true;
                     stone9.enabled = true;
                     stone10.enabled = true;
+
+                    stone11.enabled = false;
+                    stone12.enabled = false;
+                    stone13.enabled = false;
+                    stone14.enabled = false;
+
+                    stone15.enabled = false;
+                    stone16.enabled = false;
                     break;
 
+                case 11:
+                    stone_IMG.enabled = true;
+                    stone2.enabled = true;
+                    stone3.enabled = true;
+                    stone4.enabled = true;
+                    stone5.enabled = true;
+                    stone6.enabled = true;
+                    stone7.enabled = true;
+                    stone8.enabled = true;
+                    stone9.enabled = true;
+                    stone10.enabled = true;
+
+                    stone11.enabled = true;
+                    stone12.enabled = false;
+                    stone13.enabled = false;
+                    stone14.enabled = false;
+
+                    stone15.enabled = false;
+                    stone16.enabled = false;
+                    break;
+
+                case 12:
+                    stone_IMG.enabled = true;
+                    stone2.enabled = true;
+                    stone3.enabled = true;
+                    stone4.enabled = true;
+                    stone5.enabled = true;
+                    stone6.enabled = true;
+                    stone7.enabled = true;
+                    stone8.enabled = true;
+                    stone9.enabled = true;
+                    stone10.enabled = true;
+
+                    stone11.enabled = true;
+                    stone12.enabled = true;
+                    stone13.enabled = false;
+                    stone14.enabled = false;
+
+                    stone15.enabled = false;
+                    stone16.enabled = false;
+                    break;
+
+                case 13:
+                    stone_IMG.enabled = true;
+                    stone2.enabled = true;
+                    stone3.enabled = true;
+                    stone4.enabled = true;
+                    stone5.enabled = true;
+                    stone6.enabled = true;
+                    stone7.enabled = true;
+                    stone8.enabled = true;
+                    stone9.enabled = true;
+                    stone10.enabled = true;
+
+                    stone11.enabled = true;
+                    stone12.enabled = true;
+                    stone13.enabled = true;
+                    stone14.enabled = false;
+
+                    stone15.enabled = false;
+                    stone16.enabled = false;
+                    break;
+
+                case 14:
+                    stone_IMG.enabled = true;
+                    stone2.enabled = true;
+                    stone3.enabled = true;
+                    stone4.enabled = true;
+                    stone5.enabled = true;
+                    stone6.enabled = true;
+                    stone7.enabled = true;
+                    stone8.enabled = true;
+                    stone9.enabled = true;
+                    stone10.enabled = true;
+
+                    stone11.enabled = true;
+                    stone12.enabled = true;
+                    stone13.enabled = true;
+                    stone14.enabled = true;
+
+                    stone15.enabled = false;
+                    stone16.enabled = false;
+                    break;
+
+                case 15:
+                    stone_IMG.enabled = true;
+                    stone2.enabled = true;
+                    stone3.enabled = true;
+                    stone4.enabled = true;
+                    stone5.enabled = true;
+                    stone6.enabled = true;
+                    stone7.enabled = true;
+                    stone8.enabled = true;
+                    stone9.enabled = true;
+                    stone10.enabled = true;
+
+                    stone11.enabled = true;
+                    stone12.enabled = true;
+                    stone13.enabled = true;
+                    stone14.enabled = true;
+
+                    stone15.enabled = true;
+                    stone16.enabled = false;
+                    break;
+
+                case 16:
+                    stone_IMG.enabled = true;
+                    stone2.enabled = true;
+                    stone3.enabled = true;
+                    stone4.enabled = true;
+                    stone5.enabled = true;
+                    stone6.enabled = true;
+                    stone7.enabled = true;
+                    stone8.enabled = true;
+                    stone9.enabled = true;
+                    stone10.enabled = true;
+
+                    stone11.enabled = true;
+                    stone12.enabled = true;
+                    stone13.enabled = true;
+                    stone14.enabled = true;
+
+                    stone15.enabled = true;
+                    stone16.enabled = true;
+                    break;
                 default:
+
                     break;
 
             }

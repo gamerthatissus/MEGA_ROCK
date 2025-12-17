@@ -9772,7 +9772,7 @@ MonoBehaviour:
   minfriction: 0.4
   maxfriction: 1.2
   amountoflanchers: 0
-  stone_MAX: 5
+  stone_MAX: 16
   stone: 5
   mouseposstart: {x: 0, y: 0, z: 0}
   mousepos: {x: 0, y: 0, z: 0}
