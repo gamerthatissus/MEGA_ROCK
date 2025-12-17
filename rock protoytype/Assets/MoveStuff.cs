@@ -5,6 +5,7 @@ using TMPro;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -48,7 +49,6 @@ public class move22 : MonoBehaviour
 
     public Vector3 mouseposstart;
     public Vector3 mousepos;
-    private RawImage stone1;
     private RawImage stone2;
     private RawImage stone3;
     private RawImage stone4;
@@ -61,7 +61,7 @@ public class move22 : MonoBehaviour
     private int start = 0;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         if (stone_MAX<=0)
         {
@@ -69,7 +69,7 @@ public class move22 : MonoBehaviour
         }
         start = 0;
         RectTransform rockrect = stone_IMG.GetComponent<RectTransform>();
-        RectTransform rockrect2 = stone_DARK.GetComponent<RectTransform>();
+        RectTransform rockrect2= stone_DARK.GetComponent<RectTransform>();
 
         manaPOS = rockrect.localPosition.x;
         manaPOS = rockrect2.localPosition.x;
@@ -130,7 +130,7 @@ public class move22 : MonoBehaviour
 
 
         }
-        stone1 = stone_IMG;
+    
         stone2 = GameObject.Find("stone2").GetComponent<RawImage>();
         stone3 = GameObject.Find("stone3").GetComponent<RawImage>();
         stone4 = GameObject.Find("stone4").GetComponent<RawImage>();
@@ -146,13 +146,32 @@ public class move22 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene("game");
+
+        }
         hpbar.value = hp;
 if (start==1)
         {
             switch (stone)
             {
+                case 0:
+                    stone_IMG.enabled = false;
+                    stone2.enabled = false;
+                    stone3.enabled = false;
+                    stone4.enabled = false;
+                    stone5.enabled = false;
+                    stone6.enabled = false;
+                    stone7.enabled = false;
+                    stone8.enabled = false;
+                    stone9.enabled = false;
+                    stone10.enabled = false;
+
+
+                    break;
                 case 1:
-                    stone1.enabled = true;
+                    stone_IMG.enabled = true;
                     stone2.enabled = false;
                     stone3.enabled = false;
                     stone4.enabled = false;
@@ -167,7 +186,7 @@ if (start==1)
                     break;
 
                 case 2:
-                    stone1.enabled = true;
+                    stone_IMG.enabled = true;
                     stone2.enabled = true;
                     stone3.enabled = false;
                     stone4.enabled = false;
@@ -180,7 +199,7 @@ if (start==1)
                     break;
 
                 case 3:
-                    stone1.enabled = true;
+                    stone_IMG.enabled = true;
                     stone2.enabled = true;
                     stone3.enabled = true;
                     stone4.enabled = false;
@@ -193,7 +212,7 @@ if (start==1)
                     break;
 
                 case 4:
-                    stone1.enabled = true;
+                    stone_IMG.enabled = true;
                     stone2.enabled = true;
                     stone3.enabled = true;
                     stone4.enabled = true;
@@ -206,7 +225,7 @@ if (start==1)
                     break;
 
                 case 5:
-                    stone1.enabled = true;
+                    stone_IMG.enabled = true;
                     stone2.enabled = true;
                     stone3.enabled = true;
                     stone4.enabled = true;
@@ -219,7 +238,7 @@ if (start==1)
                     break;
 
                 case 6:
-                    stone1.enabled = true;
+                    stone_IMG.enabled = true;
                     stone2.enabled = true;
                     stone3.enabled = true;
                     stone4.enabled = true;
@@ -232,7 +251,7 @@ if (start==1)
                     break;
 
                 case 7:
-                    stone1.enabled = true;
+                    stone_IMG.enabled = true;
                     stone2.enabled = true;
                     stone3.enabled = true;
                     stone4.enabled = true;
@@ -245,7 +264,7 @@ if (start==1)
                     break;
 
                 case 8:
-                    stone1.enabled = true;
+                    stone_IMG.enabled = true;
                     stone2.enabled = true;
                     stone3.enabled = true;
                     stone4.enabled = true;
@@ -258,7 +277,7 @@ if (start==1)
                     break;
 
                 case 9:
-                    stone1.enabled = true;
+                    stone_IMG.enabled = true;
                     stone2.enabled = true;
                     stone3.enabled = true;
                     stone4.enabled = true;
@@ -271,7 +290,7 @@ if (start==1)
                     break;
 
                 case 10:
-                    stone1.enabled = true;
+                    stone_IMG.enabled = true;
                     stone2.enabled = true;
                     stone3.enabled = true;
                     stone4.enabled = true;

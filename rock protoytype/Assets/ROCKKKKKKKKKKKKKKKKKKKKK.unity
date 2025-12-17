@@ -9772,10 +9772,12 @@ MonoBehaviour:
   minfriction: 0.4
   maxfriction: 1.2
   amountoflanchers: 0
-  stone_MAX: 8
+  stone_MAX: 6
   stone: 5
   mouseposstart: {x: 0, y: 0, z: 0}
   mousepos: {x: 0, y: 0, z: 0}
+  rockrect: {fileID: 274061327}
+  rockrect2: {fileID: 7025162}
 --- !u!114 &1694147103
 MonoBehaviour:
   m_ObjectHideFlags: 0

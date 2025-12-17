@@ -26,17 +26,14 @@ public class eeee : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            restartgame();
+            SceneManager.LoadScene("game");
 
         }
       
 
     }
 
-    void restartgame()
-    {
-        SceneManager.LoadScene("SampleScene");
-    }
+  
 
 
 }
