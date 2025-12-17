@@ -159,6 +159,11 @@ public class move22 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.R) || hp<1)
+        {
+            SceneManager.LoadScene("game");
+
+        }
         if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene("game");
@@ -606,8 +611,8 @@ if (start==1)
 
         }
     }
-
-    public void Oww()
+ 
+public void Oww()
     {
         hp -= 10;
     }
