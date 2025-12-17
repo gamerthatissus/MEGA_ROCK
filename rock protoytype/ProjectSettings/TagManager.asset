@@ -4,9 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - KILL
   - LAVA
   - SPIKE
+  - HOLE
   layers:
   - Default
   - TransparentFX

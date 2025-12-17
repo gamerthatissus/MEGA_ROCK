@@ -156,6 +156,7 @@ public class move22 : MonoBehaviour
         start = 1;
     }
     
+
     // Update is called once per frame
     void Update()
     {
@@ -618,7 +619,24 @@ public void Oww()
     }
     public void KILL()
     {
-        hp=0;
+        hp = 0;
+    }
+
+    public void HOLE()
+    {
+        hp -= 20;
+        StartCoroutine(holeeee());
+        
+    }
+    IEnumerator holeeee()
+    {
+        yield return new WaitForSeconds(0.5f);
+       
+      
+
+
+        outsidemove.AddForce(Vector2.up * 40f, ForceMode2D.Impulse);
+        
     }
     private void FixedUpdate()
     {

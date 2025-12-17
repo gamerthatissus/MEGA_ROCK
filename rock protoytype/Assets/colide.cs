@@ -16,11 +16,7 @@ public class colide : MonoBehaviour
 
         }
 
-        if (collision.gameObject.CompareTag("KILL"))
-        {
-            thingyyyy.KILL();
-
-        }
+      
     }
 
 
@@ -29,12 +25,12 @@ public class colide : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("LAVA"))
         {
-            thingyyyy.Oww();
+            thingyyyy.KILL();
 
         }
-        if (collision.gameObject.CompareTag("KILL"))
+        if (collision.gameObject.CompareTag("HOLE"))
         {
-            thingyyyy.KILL();
+            thingyyyy.HOLE();
 
         }
     }

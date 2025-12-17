@@ -24,11 +24,7 @@ public class eeee : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            SceneManager.LoadScene("game");
-
-        }
+        
       
 
     }
