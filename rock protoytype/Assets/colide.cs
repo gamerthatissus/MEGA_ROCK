@@ -8,12 +8,26 @@ public class colide : MonoBehaviour
 {
     public move22 thingyyyy;
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("SPIKE"))
+        {
+            thingyyyy.Oww();
+
+        }
+
+        if (collision.gameObject.CompareTag("KILL"))
+        {
+            thingyyyy.KILL();
+
+        }
+    }
 
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("OW"))
+        if (collision.gameObject.CompareTag("LAVA"))
         {
             thingyyyy.Oww();
 

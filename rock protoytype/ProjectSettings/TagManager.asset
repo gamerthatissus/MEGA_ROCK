@@ -4,8 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - OW
   - KILL
+  - LAVA
+  - SPIKE
   layers:
   - Default
   - TransparentFX
