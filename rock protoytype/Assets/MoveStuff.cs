@@ -565,7 +565,7 @@ if (start==1)
                     stone -= 2;
                     Object block = Instantiate(launcher);
 
-                    Object thingy = GameObject.Find("pow10");
+                    Object thingy = GameObject.Find("pow100");
                     if (thingy != null)
                     {
                         Destroy(thingy);
@@ -610,6 +610,10 @@ if (start==1)
     public void Oww()
     {
         hp -= 10;
+    }
+    public void KILL()
+    {
+        hp=0;
     }
     private void FixedUpdate()
     {

@@ -13,9 +13,14 @@ public class colide : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name=="OW")
+        if (collision.gameObject.CompareTag("OW"))
         {
             thingyyyy.Oww();
+
+        }
+        if (collision.gameObject.CompareTag("KILL"))
+        {
+            thingyyyy.KILL();
 
         }
     }
