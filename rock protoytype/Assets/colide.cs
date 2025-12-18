@@ -6,20 +6,35 @@ using UnityEngine;
 
 public class colide : MonoBehaviour
 {
+
+    public bool canspike = true;
     public move22 thingyyyy;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("SPIKE"))
         {
-            thingyyyy.Oww();
+            if (canspike == true)
+            {
+                thingyyyy.spike();
+                canspike = false;
+                StartCoroutine(waitforspike());
+
+            }
 
         }
 
       
     }
 
+    IEnumerator waitforspike()
+    {
 
+        yield return new WaitForSeconds(0.1f);
+        canspike = true;
+
+
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

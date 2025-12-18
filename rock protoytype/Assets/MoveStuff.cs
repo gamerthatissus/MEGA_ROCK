@@ -45,7 +45,7 @@ public class move22 : MonoBehaviour
     public int stone=5;
     private float manaPOS = -17f;
     private float manaPOS2 = -17f;
-
+    private float oldspeed = 0f;
 
     public Vector3 mouseposstart;
     public Vector3 mousepos;
@@ -70,6 +70,7 @@ public class move22 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        oldspeed = 0f;
         if (stone_MAX<=0)
         {
             stone_MAX = 5;
@@ -613,9 +614,11 @@ if (start==1)
         }
     }
  
-public void Oww()
+public void spike()
     {
-        hp -= 10;
+        hp -= 0.2f * math.abs(oldspeed*oldspeed);
+        
+        
     }
     public void KILL()
     {
@@ -637,10 +640,18 @@ public void Oww()
         outsidemove.AddForce(Vector2.up * 90f/outsidemove.mass, ForceMode2D.Impulse);
         
     }
-    
+
+    IEnumerator waitforspeed()
+    {
+        yield return new WaitForSeconds(0.05f);
+        oldspeed = outsidemove.velocity.magnitude;
+
+
+    }
+
     private void FixedUpdate()
     {
-
+        StartCoroutine(waitforspeed());
 
 
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
