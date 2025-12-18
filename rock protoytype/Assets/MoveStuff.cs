@@ -628,16 +628,16 @@ public void Oww()
         StartCoroutine(holeeee());
         
     }
+
     IEnumerator holeeee()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.7f);
        
-      
-
-
-        outsidemove.AddForce(Vector2.up * 40f, ForceMode2D.Impulse);
+     
+        outsidemove.AddForce(Vector2.up * 90f/outsidemove.mass, ForceMode2D.Impulse);
         
     }
+    
     private void FixedUpdate()
     {
 
