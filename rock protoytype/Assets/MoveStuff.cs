@@ -616,7 +616,7 @@ if (start==1)
  
 public void spike()
     {
-        hp -= 0.2f * math.abs(oldspeed*oldspeed);
+        hp -= 0.15f * math.abs(oldspeed*oldspeed);
         
         
     }
@@ -637,7 +637,7 @@ public void spike()
         yield return new WaitForSeconds(0.7f);
        
      
-        outsidemove.AddForce(Vector2.up * 90f/outsidemove.mass, ForceMode2D.Impulse);
+        outsidemove.AddForce(Vector2.up * 100f/outsidemove.mass, ForceMode2D.Impulse);
         
     }
 
