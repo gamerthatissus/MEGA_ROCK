@@ -643,7 +643,7 @@ public void spike()
 
     IEnumerator waitforspeed()
     {
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSeconds(0.02f);
         oldspeed = outsidemove.velocity.magnitude;
 
 
