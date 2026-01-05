@@ -18,19 +18,31 @@ public class colide : MonoBehaviour
             {
                 thingyyyy.spike();
                 canspike = false;
-                StartCoroutine(waitforspike());
+                StartCoroutine(waitforspike(0.1f));
 
             }
 
         }
+       
+        if (collision.gameObject.CompareTag("dmg"))
+        {
+            if (canspike == true)
+            {
+                thingyyyy.dmg();
+                StartCoroutine(waitforspike(1));
+            }
 
-      
+                
+
+        }
+
+
     }
 
-    IEnumerator waitforspike()
+    IEnumerator waitforspike(float waitTime)
     {
 
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(waitTime);
         canspike = true;
 
 
@@ -46,6 +58,15 @@ public class colide : MonoBehaviour
         if (collision.gameObject.CompareTag("HOLE"))
         {
             thingyyyy.HOLE();
+
+        }
+        if (collision.gameObject.CompareTag("dmg"))
+        {
+            if (canspike == true)
+            {
+                thingyyyy.dmg();
+                StartCoroutine(waitforspike(1));
+            }
 
         }
     }

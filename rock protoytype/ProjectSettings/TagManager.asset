@@ -8,6 +8,7 @@ TagManager:
   - SPIKE
   - HOLE
   - HOLE2
+  - dmg
   layers:
   - Default
   - TransparentFX

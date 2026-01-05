@@ -13,6 +13,7 @@ public class move22 : MonoBehaviour
 {
     public RawImage stone_IMG;
     public RawImage stone_DARK;
+    
 
 
     public TextMeshProUGUI mana1;
@@ -620,6 +621,13 @@ public void spike()
         
         
     }
+    public void dmg()
+    {
+        hp -= 30;
+
+
+    }
+
     public void KILL()
     {
         hp = 0;
