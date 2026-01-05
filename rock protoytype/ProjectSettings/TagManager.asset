@@ -9,6 +9,7 @@ TagManager:
   - HOLE
   - HOLE2
   - dmg
+  - floor
   layers:
   - Default
   - TransparentFX

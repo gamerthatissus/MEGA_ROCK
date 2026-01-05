@@ -13,6 +13,7 @@ public class Enemyscript : MonoBehaviour
     public PointEffector2D enemy_knockback;
     void Start()
     {
+        
         if (enemyType==0)
         {
             //sets enemy type to normal if no enemy type is sellected
@@ -27,12 +28,47 @@ public class Enemyscript : MonoBehaviour
 
 
     }
+  
+    IEnumerator waitDISABLE(float waitTime)
+    {
 
+        yield return new WaitForSeconds(waitTime);
+        enemy_knockback.enabled = false;
+
+
+    }
+   
     void Update()
     {
-        float distanceY = Mathf.Abs(Player_RB.position.y - Enemy_RB.position.y);
-        float distanceX = Mathf.Abs(Player_RB.position.x - Enemy_RB.position.x);
+        if (enemyType == 1 && Enemy_RB.simulated==false)
+        {
+            float distanceY = Mathf.Abs(Player_RB.position.y - Enemy_RB.position.y);
+            float distanceX = Mathf.Abs(Player_RB.position.x - Enemy_RB.position.x);
 
-        float distance = Mathf.Sqrt(  (distanceX * distanceX) + (distanceY * distanceY)   );
+            float distance = Mathf.Sqrt((distanceX * distanceX) + (distanceY * distanceY));
+
+            if (distanceX <= 2)
+            {
+                Enemy_RB.simulated = true;
+
+            }
+
+        }
+       
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("floor"))
+        {
+            if (enemyType == 1)
+            {
+                enemy_knockback.enabled = true;
+                StartCoroutine(waitDISABLE(0.2f));
+
+
+            }
+
+        }
+
     }
 }
