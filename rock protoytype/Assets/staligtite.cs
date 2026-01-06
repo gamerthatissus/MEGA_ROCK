@@ -34,7 +34,7 @@ public class staligtite : MonoBehaviour
 
         float distance2 = Mathf.Sqrt((distanceX2 * distanceX2) + (distanceY2 * distanceY2));
 
-        if (distance <= 0.5 && distance2<=6)
+        if (distance <= 0.5 && distance2<=6.5)
         {
             stalag_sprite.color = Color.green;
             if (Input.GetKeyDown(KeyCode.Mouse0))
