@@ -5,12 +5,15 @@ using UnityEngine;
 
 public class Enemyscript : MonoBehaviour
 {
-    //enemy types:   1=fall  2=normal 3=burried
+    //enemy types:   1=fall  2=normal 3=burried    4=smasher
     public int enemyType=0;
 
+    private int canfall=0;
     public Rigidbody2D Player_RB;
     public Rigidbody2D Enemy_RB;
     public PointEffector2D enemy_knockback;
+    public int state = 0;
+    public int go = 0;
     void Start()
     {
         
@@ -29,15 +32,31 @@ public class Enemyscript : MonoBehaviour
 
     }
   
-    IEnumerator waitDISABLE(float waitTime)
+    
+
+    IEnumerator waittick()
+    {
+        go = 3;
+        yield return new WaitForSeconds(2);
+          if (state==1)
+        {
+            state = 0;
+            go = 1;
+
+        }
+        else if (state==0)
+        {
+            state = 1;
+            go = 1;
+        }
+    }
+    IEnumerator waitfall()
     {
 
-        yield return new WaitForSeconds(waitTime);
-        enemy_knockback.enabled = false;
-
-
+        yield return new WaitForSeconds(0.1f);
+        canfall = 1;
     }
-   
+
     void Update()
     {
         if (enemyType == 1 && Enemy_RB.simulated==false)
@@ -47,12 +66,29 @@ public class Enemyscript : MonoBehaviour
 
             float distance = Mathf.Sqrt((distanceX * distanceX) + (distanceY * distanceY));
 
-            if (distanceX <= 2)
+            if (distanceX <= 1)
             {
                 Enemy_RB.simulated = true;
+                canfall = 0;
+                StartCoroutine(waitfall());
+
 
             }
 
+        }
+
+        if (enemyType == 4)
+        {
+            if (go==0)
+            {
+                StartCoroutine(waittick());
+            }
+
+            if (go == 1)
+            {
+                Enemy_RB.gravityScale *= -1;
+                go = 99;
+            }
         }
        
     }
@@ -62,10 +98,34 @@ public class Enemyscript : MonoBehaviour
         {
             if (enemyType == 1)
             {
-                enemy_knockback.enabled = true;
-                StartCoroutine(waitDISABLE(0.2f));
+               if (enemy_knockback == null)
+                {
+                    
+                }
+               else
+                {
+                    if (Enemy_RB.simulated == true && canfall==1 )
+                    {
+                        enemy_knockback.enabled = true;
+                        Destroy(enemy_knockback, 0.1f);
+                    }
+                   
+                }
 
 
+                
+                  
+
+
+
+            }
+            if (enemyType == 4)
+            {
+                if (go == 99)
+                {
+                    go = 0;
+
+                }
             }
 
         }

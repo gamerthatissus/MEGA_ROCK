@@ -24,17 +24,7 @@ public class colide : MonoBehaviour
 
         }
        
-        if (collision.gameObject.CompareTag("dmg"))
-        {
-            if (canspike == true)
-            {
-                thingyyyy.dmg();
-                StartCoroutine(waitforspike(1));
-            }
-
-                
-
-        }
+        
 
 
     }
