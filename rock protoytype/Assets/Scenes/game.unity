@@ -12430,7 +12430,7 @@ GameObject:
   - component: {fileID: 1344675925}
   m_Layer: 9
   m_Name: staligtite
-  m_TagString: floor
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13979,7 +13979,7 @@ GameObject:
   - component: {fileID: 1512232149}
   m_Layer: 9
   m_Name: staligtite (1)
-  m_TagString: floor
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

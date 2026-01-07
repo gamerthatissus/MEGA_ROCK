@@ -74,7 +74,7 @@ public class buttonscript : MonoBehaviour
     {
         if (Open_by_defalt == true)
         {
-            if (pressed == true)
+            if (objectsINside >= 1)
             {
                 sr.enabled = true;
                 if (opens_circle_colider == true)
