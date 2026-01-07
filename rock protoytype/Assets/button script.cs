@@ -147,8 +147,9 @@ public class buttonscript : MonoBehaviour
 
       
     }
-  
-    private void OnCollisionStay2D(Collision2D collision)
+
+   
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("floor"))
         {
@@ -162,7 +163,9 @@ public class buttonscript : MonoBehaviour
         }
 
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+
+ 
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (Needs_to_be_Continualy_Pressed == true)
         {
@@ -179,7 +182,9 @@ public class buttonscript : MonoBehaviour
         }
 
     }
-    private void OnCollisionExit2D(Collision2D collision)
+
+    
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("floor"))
         {
