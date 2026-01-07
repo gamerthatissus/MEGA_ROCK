@@ -10258,6 +10258,8 @@ GameObject:
   - component: {fileID: 1154610789}
   - component: {fileID: 1154610791}
   - component: {fileID: 1154610792}
+  - component: {fileID: 1154610794}
+  - component: {fileID: 1154610795}
   m_Layer: 3
   m_Name: launch
   m_TagString: Untagged
@@ -10326,8 +10328,8 @@ Transform:
   m_GameObject: {fileID: 1154610788}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.3526, y: -1.2442, z: 0}
-  m_LocalScale: {x: 0.8529533, y: 1.7823585, z: 1}
+  m_LocalPosition: {x: -12.3526, y: -0.9978, z: 0}
+  m_LocalScale: {x: 0.8529533, y: 2.4912047, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -10404,6 +10406,71 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0242697, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1154610794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154610788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c490344efa3596b4585174608ee43dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  insidefloor: 0
+  spriteRend: {fileID: 1154610789}
+  spriteBox: {fileID: 1154610792}
+  thingyyyy: {fileID: 1694147102}
+--- !u!60 &1154610795
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154610788}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 1
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.5, y: 0.5}
+      - {x: -0.5, y: -0.5}
+      - {x: 0.5, y: -0.5}
+      - {x: 0.5, y: 0.5}
+  m_UseDelaunayMesh: 0
 --- !u!1 &1155035410
 GameObject:
   m_ObjectHideFlags: 0
@@ -12363,7 +12430,7 @@ GameObject:
   - component: {fileID: 1344675925}
   m_Layer: 9
   m_Name: staligtite
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13912,7 +13979,7 @@ GameObject:
   - component: {fileID: 1512232149}
   m_Layer: 9
   m_Name: staligtite (1)
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14947,6 +15014,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stone_IMG: {fileID: 791584208}
   stone_DARK: {fileID: 1236855060}
+  canspend: 1
   mana1: {fileID: 1470443501}
   mana2: {fileID: 1283695178}
   mana3: {fileID: 1150900811}
@@ -14965,11 +15033,9 @@ MonoBehaviour:
   maincam: {fileID: 519420031}
   maxmas: 0.9
   minmas: 0.3
+  stone_MAX: 5
   launcher: {fileID: 1154610788}
-  minfriction: 0.4
-  maxfriction: 1.2
   amountoflanchers: 0
-  stone_MAX: 16
   stone: 5
   mouseposstart: {x: 0, y: 0, z: 0}
   mousepos: {x: 0, y: 0, z: 0}
@@ -15259,7 +15325,7 @@ GameObject:
   - component: {fileID: 1786339251}
   m_Layer: 20
   m_Name: Square (60)
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

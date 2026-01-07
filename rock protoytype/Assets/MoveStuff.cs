@@ -4,8 +4,10 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.Mathematics;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.U2D;
 using UnityEngine.UI;
 
 
@@ -13,9 +15,9 @@ public class move22 : MonoBehaviour
 {
     public RawImage stone_IMG;
     public RawImage stone_DARK;
-    
 
 
+    public bool canspend = true;
     public TextMeshProUGUI mana1;
     public TextMeshProUGUI mana2;
     public TextMeshProUGUI mana3;
@@ -38,11 +40,14 @@ public class move22 : MonoBehaviour
     public Camera maincam;
     public float maxmas = 0.9f;
     public float minmas = 0.3f;
+    public int stone_MAX;
+
     public Object launcher;
-    public float minfriction = 0.4f;
-    public float maxfriction = 1.2f;
+    //public float minfriction = 0.4f;
+    //public float maxfriction = 1.2f;
     public int amountoflanchers=0;
-    public int stone_MAX=5;
+
+
     public int stone=5;
     private float manaPOS = -17f;
     private float manaPOS2 = -17f;
@@ -75,6 +80,7 @@ public class move22 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        canspend = true;
         speed = 0;
         maxspeed = 8;
         oldspeed = 0f;
@@ -97,8 +103,8 @@ public class move22 : MonoBehaviour
         maxmas = 1.2f;
         minmas = 0.3f;
 
-        minfriction = 1f;
-        maxfriction = 5f;
+        //minfriction = 1f;
+        //maxfriction = 5f;
         stoneTEXT.text = "stone: " + stone;
 
        
@@ -576,7 +582,9 @@ if (start==1)
             {
                 if (stone >= 2)
                 {
-                    stone -= 2;
+                    canspend = true;
+                    StartCoroutine(spendstone(2));
+
                     Object block = Instantiate(launcher);
 
                     Object thingy = GameObject.Find("pow100");
@@ -606,12 +614,12 @@ if (start==1)
                     float angle = Mathf.Atan2(facingDir.y, facingDir.x) * Mathf.Rad2Deg - 90f;
                     blockT.rotation = Quaternion.Euler(0, 0, angle);
                     rigggg.rotation = angle;
-                    Vector2 newpos = ((Vector2)(blockT.transform.up) * -1.2f);
+                    Vector2 newpos = ((Vector2)(blockT.transform.up) * -1.5f);
                     rigggg.position = (go + newpos);
 
+                   
 
-
-                    rigggg.AddRelativeForce(Vector2.up * 3000f, ForceMode2D.Impulse);
+                    rigggg.AddRelativeForce(Vector2.up * 3200f, ForceMode2D.Impulse);
 
                 }
             }
@@ -620,8 +628,19 @@ if (start==1)
 
         }
     }
- 
-public void spike()
+    IEnumerator spendstone(int amount)
+    {
+
+        yield return new WaitForSeconds(0.03f);
+
+       if (canspend==true)
+        {
+            stone -= amount;
+        }
+
+      
+    }
+    public void spike()
     {
         hp -= 0.15f * math.abs(oldspeed*oldspeed);
         
@@ -632,6 +651,11 @@ public void spike()
         hp -= 30;
 
 
+    }
+
+    public void refundStone()
+    {
+        canspend = false;
     }
 
     public void KILL()
