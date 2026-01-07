@@ -17,9 +17,12 @@ public class buttonscript : MonoBehaviour
     public bool opens_Phisics_Part = false;
     public bool Needs_to_be_Continualy_Pressed = true;
     public bool Open_by_defalt = false;
+    private int objectsINside=0;
     // Start is called before the first frame update
     void Start()
     {
+        objectsINside = 0;
+
         if (Open_by_defalt == true)
         {
             sr = doorITopens.GetComponent<SpriteRenderer>();
@@ -109,7 +112,7 @@ public class buttonscript : MonoBehaviour
         else
         {
 
-            if (pressed == true)
+            if (objectsINside>=1)
             {
                 sr.enabled = false;
                 if (opens_circle_colider == true)
@@ -149,20 +152,7 @@ public class buttonscript : MonoBehaviour
     }
 
    
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("floor"))
-        {
-            
-
-        }
-        else
-        {
-            pressed = true;
-
-        }
-
-    }
+    
 
  
     private void OnTriggerEnter2D(Collider2D collision)
@@ -176,7 +166,8 @@ public class buttonscript : MonoBehaviour
             }
             else
             {
-                pressed = true;
+                
+                objectsINside += 1;
 
             }
         }
@@ -194,7 +185,7 @@ public class buttonscript : MonoBehaviour
         {
             if (Needs_to_be_Continualy_Pressed == true)
             {
-                pressed = false;
+                objectsINside -= 1;
 
             }
 

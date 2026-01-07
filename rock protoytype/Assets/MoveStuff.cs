@@ -48,6 +48,10 @@ public class move22 : MonoBehaviour
     private float manaPOS2 = -17f;
     private float oldspeed = 0f;
 
+    private float speed = 0;
+    private float maxspeed = 8;
+    
+
     public Vector3 mouseposstart;
     public Vector3 mousepos;
     private RawImage stone2;
@@ -71,6 +75,8 @@ public class move22 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        speed = 0;
+        maxspeed = 8;
         oldspeed = 0f;
         if (stone_MAX<=0)
         {
@@ -554,13 +560,13 @@ if (start==1)
 
         if (Input.GetKey(KeyCode.D))
         {
-            insidemove.AddForce(Vector2.right * 600f * insidemove.mass * Time.deltaTime, ForceMode2D.Force);
+            insidemove.AddForce(Vector2.right * 50f * insidemove.mass * Time.deltaTime, ForceMode2D.Force);
 
         }
 
         if (Input.GetKey(KeyCode.A))
         {
-            insidemove.AddForce(Vector2.right * -600f * insidemove.mass * Time.deltaTime, ForceMode2D.Force);
+            insidemove.AddForce(Vector2.right * -50f * insidemove.mass * Time.deltaTime, ForceMode2D.Force);
 
         }
 
@@ -665,49 +671,83 @@ public void spike()
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
         {
 
-            if (insidemove.mass < maxmas)
+
+            if (speed < maxspeed)
             {
-                if (insidemove.mass == minmas)
-                {
-                    if (Input.GetKey(KeyCode.D))
-                    {
-                        outsidemove.AddTorque(-70);
-
-                    }
-                    else
-                    {
-                        outsidemove.AddTorque(70);
-
-                    }
-                }
-                insidemove.mass += 0.02f;
-                phisics.friction += 0.02f;
+                speed += 0.1f;
 
             }
             else
             {
-                phisics.friction = maxfriction;
+                speed = maxspeed;
 
-                insidemove.mass = maxmas;
             }
+
+
+            if (Input.GetKey(KeyCode.D))
+            {
+                outsidemove.AddTorque(speed *(-1));
+            
+            }
+            else
+            {
+              outsidemove.AddTorque(speed);
+
+            }
+
+            //if (insidemove.mass < maxmas)
+            //{
+            //    if (insidemove.mass == minmas)
+            //    {
+            //        if (Input.GetKey(KeyCode.D))
+            //        {
+            //            outsidemove.AddTorque(-70);
+
+            //        }
+            //        else
+            //        {
+            //            outsidemove.AddTorque(70);
+
+            //        }
+            //    }
+            //    insidemove.mass += 0.02f;
+            //    phisics.friction += 0.02f;
+
+            //}
+            //else
+            //{
+            //    phisics.friction = maxfriction;
+
+            //    insidemove.mass = maxmas;
+            //}
         }
         else
         {
-            if (insidemove.mass > minmas)
+
+            if (speed < 0.1f)
             {
-
-
-                insidemove.mass -= 0.04f;
-                phisics.friction -= 0.04f;
-
-
-
+                speed = 0;
             }
             else
             {
-                phisics.friction = minfriction;
-                insidemove.mass = minmas;
+                speed *= 0.95f;
+
             }
+            //if (insidemove.mass > minmas)
+            //{
+
+
+            //    insidemove.mass -= 0.04f;
+            //    phisics.friction -= 0.04f;
+
+
+
+            //}
+            //else
+            //{
+            //    phisics.friction = minfriction;
+            //    insidemove.mass = minmas;
+            //}
         }
 
 
