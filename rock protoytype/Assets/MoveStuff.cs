@@ -16,6 +16,10 @@ public class move22 : MonoBehaviour
     public RawImage stone_IMG;
     public RawImage stone_DARK;
 
+    public Button path_rigid;
+    public Button path_smooth;
+    public Button path_choose;
+
 
     public bool canspend = true;
     public TextMeshProUGUI mana1;
@@ -74,12 +78,26 @@ public class move22 : MonoBehaviour
     private RawImage stone14;
     private RawImage stone15;
     private RawImage stone16;
-
+    private string choosenPath="none";
     private int start = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        choosenPath = "none";
+        path_choose.gameObject.SetActive(false);
+        path_rigid.gameObject.SetActive(false);
+        path_smooth.gameObject.SetActive(false);
+
+        move1.text = "locked";
+        move2.text = "locked";
+        move3.text = "locked";
+        move4.text = "locked";
+        mana1.text = "0";
+        mana2.text = "0";
+        mana3.text = "0";
+        mana4.text = "0";
+
         canspend = true;
         speed = 0;
         maxspeed = 8;
@@ -95,8 +113,7 @@ public class move22 : MonoBehaviour
         manaPOS = rockrect.localPosition.x;
         manaPOS = rockrect2.localPosition.x;
 
-        move1.text = "stone launch";
-        mana1.text = "space (2 stone)";
+       
         
         hp = 100;
         
@@ -174,6 +191,8 @@ public class move22 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+     
+       
         if (Input.GetKeyDown(KeyCode.R) || hp<1)
         {
             SceneManager.LoadScene("game");
@@ -564,17 +583,43 @@ if (start==1)
         mousepos = maincam.ScreenToWorldPoint(mouseposstart);
         mousepos.z = 0;
 
-        if (Input.GetKey(KeyCode.D))
+        
+        if (choosenPath == "smooth")
         {
-            insidemove.AddForce(Vector2.right * 50f * insidemove.mass * Time.deltaTime, ForceMode2D.Force);
+            if (Input.GetKey(KeyCode.D))
+            {
+                outsidemove.AddForce(Vector2.right * 80f * outsidemove.mass * Time.deltaTime, ForceMode2D.Force);
+
+            }
+
+            if (Input.GetKey(KeyCode.A))
+            {
+                outsidemove.AddForce(Vector2.right * -80f * outsidemove.mass * Time.deltaTime, ForceMode2D.Force);
+
+            }
+        }
+        
+else if (choosenPath == "none")
+        {
+
+            if (Input.GetKey(KeyCode.D))
+            {
+                outsidemove.AddForce(Vector2.right * 50f * insidemove.mass * Time.deltaTime, ForceMode2D.Force);
+
+            }
+
+            if (Input.GetKey(KeyCode.A))
+            {
+                outsidemove.AddForce(Vector2.right * -50f * insidemove.mass * Time.deltaTime, ForceMode2D.Force);
+
+            }
 
         }
 
-        if (Input.GetKey(KeyCode.A))
-        {
-            insidemove.AddForce(Vector2.right * -50f * insidemove.mass * Time.deltaTime, ForceMode2D.Force);
 
-        }
+           
+        
+      
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -623,8 +668,19 @@ if (start==1)
 
                 }
             }
-         
 
+            if (move1.text == "jump")
+            {
+                if (stone >= 1)
+                {
+                    canspend = true;
+                    stone -= 1;
+
+                    
+                    outsidemove.AddForce(Vector2.up * 50f, ForceMode2D.Impulse);
+
+                }
+            }
 
         }
     }
@@ -640,6 +696,35 @@ if (start==1)
 
       
     }
+    public void choosepath()
+    {
+        path_choose.gameObject.SetActive(true);
+        path_rigid.gameObject.SetActive(true);
+        path_smooth.gameObject.SetActive(true);
+        phisics.friction = 1f;
+
+    }
+
+    public void RIGID()
+    {
+        path_choose.gameObject.SetActive(false);
+        path_rigid.gameObject.SetActive(false);
+        path_smooth.gameObject.SetActive(false);
+        choosenPath = "rigid";
+        mana1.text = "2 stone";
+        move1.text = "stone launch";
+        phisics.friction = 1.5f;
+    }
+    public void SMOOTH()
+    {
+        path_choose.gameObject.SetActive(false);
+        path_rigid.gameObject.SetActive(false);
+        path_smooth.gameObject.SetActive(false);
+        choosenPath = "smooth";
+        mana1.text = "1 stone";
+        move1.text = "jump";
+    }
+
     public void spike()
     {
         hp -= 0.15f * math.abs(oldspeed*oldspeed);
@@ -707,17 +792,54 @@ if (start==1)
 
             }
 
-
-            if (Input.GetKey(KeyCode.D))
+            switch (choosenPath)
             {
-                outsidemove.AddTorque(speed *(-1));
-            
-            }
-            else
-            {
-              outsidemove.AddTorque(speed);
 
+
+
+                case "rigid":
+
+                    if (Input.GetKey(KeyCode.D))
+                    {
+                        outsidemove.AddTorque(speed * (-1.2f));
+
+                    }
+                    else
+                    {
+                        outsidemove.AddTorque(speed*(1.2f));
+
+                    }
+                    break;
+
+                case "none":
+                    if (Input.GetKey(KeyCode.D))
+                    {
+                        outsidemove.AddTorque(speed * (-1));
+
+                    }
+                    else
+                    {
+                        outsidemove.AddTorque(speed);
+
+                    }
+                    break;
+
+
+
+                case "smooth":
+                    if (Input.GetKey(KeyCode.D))
+                    {
+                        outsidemove.AddTorque(speed * (-0.5f));
+
+                    }
+                    else
+                    {
+                        outsidemove.AddTorque(speed*(0.5f));
+
+                    }
+                    break;
             }
+           
 
             //if (insidemove.mass < maxmas)
             //{
