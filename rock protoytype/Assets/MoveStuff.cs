@@ -55,7 +55,8 @@ public class move22 : MonoBehaviour
 
     private float speed = 0;
     private float maxspeed = 8;
-    
+
+    private float blockMultiplier = 1f;
 
     public Vector3 mouseposstart;
     public Vector3 mousepos;
@@ -564,17 +565,27 @@ if (start==1)
         mousepos = maincam.ScreenToWorldPoint(mouseposstart);
         mousepos.z = 0;
 
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.F)) // block ability
         {
-            insidemove.AddForce(Vector2.right * 50f * insidemove.mass * Time.deltaTime, ForceMode2D.Force);
-
+            blockMultiplier = 0.5f;
         }
-
-        if (Input.GetKey(KeyCode.A))
+        else // can only move if not blocking
         {
-            insidemove.AddForce(Vector2.right * -50f * insidemove.mass * Time.deltaTime, ForceMode2D.Force);
+            blockMultiplier = 1f;
 
+            if (Input.GetKey(KeyCode.D))
+            {
+                insidemove.AddForce(Vector2.right * 50f * insidemove.mass * Time.deltaTime, ForceMode2D.Force);
+
+            }
+
+            if (Input.GetKey(KeyCode.A))
+            {
+                insidemove.AddForce(Vector2.right * -50f * insidemove.mass * Time.deltaTime, ForceMode2D.Force);
+
+            }
         }
+        
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -642,13 +653,13 @@ if (start==1)
     }
     public void spike()
     {
-        hp -= 0.15f * math.abs(oldspeed*oldspeed);
+        hp -= 0.15f * math.abs(oldspeed*oldspeed) * blockMultiplier;
         
         
     }
     public void dmg()
     {
-        hp -= 30;
+        hp -= 30 * blockMultiplier; // NOTE FOR FUTURE: multiply all damage by blockMultiplier if you think it should be able to be blocked
 
 
     }
@@ -665,7 +676,7 @@ if (start==1)
 
     public void HOLE()
     {
-        hp -= 20;
+        hp -= 20; // no blockMultiplier here because you shouldn't be able to block pit damage
         StartCoroutine(holeeee());
         
     }
@@ -692,7 +703,7 @@ if (start==1)
         StartCoroutine(waitforspeed());
 
 
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))
+        if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A)) && blockMultiplier == 1f) // can only move if not blocking
         {
 
 
