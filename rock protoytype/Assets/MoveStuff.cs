@@ -13,6 +13,7 @@ using UnityEngine.UI;
 
 public class move22 : MonoBehaviour
 {
+    private bool jumpCooldown=false;
     public RawImage stone_IMG;
     public RawImage stone_DARK;
 
@@ -60,7 +61,7 @@ public class move22 : MonoBehaviour
     private float speed = 0;
     private float maxspeed = 8;
 
-    private float blockMultiplier = 1f;
+    public float blockMultiplier = 1f;
 
     public Vector3 mouseposstart;
     public Vector3 mousepos;
@@ -85,6 +86,7 @@ public class move22 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        jumpCooldown = false;
         choosenPath = "none";
         path_choose.gameObject.SetActive(false);
         path_rigid.gameObject.SetActive(false);
@@ -589,13 +591,13 @@ public class move22 : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.D) && blockMultiplier == 1)
             {
-                outsidemove.AddForce(Vector2.right * 80f * outsidemove.mass * Time.deltaTime, ForceMode2D.Force);
+                outsidemove.AddForce(Vector2.right * 300f * outsidemove.mass * Time.deltaTime, ForceMode2D.Force);
 
             }
 
             if (Input.GetKey(KeyCode.A) && blockMultiplier == 1)
             {
-                outsidemove.AddForce(Vector2.right * -80f * outsidemove.mass * Time.deltaTime, ForceMode2D.Force);
+                outsidemove.AddForce(Vector2.right * -300f * outsidemove.mass * Time.deltaTime, ForceMode2D.Force);
 
             }
         }
@@ -671,13 +673,15 @@ public class move22 : MonoBehaviour
 
             if (move1.text == "jump")
             {
-                if (stone >= 1)
+                if (stone >= 1 && jumpCooldown==false)
                 {
                     canspend = true;
                     stone -= 1;
 
+                    jumpCooldown = true;
+                    StartCoroutine(jumpwait());
 
-                    outsidemove.AddForce(Vector2.up * 50f, ForceMode2D.Impulse);
+                    outsidemove.AddForce(Vector2.up * 35f, ForceMode2D.Impulse);
 
                 }
             }
@@ -709,7 +713,16 @@ public class move22 : MonoBehaviour
 
 
         }
-        
+    IEnumerator jumpwait()
+    {
+       
+        yield return new WaitForSeconds(2f);
+
+        jumpCooldown = false;
+
+
+    }
+
     public void choosepath()
     {
         path_choose.gameObject.SetActive(true);
@@ -737,6 +750,7 @@ public class move22 : MonoBehaviour
         choosenPath = "smooth";
         mana1.text = "1 stone";
         move1.text = "jump";
+        phisics.friction = 0.9f;
     }
 
     public void spike()
