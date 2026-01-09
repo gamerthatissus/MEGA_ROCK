@@ -187,14 +187,14 @@ public class move22 : MonoBehaviour
         stone16 = GameObject.Find("stone16").GetComponent<RawImage>();
         start = 1;
     }
-    
+
 
     // Update is called once per frame
     void Update()
     {
-     
-       
-        if (Input.GetKeyDown(KeyCode.R) || hp<1)
+
+
+        if (Input.GetKeyDown(KeyCode.R) || hp < 1)
         {
             SceneManager.LoadScene("game");
 
@@ -205,7 +205,7 @@ public class move22 : MonoBehaviour
 
         }
         hpbar.value = hp;
-if (start==1)
+        if (start == 1)
         {
             switch (stone)
             {
@@ -220,7 +220,7 @@ if (start==1)
                     stone8.enabled = false;
                     stone9.enabled = false;
                     stone10.enabled = false;
-                   
+
                     stone11.enabled = false;
                     stone12.enabled = false;
                     stone13.enabled = false;
@@ -572,9 +572,9 @@ if (start==1)
 
             }
         }
-       
 
-        if (stone>stone_MAX)
+
+        if (stone > stone_MAX)
         {
             stone = stone_MAX;
         }
@@ -584,58 +584,45 @@ if (start==1)
         mousepos = maincam.ScreenToWorldPoint(mouseposstart);
         mousepos.z = 0;
 
-        
+
         if (choosenPath == "smooth")
         {
-            if (Input.GetKey(KeyCode.D))
+            if (Input.GetKey(KeyCode.D) && blockMultiplier == 1)
             {
                 outsidemove.AddForce(Vector2.right * 80f * outsidemove.mass * Time.deltaTime, ForceMode2D.Force);
 
             }
 
-            if (Input.GetKey(KeyCode.A))
+            if (Input.GetKey(KeyCode.A) && blockMultiplier == 1)
             {
                 outsidemove.AddForce(Vector2.right * -80f * outsidemove.mass * Time.deltaTime, ForceMode2D.Force);
 
             }
         }
-        
-else if (choosenPath == "none")
+
+        else if (choosenPath == "none")
         {
 
-            if (Input.GetKey(KeyCode.D))
+            if (Input.GetKey(KeyCode.D) && blockMultiplier==1)
             {
-                outsidemove.AddForce(Vector2.right * 50f * insidemove.mass * Time.deltaTime, ForceMode2D.Force);
-        if (Input.GetKey(KeyCode.F)) // block ability
-        {
-            blockMultiplier = 0.5f;
-        }
-        else // can only move if not blocking
-        {
-            blockMultiplier = 1f;
+                outsidemove.AddForce(Vector2.right * 10f * outsidemove.mass * Time.deltaTime, ForceMode2D.Force);
 
-            if (Input.GetKey(KeyCode.D))
+            }
+            if (Input.GetKey(KeyCode.A) && blockMultiplier == 1)
             {
-                insidemove.AddForce(Vector2.right * 50f * insidemove.mass * Time.deltaTime, ForceMode2D.Force);
+                outsidemove.AddForce(Vector2.right * -10f * outsidemove.mass * Time.deltaTime, ForceMode2D.Force);
 
             }
 
-            if (Input.GetKey(KeyCode.A))
-            {
-                outsidemove.AddForce(Vector2.right * -50f * insidemove.mass * Time.deltaTime, ForceMode2D.Force);
 
-            }
+
+
+
 
         }
-
-
-           
-        
-      
-
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (move1.text=="stone launch")
+            if (move1.text == "stone launch")
             {
 
                 if (stone >= 2)
@@ -675,12 +662,12 @@ else if (choosenPath == "none")
                     Vector2 newpos = ((Vector2)(blockT.transform.up) * -1.5f);
                     rigggg.position = (go + newpos);
 
-                   
+
 
                     rigggg.AddRelativeForce(Vector2.up * 3200f, ForceMode2D.Impulse);
 
                 }
-            }
+            } //e
 
             if (move1.text == "jump")
             {
@@ -689,26 +676,40 @@ else if (choosenPath == "none")
                     canspend = true;
                     stone -= 1;
 
-                    
+
                     outsidemove.AddForce(Vector2.up * 50f, ForceMode2D.Impulse);
 
                 }
             }
 
         }
-    }
-    IEnumerator spendstone(int amount)
-    {
-
-        yield return new WaitForSeconds(0.03f);
-
-       if (canspend==true)
+        if (Input.GetKey(KeyCode.F)) // block ability
         {
-            stone -= amount;
+            blockMultiplier = 0.5f;
         }
+        else // can only move if not blocking
+        {
+            blockMultiplier = 1f;
 
-      
+
+
+        }
     }
+
+
+    IEnumerator spendstone(int amount)
+        {
+
+            yield return new WaitForSeconds(0.03f);
+
+            if (canspend == true)
+            {
+                stone -= amount;
+            }
+
+
+        }
+        
     public void choosepath()
     {
         path_choose.gameObject.SetActive(true);
