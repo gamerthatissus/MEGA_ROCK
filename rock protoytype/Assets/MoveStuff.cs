@@ -689,7 +689,7 @@ public class move22 : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.F)) // block ability
         {
-            blockMultiplier = 0.5f;
+            blockMultiplier = 0.3f;
         }
         else // can only move if not blocking
         {
