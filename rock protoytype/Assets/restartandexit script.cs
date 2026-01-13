@@ -12,7 +12,7 @@ public class eeee : MonoBehaviour
 
     public void GOtoMENU ()
     {
-        SceneManager.LoadScene("100%menu");
+        SceneManager.LoadScene("Titlescreen");
     }
 
     // Update is called once per frame

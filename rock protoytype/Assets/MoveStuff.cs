@@ -20,7 +20,7 @@ public class move22 : MonoBehaviour
     public Button path_rigid;
     public Button path_smooth;
     public Button path_choose;
-
+    public LayerMask PLAYER_layermask;
 
     public bool canspend = true;
     public TextMeshProUGUI mana1;
@@ -95,11 +95,11 @@ public class move22 : MonoBehaviour
         move1.text = "locked";
         move2.text = "locked";
         move3.text = "locked";
-        move4.text = "locked";
+        move4.text = "punch";
         mana1.text = "0";
         mana2.text = "0";
         mana3.text = "0";
-        mana4.text = "0";
+        mana4.text = "1 stone";
 
         canspend = true;
         speed = 0;
@@ -686,6 +686,22 @@ public class move22 : MonoBehaviour
                 }
             }
 
+        }
+       
+        
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            if (move4.text == "punch" && stone>=1)
+            {
+                stone -= 1;
+                Collider2D[] enemysUpunch = Physics2D.OverlapCircleAll(outsidemove.position, 1.5f, PLAYER_layermask);
+                foreach (Collider2D enemyObject in enemysUpunch)
+                {
+
+                    Enemyscript enmtScript = enemyObject.gameObject.GetComponent<Enemyscript>();
+                    enmtScript.HP -= 25;
+                }
+            }
         }
         if (Input.GetKey(KeyCode.F)) // block ability
         {

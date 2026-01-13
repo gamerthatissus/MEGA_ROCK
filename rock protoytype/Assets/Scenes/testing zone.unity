@@ -798,7 +798,7 @@ GameObject:
   - component: {fileID: 46512956}
   - component: {fileID: 46512955}
   - component: {fileID: 46512961}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: Golem (WIP, NO DONE YET, DO NO USE)
   m_TagString: dmg
   m_Icon: {fileID: 0}
@@ -817,7 +817,7 @@ PointEffector2D:
   m_ColliderMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_ForceMagnitude: 500
+  m_ForceMagnitude: 250
   m_ForceVariation: 0
   m_DistanceScale: 1
   m_ForceSource: 0
@@ -838,6 +838,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 2
+  HP: 100
+  maxHp: 100
   Player_RB: {fileID: 1161303639}
   Enemy_RB: {fileID: 46512958}
   enemy_knockback: {fileID: 46512955}
@@ -881,7 +883,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.8828125}
+    oldSize: {x: 0.94846153, y: 0.9015385}
     newSize: {x: 1, y: 0.8828125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -973,7 +975,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2747690628134850419, guid: b670ab75dde984907b8570040daa08c5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 29e9007ce9858d145b345a3319015b15, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1035,14 +1037,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.8828125}
+    oldSize: {x: 0.94846153, y: 0.9015385}
     newSize: {x: 1, y: 0.8828125}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 1.5}
+  m_Size: {x: 1.1, y: 1.1}
   m_EdgeRadius: 0
 --- !u!1 &101332755
 GameObject:
@@ -13216,6 +13218,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 1
+  HP: 100
+  maxHp: 100
   Player_RB: {fileID: 1161303639}
   Enemy_RB: {fileID: 355114343}
   enemy_knockback: {fileID: 355114342}
@@ -16220,6 +16224,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 1
+  HP: 100
+  maxHp: 100
   Player_RB: {fileID: 1161303639}
   Enemy_RB: {fileID: 608856266}
   enemy_knockback: {fileID: 608856265}
@@ -17061,6 +17067,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 1
+  HP: 100
+  maxHp: 100
   Player_RB: {fileID: 1161303639}
   Enemy_RB: {fileID: 681563747}
   enemy_knockback: {fileID: 681563746}
@@ -17536,7 +17544,7 @@ GameObject:
   - component: {fileID: 736990509}
   m_Layer: 9
   m_Name: Circle
-  m_TagString: Untagged
+  m_TagString: player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19326,6 +19334,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 1
+  HP: 100
+  maxHp: 100
   Player_RB: {fileID: 1161303639}
   Enemy_RB: {fileID: 945467590}
   enemy_knockback: {fileID: 945467589}
@@ -23602,6 +23612,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 1
+  HP: 100
+  maxHp: 100
   Player_RB: {fileID: 1161303639}
   Enemy_RB: {fileID: 1302264248}
   enemy_knockback: {fileID: 1302264247}
@@ -31502,7 +31514,7 @@ GameObject:
   - component: {fileID: 1694147103}
   m_Layer: 9
   m_Name: move
-  m_TagString: Untagged
+  m_TagString: player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31638,6 +31650,9 @@ MonoBehaviour:
   path_rigid: {fileID: 1059548925}
   path_smooth: {fileID: 1680667434}
   path_choose: {fileID: 1628875448}
+  PLAYER_layermask:
+    serializedVersion: 2
+    m_Bits: 128
   canspend: 1
   mana1: {fileID: 1470443501}
   mana2: {fileID: 1283695178}
@@ -31657,7 +31672,7 @@ MonoBehaviour:
   maincam: {fileID: 519420031}
   maxmas: 0.9
   minmas: 0.3
-  stone_MAX: 18
+  stone_MAX: 16
   launcher: {fileID: 1154610788}
   amountoflanchers: 0
   stone: 5
@@ -34089,6 +34104,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 4
+  HP: 100
+  maxHp: 100
   Player_RB: {fileID: 1161303639}
   Enemy_RB: {fileID: 2048434990}
   enemy_knockback: {fileID: 0}
@@ -39560,6 +39577,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 4
+  HP: 100
+  maxHp: 100
   Player_RB: {fileID: 1161303639}
   Enemy_RB: {fileID: 2142439168}
   enemy_knockback: {fileID: 0}

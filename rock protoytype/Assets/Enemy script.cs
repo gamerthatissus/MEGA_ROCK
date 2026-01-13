@@ -9,9 +9,12 @@ public class Enemyscript : MonoBehaviour
     //enemy types:   1=fall  2=normal 3=burried    4=smasher
     public int enemyType=0;
 
+    public float HP = 100;
+    public float maxHp = 100;
     private int canfall=0;
     public Rigidbody2D Player_RB;
     public Rigidbody2D Enemy_RB;
+  
     public PointEffector2D enemy_knockback;
     public BoxCollider2D enemy_box;
     public move22 move;
@@ -20,6 +23,11 @@ public class Enemyscript : MonoBehaviour
     public int go = 0;
     void Start()
     {
+
+        HP = maxHp;
+
+        
+
         enemy_box.enabled = true;
         if (enemyType==0)
         {
@@ -74,6 +82,31 @@ public class Enemyscript : MonoBehaviour
 
     void Update()
     {
+        if (HP <= maxHp * 0.75f)
+        {
+            SpriteRenderer renddd = Enemy_RB.gameObject.GetComponent<SpriteRenderer>();
+
+            renddd.color = new Color32(200, 200, 200, 255);
+
+        }
+        if (HP <= maxHp*0.5f)
+        {
+            SpriteRenderer renddd = Enemy_RB.gameObject.GetComponent<SpriteRenderer>();
+
+            renddd.color = new Color32(100,100,100,255);
+        }
+        if (HP <= maxHp*0.25f)
+        {
+            SpriteRenderer renddd = Enemy_RB.gameObject.GetComponent<SpriteRenderer>();
+
+            renddd.color = new Color32(50, 50, 50, 255);
+        }
+        if (HP <= 0)
+        {
+            Destroy(Enemy_RB.gameObject);
+            move.stone += 2;
+
+        }
         if (enemyType == 2)
         {
             float distanceY = Mathf.Abs(Player_RB.position.y - Enemy_RB.position.y);
@@ -81,7 +114,7 @@ public class Enemyscript : MonoBehaviour
 
             float distance = Mathf.Sqrt((distanceX * distanceX) + (distanceY * distanceY));
 
-            if (distance <= 30)
+            if (distance <= 20)
             {
 
 
