@@ -799,7 +799,7 @@ GameObject:
   - component: {fileID: 46512955}
   - component: {fileID: 46512961}
   m_Layer: 7
-  m_Name: Golem (WIP, NO DONE YET, DO NO USE)
+  m_Name: Golem (mostly done, wip)
   m_TagString: dmg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
