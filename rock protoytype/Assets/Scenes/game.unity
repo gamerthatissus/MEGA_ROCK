@@ -39417,7 +39417,7 @@ MonoBehaviour:
   Enemy_RB: {fileID: 2142439168}
   enemy_knockback: {fileID: 0}
   enemy_box: {fileID: 2142439169}
-  move: {fileID: 0}
+  move: {fileID: 1694147102}
   state: 0
   go: 0
 --- !u!58 &2142439167
