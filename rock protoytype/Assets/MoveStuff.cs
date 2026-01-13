@@ -666,7 +666,7 @@ public class move22 : MonoBehaviour
 
 
 
-                    rigggg.AddRelativeForce(Vector2.up * 3200f, ForceMode2D.Impulse);
+                    rigggg.AddRelativeForce(Vector2.up * 5000f, ForceMode2D.Impulse);
 
                 }
             } //e
@@ -753,7 +753,7 @@ public class move22 : MonoBehaviour
         phisics.friction = 0.9f;
     }
 
-    public void spike()
+    public void spike(float obSpeed)
     {
         hp -= 0.15f * math.abs(oldspeed*oldspeed) * blockMultiplier;
         
@@ -829,12 +829,20 @@ public class move22 : MonoBehaviour
 
                     if (Input.GetKey(KeyCode.D))
                     {
-                        outsidemove.AddTorque(speed * (-1.2f));
+                        if (Mathf.Abs(outsidemove.angularVelocity) <= 2000f)
+                        {
+                            outsidemove.AddTorque(speed * (-1.2f));
+
+                        }
 
                     }
                     else
                     {
-                        outsidemove.AddTorque(speed*(1.2f));
+                        if (Mathf.Abs(outsidemove.angularVelocity) <= 2000f)
+                        {
+                            outsidemove.AddTorque(speed * (1.2f));
+
+                        }
 
                     }
                     break;

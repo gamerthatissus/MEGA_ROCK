@@ -16,7 +16,9 @@ public class colide : MonoBehaviour
         {
             if (canspike == true)
             {
-                thingyyyy.spike();
+                Rigidbody2D ecolide = collision.gameObject.GetComponent<Rigidbody2D>();
+
+                thingyyyy.spike(collision.relativeVelocity.magnitude);
                 canspike = false;
                 StartCoroutine(waitforspike(0.1f));
 
@@ -54,8 +56,9 @@ public class colide : MonoBehaviour
         {
             if (canspike == true)
             {
+                canspike = false;
                 thingyyyy.dmg();
-                StartCoroutine(waitforspike(1));
+                StartCoroutine(waitforspike(0.4f));
             }
 
         }
