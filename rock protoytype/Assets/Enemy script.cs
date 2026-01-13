@@ -76,8 +76,8 @@ public class Enemyscript : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         enemy_box.enabled = true;
         Enemy_RB.gravityScale *= 10;
-        enemy_box.gameObject.tag = "floor";
-
+        enemy_box.gameObject.tag = "enemy";
+        enemyType = 2;
     }
 
     void Update()
@@ -122,13 +122,38 @@ public class Enemyscript : MonoBehaviour
                 {
                     if (Player_RB.position.x > Enemy_RB.position.x)
                     {
+                        if (Enemy_RB.mass == 50)
+                        {
+                            if (Mathf.Abs(Enemy_RB.angularVelocity) < 100)
+                            {
+                                Enemy_RB.AddTorque(-250);
 
-                        Enemy_RB.AddTorque(2 * (-1));
+                            }
+
+
+                        }
+                        else
+                        {
+                            Enemy_RB.AddTorque(2 * (-1));
+
+                        }
 
                     }
                     else
                     {
-                        Enemy_RB.AddTorque(2);
+                        if (Enemy_RB.mass == 50)
+                        {
+                            if (Mathf.Abs(Enemy_RB.angularVelocity) < 100)
+                            {
+                                Enemy_RB.AddTorque(250);
+
+                            }
+                        }
+                        else
+                        {
+                            Enemy_RB.AddTorque(2);
+
+                        }
 
                     }
                 }
