@@ -16,8 +16,10 @@ public class Enemyscript : MonoBehaviour
     private int canfall=0;
     public Rigidbody2D Player_RB;
     public Rigidbody2D Enemy_RB;
-
-
+    public AudioClip enter;
+    public AudioClip attack;
+    public AudioClip die;
+    private bool ded = false;
     public PointEffector2D enemy_knockback;
     public BoxCollider2D enemy_box;
     public move22 move;
@@ -94,6 +96,7 @@ public class Enemyscript : MonoBehaviour
         }
         if (HP <= maxHp*0.5f)
         {
+          
             SpriteRenderer renddd = Enemy_RB.gameObject.GetComponent<SpriteRenderer>();
 
             renddd.color = new Color32(100,100,100,255);
@@ -106,8 +109,18 @@ public class Enemyscript : MonoBehaviour
         }
         if (HP <= 0)
         {
-            Destroy(Enemy_RB.gameObject);
-            move.stone += 2;
+            if (ded == false)
+            {
+                ded = true;
+                AudioSource musicc = Enemy_RB.gameObject.GetComponent<AudioSource>();
+
+                musicc.clip = die;
+                musicc.Play();
+                Enemy_RB.position = new Vector2(99999, 87532);
+                Destroy(Enemy_RB.gameObject, 1);
+                move.stone += 2;
+            }
+          
 
         }
         if (enemyType == 2)
@@ -131,6 +144,7 @@ public class Enemyscript : MonoBehaviour
                         awakened = true;
                         AudioSource musicc = Enemy_RB.gameObject.GetComponent<AudioSource>();
 
+                        musicc.clip = enter;
                         musicc.Play();
                     }
 
@@ -219,12 +233,20 @@ public class Enemyscript : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
         if (enemyType == 2 && collision.gameObject.CompareTag("player"))
         {
-           if( Mathf.Abs(Player_RB.velocity.magnitude)>15)
+            awakened = true;
+            AudioSource musicc = Enemy_RB.gameObject.GetComponent<AudioSource>();
+            
+            musicc.clip = attack;
+            musicc.Play();
+
+            if ( Mathf.Abs(Player_RB.velocity.magnitude)>15)
             {
                 move.stone += 1;
                 Destroy(Enemy_RB.gameObject);
+                
             }
         } 
         if (collision.gameObject.CompareTag("floor"))

@@ -800,7 +800,7 @@ GameObject:
   - component: {fileID: 46512961}
   - component: {fileID: 46512962}
   m_Layer: 7
-  m_Name: Golem (mostly done, wip)
+  m_Name: Golem (FINALY DONE)
   m_TagString: dmg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -843,6 +843,9 @@ MonoBehaviour:
   maxHp: 100
   Player_RB: {fileID: 1161303639}
   Enemy_RB: {fileID: 46512958}
+  enter: {fileID: 8300000, guid: 2f154436a122d964d9f976256f42aedd, type: 3}
+  attack: {fileID: 8300000, guid: bf81e20b06e90cb4990413b3f43e3692, type: 3}
+  die: {fileID: 8300000, guid: 53f33817921216c43bd321e0af32ea4f, type: 3}
   enemy_knockback: {fileID: 46512955}
   enemy_box: {fileID: 46512961}
   move: {fileID: 1694147102}
@@ -13319,6 +13322,9 @@ MonoBehaviour:
   maxHp: 100
   Player_RB: {fileID: 1161303639}
   Enemy_RB: {fileID: 355114343}
+  enter: {fileID: 0}
+  attack: {fileID: 0}
+  die: {fileID: 0}
   enemy_knockback: {fileID: 355114342}
   enemy_box: {fileID: 355114344}
   move: {fileID: 0}
@@ -16326,6 +16332,9 @@ MonoBehaviour:
   maxHp: 100
   Player_RB: {fileID: 1161303639}
   Enemy_RB: {fileID: 608856266}
+  enter: {fileID: 0}
+  attack: {fileID: 0}
+  die: {fileID: 0}
   enemy_knockback: {fileID: 608856265}
   enemy_box: {fileID: 608856267}
   move: {fileID: 0}
@@ -17169,6 +17178,9 @@ MonoBehaviour:
   maxHp: 100
   Player_RB: {fileID: 1161303639}
   Enemy_RB: {fileID: 681563747}
+  enter: {fileID: 0}
+  attack: {fileID: 0}
+  die: {fileID: 0}
   enemy_knockback: {fileID: 681563746}
   enemy_box: {fileID: 681563748}
   move: {fileID: 0}
@@ -19436,6 +19448,9 @@ MonoBehaviour:
   maxHp: 100
   Player_RB: {fileID: 1161303639}
   Enemy_RB: {fileID: 945467590}
+  enter: {fileID: 0}
+  attack: {fileID: 0}
+  die: {fileID: 0}
   enemy_knockback: {fileID: 945467589}
   enemy_box: {fileID: 945467591}
   move: {fileID: 0}
@@ -23714,6 +23729,9 @@ MonoBehaviour:
   maxHp: 100
   Player_RB: {fileID: 1161303639}
   Enemy_RB: {fileID: 1302264248}
+  enter: {fileID: 0}
+  attack: {fileID: 0}
+  die: {fileID: 0}
   enemy_knockback: {fileID: 1302264247}
   enemy_box: {fileID: 1302264249}
   move: {fileID: 0}
@@ -34207,6 +34225,9 @@ MonoBehaviour:
   maxHp: 100
   Player_RB: {fileID: 1161303639}
   Enemy_RB: {fileID: 2048434990}
+  enter: {fileID: 0}
+  attack: {fileID: 0}
+  die: {fileID: 0}
   enemy_knockback: {fileID: 0}
   enemy_box: {fileID: 2048434991}
   move: {fileID: 0}
@@ -34448,6 +34469,9 @@ MonoBehaviour:
   maxHp: 10
   Player_RB: {fileID: 1161303639}
   Enemy_RB: {fileID: 2066671756}
+  enter: {fileID: 8300000, guid: 2f154436a122d964d9f976256f42aedd, type: 3}
+  attack: {fileID: 8300000, guid: bf81e20b06e90cb4990413b3f43e3692, type: 3}
+  die: {fileID: 8300000, guid: 53f33817921216c43bd321e0af32ea4f, type: 3}
   enemy_knockback: {fileID: 2066671755}
   enemy_box: {fileID: 2066671757}
   move: {fileID: 1694147102}
@@ -39918,6 +39942,9 @@ MonoBehaviour:
   maxHp: 100
   Player_RB: {fileID: 1161303639}
   Enemy_RB: {fileID: 2142439168}
+  enter: {fileID: 0}
+  attack: {fileID: 0}
+  die: {fileID: 0}
   enemy_knockback: {fileID: 0}
   enemy_box: {fileID: 2142439169}
   move: {fileID: 0}
