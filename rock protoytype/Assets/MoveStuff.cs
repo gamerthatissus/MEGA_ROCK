@@ -592,7 +592,7 @@ public class move22 : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.D) && blockMultiplier == 1)
             {
-                if (Mathf.Abs(outsidemove.velocity.magnitude) <= 13)
+                if (Mathf.Abs(outsidemove.velocity.magnitude) <= 15)
                 {
                     outsidemove.AddForce(Vector2.right * 300f * outsidemove.mass * Time.deltaTime, ForceMode2D.Force);
 
@@ -602,7 +602,7 @@ public class move22 : MonoBehaviour
 
             if (Input.GetKey(KeyCode.A) && blockMultiplier == 1)
             {
-                if (Mathf.Abs(outsidemove.velocity.magnitude) <= 13)
+                if (Mathf.Abs(outsidemove.velocity.magnitude) <= 15)
                 {
                     outsidemove.AddForce(Vector2.right * -300f * outsidemove.mass * Time.deltaTime, ForceMode2D.Force);
 
@@ -876,12 +876,21 @@ public class move22 : MonoBehaviour
                 case "none":
                     if (Input.GetKey(KeyCode.D))
                     {
-                        outsidemove.AddTorque(speed * (-1));
+                        if (Mathf.Abs(outsidemove.angularVelocity) <= 1800f)
+                        {
+                            outsidemove.AddTorque(speed * (-1));
+
+                        }
+
 
                     }
                     else
                     {
-                        outsidemove.AddTorque(speed);
+                        if (Mathf.Abs(outsidemove.angularVelocity) <= 1800f)
+                        {
+                            outsidemove.AddTorque(speed);
+
+                        }
 
                     }
                     break;
@@ -891,12 +900,20 @@ public class move22 : MonoBehaviour
                 case "smooth":
                     if (Input.GetKey(KeyCode.D))
                     {
-                        outsidemove.AddTorque(speed * (-0.5f));
+                        if (Mathf.Abs(outsidemove.angularVelocity) <= 1500f)
+                        {
+                            outsidemove.AddTorque(speed * (-0.5f));
+
+                        }
 
                     }
                     else
                     {
-                        outsidemove.AddTorque(speed*(0.5f));
+                        if (Mathf.Abs(outsidemove.angularVelocity) <= 1500f)
+                        {
+                            outsidemove.AddTorque(speed * (0.5f));
+
+                        }
 
                     }
                     break;
