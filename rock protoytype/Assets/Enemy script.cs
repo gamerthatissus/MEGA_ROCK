@@ -76,7 +76,7 @@ public class Enemyscript : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         enemy_box.enabled = true;
         Enemy_RB.gravityScale *= 10;
-        enemy_box.gameObject.tag = "enemy";
+        enemy_box.gameObject.layer = 7;
         enemyType = 2;
     }
 
