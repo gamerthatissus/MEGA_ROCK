@@ -592,7 +592,7 @@ public class move22 : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.D) && blockMultiplier == 1)
             {
-                if (Mathf.Abs(outsidemove.velocity.magnitude) <= 15)
+                if (Mathf.Abs(outsidemove.velocity.magnitude) <= 13)
                 {
                     outsidemove.AddForce(Vector2.right * 300f * outsidemove.mass * Time.deltaTime, ForceMode2D.Force);
 
@@ -602,7 +602,7 @@ public class move22 : MonoBehaviour
 
             if (Input.GetKey(KeyCode.A) && blockMultiplier == 1)
             {
-                if (Mathf.Abs(outsidemove.velocity.magnitude) <= 15)
+                if (Mathf.Abs(outsidemove.velocity.magnitude) <= 13)
                 {
                     outsidemove.AddForce(Vector2.right * -300f * outsidemove.mass * Time.deltaTime, ForceMode2D.Force);
 
