@@ -6,12 +6,14 @@ using UnityEngine;
 
 public class colide : MonoBehaviour
 {
-
+  
     public bool canspike = true;
     public move22 thingyyyy;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        
+        
         if (collision.gameObject.CompareTag("SPIKE"))
         {
             if (canspike == true)

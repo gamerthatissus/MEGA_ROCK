@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
+using UnityEditor.VersionControl;
 using UnityEngine;
 
 public class Enemyscript : MonoBehaviour
@@ -9,12 +10,14 @@ public class Enemyscript : MonoBehaviour
     //enemy types:   1=fall  2=normal 3=burried    4=smasher
     public int enemyType=0;
 
+    private bool awakened = false;
     public float HP = 100;
     public float maxHp = 100;
     private int canfall=0;
     public Rigidbody2D Player_RB;
     public Rigidbody2D Enemy_RB;
-  
+
+
     public PointEffector2D enemy_knockback;
     public BoxCollider2D enemy_box;
     public move22 move;
@@ -117,7 +120,22 @@ public class Enemyscript : MonoBehaviour
             if (distance <= 20)
             {
 
+                if (awakened == false)
+                {
+                    if (Enemy_RB.mass == 50)
+                    {
 
+                    }
+                    else
+                    {
+                        awakened = true;
+                        AudioSource musicc = Enemy_RB.gameObject.GetComponent<AudioSource>();
+
+                        musicc.Play();
+                    }
+
+
+                }
                 if (Mathf.Abs(Enemy_RB.angularVelocity) < 500)
                 {
                     if (Player_RB.position.x > Enemy_RB.position.x)
@@ -157,8 +175,13 @@ public class Enemyscript : MonoBehaviour
 
                     }
                 }
-               
+
             }
+            else
+            {
+                awakened = false;
+            }
+            
         }
 
         if (enemyType == 1 && Enemy_RB.simulated==false)
