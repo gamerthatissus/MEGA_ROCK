@@ -20598,7 +20598,7 @@ SurfaceEffector2D:
   m_ColliderMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Speed: 6
+  m_Speed: 7
   m_SpeedVariation: 0
   m_ForceScale: 0.1
   m_UseContactForce: 0
@@ -22009,7 +22009,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.98, y: 0.8528572}
+    oldSize: {x: 1.0088235, y: 0.8779412}
     newSize: {x: 6.86, y: 5.97}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -33922,7 +33922,7 @@ SurfaceEffector2D:
   m_ColliderMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Speed: 30
+  m_Speed: 50
   m_SpeedVariation: 0
   m_ForceScale: 0.1
   m_UseContactForce: 0
