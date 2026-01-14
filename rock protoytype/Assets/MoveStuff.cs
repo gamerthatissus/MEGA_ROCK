@@ -198,13 +198,14 @@ public class move22 : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R) || hp < 1)
         {
-            SceneManager.LoadScene("game");
+            Scene scenceString = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(scenceString.name);
 
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene("game");
-
+            Scene scenceString = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(scenceString.name);
         }
         hpbar.value = hp;
         if (start == 1)
@@ -591,13 +592,21 @@ public class move22 : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.D) && blockMultiplier == 1)
             {
-                outsidemove.AddForce(Vector2.right * 300f * outsidemove.mass * Time.deltaTime, ForceMode2D.Force);
+                if (Mathf.Abs(outsidemove.velocity.magnitude) <= 15)
+                {
+                    outsidemove.AddForce(Vector2.right * 300f * outsidemove.mass * Time.deltaTime, ForceMode2D.Force);
+
+                }
 
             }
 
             if (Input.GetKey(KeyCode.A) && blockMultiplier == 1)
             {
-                outsidemove.AddForce(Vector2.right * -300f * outsidemove.mass * Time.deltaTime, ForceMode2D.Force);
+                if (Mathf.Abs(outsidemove.velocity.magnitude) <= 15)
+                {
+                    outsidemove.AddForce(Vector2.right * -300f * outsidemove.mass * Time.deltaTime, ForceMode2D.Force);
+
+                }
 
             }
         }
@@ -666,7 +675,7 @@ public class move22 : MonoBehaviour
 
 
 
-                    rigggg.AddRelativeForce(Vector2.up * 5000f, ForceMode2D.Impulse);
+                    rigggg.AddRelativeForce(Vector2.up * 4500f, ForceMode2D.Impulse);
 
                 }
             } //e
@@ -681,7 +690,7 @@ public class move22 : MonoBehaviour
                     jumpCooldown = true;
                     StartCoroutine(jumpwait());
 
-                    outsidemove.AddForce(Vector2.up * 35f, ForceMode2D.Impulse);
+                    outsidemove.AddForce(Vector2.up * 25f, ForceMode2D.Impulse);
 
                 }
             }
