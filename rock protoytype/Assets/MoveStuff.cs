@@ -690,7 +690,7 @@ public class move22 : MonoBehaviour
                     jumpCooldown = true;
                     StartCoroutine(jumpwait());
 
-                    outsidemove.AddForce(Vector2.up * 25f, ForceMode2D.Impulse);
+                    outsidemove.AddForce(Vector2.up * 20f, ForceMode2D.Impulse);
 
                 }
             }
