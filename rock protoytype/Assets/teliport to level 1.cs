@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class teliporttolevel1 : MonoBehaviour
 {
+    public int mode = 1;
     public move22 move2222;
     // Start is called before the first frame update
     
@@ -15,7 +16,15 @@ public class teliporttolevel1 : MonoBehaviour
     {
       if (collision.gameObject.name =="player")
         {
-            move2222.choosepath();
+            if (mode == 1)
+            {
+                move2222.choosepath();
+
+            }
+            else if (mode==2)
+            {
+                SceneManager.LoadScene("LevelOne");
+            }
 
         }
 
