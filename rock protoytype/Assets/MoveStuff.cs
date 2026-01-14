@@ -700,6 +700,7 @@ public class move22 : MonoBehaviour
 
                     Enemyscript enmtScript = enemyObject.gameObject.GetComponent<Enemyscript>();
                     enmtScript.HP -= 25;
+                    
                 }
             }
         }
