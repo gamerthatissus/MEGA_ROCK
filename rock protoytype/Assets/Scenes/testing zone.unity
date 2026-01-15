@@ -34415,7 +34415,7 @@ MonoBehaviour:
   enemyType: 1
   playerMASK:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   HP: 5
   maxHp: 10
   Player_RB: {fileID: 1161303639}
