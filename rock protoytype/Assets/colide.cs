@@ -9,6 +9,7 @@ public class colide : MonoBehaviour
   
     public bool canspike = true;
     public move22 thingyyyy;
+    
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

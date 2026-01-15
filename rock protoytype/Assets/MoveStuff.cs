@@ -13,6 +13,7 @@ using UnityEngine.UI;
 
 public class move22 : MonoBehaviour
 {
+    private bool canpunch = true;
     private bool jumpCooldown=false;
     public RawImage stone_IMG;
     public RawImage stone_DARK;
@@ -190,7 +191,13 @@ public class move22 : MonoBehaviour
         start = 1;
     }
 
+    IEnumerator waitCanPUNCH()
+    {
+        canpunch = false;
+        yield return new WaitForSeconds(0.3f);
+        canpunch = true;
 
+    }
     // Update is called once per frame
     void Update()
     {
@@ -700,18 +707,26 @@ public class move22 : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            if (move4.text == "punch" && stone>=1)
+            if (canpunch == true)
             {
-                stone -= 1;
-                Collider2D[] enemysUpunch = Physics2D.OverlapCircleAll(outsidemove.position, 1.5f, PLAYER_layermask);
-                foreach (Collider2D enemyObject in enemysUpunch)
+                if (move4.text == "punch" && stone >= 1)
                 {
+                    StartCoroutine(waitCanPUNCH());
 
-                    Enemyscript enmtScript = enemyObject.gameObject.GetComponent<Enemyscript>();
-                    enmtScript.HP -= 25;
-                    
+                    stone -= 1;
+                    Collider2D[] enemysUpunch = Physics2D.OverlapCircleAll(outsidemove.position, 1.5f, PLAYER_layermask);
+                    foreach (Collider2D enemyObject in enemysUpunch)
+                    {
+
+                        Enemyscript enmtScript = enemyObject.gameObject.GetComponent<Enemyscript>();
+                        enmtScript.HP -= 50;
+
+                    }
                 }
+
             }
+
+           
         }
         if (Input.GetKey(KeyCode.F)) // block ability
         {

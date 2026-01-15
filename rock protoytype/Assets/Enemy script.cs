@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEditor.VersionControl;
@@ -10,6 +11,7 @@ public class Enemyscript : MonoBehaviour
     //enemy types:   1=fall  2=normal 3=burried    4=smasher
     public int enemyType=0;
 
+    public LayerMask playerMASK;
     private bool awakened = false;
     public float HP = 100;
     public float maxHp = 100;
@@ -20,20 +22,28 @@ public class Enemyscript : MonoBehaviour
     public AudioClip attack;
     public AudioClip die;
     private bool ded = false;
-    public PointEffector2D enemy_knockback;
-    public BoxCollider2D enemy_box;
+    public bool enemy_boxE=true;
     public move22 move;
+
+    private bool canattack = true;
+
+    private bool slowed = false;
 
     public int state = 0;
     public int go = 0;
     void Start()
     {
-
+        canattack = true;
         HP = maxHp;
 
         
+        if (enemy_boxE == true)
+        {
+            BoxCollider2D enemy_box = Enemy_RB.gameObject.GetComponent<BoxCollider2D>();
 
-        enemy_box.enabled = true;
+            enemy_box.enabled = true;
+
+        }
         if (enemyType==0)
         {
             //sets enemy type to normal if no enemy type is sellected
@@ -42,6 +52,8 @@ public class Enemyscript : MonoBehaviour
 
         if (enemyType == 1)
         {
+            PointEffector2D enemy_knockback = Enemy_RB.gameObject.GetComponent<PointEffector2D>();
+
             enemy_knockback.enabled = false;
             Enemy_RB.simulated = false;
         }
@@ -77,16 +89,65 @@ public class Enemyscript : MonoBehaviour
 
     IEnumerator waitColide()
     {
+        if (enemy_boxE == true)
+        {
+            BoxCollider2D enemy_box = Enemy_RB.gameObject.GetComponent<BoxCollider2D>();
+          
+            yield return new WaitForSeconds(0.3f);
+            enemy_box.enabled = true;
+            Enemy_RB.gravityScale *= 10;
+            enemy_box.gameObject.layer = 7;
+            enemyType = 2;
+        }
+ 
+    }
 
-        yield return new WaitForSeconds(0.3f);
-        enemy_box.enabled = true;
-        Enemy_RB.gravityScale *= 10;
-        enemy_box.gameObject.layer = 7;
-        enemyType = 2;
+    IEnumerator waitAttack()
+    {
+        canattack = false;
+        slowed = true;
+        yield return new WaitForSeconds(0.8f);
+        canattack = true;
+
+    }
+
+    IEnumerator waitPUNCH()
+    {
+        
+        yield return new WaitForSeconds(0.2f);
+              
+        Collider2D[] enemyPunch = Physics2D.OverlapCircleAll(Enemy_RB.position, 1.2f, playerMASK);
+        
+        foreach (Collider2D enemyObject in enemyPunch)
+        {
+            if (enemyObject.gameObject.name == "player")
+            {
+                move.hp -= 40;
+                if (Player_RB.position.x > Enemy_RB.position.x)
+                {
+                    Player_RB.velocity = new Vector2(Player_RB.velocity.x + 8, Player_RB.velocity.y + 3);
+                }
+                else
+                {
+                    Player_RB.velocity = new Vector2(Player_RB.velocity.x - 8, Player_RB.velocity.y + 3);
+
+                }
+            }
+
+        }
+
     }
 
     void Update()
     {
+       if (slowed == true)
+        {
+            Enemy_RB.velocity=new Vector2(Enemy_RB.velocity.x/4,Enemy_RB.velocity.y/4);
+            Enemy_RB.angularVelocity = 0;
+
+            slowed = false;
+        }
+
         if (HP <= maxHp * 0.75f)
         {
             SpriteRenderer renddd = Enemy_RB.gameObject.GetComponent<SpriteRenderer>();
@@ -231,22 +292,59 @@ public class Enemyscript : MonoBehaviour
         }
        
     }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+       
+
+        if (enemyType == 2 && collision.gameObject.CompareTag("player") && canattack==true)
+        {
+            
+             StartCoroutine(waitAttack());
+
+            awakened = true;
+            AudioSource musicc = Enemy_RB.gameObject.GetComponent<AudioSource>();
+
+            musicc.clip = attack;
+            musicc.Play();
+
+            StartCoroutine(waitPUNCH());
+
+
+
+
+
+        }
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
         if (enemyType == 2 && collision.gameObject.CompareTag("player"))
         {
-            awakened = true;
-            AudioSource musicc = Enemy_RB.gameObject.GetComponent<AudioSource>();
-            
-            musicc.clip = attack;
-            musicc.Play();
+            if (canattack==true)
+            {
 
-            if ( Mathf.Abs(Player_RB.velocity.magnitude)>15)
+                StartCoroutine(waitAttack());
+
+                awakened = true;
+                AudioSource musicc = Enemy_RB.gameObject.GetComponent<AudioSource>();
+
+                musicc.clip = attack;
+                musicc.Play();
+
+                StartCoroutine(waitPUNCH());
+
+
+
+
+
+
+            }
+
+            if (Mathf.Abs(Player_RB.velocity.magnitude) > 15)
             {
                 move.stone += 1;
                 Destroy(Enemy_RB.gameObject);
-                
+
             }
         } 
         if (collision.gameObject.CompareTag("floor"))
@@ -254,7 +352,9 @@ public class Enemyscript : MonoBehaviour
             
             if (enemyType == 1)
             {
-               if (enemy_knockback == null)
+                PointEffector2D enemy_knockback = Enemy_RB.gameObject.GetComponent<PointEffector2D>();
+
+                if (enemy_knockback == null)
                 {
                     
                 }
@@ -262,11 +362,17 @@ public class Enemyscript : MonoBehaviour
                 {
                     if (Enemy_RB.simulated == true && canfall==1 )
                     {
-                        enemy_box.enabled = false;
-                        Enemy_RB.gravityScale *= 0.1f;
-                        enemy_knockback.enabled = true;
-                        StartCoroutine(waitColide());
-                        Destroy(enemy_knockback, 0.1f);
+                        if (enemy_boxE == true)
+                        {
+                            BoxCollider2D enemy_box = Enemy_RB.gameObject.GetComponent<BoxCollider2D>();
+                            enemy_box.enabled = false;
+                            Enemy_RB.gravityScale *= 0.1f;
+                            enemy_knockback.enabled = true;
+                            StartCoroutine(waitColide());
+                            Destroy(enemy_knockback, 0.1f);
+                        }
+
+                       
 
                     }
 

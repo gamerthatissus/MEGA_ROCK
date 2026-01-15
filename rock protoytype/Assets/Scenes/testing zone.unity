@@ -796,36 +796,14 @@ GameObject:
   - component: {fileID: 46512958}
   - component: {fileID: 46512957}
   - component: {fileID: 46512956}
-  - component: {fileID: 46512955}
-  - component: {fileID: 46512961}
   - component: {fileID: 46512962}
   m_Layer: 7
   m_Name: Golem (FINALY DONE)
-  m_TagString: dmg
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!250 &46512955
-PointEffector2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 46512953}
-  m_Enabled: 1
-  m_UseColliderMask: 1
-  m_ColliderMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceMagnitude: 250
-  m_ForceVariation: 0
-  m_DistanceScale: 1
-  m_ForceSource: 0
-  m_ForceTarget: 0
-  m_ForceMode: 0
-  m_Drag: 0
-  m_AngularDrag: 0
 --- !u!114 &46512956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -839,6 +817,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 2
+  playerMASK:
+    serializedVersion: 2
+    m_Bits: 512
   HP: 100
   maxHp: 100
   Player_RB: {fileID: 1161303639}
@@ -846,8 +827,7 @@ MonoBehaviour:
   enter: {fileID: 8300000, guid: 2f154436a122d964d9f976256f42aedd, type: 3}
   attack: {fileID: 8300000, guid: bf81e20b06e90cb4990413b3f43e3692, type: 3}
   die: {fileID: 8300000, guid: 53f33817921216c43bd321e0af32ea4f, type: 3}
-  enemy_knockback: {fileID: 46512955}
-  enemy_box: {fileID: 46512961}
+  enemy_boxE: 0
   move: {fileID: 1694147102}
   state: 0
   go: 0
@@ -1005,51 +985,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &46512961
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 46512953}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 1
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.94846153, y: 0.9015385}
-    newSize: {x: 1, y: 0.8828125}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.1, y: 1.1}
-  m_EdgeRadius: 0
 --- !u!82 &46512962
 AudioSource:
   m_ObjectHideFlags: 0
@@ -13318,6 +13253,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 1
+  playerMASK:
+    serializedVersion: 2
+    m_Bits: 0
   HP: 100
   maxHp: 100
   Player_RB: {fileID: 1161303639}
@@ -13325,8 +13263,7 @@ MonoBehaviour:
   enter: {fileID: 0}
   attack: {fileID: 0}
   die: {fileID: 0}
-  enemy_knockback: {fileID: 355114342}
-  enemy_box: {fileID: 355114344}
+  enemy_boxE: 1
   move: {fileID: 0}
   state: 0
   go: 0
@@ -16328,6 +16265,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 1
+  playerMASK:
+    serializedVersion: 2
+    m_Bits: 0
   HP: 100
   maxHp: 100
   Player_RB: {fileID: 1161303639}
@@ -16335,8 +16275,7 @@ MonoBehaviour:
   enter: {fileID: 0}
   attack: {fileID: 0}
   die: {fileID: 0}
-  enemy_knockback: {fileID: 608856265}
-  enemy_box: {fileID: 608856267}
+  enemy_boxE: 1
   move: {fileID: 0}
   state: 0
   go: 0
@@ -17174,6 +17113,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 1
+  playerMASK:
+    serializedVersion: 2
+    m_Bits: 0
   HP: 100
   maxHp: 100
   Player_RB: {fileID: 1161303639}
@@ -17181,8 +17123,7 @@ MonoBehaviour:
   enter: {fileID: 0}
   attack: {fileID: 0}
   die: {fileID: 0}
-  enemy_knockback: {fileID: 681563746}
-  enemy_box: {fileID: 681563748}
+  enemy_boxE: 1
   move: {fileID: 0}
   state: 0
   go: 0
@@ -19444,6 +19385,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 1
+  playerMASK:
+    serializedVersion: 2
+    m_Bits: 0
   HP: 100
   maxHp: 100
   Player_RB: {fileID: 1161303639}
@@ -19451,8 +19395,7 @@ MonoBehaviour:
   enter: {fileID: 0}
   attack: {fileID: 0}
   die: {fileID: 0}
-  enemy_knockback: {fileID: 945467589}
-  enemy_box: {fileID: 945467591}
+  enemy_boxE: 1
   move: {fileID: 0}
   state: 0
   go: 0
@@ -23725,6 +23668,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 1
+  playerMASK:
+    serializedVersion: 2
+    m_Bits: 0
   HP: 100
   maxHp: 100
   Player_RB: {fileID: 1161303639}
@@ -23732,8 +23678,7 @@ MonoBehaviour:
   enter: {fileID: 0}
   attack: {fileID: 0}
   die: {fileID: 0}
-  enemy_knockback: {fileID: 1302264247}
-  enemy_box: {fileID: 1302264249}
+  enemy_boxE: 1
   move: {fileID: 0}
   state: 0
   go: 0
@@ -34221,6 +34166,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 4
+  playerMASK:
+    serializedVersion: 2
+    m_Bits: 0
   HP: 100
   maxHp: 100
   Player_RB: {fileID: 1161303639}
@@ -34228,8 +34176,7 @@ MonoBehaviour:
   enter: {fileID: 0}
   attack: {fileID: 0}
   die: {fileID: 0}
-  enemy_knockback: {fileID: 0}
-  enemy_box: {fileID: 2048434991}
+  enemy_boxE: 1
   move: {fileID: 0}
   state: 0
   go: 0
@@ -34466,6 +34413,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 1
+  playerMASK:
+    serializedVersion: 2
+    m_Bits: 0
   HP: 5
   maxHp: 10
   Player_RB: {fileID: 1161303639}
@@ -34473,8 +34423,7 @@ MonoBehaviour:
   enter: {fileID: 8300000, guid: 2f154436a122d964d9f976256f42aedd, type: 3}
   attack: {fileID: 8300000, guid: bf81e20b06e90cb4990413b3f43e3692, type: 3}
   die: {fileID: 8300000, guid: 53f33817921216c43bd321e0af32ea4f, type: 3}
-  enemy_knockback: {fileID: 2066671755}
-  enemy_box: {fileID: 2066671757}
+  enemy_boxE: 1
   move: {fileID: 1694147102}
   state: 0
   go: 0
@@ -40035,6 +39984,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyType: 4
+  playerMASK:
+    serializedVersion: 2
+    m_Bits: 0
   HP: 100
   maxHp: 100
   Player_RB: {fileID: 1161303639}
@@ -40042,8 +39994,7 @@ MonoBehaviour:
   enter: {fileID: 0}
   attack: {fileID: 0}
   die: {fileID: 0}
-  enemy_knockback: {fileID: 0}
-  enemy_box: {fileID: 2142439169}
+  enemy_boxE: 1
   move: {fileID: 0}
   state: 0
   go: 0
