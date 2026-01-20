@@ -22,10 +22,28 @@ public class eeee : MonoBehaviour
         {
             Application.Quit();
         }
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            SceneManager.LoadScene("TEST");
+
+        }
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            SceneManager.LoadScene("LevelOne");
+
+        }
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            SceneManager.LoadScene("LevelTwo");
+
+        }
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            SceneManager.LoadScene("LevelThree");
+
+        }
 
 
-        
-      
 
     }
 
