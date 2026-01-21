@@ -37,6 +37,8 @@ public class Enemyscript : MonoBehaviour
     public int go = 0;
     void Start()
     {
+        StartCoroutine(LOAD());
+
         canattack = true;
         HP = maxHp;
 
@@ -64,9 +66,18 @@ public class Enemyscript : MonoBehaviour
 
 
     }
-  
-    
 
+
+    IEnumerator LOAD()
+    {
+        while (Player_RB == null)
+        {
+            Player_RB = GameObject.FindWithTag("player").GetComponent<Rigidbody2D>();
+            yield return null;
+
+        }
+
+    }
     IEnumerator waittick()
     {
         go = 3;
@@ -142,9 +153,10 @@ public class Enemyscript : MonoBehaviour
 
     }
 
-    void Update()
+    void FixedUpdate()
     {
-       if (slowed == true)
+
+        if (slowed == true)
         {
             Enemy_RB.velocity=new Vector2(Enemy_RB.velocity.x/4,Enemy_RB.velocity.y/4);
             Enemy_RB.angularVelocity = 0;
@@ -197,15 +209,94 @@ public class Enemyscript : MonoBehaviour
 
             if (distance <= 20)
             {
+                Enemy_RB.WakeUp();
 
                 if (awakened == false)
                 {
                     if (Enemy_RB.mass == 50)
                     {
+                        if (Mathf.Abs(Enemy_RB.angularVelocity) < 500)
+                        {
+                            if (Player_RB.position.x > Enemy_RB.position.x)
+                            {
+                                if (Enemy_RB.mass == 50)
+                                {
+                                    if (Mathf.Abs(Enemy_RB.angularVelocity) < 100)
+                                    {
+                                        Enemy_RB.AddTorque(-1200);
 
+                                    }
+
+
+                                }
+                                else
+                                {
+                                    Enemy_RB.AddTorque(20 * (-1));
+
+                                }
+
+                            }
+                            else
+                            {
+                                if (Enemy_RB.mass == 50)
+                                {
+                                    if (Mathf.Abs(Enemy_RB.angularVelocity) < 100)
+                                    {
+                                        Enemy_RB.AddTorque(1200);
+
+                                    }
+                                }
+                                else
+                                {
+                                    Enemy_RB.AddTorque(20);
+
+                                }
+
+                            }
+                        }
                     }
                     else
                     {
+                        if (Mathf.Abs(Enemy_RB.angularVelocity) < 500)
+                        {
+                            if (Player_RB.position.x > Enemy_RB.position.x)
+                            {
+                                if (Enemy_RB.mass == 50)
+                                {
+                                    if (Mathf.Abs(Enemy_RB.angularVelocity) < 100)
+                                    {
+                                        Enemy_RB.AddTorque(-1200);
+
+                                    }
+
+
+                                }
+                                else
+                                {
+                                    Enemy_RB.AddTorque(20 * (-1));
+
+                                }
+
+                            }
+                            else
+                            {
+                                if (Enemy_RB.mass == 50)
+                                {
+                                    if (Mathf.Abs(Enemy_RB.angularVelocity) < 100)
+                                    {
+                                        Enemy_RB.AddTorque(1200);
+
+                                    }
+                                }
+                                else
+                                {
+                                    Enemy_RB.AddTorque(20);
+
+                                }
+
+                            }
+                        }
+
                         awakened = true;
                         AudioSource musicc = Enemy_RB.gameObject.GetComponent<AudioSource>();
 
@@ -215,6 +306,7 @@ public class Enemyscript : MonoBehaviour
 
 
                 }
+
                 if (Mathf.Abs(Enemy_RB.angularVelocity) < 500)
                 {
                     if (Player_RB.position.x > Enemy_RB.position.x)
@@ -223,7 +315,7 @@ public class Enemyscript : MonoBehaviour
                         {
                             if (Mathf.Abs(Enemy_RB.angularVelocity) < 100)
                             {
-                                Enemy_RB.AddTorque(-300);
+                                Enemy_RB.AddTorque(-400);
 
                             }
 
@@ -231,7 +323,7 @@ public class Enemyscript : MonoBehaviour
                         }
                         else
                         {
-                            Enemy_RB.AddTorque(2 * (-1));
+                            Enemy_RB.AddTorque(4 * (-1));
 
                         }
 
@@ -242,13 +334,13 @@ public class Enemyscript : MonoBehaviour
                         {
                             if (Mathf.Abs(Enemy_RB.angularVelocity) < 100)
                             {
-                                Enemy_RB.AddTorque(300);
+                                Enemy_RB.AddTorque(400);
 
                             }
                         }
                         else
                         {
-                            Enemy_RB.AddTorque(2);
+                            Enemy_RB.AddTorque(4);
 
                         }
 

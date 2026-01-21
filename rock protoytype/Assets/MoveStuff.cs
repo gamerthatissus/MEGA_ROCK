@@ -682,7 +682,7 @@ public class move22 : MonoBehaviour
 
 
 
-                    rigggg.AddRelativeForce(Vector2.up * 4500f, ForceMode2D.Impulse);
+                    rigggg.AddRelativeForce(Vector2.up * 4000f, ForceMode2D.Impulse);
 
                 }
             } //e
