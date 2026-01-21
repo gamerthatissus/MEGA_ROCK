@@ -315,7 +315,7 @@ public class Enemyscript : MonoBehaviour
                         {
                             if (Mathf.Abs(Enemy_RB.angularVelocity) < 100)
                             {
-                                Enemy_RB.AddTorque(-400);
+                                Enemy_RB.AddTorque(-450);
 
                             }
 
@@ -334,7 +334,7 @@ public class Enemyscript : MonoBehaviour
                         {
                             if (Mathf.Abs(Enemy_RB.angularVelocity) < 100)
                             {
-                                Enemy_RB.AddTorque(400);
+                                Enemy_RB.AddTorque(450);
 
                             }
                         }
