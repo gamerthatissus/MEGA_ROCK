@@ -13,6 +13,8 @@ using UnityEngine.UI;
 
 public class move22 : MonoBehaviour
 {
+    public AudioClip tntSOUND;
+    public AudioClip KABOOM;
     public GameObject tnt_OBJECT;
     public TextMeshProUGUI TNT_GUI;
     public int TnT;
@@ -206,14 +208,23 @@ public class move22 : MonoBehaviour
     {
         GameObject tntCLONE = Instantiate(tnt_OBJECT);
         Transform tntCLONT_transform = tntCLONE.GetComponent<Transform>();
+        AudioSource tntCLONT_sound = tntCLONE.GetComponent<AudioSource>();
+        tntCLONT_sound.clip = tntSOUND;
+        tntCLONT_sound.Play();
         tntCLONT_transform.position = new Vector2(outsidemove.position.x, outsidemove.position.y + 1.2f);
         yield return new WaitForSeconds(1f);
+        
+        tntCLONT_sound.clip = KABOOM;
+        tntCLONT_sound.Play();
         Collider2D[] distructables = Physics2D.OverlapCircleAll(tntCLONT_transform.position, 3, distructable_Layermask);
         foreach (Collider2D distructablePART in distructables)
         {
             Destroy(distructablePART.gameObject);
         }
-        Destroy(tntCLONE);
+
+        Destroy(tntCLONE.GetComponent<SpriteRenderer>(), 0);
+
+        Destroy(tntCLONE,2);
     }
     // Update is called once per frame
     void Update()
