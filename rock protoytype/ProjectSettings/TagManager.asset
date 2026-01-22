@@ -11,6 +11,8 @@ TagManager:
   - dmg
   - floor
   - player
+  - TNT
+  - KABOOM_WALL
   layers:
   - Default
   - TransparentFX
@@ -18,7 +20,7 @@ TagManager:
   - launch
   - Water
   - UI
-  - 
+  - DISTRUCTABLE WALL
   - enemy
   - 
   - player

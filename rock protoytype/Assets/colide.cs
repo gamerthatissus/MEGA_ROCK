@@ -13,8 +13,13 @@ public class colide : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        
-        
+        if (collision.gameObject.CompareTag("TNT"))
+        {
+            thingyyyy.TnT ++;
+            Destroy(collision.gameObject);
+            
+        }
+
         if (collision.gameObject.CompareTag("SPIKE"))
         {
             if (canspike == true)

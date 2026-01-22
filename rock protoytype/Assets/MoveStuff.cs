@@ -13,6 +13,9 @@ using UnityEngine.UI;
 
 public class move22 : MonoBehaviour
 {
+    public GameObject tnt_OBJECT;
+    public TextMeshProUGUI TNT_GUI;
+    public int TnT;
     private bool canpunch = true;
     private bool jumpCooldown=false;
     public RawImage stone_IMG;
@@ -22,6 +25,7 @@ public class move22 : MonoBehaviour
     public Button path_smooth;
     public Button path_choose;
     public LayerMask PLAYER_layermask;
+    public LayerMask distructable_Layermask;
 
     public bool canspend = true;
     public TextMeshProUGUI mana1;
@@ -95,11 +99,11 @@ public class move22 : MonoBehaviour
 
         move1.text = "locked";
         move2.text = "locked";
-        move3.text = "locked";
+        move3.text = "Place TNT";
         move4.text = "punch";
         mana1.text = "0";
         mana2.text = "0";
-        mana3.text = "0";
+        mana3.text = "1 TNT";
         mana4.text = "1 stone";
 
         canspend = true;
@@ -198,10 +202,23 @@ public class move22 : MonoBehaviour
         canpunch = true;
 
     }
+    IEnumerator PlaceTNT()
+    {
+        GameObject tntCLONE = Instantiate(tnt_OBJECT);
+        Transform tntCLONT_transform = tntCLONE.GetComponent<Transform>();
+        tntCLONT_transform.position = new Vector2(outsidemove.position.x, outsidemove.position.y + 1.2f);
+        yield return new WaitForSeconds(1f);
+        Collider2D[] distructables = Physics2D.OverlapCircleAll(tntCLONT_transform.position, 3, distructable_Layermask);
+        foreach (Collider2D distructablePART in distructables)
+        {
+            Destroy(distructablePART.gameObject);
+        }
+        Destroy(tntCLONE);
+    }
     // Update is called once per frame
     void Update()
     {
-
+        TNT_GUI.text = "Amount of TnT: " + TnT;
 
         if (Input.GetKeyDown(KeyCode.R) || hp < 1)
         {
@@ -703,8 +720,26 @@ public class move22 : MonoBehaviour
             }
 
         }
-       
-        
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            if (canpunch == true)
+            {
+                if (move3.text == "Place TNT" && TnT >= 1)
+                {
+
+                    TnT -= 1;
+                    StartCoroutine(PlaceTNT());
+
+
+                }
+
+            }
+
+
+        }
+
+
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             if (canpunch == true)
