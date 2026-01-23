@@ -13,6 +13,7 @@ TagManager:
   - player
   - TNT
   - KABOOM_WALL
+  - cracked
   layers:
   - Default
   - TransparentFX

@@ -52,4 +52,12 @@ public class staligtite : MonoBehaviour
         }
 
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("cracked"))
+        {
+            Destroy(collision.gameObject,0.3f);
+        }
+    }
 }

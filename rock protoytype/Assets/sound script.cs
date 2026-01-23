@@ -21,10 +21,10 @@ public class soundscript : MonoBehaviour
         A_Sorse2.playOnAwake = true;
         A_Sorse.playOnAwake = false;
         A_Sorse.volume = 1;
-        StartCoroutine(LOAD());
+        StartCoroutine(LOADD());
     }
 
-    IEnumerator LOAD()
+    IEnumerator LOADD()
     {
         while (true)
         {

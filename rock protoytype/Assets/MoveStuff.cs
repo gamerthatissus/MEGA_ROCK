@@ -206,25 +206,48 @@ public class move22 : MonoBehaviour
     }
     IEnumerator PlaceTNT()
     {
+        
         GameObject tntCLONE = Instantiate(tnt_OBJECT);
         Transform tntCLONT_transform = tntCLONE.GetComponent<Transform>();
         AudioSource tntCLONT_sound = tntCLONE.GetComponent<AudioSource>();
+        GameObject OBJECT_exploshion= tntCLONE.transform.Find("EXPLOSHION").gameObject;
+        Transform EXPLOSHION = OBJECT_exploshion.GetComponent<Transform>();
+        SpriteRenderer spriteEXPLOSHION = OBJECT_exploshion.GetComponent<SpriteRenderer>();
+        spriteEXPLOSHION.enabled = false;
+        EXPLOSHION.localScale = new Vector2(0.1f, 0.1f);
+        spriteEXPLOSHION.color = new Color(200, 0, 0, 0.2f);
         tntCLONT_sound.clip = tntSOUND;
         tntCLONT_sound.Play();
         tntCLONT_transform.position = new Vector2(outsidemove.position.x, outsidemove.position.y + 1.2f);
+
+        //before exploshion
         yield return new WaitForSeconds(1f);
+        //after exploshion
+
+        spriteEXPLOSHION.enabled = true;
         
         tntCLONT_sound.clip = KABOOM;
         tntCLONT_sound.Play();
         Collider2D[] distructables = Physics2D.OverlapCircleAll(tntCLONT_transform.position, 3, distructable_Layermask);
+    
         foreach (Collider2D distructablePART in distructables)
         {
             Destroy(distructablePART.gameObject);
+
         }
 
         Destroy(tntCLONE.GetComponent<SpriteRenderer>(), 0);
 
         Destroy(tntCLONE,2);
+
+        for (float grow = 0; grow < 4; grow += 0.1f)
+        {
+            EXPLOSHION.localScale = new Vector2(0.1f+grow, 0.1f+grow);
+            spriteEXPLOSHION.color = new Color(200, 0, 0, 0.8f-(grow/5));
+
+            yield return null;
+        }
+
     }
     // Update is called once per frame
     void Update()
