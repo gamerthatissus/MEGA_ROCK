@@ -128,7 +128,11 @@ public class Enemyscript : MonoBehaviour
 
     IEnumerator waitPUNCH()
     {
-        
+        if (Enemy_RB.mass==50)
+        {
+            Animator anim = Enemy_RB.gameObject.GetComponent<Animator>();
+            anim.Play(0);
+        }
         yield return new WaitForSeconds(0.2f);
               
         Collider2D[] enemyPunch = Physics2D.OverlapCircleAll(Enemy_RB.position, 1.2f, playerMASK);
