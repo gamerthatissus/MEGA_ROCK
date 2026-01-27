@@ -917,9 +917,12 @@ public class move22 : MonoBehaviour
 
         if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A)) && blockMultiplier == 1f) // can only move if not blocking
         {
-
-
-            if (speed < maxspeed)
+          
+            if (speed < 2f)
+            {
+                speed = 2f;
+            }
+            if (speed < maxspeed && speed !=50)
             {
                 speed += 0.1f;
 
@@ -941,6 +944,7 @@ public class move22 : MonoBehaviour
                     {
                         if (Mathf.Abs(outsidemove.angularVelocity) <= 2000f)
                         {
+                            
                             outsidemove.AddTorque(speed * (-1.2f));
 
                         }
@@ -950,6 +954,7 @@ public class move22 : MonoBehaviour
                     {
                         if (Mathf.Abs(outsidemove.angularVelocity) <= 2000f)
                         {
+                           
                             outsidemove.AddTorque(speed * (1.2f));
 
                         }
@@ -962,8 +967,9 @@ public class move22 : MonoBehaviour
                     {
                         if (Mathf.Abs(outsidemove.angularVelocity) <= 1800f)
                         {
+                          
                             outsidemove.AddTorque(speed * (-1));
-
+                           
                         }
 
 
@@ -972,6 +978,7 @@ public class move22 : MonoBehaviour
                     {
                         if (Mathf.Abs(outsidemove.angularVelocity) <= 1800f)
                         {
+                           
                             outsidemove.AddTorque(speed);
 
                         }

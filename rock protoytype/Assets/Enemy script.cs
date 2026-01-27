@@ -15,6 +15,8 @@ public class Enemyscript : MonoBehaviour
     //enemy types:   1=fall  2=normal 3=burried    4=smasher
     public int enemyType=0;
 
+    public GameObject GolemAnimator;
+    
     public LayerMask playerMASK;
     private bool awakened = false;
     public float HP = 100;
@@ -125,12 +127,37 @@ public class Enemyscript : MonoBehaviour
         canattack = true;
 
     }
+    
+
+   
 
     IEnumerator waitPUNCH()
     {
-        
+        SpriteRenderer Enmy_spriteREND = Enemy_RB.gameObject.GetComponent<SpriteRenderer>();
+
+        if (Enemy_RB.mass == 50)
+        {
+                GameObject animator_CLONE = Instantiate(GolemAnimator);
+            Transform CLone_transform = animator_CLONE.GetComponent<Transform>();
+
+            CLone_transform.position = Enemy_RB.position;
+            Enmy_spriteREND.enabled = false;
+            if (Player_RB.position.x > Enemy_RB.position.x)
+            {
+                CLone_transform.localScale = new Vector3(-0.3f, 0.3f,0.3f);
+            }
+            else
+            {
+                CLone_transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+
+            }
+
+            Destroy(animator_CLONE, 0.3f); 
+        }
+
+
         yield return new WaitForSeconds(0.2f);
-              
+        Enmy_spriteREND.enabled = true;
         Collider2D[] enemyPunch = Physics2D.OverlapCircleAll(Enemy_RB.position, 1.2f, playerMASK);
         
         foreach (Collider2D enemyObject in enemyPunch)
@@ -265,7 +292,7 @@ public class Enemyscript : MonoBehaviour
                                 {
                                     if (Mathf.Abs(Enemy_RB.angularVelocity) < 100)
                                     {
-                                        Enemy_RB.AddTorque(-1200);
+                                        Enemy_RB.AddTorque(-1500);
 
                                     }
 
@@ -284,7 +311,7 @@ public class Enemyscript : MonoBehaviour
                                 {
                                     if (Mathf.Abs(Enemy_RB.angularVelocity) < 100)
                                     {
-                                        Enemy_RB.AddTorque(1200);
+                                        Enemy_RB.AddTorque(1500);
 
                                     }
                                 }
