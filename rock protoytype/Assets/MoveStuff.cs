@@ -43,6 +43,7 @@ public class move22 : MonoBehaviour
     public float hp;
     public Slider hpbar;
 
+    public GameObject pathRememberer;
 
     public Canvas gameScreen;
     public TextMeshProUGUI stoneTEXT;
@@ -194,6 +195,16 @@ public class move22 : MonoBehaviour
         stone14 = GameObject.Find("stone14").GetComponent<RawImage>();
         stone15 = GameObject.Find("stone15").GetComponent<RawImage>();
         stone16 = GameObject.Find("stone16").GetComponent<RawImage>();
+
+        if (GameObject.Find("chosenPathRememberer").transform.position == Vector3.one)
+        {
+            RIGID();
+        }
+        else if (GameObject.Find("chosenPathRememberer").transform.position == Vector3.one * 2)
+        {
+            SMOOTH();
+        }
+
         start = 1;
     }
 
@@ -844,6 +855,9 @@ public class move22 : MonoBehaviour
 
     public void RIGID()
     {
+        if (pathRememberer != null)
+            pathRememberer.gameObject.transform.position = Vector3.one;
+
         path_choose.gameObject.SetActive(false);
         path_rigid.gameObject.SetActive(false);
         path_smooth.gameObject.SetActive(false);
@@ -854,6 +868,9 @@ public class move22 : MonoBehaviour
     }
     public void SMOOTH()
     {
+        if (pathRememberer != null)
+            pathRememberer.gameObject.transform.position = Vector3.one * 2;
+
         path_choose.gameObject.SetActive(false);
         path_rigid.gameObject.SetActive(false);
         path_smooth.gameObject.SetActive(false);

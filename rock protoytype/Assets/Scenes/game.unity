@@ -1084,6 +1084,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mode: 2
   move2222: {fileID: 1694147102}
+  pathRememberer: {fileID: 416128829}
 --- !u!61 &70425905
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15744,6 +15745,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -4.703, y: -3.658, z: 20}
+--- !u!1 &416128829
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 416128830}
+  m_Layer: 0
+  m_Name: chosenPathRememberer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &416128830
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 416128829}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &420302698
 GameObject:
   m_ObjectHideFlags: 0
@@ -29310,6 +29342,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mode: 1
   move2222: {fileID: 1694147102}
+  pathRememberer: {fileID: 0}
 --- !u!1 &1448238148
 GameObject:
   m_ObjectHideFlags: 0
@@ -37405,6 +37438,7 @@ MonoBehaviour:
   move4: {fileID: 796394055}
   hp: 100
   hpbar: {fileID: 280808253}
+  pathRememberer: {fileID: 416128829}
   gameScreen: {fileID: 202687921}
   stoneTEXT: {fileID: 322746807}
   insidemove: {fileID: 1694147099}
@@ -47772,3 +47806,4 @@ SceneRoots:
   - {fileID: 142044186}
   - {fileID: 1977147065}
   - {fileID: 1702283117}
+  - {fileID: 416128830}

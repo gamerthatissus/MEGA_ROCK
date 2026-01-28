@@ -7,6 +7,7 @@ public class teliporttolevel1 : MonoBehaviour
 {
     public int mode = 1;
     public move22 move2222;
+    public GameObject pathRememberer;
     // Start is called before the first frame update
     
 
@@ -23,6 +24,7 @@ public class teliporttolevel1 : MonoBehaviour
             }
             else if (mode==2)
             {
+                DontDestroyOnLoad(pathRememberer.gameObject);
                 SceneManager.LoadScene("LevelOne");
             }
 
