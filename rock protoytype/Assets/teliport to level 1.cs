@@ -27,7 +27,18 @@ public class teliporttolevel1 : MonoBehaviour
                 DontDestroyOnLoad(pathRememberer.gameObject);
                 SceneManager.LoadScene("LevelOne");
             }
-
+            else if (mode == 3)
+            {
+                SceneManager.LoadScene("LevelTwo");
+            }
+            else if (mode == 4)
+            {
+                SceneManager.LoadScene("LevelThree");
+            }
+            else if (mode == 5)
+            {
+                SceneManager.LoadScene("Boss");
+            }
         }
 
     }
