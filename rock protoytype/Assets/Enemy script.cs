@@ -33,7 +33,7 @@ public class Enemyscript : MonoBehaviour
 
     private bool canattack = true;
 
-    private bool slowed = false;
+    public bool slowed = false;
 
     public int state = 0;
     public int go = 0;
@@ -109,10 +109,10 @@ public class Enemyscript : MonoBehaviour
         if (enemy_boxE == true)
         {
             BoxCollider2D enemy_box = Enemy_RB.gameObject.GetComponent<BoxCollider2D>();
-          
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.1f);
             enemy_box.enabled = true;
             Enemy_RB.gravityScale *= 10;
+            yield return new WaitForSeconds(0.2f);
             enemy_box.gameObject.layer = 7;
             enemyType = 2;
         }
@@ -123,7 +123,11 @@ public class Enemyscript : MonoBehaviour
     {
         canattack = false;
         slowed = true;
-        yield return new WaitForSeconds(0.8f);
+        Enemy_RB.velocity = new Vector2(Enemy_RB.velocity.x / 2, Enemy_RB.velocity.y / 2);
+        Enemy_RB.angularVelocity = Enemy_RB.angularVelocity / 2;
+        yield return new WaitForSeconds(0.4f);
+        slowed = false;
+        yield return new WaitForSeconds(0.4f);
         canattack = true;
 
     }
@@ -164,7 +168,16 @@ public class Enemyscript : MonoBehaviour
         {
             if (enemyObject.gameObject.name == "player")
             {
-                move.hp -= 40;
+                if (Enemy_RB.mass == 50)
+                {
+                    move.hp -= 15;
+
+                }
+                else
+                {
+                    move.hp -= 40;
+
+                }
                 if (Player_RB.position.x > Enemy_RB.position.x)
                 {
                     Player_RB.velocity = new Vector2(Player_RB.velocity.x + 8, Player_RB.velocity.y + 3);
@@ -183,13 +196,7 @@ public class Enemyscript : MonoBehaviour
     void FixedUpdate()
     {
 
-        if (slowed == true)
-        {
-            Enemy_RB.velocity=new Vector2(Enemy_RB.velocity.x/4,Enemy_RB.velocity.y/4);
-            Enemy_RB.angularVelocity = 0;
-
-            slowed = false;
-        }
+       
 
         if (HP <= maxHp * 0.75f)
         {
@@ -234,11 +241,11 @@ public class Enemyscript : MonoBehaviour
 
             float distance = Mathf.Sqrt((distanceX * distanceX) + (distanceY * distanceY));
 
-            if (distance <= 20)
+            if (distance <= 20 && slowed == false)
             {
                 Enemy_RB.WakeUp();
 
-                if (awakened == false)
+                if (awakened == false || Enemy_RB.angularVelocity < 5 )
                 {
                     if (Enemy_RB.mass == 50)
                     {
@@ -250,7 +257,7 @@ public class Enemyscript : MonoBehaviour
                                 {
                                     if (Mathf.Abs(Enemy_RB.angularVelocity) < 100)
                                     {
-                                        Enemy_RB.AddTorque(-1200);
+                                        Enemy_RB.AddTorque(-1500);
 
                                     }
 
@@ -269,7 +276,7 @@ public class Enemyscript : MonoBehaviour
                                 {
                                     if (Mathf.Abs(Enemy_RB.angularVelocity) < 100)
                                     {
-                                        Enemy_RB.AddTorque(1200);
+                                        Enemy_RB.AddTorque(1500);
 
                                     }
                                 }
@@ -340,7 +347,7 @@ public class Enemyscript : MonoBehaviour
                     {
                         if (Enemy_RB.mass == 50)
                         {
-                            if (Mathf.Abs(Enemy_RB.angularVelocity) < 100)
+                            if (Mathf.Abs(Enemy_RB.angularVelocity) < 100 )
                             {
                                 Enemy_RB.AddTorque(-450);
 
@@ -492,7 +499,7 @@ public class Enemyscript : MonoBehaviour
                             Enemy_RB.gravityScale *= 0.1f;
                             enemy_knockback.enabled = true;
                             StartCoroutine(waitColide());
-                            Destroy(enemy_knockback, 0.1f);
+                            Destroy(enemy_knockback, 0.2f);
                         }
 
                        

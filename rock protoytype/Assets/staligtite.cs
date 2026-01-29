@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -40,7 +41,8 @@ public class staligtite : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
                 stalag.simulated = true;
-
+                AudioSource st_sound = stalag.gameObject.GetComponent<AudioSource>();
+                st_sound.Play();
             }
 
         }
@@ -57,6 +59,8 @@ public class staligtite : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("cracked"))
         {
+            AudioSource st_sound = stalag.gameObject.GetComponent<AudioSource>();
+            st_sound.Play();
             Destroy(collision.gameObject,0.3f);
         }
     }

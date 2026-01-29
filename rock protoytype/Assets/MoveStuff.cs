@@ -13,6 +13,8 @@ using UnityEngine.UI;
 
 public class move22 : MonoBehaviour
 {
+    public AudioClip DIE_sound;
+
     public AudioClip tntSOUND;
     public AudioClip KABOOM;
     public GameObject tnt_OBJECT;
@@ -66,6 +68,7 @@ public class move22 : MonoBehaviour
     private float manaPOS2 = -17f;
     private float oldspeed = 0f;
 
+    private bool Died=false;
     private float speed = 0;
     private float maxspeed = 8;
 
@@ -94,6 +97,7 @@ public class move22 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Died = false;
         jumpCooldown = false;
         choosenPath = "none";
         path_choose.gameObject.SetActive(false);
@@ -215,6 +219,22 @@ public class move22 : MonoBehaviour
         canpunch = true;
 
     }
+
+    IEnumerator rocky_DIE()
+    {
+       
+        AudioSource audeo = maincam.GetComponent<AudioSource>();
+        audeo.loop = false;
+        audeo.Stop();
+        audeo.clip = DIE_sound;
+        audeo.Play();
+        yield return new WaitForSeconds(1.5f);
+
+        Scene scenceString = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scenceString.name);
+
+    }
+
     IEnumerator PlaceTNT()
     {
         
@@ -244,7 +264,7 @@ public class move22 : MonoBehaviour
         foreach (Collider2D distructablePART in distructables)
         {
             Destroy(distructablePART.gameObject);
-
+            stone += 1;
         }
 
         Destroy(tntCLONE.GetComponent<SpriteRenderer>(), 0);
@@ -265,11 +285,19 @@ public class move22 : MonoBehaviour
     {
         TNT_GUI.text = "Amount of TnT: " + TnT;
 
-        if (Input.GetKeyDown(KeyCode.R) || hp < 1)
+        if (Input.GetKeyDown(KeyCode.R))
         {
             Scene scenceString = SceneManager.GetActiveScene();
             SceneManager.LoadScene(scenceString.name);
 
+        }
+        if (hp < 1 && Died==false)
+        {
+            Died = true;
+            SpriteRenderer REEEND = outsidemove.gameObject.GetComponent<SpriteRenderer>();
+            REEEND.enabled = false;
+            outsidemove.simulated = false;
+            StartCoroutine(rocky_DIE());
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
