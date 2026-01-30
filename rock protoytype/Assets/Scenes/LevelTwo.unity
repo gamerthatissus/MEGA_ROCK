@@ -3153,6 +3153,7 @@ MonoBehaviour:
   die: {fileID: 8300000, guid: 53f33817921216c43bd321e0af32ea4f, type: 3}
   enemy_boxE: 0
   move: {fileID: 0}
+  slowed: 0
   state: 0
   go: 0
 --- !u!60 &346708213
@@ -4290,6 +4291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98dee303a8f0f9b4d98ad676d0cfa689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DIE_sound: {fileID: 0}
   tntSOUND: {fileID: 8300000, guid: 93b30729187b44445a6d2edca57b3d9e, type: 3}
   KABOOM: {fileID: 8300000, guid: 786aac119d35c394a83ba39442f38586, type: 3}
   tnt_OBJECT: {fileID: 1246578689}
@@ -4847,8 +4849,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.54901963, g: 0.38270342, b: 0.0039215605, a: 1}
+  m_Sprite: {fileID: 21300000, guid: f6f23e7e43feb1b41a1385029b774e42, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6044,8 +6046,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.54901963, g: 0.38270342, b: 0.0039215605, a: 1}
+  m_Sprite: {fileID: 21300000, guid: f6f23e7e43feb1b41a1385029b774e42, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -7609,6 +7611,7 @@ MonoBehaviour:
   die: {fileID: 8300000, guid: 53f33817921216c43bd321e0af32ea4f, type: 3}
   enemy_boxE: 0
   move: {fileID: 0}
+  slowed: 0
   state: 0
   go: 0
 --- !u!60 &732582303
@@ -9053,6 +9056,7 @@ MonoBehaviour:
   die: {fileID: 8300000, guid: 53f33817921216c43bd321e0af32ea4f, type: 3}
   enemy_boxE: 0
   move: {fileID: 0}
+  slowed: 0
   state: 0
   go: 0
 --- !u!60 &837387626
@@ -10222,6 +10226,7 @@ MonoBehaviour:
   die: {fileID: 8300000, guid: 53f33817921216c43bd321e0af32ea4f, type: 3}
   enemy_boxE: 0
   move: {fileID: 0}
+  slowed: 0
   state: 0
   go: 0
 --- !u!60 &920457024
@@ -12674,6 +12679,7 @@ MonoBehaviour:
   die: {fileID: 8300000, guid: 53f33817921216c43bd321e0af32ea4f, type: 3}
   enemy_boxE: 0
   move: {fileID: 0}
+  slowed: 0
   state: 0
   go: 0
 --- !u!60 &1123295628
@@ -13252,6 +13258,7 @@ MonoBehaviour:
   die: {fileID: 8300000, guid: 53f33817921216c43bd321e0af32ea4f, type: 3}
   enemy_boxE: 0
   move: {fileID: 0}
+  slowed: 0
   state: 0
   go: 0
 --- !u!60 &1170148729
@@ -15899,6 +15906,7 @@ MonoBehaviour:
   die: {fileID: 8300000, guid: 53f33817921216c43bd321e0af32ea4f, type: 3}
   enemy_boxE: 0
   move: {fileID: 0}
+  slowed: 0
   state: 0
   go: 0
 --- !u!60 &1422359814
@@ -17627,6 +17635,7 @@ MonoBehaviour:
   die: {fileID: 8300000, guid: 53f33817921216c43bd321e0af32ea4f, type: 3}
   enemy_boxE: 0
   move: {fileID: 0}
+  slowed: 0
   state: 0
   go: 0
 --- !u!60 &1662992378
@@ -20586,7 +20595,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -5
-  m_Sprite: {fileID: 21300000, guid: e5351ea63ae5c45488d9627455901fc3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a12dd552325aa284c84bd672308aa6d8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -20755,6 +20764,7 @@ MonoBehaviour:
   die: {fileID: 8300000, guid: 53f33817921216c43bd321e0af32ea4f, type: 3}
   enemy_boxE: 0
   move: {fileID: 0}
+  slowed: 0
   state: 0
   go: 0
 --- !u!60 &1953614079
@@ -22293,8 +22303,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.54901963, g: 0.38270342, b: 0.0039215605, a: 1}
+  m_Sprite: {fileID: 21300000, guid: f6f23e7e43feb1b41a1385029b774e42, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
