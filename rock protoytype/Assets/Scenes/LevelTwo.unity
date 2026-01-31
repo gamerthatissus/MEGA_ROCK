@@ -2380,7 +2380,7 @@ Transform:
   m_GameObject: {fileID: 281687704}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 379.27, y: 58.56, z: 0}
+  m_LocalPosition: {x: 379.72, y: 58.92, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3146,13 +3146,13 @@ MonoBehaviour:
     m_Bits: 512
   HP: 100
   maxHp: 100
-  Player_RB: {fileID: 281687705}
+  Player_RB: {fileID: 0}
   Enemy_RB: {fileID: 346708214}
   enter: {fileID: 8300000, guid: 2f154436a122d964d9f976256f42aedd, type: 3}
   attack: {fileID: 8300000, guid: bf81e20b06e90cb4990413b3f43e3692, type: 3}
   die: {fileID: 8300000, guid: 53f33817921216c43bd321e0af32ea4f, type: 3}
   enemy_boxE: 0
-  move: {fileID: 457430668}
+  move: {fileID: 0}
   slowed: 0
   state: 0
   go: 0
@@ -4328,7 +4328,7 @@ MonoBehaviour:
   maincam: {fileID: 968643929}
   maxmas: 0.9
   minmas: 0.3
-  stone_MAX: 10
+  stone_MAX: 5
   launcher: {fileID: 661979752}
   amountoflanchers: 0
   stone: 5
@@ -4455,7 +4455,7 @@ Transform:
   m_GameObject: {fileID: 457430667}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 379.27, y: 58.907, z: 0}
+  m_LocalPosition: {x: 379.72, y: 59.267, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7734,13 +7734,13 @@ MonoBehaviour:
     m_Bits: 512
   HP: 100
   maxHp: 100
-  Player_RB: {fileID: 281687705}
+  Player_RB: {fileID: 0}
   Enemy_RB: {fileID: 732582304}
   enter: {fileID: 8300000, guid: 2f154436a122d964d9f976256f42aedd, type: 3}
   attack: {fileID: 8300000, guid: bf81e20b06e90cb4990413b3f43e3692, type: 3}
   die: {fileID: 8300000, guid: 53f33817921216c43bd321e0af32ea4f, type: 3}
   enemy_boxE: 0
-  move: {fileID: 457430668}
+  move: {fileID: 0}
   slowed: 0
   state: 0
   go: 0
@@ -8792,7 +8792,7 @@ Transform:
   m_GameObject: {fileID: 812084693}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 379.27, y: 58.56, z: 0}
+  m_LocalPosition: {x: 379.72, y: 58.92, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9179,13 +9179,13 @@ MonoBehaviour:
     m_Bits: 512
   HP: 100
   maxHp: 100
-  Player_RB: {fileID: 281687705}
+  Player_RB: {fileID: 0}
   Enemy_RB: {fileID: 837387627}
   enter: {fileID: 8300000, guid: 2f154436a122d964d9f976256f42aedd, type: 3}
   attack: {fileID: 8300000, guid: bf81e20b06e90cb4990413b3f43e3692, type: 3}
   die: {fileID: 8300000, guid: 53f33817921216c43bd321e0af32ea4f, type: 3}
   enemy_boxE: 0
-  move: {fileID: 457430668}
+  move: {fileID: 0}
   slowed: 0
   state: 0
   go: 0
@@ -10228,7 +10228,7 @@ Transform:
   m_GameObject: {fileID: 920457020}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 100.28, y: 0.99, z: 0.18116707}
+  m_LocalPosition: {x: 91.65, y: 0.99, z: 0.18116707}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10349,13 +10349,13 @@ MonoBehaviour:
     m_Bits: 512
   HP: 100
   maxHp: 100
-  Player_RB: {fileID: 281687705}
+  Player_RB: {fileID: 0}
   Enemy_RB: {fileID: 920457025}
   enter: {fileID: 8300000, guid: 2f154436a122d964d9f976256f42aedd, type: 3}
   attack: {fileID: 8300000, guid: bf81e20b06e90cb4990413b3f43e3692, type: 3}
   die: {fileID: 8300000, guid: 53f33817921216c43bd321e0af32ea4f, type: 3}
   enemy_boxE: 0
-  move: {fileID: 457430668}
+  move: {fileID: 0}
   slowed: 0
   state: 0
   go: 0
@@ -12802,13 +12802,13 @@ MonoBehaviour:
     m_Bits: 512
   HP: 100
   maxHp: 100
-  Player_RB: {fileID: 281687705}
+  Player_RB: {fileID: 0}
   Enemy_RB: {fileID: 1123295629}
   enter: {fileID: 8300000, guid: 2f154436a122d964d9f976256f42aedd, type: 3}
   attack: {fileID: 8300000, guid: bf81e20b06e90cb4990413b3f43e3692, type: 3}
   die: {fileID: 8300000, guid: 53f33817921216c43bd321e0af32ea4f, type: 3}
   enemy_boxE: 0
-  move: {fileID: 457430668}
+  move: {fileID: 0}
   slowed: 0
   state: 0
   go: 0
@@ -13381,13 +13381,13 @@ MonoBehaviour:
     m_Bits: 512
   HP: 100
   maxHp: 100
-  Player_RB: {fileID: 281687705}
+  Player_RB: {fileID: 0}
   Enemy_RB: {fileID: 1170148730}
   enter: {fileID: 8300000, guid: 2f154436a122d964d9f976256f42aedd, type: 3}
   attack: {fileID: 8300000, guid: bf81e20b06e90cb4990413b3f43e3692, type: 3}
   die: {fileID: 8300000, guid: 53f33817921216c43bd321e0af32ea4f, type: 3}
   enemy_boxE: 0
-  move: {fileID: 457430668}
+  move: {fileID: 0}
   slowed: 0
   state: 0
   go: 0
@@ -16030,13 +16030,13 @@ MonoBehaviour:
     m_Bits: 512
   HP: 100
   maxHp: 100
-  Player_RB: {fileID: 281687705}
+  Player_RB: {fileID: 0}
   Enemy_RB: {fileID: 1422359815}
   enter: {fileID: 8300000, guid: 2f154436a122d964d9f976256f42aedd, type: 3}
   attack: {fileID: 8300000, guid: bf81e20b06e90cb4990413b3f43e3692, type: 3}
   die: {fileID: 8300000, guid: 53f33817921216c43bd321e0af32ea4f, type: 3}
   enemy_boxE: 0
-  move: {fileID: 457430668}
+  move: {fileID: 0}
   slowed: 0
   state: 0
   go: 0
@@ -17759,13 +17759,13 @@ MonoBehaviour:
     m_Bits: 512
   HP: 100
   maxHp: 100
-  Player_RB: {fileID: 281687705}
+  Player_RB: {fileID: 0}
   Enemy_RB: {fileID: 1662992379}
   enter: {fileID: 8300000, guid: 2f154436a122d964d9f976256f42aedd, type: 3}
   attack: {fileID: 8300000, guid: bf81e20b06e90cb4990413b3f43e3692, type: 3}
   die: {fileID: 8300000, guid: 53f33817921216c43bd321e0af32ea4f, type: 3}
   enemy_boxE: 0
-  move: {fileID: 457430668}
+  move: {fileID: 0}
   slowed: 0
   state: 0
   go: 0
@@ -20888,13 +20888,13 @@ MonoBehaviour:
     m_Bits: 512
   HP: 100
   maxHp: 100
-  Player_RB: {fileID: 281687705}
+  Player_RB: {fileID: 0}
   Enemy_RB: {fileID: 1953614080}
   enter: {fileID: 8300000, guid: 2f154436a122d964d9f976256f42aedd, type: 3}
   attack: {fileID: 8300000, guid: bf81e20b06e90cb4990413b3f43e3692, type: 3}
   die: {fileID: 8300000, guid: 53f33817921216c43bd321e0af32ea4f, type: 3}
   enemy_boxE: 0
-  move: {fileID: 457430668}
+  move: {fileID: 0}
   slowed: 0
   state: 0
   go: 0

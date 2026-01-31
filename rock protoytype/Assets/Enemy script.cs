@@ -175,7 +175,7 @@ public class Enemyscript : MonoBehaviour
                 }
                 else
                 {
-                    move.hp -= 25;
+                    move.hp -= 40;
 
                 }
                 if (Player_RB.position.x > Enemy_RB.position.x)
@@ -229,7 +229,7 @@ public class Enemyscript : MonoBehaviour
                 musicc.Play();
                 Enemy_RB.position = new Vector2(99999, 87532);
                 Destroy(Enemy_RB.gameObject, 1);
-                move.stone += 4;
+                move.stone += 2;
             }
           
 
