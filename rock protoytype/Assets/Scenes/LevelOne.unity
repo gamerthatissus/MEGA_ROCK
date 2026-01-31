@@ -340,7 +340,7 @@ Rigidbody2D:
   m_Mass: 50
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 6
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -2589,13 +2589,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 242616619}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 225.83, y: 45.12, z: -0.007091793}
+  m_LocalRotation: {x: -0, y: -0, z: 0.17875728, w: 0.9838933}
+  m_LocalPosition: {x: 239.49, y: 47.23, z: -0.007091793}
   m_LocalScale: {x: 0.8978, y: 0.36148876, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 824676995}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 20.595}
 --- !u!61 &242616621
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3939,7 +3939,7 @@ Rigidbody2D:
   m_Mass: 50
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 6
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -7305,7 +7305,7 @@ Rigidbody2D:
   m_Mass: 50
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 6
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -9315,7 +9315,7 @@ Rigidbody2D:
   m_Mass: 50
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 6
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -9433,7 +9433,7 @@ Transform:
   m_GameObject: {fileID: 978904564}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 298.36353, y: 45.84855, z: -0.16709179}
+  m_LocalPosition: {x: 302.41, y: 43.81, z: -0.16709179}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12469,37 +12469,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1247431065
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1247431066}
-  m_Layer: 0
-  m_Name: chosenPathRememberer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1247431066
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1247431065}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1251490634
 GameObject:
   m_ObjectHideFlags: 0
@@ -13493,7 +13462,7 @@ MonoBehaviour:
   move4: {fileID: 1622764550}
   hp: 100
   hpbar: {fileID: 1380562746}
-  pathRememberer: {fileID: 1247431065}
+  pathRememberer: {fileID: 0}
   gameScreen: {fileID: 1001410700}
   stoneTEXT: {fileID: 2077827943}
   insidemove: {fileID: 1331664288}
@@ -13505,7 +13474,7 @@ MonoBehaviour:
   stone_MAX: 10
   launcher: {fileID: 1882085797}
   amountoflanchers: 0
-  stone: 5
+  stone: 10
   blockMultiplier: 1
   mouseposstart: {x: 0, y: 0, z: 0}
   mousepos: {x: 0, y: 0, z: 0}
@@ -13853,7 +13822,7 @@ Rigidbody2D:
   m_Mass: 50
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 6
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -13971,7 +13940,7 @@ Transform:
   m_GameObject: {fileID: 1354985509}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 163.65952, y: 44.76155, z: -0.16709179}
+  m_LocalPosition: {x: 171.26, y: 44.76155, z: -0.16709179}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19289,7 +19258,7 @@ Rigidbody2D:
   m_Mass: 50
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 6
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -20288,7 +20257,6 @@ SceneRoots:
   - {fileID: 1001410701}
   - {fileID: 1215651493}
   - {fileID: 822370683}
-  - {fileID: 1247431066}
   - {fileID: 1331664292}
   - {fileID: 1740564177}
   - {fileID: 1694074373}

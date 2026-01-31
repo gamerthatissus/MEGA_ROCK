@@ -94,6 +94,8 @@ public class move22 : MonoBehaviour
     private string choosenPath="none";
     private int start = 0;
 
+    private float timer = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -1112,8 +1114,13 @@ public class move22 : MonoBehaviour
         }
 
 
-
-
+        timer += Time.fixedDeltaTime;
+        if (timer >= 7f)
+        {
+            timer = 0f;
+            stone += 1;
+        }
+        
     }
 
 

@@ -175,7 +175,7 @@ public class Enemyscript : MonoBehaviour
                 }
                 else
                 {
-                    move.hp -= 40;
+                    move.hp -= 25;
 
                 }
                 if (Player_RB.position.x > Enemy_RB.position.x)
@@ -229,7 +229,10 @@ public class Enemyscript : MonoBehaviour
                 musicc.Play();
                 Enemy_RB.position = new Vector2(99999, 87532);
                 Destroy(Enemy_RB.gameObject, 1);
-                move.stone += 2;
+                move.stone += 4;
+                move.hp += 30;
+                if (move.hp > 100)
+                    move.hp = 100;
             }
           
 
@@ -472,7 +475,10 @@ public class Enemyscript : MonoBehaviour
 
             if (Mathf.Abs(Player_RB.velocity.magnitude) > 15)
             {
-                move.stone += 1;
+                move.stone += 4;
+                move.hp += 30;
+                if (move.hp > 100)
+                    move.hp = 100;
                 Destroy(Enemy_RB.gameObject);
 
             }
