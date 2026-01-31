@@ -19,8 +19,8 @@ public class Enemyscript : MonoBehaviour
     
     public LayerMask playerMASK;
     private bool awakened = false;
-    public float HP = 300;
-    public float maxHp = 300;
+    public float HP = 100;
+    public float maxHp = 100;
     private int canfall=0;
     public Rigidbody2D Player_RB;
     public Rigidbody2D Enemy_RB;
