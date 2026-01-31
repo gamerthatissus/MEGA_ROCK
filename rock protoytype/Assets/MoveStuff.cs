@@ -46,6 +46,7 @@ public class move22 : MonoBehaviour
     public Slider hpbar;
 
     public GameObject pathRememberer;
+    private GameObject pathRemembererExists = GameObject.Find("chosenPathRememberer");
 
     public Canvas gameScreen;
     public TextMeshProUGUI stoneTEXT;
@@ -93,6 +94,7 @@ public class move22 : MonoBehaviour
     private RawImage stone16;
     private string choosenPath="none";
     private int start = 0;
+
 
     // Start is called before the first frame update
     void Start()
@@ -200,11 +202,11 @@ public class move22 : MonoBehaviour
         stone15 = GameObject.Find("stone15").GetComponent<RawImage>();
         stone16 = GameObject.Find("stone16").GetComponent<RawImage>();
 
-        if (GameObject.Find("chosenPathRememberer").transform.position == Vector3.one)
+        if (pathRemembererExists != null && pathRemembererExists.transform.position == Vector3.one)
         {
             RIGID();
         }
-        else if (GameObject.Find("chosenPathRememberer").transform.position == Vector3.one * 2)
+        else
         {
             SMOOTH();
         }
