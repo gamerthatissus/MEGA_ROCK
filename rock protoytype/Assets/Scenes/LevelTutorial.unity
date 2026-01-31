@@ -17332,11 +17332,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-<<<<<<< Updated upstream:rock protoytype/Assets/Scenes/LevelTutorial.unity
   m_text: "that stalagtite looks loose... \n          try clicking it\n"
-=======
-  m_text: you can click on some things with your mouse
->>>>>>> Stashed changes:rock protoytype/Assets/Scenes/game.unity
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
