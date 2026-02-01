@@ -537,7 +537,7 @@ GameObject:
   - component: {fileID: 46331880}
   m_Layer: 20
   m_Name: platform (4)
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -855,7 +855,7 @@ GameObject:
   - component: {fileID: 72790160}
   m_Layer: 20
   m_Name: branch
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2729,7 +2729,7 @@ GameObject:
   - component: {fileID: 184476716}
   m_Layer: 20
   m_Name: branch
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3578,7 +3578,7 @@ GameObject:
   - component: {fileID: 319466507}
   m_Layer: 20
   m_Name: branch
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4202,7 +4202,7 @@ GameObject:
   - component: {fileID: 394896434}
   m_Layer: 20
   m_Name: branch
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6104,7 +6104,7 @@ GameObject:
   - component: {fileID: 637361342}
   m_Layer: 20
   m_Name: branch
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6734,7 +6734,7 @@ GameObject:
   - component: {fileID: 723360265}
   m_Layer: 20
   m_Name: platform (6)
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8081,7 +8081,7 @@ GameObject:
   - component: {fileID: 855987942}
   m_Layer: 20
   m_Name: branch
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9699,7 +9699,7 @@ GameObject:
   - component: {fileID: 1003637117}
   m_Layer: 20
   m_Name: branch
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10670,7 +10670,7 @@ GameObject:
   - component: {fileID: 1147730530}
   m_Layer: 20
   m_Name: platform (2)
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10896,7 +10896,7 @@ GameObject:
   - component: {fileID: 1163070643}
   m_Layer: 20
   m_Name: branch
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11046,7 +11046,7 @@ GameObject:
   - component: {fileID: 1163271005}
   m_Layer: 20
   m_Name: platform (1)
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11410,7 +11410,7 @@ GameObject:
   - component: {fileID: 1176136575}
   m_Layer: 20
   m_Name: branch
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12360,7 +12360,7 @@ GameObject:
   - component: {fileID: 1256877110}
   m_Layer: 20
   m_Name: platform (7)
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12510,7 +12510,7 @@ GameObject:
   - component: {fileID: 1257270499}
   m_Layer: 20
   m_Name: branch
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15057,7 +15057,7 @@ GameObject:
   - component: {fileID: 1499085880}
   m_Layer: 20
   m_Name: platform (5)
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15424,7 +15424,7 @@ GameObject:
   - component: {fileID: 1581846286}
   m_Layer: 20
   m_Name: branch
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15948,7 +15948,7 @@ GameObject:
   - component: {fileID: 1674817045}
   m_Layer: 20
   m_Name: branch
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17030,7 +17030,7 @@ GameObject:
   - component: {fileID: 1796820661}
   m_Layer: 20
   m_Name: platform (3)
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20859,7 +20859,7 @@ GameObject:
   - component: {fileID: 2070921749}
   m_Layer: 20
   m_Name: branch
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

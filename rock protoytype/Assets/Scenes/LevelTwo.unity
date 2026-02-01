@@ -4724,7 +4724,7 @@ GameObject:
   - component: {fileID: 484493864}
   m_Layer: 20
   m_Name: platform
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5921,7 +5921,7 @@ GameObject:
   - component: {fileID: 661087455}
   m_Layer: 20
   m_Name: platform (1)
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22178,7 +22178,7 @@ GameObject:
   - component: {fileID: 2047058916}
   m_Layer: 20
   m_Name: platform (2)
-  m_TagString: Untagged
+  m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
