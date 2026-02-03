@@ -15,6 +15,9 @@ public class move22 : MonoBehaviour
 {
     public AudioClip DIE_sound;
 
+    public AudioClip ATTACKsound;
+    public AudioClip BLOCKsound;
+
     public AudioClip tntSOUND;
     public AudioClip KABOOM;
     public GameObject tnt_OBJECT;
@@ -213,7 +216,7 @@ public class move22 : MonoBehaviour
 
         start = 1;
 
-        if (SceneManager.GetActiveScene().name == "Game" || SceneManager.GetActiveScene().name == "MainMenu"|| SceneManager.GetActiveScene().name == "Titlescreen")
+        if (SceneManager.GetActiveScene().name == "game" || SceneManager.GetActiveScene().name == "MainMenu"|| SceneManager.GetActiveScene().name == "Titlescreen")
         {
 
         }
@@ -833,16 +836,38 @@ public class move22 : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Alpha4))
+        if (Input.GetKeyDown(KeyCode.Alpha4) && blockMultiplier==1f)
         {
             if (canpunch == true)
             {
+
+                AudioSource audeo = outsidemove.GetComponent<AudioSource>();
+                audeo.loop = false;
+                audeo.Stop();
+                audeo.clip = ATTACKsound;
+                audeo.Play();
+
                 if (move4.text == "punch" && stone >= 1)
                 {
                     StartCoroutine(waitCanPUNCH());
 
+                    outsidemove.position = new Vector2(outsidemove.position.x, outsidemove.position.y + 0.3f);
+              if (outsidemove.angularVelocity > 0)
+                    {
+                        outsidemove.AddTorque(120);
+                    }
+              else 
+                    {
+                        outsidemove.AddTorque(-120);
+                    }
+                    outsidemove.totalTorque = outsidemove.totalTorque * 2;
+
+
+                    StartCoroutine(waitStopAttack());
+
+
                     stone -= 1;
-                    Collider2D[] enemysUpunch = Physics2D.OverlapCircleAll(outsidemove.position, 1.5f, PLAYER_layermask);
+                    Collider2D[] enemysUpunch = Physics2D.OverlapCircleAll(outsidemove.position, 1.3f, PLAYER_layermask);
                     foreach (Collider2D enemyObject in enemysUpunch)
                     {
 
@@ -858,17 +883,64 @@ public class move22 : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.F)) // block ability
         {
-            blockMultiplier = 0.3f;
+            if (blockMultiplier == 1)
+            {
+                AudioSource audeo = outsidemove.GetComponent<AudioSource>();
+                audeo.loop = false;
+                audeo.Stop();
+                audeo.clip = BLOCKsound;
+                audeo.Play();
+            }
+            if (blockMultiplier == 1)
+            {
+                blockMultiplier = 0.99f;
+
+            }
+            StartCoroutine(waitBLOCK());
+
+       
         }
         else // can only move if not blocking
         {
             blockMultiplier = 1f;
-
+            SpriteRenderer PSR = outsidemove.gameObject.GetComponent<SpriteRenderer>();
+            PSR.color = Color.white;
 
 
         }
     }
+    IEnumerator waitBLOCK()
+    {
+ 
+        yield return new WaitForSeconds(0.2f);
+        if (blockMultiplier == 0.99f)
+        {
+            SpriteRenderer PSR = outsidemove.gameObject.GetComponent<SpriteRenderer>();
+            PSR.color = Color.gray;
+            blockMultiplier = 0.2f;
+        }
+        
 
+    }
+
+
+    IEnumerator waitStopAttack()
+    {
+        outsidemove.velocity = new Vector2(outsidemove.velocity.x / 3, outsidemove.velocity.y / 3);
+
+        yield return new WaitForSeconds(0.1f);
+        outsidemove.totalTorque = outsidemove.totalTorque / 2;
+
+        if (outsidemove.angularVelocity > 0)
+        {
+            outsidemove.AddTorque(-120);
+        }
+        else
+        {
+            outsidemove.AddTorque(120);
+        }
+
+    }
 
     IEnumerator spendstone(int amount)
         {
@@ -931,8 +1003,8 @@ public class move22 : MonoBehaviour
 
     public void spike(float obSpeed)
     {
-        hp -= 0.15f * math.abs(oldspeed*oldspeed) * blockMultiplier;
-        
+        hp -= 0.15f * math.abs(oldspeed*oldspeed);
+        //spikes should not be blocked becase it dosnt make sence, blocking should be primaraly for enemys and other stuff
         
     }
     public void dmg()

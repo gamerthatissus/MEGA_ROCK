@@ -170,12 +170,12 @@ public class Enemyscript : MonoBehaviour
             {
                 if (Enemy_RB.mass == 50)
                 {
-                    move.hp -= 15;
+                    move.hp -= 15*move.blockMultiplier;
 
                 }
                 else
                 {
-                    move.hp -= 25;
+                    move.hp -= 30 * move.blockMultiplier;
 
                 }
                 if (Player_RB.position.x > Enemy_RB.position.x)
@@ -230,7 +230,7 @@ public class Enemyscript : MonoBehaviour
                 Enemy_RB.position = new Vector2(99999, 87532);
                 Destroy(Enemy_RB.gameObject, 1);
                 move.stone += 4;
-                move.hp += 30;
+                move.hp += 10;
                 if (move.hp > 100)
                     move.hp = 100;
             }
@@ -476,7 +476,7 @@ public class Enemyscript : MonoBehaviour
             if (Mathf.Abs(Player_RB.velocity.magnitude) > 15)
             {
                 move.stone += 4;
-                move.hp += 30;
+                move.hp += 10;
                 if (move.hp > 100)
                     move.hp = 100;
                 Destroy(Enemy_RB.gameObject);
