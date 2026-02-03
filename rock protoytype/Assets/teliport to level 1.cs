@@ -19,7 +19,7 @@ public class teliporttolevel1 : MonoBehaviour
         {
             if (mode == 1)
             {
-                move2222.choosepath();
+                move2222.RIGID();
 
             }
             else if (mode==2)

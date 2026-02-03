@@ -55,6 +55,11 @@ public class colide : MonoBehaviour
             thingyyyy.KILL();
 
         }
+        if (collision.gameObject.CompareTag("ROCK_PILE"))
+        {
+            thingyyyy.stone = thingyyyy.stone_MAX;
+
+        }
         if (collision.gameObject.CompareTag("HOLE"))
         {
             thingyyyy.HOLE();

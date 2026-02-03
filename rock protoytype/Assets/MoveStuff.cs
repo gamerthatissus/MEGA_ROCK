@@ -202,16 +202,34 @@ public class move22 : MonoBehaviour
         stone15 = GameObject.Find("stone15").GetComponent<RawImage>();
         stone16 = GameObject.Find("stone16").GetComponent<RawImage>();
 
-        if (GameObject.Find("chosenPathRememberer").transform.position == Vector3.one)
-        {
-            RIGID();
-        }
-        else if (GameObject.Find("chosenPathRememberer").transform.position == Vector3.one * 2)
-        {
-            SMOOTH();
-        }
+        //if (GameObject.Find("chosenPathRememberer").transform.position == Vector3.one)
+        //{
+            //RIGID();
+        //}
+        //else if (GameObject.Find("chosenPathRememberer").transform.position == Vector3.one * 2)
+        //{
+            //SMOOTH();
+        //}
 
         start = 1;
+
+        if (SceneManager.GetActiveScene().name == "Game" || SceneManager.GetActiveScene().name == "MainMenu"|| SceneManager.GetActiveScene().name == "Titlescreen")
+        {
+
+        }
+        else
+        {
+
+
+            path_choose.gameObject.SetActive(false);
+            path_rigid.gameObject.SetActive(false);
+            path_smooth.gameObject.SetActive(false);
+            choosenPath = "rigid";
+            mana1.text = "2 stone";
+            move1.text = "stone launch";
+            phisics.friction = 1.5f;
+        }
+
     }
 
     IEnumerator waitCanPUNCH()
@@ -742,7 +760,7 @@ public class move22 : MonoBehaviour
 
                     Object block = Instantiate(launcher);
 
-                    Object thingy = GameObject.Find("pow100");
+                    Object thingy = GameObject.Find("pow6");
                     if (thingy != null)
                     {
                         Destroy(thingy);
@@ -885,8 +903,9 @@ public class move22 : MonoBehaviour
 
     public void RIGID()
     {
-        if (pathRememberer != null)
-            pathRememberer.gameObject.transform.position = Vector3.one;
+        //if (pathRememberer != null)
+
+            //pathRememberer.gameObject.transform.position = Vector3.one;
 
         path_choose.gameObject.SetActive(false);
         path_rigid.gameObject.SetActive(false);
@@ -896,19 +915,19 @@ public class move22 : MonoBehaviour
         move1.text = "stone launch";
         phisics.friction = 1.5f;
     }
-    public void SMOOTH()
-    {
-        if (pathRememberer != null)
-            pathRememberer.gameObject.transform.position = Vector3.one * 2;
+    //public void SMOOTH()
+    //{
+        //if (pathRememberer != null)
+            //pathRememberer.gameObject.transform.position = Vector3.one * 2;
 
-        path_choose.gameObject.SetActive(false);
-        path_rigid.gameObject.SetActive(false);
-        path_smooth.gameObject.SetActive(false);
-        choosenPath = "smooth";
-        mana1.text = "1 stone";
-        move1.text = "jump";
-        phisics.friction = 0.9f;
-    }
+        //path_choose.gameObject.SetActive(false);
+        //path_rigid.gameObject.SetActive(false);
+        //path_smooth.gameObject.SetActive(false);
+        //choosenPath = "smooth";
+        //mana1.text = "1 stone";
+        //move1.text = "jump";
+        //phisics.friction = 0.9f;
+    //}
 
     public void spike(float obSpeed)
     {

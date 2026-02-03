@@ -14,6 +14,7 @@ TagManager:
   - TNT
   - KABOOM_WALL
   - cracked
+  - ROCK_PILE
   layers:
   - Default
   - TransparentFX
