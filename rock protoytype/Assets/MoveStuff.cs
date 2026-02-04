@@ -1205,12 +1205,7 @@ public class move22 : MonoBehaviour
         }
 
 
-        timer += Time.fixedDeltaTime;
-        if (timer >= 7f)
-        {
-            timer = 0f;
-            stone += 1;
-        }
+        
         
     }
 
