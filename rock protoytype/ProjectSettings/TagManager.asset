@@ -15,6 +15,7 @@ TagManager:
   - KABOOM_WALL
   - cracked
   - ROCK_PILE
+  - eyeBall
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - UI
   - DISTRUCTABLE WALL
   - enemy
-  - 
+  - EyeBall
   - player
   - 
   - 
