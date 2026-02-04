@@ -18,6 +18,9 @@ public class move22 : MonoBehaviour
     public AudioClip ATTACKsound;
     public AudioClip BLOCKsound;
 
+    public Transform eye1;
+    public Transform eye2;
+
     public AudioClip tntSOUND;
     public AudioClip KABOOM;
     public GameObject tnt_OBJECT;
@@ -852,7 +855,10 @@ public class move22 : MonoBehaviour
                     StartCoroutine(waitCanPUNCH());
 
                     outsidemove.position = new Vector2(outsidemove.position.x, outsidemove.position.y + 0.3f);
-              if (outsidemove.angularVelocity > 0)
+                    eye1.position = new Vector2(eye1.position.x, eye1.position.y + 0.3f);
+                    eye2.position = new Vector2(eye2.position.x, eye2.position.y + 0.3f);
+
+                    if (outsidemove.angularVelocity > 0)
                     {
                         outsidemove.AddTorque(120);
                     }

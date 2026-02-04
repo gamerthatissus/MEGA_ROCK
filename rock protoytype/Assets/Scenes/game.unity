@@ -6369,7 +6369,7 @@ GameObject:
   - component: {fileID: 124275306}
   - component: {fileID: 124275309}
   m_Layer: 8
-  m_Name: Circle (1)
+  m_Name: eye (1)
   m_TagString: eyeBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25663,7 +25663,7 @@ GameObject:
   - component: {fileID: 1024924274}
   - component: {fileID: 1024924277}
   m_Layer: 8
-  m_Name: Circle (2)
+  m_Name: eye (2)
   m_TagString: eyeBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40915,6 +40915,8 @@ MonoBehaviour:
   DIE_sound: {fileID: 8300000, guid: 840f7ef2a5e60fb47a3ec407cda4b18f, type: 3}
   ATTACKsound: {fileID: 8300000, guid: 01ed2f7f172eb9f49a41ac5eee3c2560, type: 3}
   BLOCKsound: {fileID: 8300000, guid: 0b846bf152facca48a399732843e1b30, type: 3}
+  eye1: {fileID: 124275308}
+  eye2: {fileID: 1024924276}
   tntSOUND: {fileID: 8300000, guid: 93b30729187b44445a6d2edca57b3d9e, type: 3}
   KABOOM: {fileID: 8300000, guid: 786aac119d35c394a83ba39442f38586, type: 3}
   tnt_OBJECT: {fileID: 1225714219}
