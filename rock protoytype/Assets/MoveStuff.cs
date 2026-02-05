@@ -1059,28 +1059,28 @@ public class move22 : MonoBehaviour
     private void FixedUpdate()
     {
         StartCoroutine(waitforspeed());
+        UnityEngine.Transform eyeoneCOlider = outsidemove.gameObject.transform.Find("coll1");
+        UnityEngine.Transform eyeoneCOlider2 = outsidemove.gameObject.transform.Find("coll2");
 
-        float distanceY_1 = Mathf.Abs(outsidemove.position.y - eye1.position.y);
-        float distanceX_1 = Mathf.Abs(outsidemove.position.x - eye1.position.x);
+        float distanceY_1 = Mathf.Abs(eyeoneCOlider.position.y - eye1.position.y);
+        float distanceX_1 = Mathf.Abs(eyeoneCOlider.position.x - eye1.position.x);
 
         float distance_1 = Mathf.Sqrt((distanceX_1 * distanceX_1) + (distanceY_1 * distanceY_1));
 
-        if (distance_1 > 0.5f)
+        if (distance_1 > 0.25f)
         {
 
-            UnityEngine.Transform eyeoneCOlider = outsidemove.gameObject.transform.Find("coll1");
             eye1.position = eyeoneCOlider.position;
         }
 
-        float distanceY_2 = Mathf.Abs(outsidemove.position.y - eye2.position.y);
-        float distanceX_2 = Mathf.Abs(outsidemove.position.x - eye2.position.x);
+        float distanceY_2 = Mathf.Abs(eyeoneCOlider2.position.y - eye2.position.y);
+        float distanceX_2 = Mathf.Abs(eyeoneCOlider2.position.x - eye2.position.x);
 
         float distance_2 = Mathf.Sqrt((distanceX_2 * distanceX_2) + (distanceY_2 * distanceY_2));
 
-        if (distance_2 > 0.5f)
+        if (distance_2 > 0.25f)
         {
 
-            UnityEngine.Transform eyeoneCOlider2 = outsidemove.gameObject.transform.Find("coll2");
             eye2.position = eyeoneCOlider2.position;
         }
 
