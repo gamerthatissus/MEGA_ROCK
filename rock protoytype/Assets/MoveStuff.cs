@@ -10,6 +10,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.U2D;
 using UnityEngine.UI;
 
+using static UnityEngine.RuleTile.TilingRuleOutput;
+
 
 public class move22 : MonoBehaviour
 {
@@ -17,7 +19,7 @@ public class move22 : MonoBehaviour
 
     public AudioClip ATTACKsound;
     public AudioClip BLOCKsound;
-
+    
     public Transform eye1;
     public Transform eye2;
 
@@ -1058,6 +1060,22 @@ public class move22 : MonoBehaviour
     {
         StartCoroutine(waitforspeed());
 
+        float distanceY_1 = Mathf.Abs(outsidemove.position.y - eye1.position.y);
+        float distanceX_1 = Mathf.Abs(outsidemove.position.x - eye1.position.x);
+
+        float distance_1 = Mathf.Sqrt((distanceX_1 * distanceX_1) + (distanceY_1 * distanceY_1));
+
+        if (distance_1 > 0.3f)
+        {
+             
+            Transform eyeoneCOlider = outsidemove.gameObject.transform.Find("coll1");
+            
+        }
+
+        float distanceY_2 = Mathf.Abs(outsidemove.position.y - eye2.position.y);
+        float distanceX_2 = Mathf.Abs(outsidemove.position.x - eye2.position.x);
+
+        float distance_2 = Mathf.Sqrt((distanceX_2 * distanceX_2) + (distanceY_2 * distanceY_2));
 
         if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A)) && blockMultiplier == 1f) // can only move if not blocking
         {

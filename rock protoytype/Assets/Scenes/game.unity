@@ -41090,7 +41090,7 @@ GameObject:
   - component: {fileID: 1702685776}
   - component: {fileID: 1702685775}
   m_Layer: 9
-  m_Name: Hollow circle collishion  (1)
+  m_Name: coll2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43593,7 +43593,7 @@ GameObject:
   - component: {fileID: 1939312433}
   - component: {fileID: 1939312432}
   m_Layer: 9
-  m_Name: 'Hollow circle collishion '
+  m_Name: coll1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46372,8 +46372,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: hold the f key to block some damage, you lose control of moving while blocking
-    though
+  m_text: 'hold the f key to block enemy attacks, but you lose control of moving
+    while blocking.
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
