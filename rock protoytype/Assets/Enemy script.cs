@@ -162,7 +162,7 @@ public class Enemyscript : MonoBehaviour
             ET.position = new Vector2(ET.position.x, ET.position.y - 0.1f);
 
         }
-        ET.position = new Vector2(Player_RB.position.x, ET.position.y);
+        ET.position = new Vector2(Player_RB.position.x, Player_RB.position.y-1.6f);
         for (int i = 0; i < 16; i++)
         {
             yield return new WaitForSeconds(0.03f);
@@ -172,6 +172,7 @@ public class Enemyscript : MonoBehaviour
         }
         Enemy_RB.simulated = true;
         enemyType = 2;
+        yield return new WaitForSeconds(3f);
         ISdiigingUp = 1;
 
     }
@@ -318,6 +319,12 @@ public class Enemyscript : MonoBehaviour
                                 }
                                 else
                                 {
+                                    if (Enemy_RB.mass == 6)
+                                    {
+                                        Enemy_RB.AddTorque(50 * (-1));
+
+                                    }
+
                                     Enemy_RB.AddTorque(20 * (-1));
 
                                 }
@@ -335,6 +342,12 @@ public class Enemyscript : MonoBehaviour
                                 }
                                 else
                                 {
+                                    if (Enemy_RB.mass == 6)
+                                    {
+                                        Enemy_RB.AddTorque(50 );
+
+                                    }
+
                                     Enemy_RB.AddTorque(20);
 
                                 }
@@ -342,7 +355,7 @@ public class Enemyscript : MonoBehaviour
                             }
                         }
                     }
-                    else if (Enemy_RB.mass==6 && distance>7 && ISdiigingUp==1)
+                    else if (Enemy_RB.mass==6 && distance>8 && ISdiigingUp==1)
                     {
                         StartCoroutine(SinkINToSand());
                     }
@@ -364,6 +377,11 @@ public class Enemyscript : MonoBehaviour
                                 }
                                 else
                                 {
+                                    if (Enemy_RB.mass == 6)
+                                    {
+                                        Enemy_RB.AddTorque(50 * (-1));
+
+                                    }
                                     Enemy_RB.AddTorque(20 * (-1));
 
                                 }
@@ -381,6 +399,11 @@ public class Enemyscript : MonoBehaviour
                                 }
                                 else
                                 {
+                                    if (Enemy_RB.mass == 6)
+                                    {
+                                        Enemy_RB.AddTorque(50 );
+
+                                    }
                                     Enemy_RB.AddTorque(20);
 
                                 }
