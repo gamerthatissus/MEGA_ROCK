@@ -16,7 +16,7 @@ public class Enemyscript : MonoBehaviour
     public int enemyType=0;
 
     public GameObject GolemAnimator;
-    
+    private int ISdiigingUp = 0;
     public LayerMask playerMASK;
     private bool awakened = false;
     public float HP = 100;
@@ -131,9 +131,50 @@ public class Enemyscript : MonoBehaviour
         canattack = true;
 
     }
-    
 
-   
+    IEnumerator risefromsand()
+    {
+        Transform ET= Enemy_RB.gameObject.GetComponent<Transform>();
+ for (int i = 0; i < 40; i++)
+        {
+            yield return new WaitForSeconds(0.05f);
+
+            ET.position = new Vector2(ET.position.x, ET.position.y + 0.05f);
+
+        }
+        Enemy_RB.simulated = true;
+        enemyType = 2;
+
+
+    }
+    IEnumerator SinkINToSand()
+    {
+        Enemy_RB.simulated = false;
+        enemyType = 6;
+        ISdiigingUp = 5;
+
+        Transform ET = Enemy_RB.gameObject.GetComponent<Transform>();
+     
+        for (int i = 0; i < 16; i++)
+        {
+            yield return new WaitForSeconds(0.03f);
+
+            ET.position = new Vector2(ET.position.x, ET.position.y - 0.1f);
+
+        }
+        ET.position = new Vector2(Player_RB.position.x, ET.position.y);
+        for (int i = 0; i < 16; i++)
+        {
+            yield return new WaitForSeconds(0.03f);
+
+            ET.position = new Vector2(ET.position.x, ET.position.y + 0.1f);
+
+        }
+        Enemy_RB.simulated = true;
+        enemyType = 2;
+        ISdiigingUp = 1;
+
+    }
 
     IEnumerator waitPUNCH()
     {
@@ -171,6 +212,11 @@ public class Enemyscript : MonoBehaviour
                 if (Enemy_RB.mass == 50)
                 {
                     move.hp -= 15*move.blockMultiplier;
+
+                }
+                else if (Enemy_RB.mass == 6)
+                {
+                    move.hp -= 10 * move.blockMultiplier;
 
                 }
                 else
@@ -237,6 +283,10 @@ public class Enemyscript : MonoBehaviour
           
 
         }
+
+     
+
+
         if (enemyType == 2)
         {
             float distanceY = Mathf.Abs(Player_RB.position.y - Enemy_RB.position.y);
@@ -292,6 +342,10 @@ public class Enemyscript : MonoBehaviour
                             }
                         }
                     }
+                    else if (Enemy_RB.mass==6 && distance>7 && ISdiigingUp==1)
+                    {
+                        StartCoroutine(SinkINToSand());
+                    }
                     else
                     {
                         if (Mathf.Abs(Enemy_RB.angularVelocity) < 500)
@@ -333,12 +387,18 @@ public class Enemyscript : MonoBehaviour
 
                             }
                         }
-
-                        awakened = true;
                         AudioSource musicc = Enemy_RB.gameObject.GetComponent<AudioSource>();
 
                         musicc.clip = enter;
-                        musicc.Play();
+                        if (awakened == false)
+                        {
+                            musicc.Play();
+
+                        }
+
+                        awakened = true;
+
+                        
                     }
 
 
@@ -392,6 +452,24 @@ public class Enemyscript : MonoBehaviour
             
         }
 
+        if (enemyType == 6 && Enemy_RB.simulated == false)
+        {
+            float distanceY = Mathf.Abs(Player_RB.position.y - Enemy_RB.position.y);
+            float distanceX = Mathf.Abs(Player_RB.position.x - Enemy_RB.position.x);
+
+            float distance = Mathf.Sqrt((distanceX * distanceX) + (distanceY * distanceY));
+
+            if (distanceX <= 4 && ISdiigingUp==0)
+            {
+                ISdiigingUp = 1;
+                StartCoroutine(risefromsand());
+
+            }
+
+        }
+
+
+
         if (enemyType == 1 && Enemy_RB.simulated==false)
         {
             float distanceY = Mathf.Abs(Player_RB.position.y - Enemy_RB.position.y);
@@ -399,7 +477,7 @@ public class Enemyscript : MonoBehaviour
 
             float distance = Mathf.Sqrt((distanceX * distanceX) + (distanceY * distanceY));
 
-            if (distanceX <= 1)
+            if (distanceX <= 1.1f)
             {
                 Enemy_RB.simulated = true;
                 canfall = 0;
