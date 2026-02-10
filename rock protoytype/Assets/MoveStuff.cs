@@ -875,7 +875,7 @@ public class move22 : MonoBehaviour
 
 
                     stone -= 1;
-                    Collider2D[] enemysUpunch = Physics2D.OverlapCircleAll(outsidemove.position, 1.3f, PLAYER_layermask);
+                    Collider2D[] enemysUpunch = Physics2D.OverlapCircleAll(outsidemove.position, 1.5f, PLAYER_layermask);
                     foreach (Collider2D enemyObject in enemysUpunch)
                     {
 

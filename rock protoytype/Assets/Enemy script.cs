@@ -135,9 +135,9 @@ public class Enemyscript : MonoBehaviour
     IEnumerator risefromsand()
     {
         Transform ET= Enemy_RB.gameObject.GetComponent<Transform>();
- for (int i = 0; i < 40; i++)
+ for (int i = 0; i < 35; i++)
         {
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.03f);
 
             ET.position = new Vector2(ET.position.x, ET.position.y + 0.05f);
 
@@ -154,26 +154,65 @@ public class Enemyscript : MonoBehaviour
         ISdiigingUp = 5;
 
         Transform ET = Enemy_RB.gameObject.GetComponent<Transform>();
-     
-        for (int i = 0; i < 16; i++)
-        {
-            yield return new WaitForSeconds(0.03f);
+        float oldx = ET.position.x;
+        float oldy = ET.position.y;
+        Collider2D[] enemyePunch = Physics2D.OverlapCircleAll(new Vector2(Player_RB.position.x, Player_RB.position.y-1.6f),0.3f );
 
-            ET.position = new Vector2(ET.position.x, ET.position.y - 0.1f);
+        bool canDig = false;
+            
+        foreach (Collider2D enemyObject in enemyePunch)
+        {
+
+            if (enemyObject.gameObject.CompareTag("floor"))
+            {
+                canDig = true;
+
+            }
+            else
+            {
+                ET.position = new Vector2(oldx, oldy);
+
+            }
+        }
+
+        if (canDig == true)
+        {
+            for (int i = 0; i < 16; i++)
+            {
+                yield return new WaitForSeconds(0.03f);
+
+
+
+                ET.position = new Vector2(ET.position.x, ET.position.y - 0.1f);
+
+
+
+            }
+            ET.position = new Vector2(Player_RB.position.x, Player_RB.position.y - 1.6f);
+            for (int i = 0; i < 16; i++)
+            {
+                yield return new WaitForSeconds(0.03f);
+
+                ET.position = new Vector2(ET.position.x, ET.position.y + 0.1f);
+
+            }
+
+            Enemy_RB.simulated = true;
+            enemyType = 2;
+            yield return new WaitForSeconds(3f);
+            ISdiigingUp = 1;
+        }
+        else
+        {
+            Enemy_RB.simulated = true;
+            enemyType = 2; 
+            ISdiigingUp = 1;
 
         }
-        ET.position = new Vector2(Player_RB.position.x, Player_RB.position.y-1.6f);
-        for (int i = 0; i < 16; i++)
-        {
-            yield return new WaitForSeconds(0.03f);
 
-            ET.position = new Vector2(ET.position.x, ET.position.y + 0.1f);
 
-        }
-        Enemy_RB.simulated = true;
-        enemyType = 2;
-        yield return new WaitForSeconds(3f);
-        ISdiigingUp = 1;
+
+
 
     }
 
@@ -299,7 +338,7 @@ public class Enemyscript : MonoBehaviour
             {
                 Enemy_RB.WakeUp();
 
-                if (awakened == false || Enemy_RB.angularVelocity < 5 )
+                if (awakened == false || Mathf.Abs(Enemy_RB.angularVelocity) < 5 )
                 {
                     if (Enemy_RB.mass == 50)
                     {
@@ -307,8 +346,7 @@ public class Enemyscript : MonoBehaviour
                         {
                             if (Player_RB.position.x > Enemy_RB.position.x)
                             {
-                                if (Enemy_RB.mass == 50)
-                                {
+                                
                                     if (Mathf.Abs(Enemy_RB.angularVelocity) < 100)
                                     {
                                         Enemy_RB.AddTorque(-1500);
@@ -316,72 +354,44 @@ public class Enemyscript : MonoBehaviour
                                     }
 
 
-                                }
-                                else
-                                {
-                                    if (Enemy_RB.mass == 6)
-                                    {
-                                        Enemy_RB.AddTorque(50 * (-1));
-
-                                    }
-
-                                    Enemy_RB.AddTorque(20 * (-1));
-
-                                }
 
                             }
                             else
                             {
-                                if (Enemy_RB.mass == 50)
-                                {
+                               
                                     if (Mathf.Abs(Enemy_RB.angularVelocity) < 100)
                                     {
                                         Enemy_RB.AddTorque(1500);
 
                                     }
-                                }
-                                else
-                                {
-                                    if (Enemy_RB.mass == 6)
-                                    {
-                                        Enemy_RB.AddTorque(50 );
-
-                                    }
-
-                                    Enemy_RB.AddTorque(20);
-
-                                }
+                                
 
                             }
                         }
                     }
-                    else if (Enemy_RB.mass==6 && distance>8 && ISdiigingUp==1)
+                   else if (Enemy_RB.mass == 6 && distance >= 8 && ISdiigingUp == 1)
+                        {
+                            StartCoroutine(SinkINToSand());
+                        }
+                     else
                     {
-                        StartCoroutine(SinkINToSand());
-                    }
-                    else
-                    {
+
                         if (Mathf.Abs(Enemy_RB.angularVelocity) < 500)
                         {
                             if (Player_RB.position.x > Enemy_RB.position.x)
                             {
-                                if (Enemy_RB.mass == 50)
+                                if (Enemy_RB.mass == 6)
                                 {
-                                    if (Mathf.Abs(Enemy_RB.angularVelocity) < 100)
-                                    {
-                                        Enemy_RB.AddTorque(-1500);
 
-                                    }
+                                    Enemy_RB.AddTorque(-120);
+
+
 
 
                                 }
                                 else
                                 {
-                                    if (Enemy_RB.mass == 6)
-                                    {
-                                        Enemy_RB.AddTorque(50 * (-1));
 
-                                    }
                                     Enemy_RB.AddTorque(20 * (-1));
 
                                 }
@@ -389,21 +399,16 @@ public class Enemyscript : MonoBehaviour
                             }
                             else
                             {
-                                if (Enemy_RB.mass == 50)
+                                if (Enemy_RB.mass == 6)
                                 {
-                                    if (Mathf.Abs(Enemy_RB.angularVelocity) < 100)
-                                    {
-                                        Enemy_RB.AddTorque(1500);
 
-                                    }
+                                    Enemy_RB.AddTorque(120);
+
+
                                 }
                                 else
                                 {
-                                    if (Enemy_RB.mass == 6)
-                                    {
-                                        Enemy_RB.AddTorque(50 );
 
-                                    }
                                     Enemy_RB.AddTorque(20);
 
                                 }
@@ -421,7 +426,7 @@ public class Enemyscript : MonoBehaviour
 
                         awakened = true;
 
-                        
+
                     }
 
 
@@ -443,7 +448,20 @@ public class Enemyscript : MonoBehaviour
                         }
                         else
                         {
-                            Enemy_RB.AddTorque(4 * (-1));
+                            if (Enemy_RB.mass == 6)
+                            {
+                                if (Mathf.Abs(Enemy_RB.angularVelocity) < 250)
+                                {
+                                    Enemy_RB.AddTorque(-20);
+
+                                }
+
+                            }
+                            else
+                            {
+                                Enemy_RB.AddTorque(4 * (-1));
+
+                            }
 
                         }
 
@@ -460,7 +478,16 @@ public class Enemyscript : MonoBehaviour
                         }
                         else
                         {
-                            Enemy_RB.AddTorque(4);
+                            if (Mathf.Abs(Enemy_RB.angularVelocity) < 250)
+                            {
+                                Enemy_RB.AddTorque(20);
+
+                            }
+                            else
+                            {
+                                Enemy_RB.AddTorque(4);
+
+                            }
 
                         }
 
@@ -584,7 +611,7 @@ public class Enemyscript : MonoBehaviour
 
             }
         } 
-        if (collision.gameObject.CompareTag("floor"))
+        if (collision.gameObject.CompareTag("floor") )
         {
             
             if (enemyType == 1)
