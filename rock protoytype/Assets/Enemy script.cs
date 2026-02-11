@@ -27,6 +27,8 @@ public class Enemyscript : MonoBehaviour
     public AudioClip enter;
     public AudioClip attack;
     public AudioClip die;
+    public AudioClip ability;
+
     private bool ded = false;
     public bool enemy_boxE=true;
     public move22 move;
@@ -134,6 +136,10 @@ public class Enemyscript : MonoBehaviour
 
     IEnumerator risefromsand()
     {
+        AudioSource enemy_sound = Enemy_RB.gameObject.GetComponent<AudioSource>();
+        enemy_sound.Stop();
+        enemy_sound.clip = ability;
+        enemy_sound.Play();
         Transform ET= Enemy_RB.gameObject.GetComponent<Transform>();
  for (int i = 0; i < 35; i++)
         {
@@ -149,6 +155,10 @@ public class Enemyscript : MonoBehaviour
     }
     IEnumerator SinkINToSand()
     {
+        AudioSource enemy_sound = Enemy_RB.gameObject.GetComponent<AudioSource>();
+        enemy_sound.Stop();
+        enemy_sound.clip = ability;
+        enemy_sound.Play();
         Enemy_RB.simulated = false;
         enemyType = 6;
         ISdiigingUp = 5;
@@ -529,6 +539,12 @@ public class Enemyscript : MonoBehaviour
 
             if (distanceX <= 1.1f)
             {
+                AudioSource enemy_sound = Enemy_RB.gameObject.GetComponent<AudioSource>();
+                enemy_sound.Stop();
+                enemy_sound.clip = ability;
+                enemy_sound.Play();
+                awakened = true;
+
                 Enemy_RB.simulated = true;
                 canfall = 0;
                 StartCoroutine(waitfall());
