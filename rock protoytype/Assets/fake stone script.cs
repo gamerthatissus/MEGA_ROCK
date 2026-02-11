@@ -16,8 +16,8 @@ public class fakestonescript : MonoBehaviour
         HIDEN_until_in_area.enabled = false;
         HIDEN_until_in_area2.enabled = false;
         HIDEN_until_in_area3.enabled = false;
-        HIDEN_until_in_area4.enabled = false;
-
+        HIDEN_until_in_area4.enabled = true;
+        HIDEN_until_in_area4.intensity = 0.02f;
 
     }
 
@@ -29,6 +29,7 @@ public class fakestonescript : MonoBehaviour
             HIDEN_until_in_area2.enabled = true;
             HIDEN_until_in_area3.enabled = true;
             HIDEN_until_in_area4.enabled = true;
+            HIDEN_until_in_area4.intensity = 0.7f;
 
 
 
