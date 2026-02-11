@@ -21764,6 +21764,7 @@ MonoBehaviour:
   HIDEN_until_in_area: {fileID: 1036380456}
   HIDEN_until_in_area2: {fileID: 1085043820}
   HIDEN_until_in_area3: {fileID: 581829726}
+  HIDEN_until_in_area4: {fileID: 1483556407}
 --- !u!61 &726897588
 BoxCollider2D:
   m_ObjectHideFlags: 0
