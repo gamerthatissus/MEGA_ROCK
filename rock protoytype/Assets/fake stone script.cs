@@ -17,7 +17,7 @@ public class fakestonescript : MonoBehaviour
         HIDEN_until_in_area2.enabled = false;
         HIDEN_until_in_area3.enabled = false;
         HIDEN_until_in_area4.enabled = true;
-        HIDEN_until_in_area4.intensity = 0.02f;
+        HIDEN_until_in_area4.intensity = 0.03f;
 
     }
 
@@ -25,15 +25,57 @@ public class fakestonescript : MonoBehaviour
     {
         if (collision.CompareTag("player"))
         {
-            HIDEN_until_in_area.enabled = true;
-            HIDEN_until_in_area2.enabled = true;
-            HIDEN_until_in_area3.enabled = true;
+            if (HIDEN_until_in_area != null)
+            {
+                HIDEN_until_in_area.enabled = true;
+
+            }
+            if (HIDEN_until_in_area2 != null)
+            {
+                HIDEN_until_in_area2.enabled = true;
+
+            }
+            if (HIDEN_until_in_area3 != null)
+            {
+                HIDEN_until_in_area3.enabled = true;
+
+            }
             HIDEN_until_in_area4.enabled = true;
-            HIDEN_until_in_area4.intensity = 0.7f;
+            HIDEN_until_in_area4.intensity = 0.5f;
 
 
 
         }
     }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("player"))
+        {
+            if (HIDEN_until_in_area != null)
+            {
+                HIDEN_until_in_area.enabled = false;
+
+            }
+            if (HIDEN_until_in_area2 != null)
+            {
+                HIDEN_until_in_area2.enabled = false;
+
+            }
+            if (HIDEN_until_in_area3 != null)
+            {
+                HIDEN_until_in_area3.enabled = false;
+
+            }
+          
+            HIDEN_until_in_area4.enabled = false;
+            HIDEN_until_in_area4.intensity = 0.1f;
+
+
+
+        }
+    }
+  
+        
+    
 
 }
