@@ -17300,6 +17300,7 @@ MonoBehaviour:
   BLOCKsound: {fileID: 8300000, guid: 0b846bf152facca48a399732843e1b30, type: 3}
   eye1: {fileID: 1178511411}
   eye2: {fileID: 1554099803}
+  LAUNCH: {fileID: 8300000, guid: a03d5c4f9efe19d459e15294e3eda6ec, type: 3}
   tntSOUND: {fileID: 8300000, guid: 93b30729187b44445a6d2edca57b3d9e, type: 3}
   KABOOM: {fileID: 8300000, guid: 786aac119d35c394a83ba39442f38586, type: 3}
   tnt_OBJECT: {fileID: 2095188581}
@@ -18013,6 +18014,7 @@ MonoBehaviour:
   enter: {fileID: 8300000, guid: 2f154436a122d964d9f976256f42aedd, type: 3}
   attack: {fileID: 8300000, guid: bf81e20b06e90cb4990413b3f43e3692, type: 3}
   die: {fileID: 8300000, guid: 53f33817921216c43bd321e0af32ea4f, type: 3}
+  ability: {fileID: 0}
   enemy_boxE: 0
   move: {fileID: 746773863}
   slowed: 0
@@ -19519,6 +19521,7 @@ MonoBehaviour:
   enter: {fileID: 8300000, guid: 2f154436a122d964d9f976256f42aedd, type: 3}
   attack: {fileID: 8300000, guid: bf81e20b06e90cb4990413b3f43e3692, type: 3}
   die: {fileID: 8300000, guid: 53f33817921216c43bd321e0af32ea4f, type: 3}
+  ability: {fileID: 0}
   enemy_boxE: 0
   move: {fileID: 746773863}
   slowed: 0
@@ -22110,6 +22113,7 @@ MonoBehaviour:
   enter: {fileID: 8300000, guid: 2f154436a122d964d9f976256f42aedd, type: 3}
   attack: {fileID: 8300000, guid: bf81e20b06e90cb4990413b3f43e3692, type: 3}
   die: {fileID: 8300000, guid: 53f33817921216c43bd321e0af32ea4f, type: 3}
+  ability: {fileID: 0}
   enemy_boxE: 0
   move: {fileID: 746773863}
   slowed: 0
@@ -27611,6 +27615,7 @@ MonoBehaviour:
   enter: {fileID: 8300000, guid: 2f154436a122d964d9f976256f42aedd, type: 3}
   attack: {fileID: 8300000, guid: bf81e20b06e90cb4990413b3f43e3692, type: 3}
   die: {fileID: 8300000, guid: 53f33817921216c43bd321e0af32ea4f, type: 3}
+  ability: {fileID: 0}
   enemy_boxE: 0
   move: {fileID: 746773863}
   slowed: 0
@@ -29374,6 +29379,7 @@ MonoBehaviour:
   enter: {fileID: 8300000, guid: 2f154436a122d964d9f976256f42aedd, type: 3}
   attack: {fileID: 8300000, guid: bf81e20b06e90cb4990413b3f43e3692, type: 3}
   die: {fileID: 8300000, guid: 53f33817921216c43bd321e0af32ea4f, type: 3}
+  ability: {fileID: 0}
   enemy_boxE: 0
   move: {fileID: 746773863}
   slowed: 0

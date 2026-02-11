@@ -23,6 +23,7 @@ public class move22 : MonoBehaviour
     public UnityEngine.Transform eye1;
     public UnityEngine.Transform eye2;
 
+    public AudioClip LAUNCH;
     public AudioClip tntSOUND;
     public AudioClip KABOOM;
     public GameObject tnt_OBJECT;
@@ -758,11 +759,18 @@ public class move22 : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            // abcdefghi
             if (move1.text == "stone launch")
             {
 
                 if (stone >= 2)
                 {
+                    AudioSource audeo = outsidemove.GetComponent<AudioSource>();
+                    audeo.loop = false;
+                    audeo.Stop();
+                    audeo.clip = LAUNCH;
+                    audeo.Play();
+
                     canspend = true;
                     StartCoroutine(spendstone(2));
 
