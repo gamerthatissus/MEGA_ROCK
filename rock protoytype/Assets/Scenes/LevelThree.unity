@@ -17336,10 +17336,10 @@ MonoBehaviour:
   maincam: {fileID: 178359704}
   maxmas: 0.9
   minmas: 0.3
-  stone_MAX: 14
+  stone_MAX: 16
   launcher: {fileID: 599658322}
   amountoflanchers: 0
-  stone: 10
+  stone: 16
   blockMultiplier: 1
   mouseposstart: {x: 0, y: 0, z: 0}
   mousepos: {x: 0, y: 0, z: 0}
@@ -23034,7 +23034,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -20.602295, y: -264.50012}
+  m_AnchoredPosition: {x: -20.602234, y: -264.50012}
   m_SizeDelta: {x: -1720, y: -1021.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1264806515

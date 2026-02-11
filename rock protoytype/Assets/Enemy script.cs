@@ -261,7 +261,7 @@ public class Enemyscript : MonoBehaviour
                 }
                 else
                 {
-                    move.hp -= 30 * move.blockMultiplier;
+                    move.hp -= 20 * move.blockMultiplier;
 
                 }
                 if (Player_RB.position.x > Enemy_RB.position.x)
@@ -509,7 +509,7 @@ public class Enemyscript : MonoBehaviour
 
             float distance = Mathf.Sqrt((distanceX * distanceX) + (distanceY * distanceY));
 
-            if (distanceX <= 4 && ISdiigingUp==0)
+            if (distanceX <= 4 && distanceY<=6 && ISdiigingUp==0)
             {
                 ISdiigingUp = 1;
                 StartCoroutine(risefromsand());
