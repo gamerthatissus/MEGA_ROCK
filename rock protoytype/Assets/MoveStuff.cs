@@ -16,12 +16,19 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 public class move22 : MonoBehaviour
 {
     public AudioClip DIE_sound;
+    public AudioClip DIE_sound_lava;
+    public AudioClip DIE_sound_quicksand;
 
     public AudioClip ATTACKsound;
     public AudioClip BLOCKsound;
     
     public UnityEngine.Transform eye1;
     public UnityEngine.Transform eye2;
+
+    public AudioClip Roll_rock;
+    public AudioClip Roll_sand;
+    public AudioClip Roll_Grass;
+
 
     public AudioClip LAUNCH;
     public AudioClip tntSOUND;
@@ -742,11 +749,124 @@ public class move22 : MonoBehaviour
 
             if (Input.GetKey(KeyCode.D) && blockMultiplier==1)
             {
+                bool onFLoor = false;
+
+                Collider2D[] floordetect = Physics2D.OverlapCircleAll(new Vector2(outsidemove.position.x, outsidemove.position.y), 1.2f);
+
+                onFLoor = false;
+                foreach (Collider2D enemyObjectfggsrwws in floordetect)
+                {
+
+                    if (enemyObjectfggsrwws.gameObject.CompareTag("floor"))
+                    {
+                        onFLoor = true;
+
+                    }
+
+                }
+
+                AudioSource audeo = insidemove.GetComponent<AudioSource>();
+                audeo.loop = false;
+
+                if (audeo.isPlaying == true && onFLoor == false)
+                {
+                    audeo.Stop();
+                }
+
+                if (audeo.isPlaying != true && onFLoor == true)
+                {
+                    Scene current_sceane = SceneManager.GetActiveScene();
+                    switch (current_sceane.name)
+                    {
+                        case "game":
+                            audeo.clip = Roll_rock;
+
+                            break;
+
+                        case "LevelOne":
+                            audeo.clip = Roll_rock;
+                            break;
+
+                        case "LevelTwo":
+                            audeo.clip = Roll_sand;
+
+                            break;
+
+                        case "LevelThree":
+                            audeo.clip = Roll_Grass;
+                            break;
+
+                    }
+                    audeo.volume = 0.05f + Mathf.Abs((outsidemove.angularVelocity / 200f) + (outsidemove.velocity.magnitude / 100f));
+                   if (audeo.volume > 0.4f)
+                    {
+                        audeo.volume = 0.4f;
+                    }
+                    audeo.Play();
+                }
                 outsidemove.AddForce(Vector2.right * 10f * outsidemove.mass * Time.deltaTime, ForceMode2D.Force);
 
             }
             if (Input.GetKey(KeyCode.A) && blockMultiplier == 1)
             {
+
+                bool onFLoor = false;
+
+                Collider2D[] floordetect = Physics2D.OverlapCircleAll(new Vector2(outsidemove.position.x, outsidemove.position.y), 1.2f);
+
+                onFLoor = false;
+                foreach (Collider2D enemyObjecttttt in floordetect)
+                {
+
+                    if (enemyObjecttttt.gameObject.CompareTag("floor"))
+                    {
+                        onFLoor = true;
+
+                    }
+                   
+                }
+
+                AudioSource audeo = insidemove.GetComponent<AudioSource>();
+                audeo.loop = false;
+
+                if (audeo.isPlaying == true && onFLoor == false)
+                {
+                    audeo.Stop();
+                }
+
+                if (audeo.isPlaying != true && onFLoor==true)
+                {
+                    Scene current_sceane = SceneManager.GetActiveScene();
+                    switch (current_sceane.name)
+                    {
+                        case "game":
+                            audeo.clip = Roll_rock;
+
+                            break;
+
+                        case "LevelOne":
+                            audeo.clip = Roll_rock;
+                            break;
+
+                        case "LevelTwo":
+                            audeo.clip = Roll_sand;
+
+                            break;
+
+                        case "LevelThree":
+                            audeo.clip =Roll_Grass;
+                            break;
+
+                    }
+                    audeo.volume = 0.01f + Mathf.Abs((outsidemove.angularVelocity / 200f) + (outsidemove.velocity.magnitude / 100f));
+                    if (audeo.volume > 0.4f)
+                    {
+                        audeo.volume = 0.4f;
+                    }
+                    audeo.Play();
+                }
+               
+
                 outsidemove.AddForce(Vector2.right * -10f * outsidemove.mass * Time.deltaTime, ForceMode2D.Force);
 
             }
