@@ -9,15 +9,44 @@ public class fakestonescript : MonoBehaviour
     public SpriteRenderer HIDEN_until_in_area2;
     public SpriteRenderer HIDEN_until_in_area3;
     public Light2D HIDEN_until_in_area4;
+    public SpriteRenderer HIDEN_until_in_area5;
+    public ParticleSystem HIDEN_until_in_area6;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        HIDEN_until_in_area.enabled = false;
-        HIDEN_until_in_area2.enabled = false;
-        HIDEN_until_in_area3.enabled = false;
-        HIDEN_until_in_area4.enabled = true;
-        HIDEN_until_in_area4.intensity = 0.03f;
+        if (HIDEN_until_in_area != null)
+        {
+            HIDEN_until_in_area.enabled = false;
+
+        }
+        if (HIDEN_until_in_area2 != null)
+        {
+            HIDEN_until_in_area2.enabled = false;
+
+        }
+        if (HIDEN_until_in_area3 != null)
+        {
+            HIDEN_until_in_area3.enabled = false;
+
+        }
+        if (HIDEN_until_in_area4 != null)
+        {
+            HIDEN_until_in_area4.enabled = true;
+            HIDEN_until_in_area4.intensity = 0.05f;
+        }
+        if (HIDEN_until_in_area5 != null)
+        {
+            HIDEN_until_in_area5.enabled = false;
+
+        }
+        if (HIDEN_until_in_area6 != null)
+        {
+            HIDEN_until_in_area6.Stop(); 
+
+        }
+
 
     }
 
@@ -40,9 +69,21 @@ public class fakestonescript : MonoBehaviour
                 HIDEN_until_in_area3.enabled = true;
 
             }
-            HIDEN_until_in_area4.enabled = true;
-            HIDEN_until_in_area4.intensity = 0.5f;
+            if (HIDEN_until_in_area4 != null)
+            {
+                HIDEN_until_in_area4.enabled = true;
+                HIDEN_until_in_area4.intensity = 0.5f;
+            }
+            if (HIDEN_until_in_area5 != null)
+            {
+                HIDEN_until_in_area5.enabled = true;
 
+            }
+            if (HIDEN_until_in_area6 != null)
+            {
+                HIDEN_until_in_area6.Play();
+
+            }
 
 
         }
@@ -66,12 +107,23 @@ public class fakestonescript : MonoBehaviour
                 HIDEN_until_in_area3.enabled = false;
 
             }
-          
-            HIDEN_until_in_area4.enabled = false;
-            HIDEN_until_in_area4.intensity = 0.1f;
 
+            if (HIDEN_until_in_area4 != null)
+            {
+                HIDEN_until_in_area4.enabled = true;
+                HIDEN_until_in_area4.intensity = 0.05f;
+            }
 
+            if (HIDEN_until_in_area5 != null)
+            {
+                HIDEN_until_in_area5.enabled = false;
 
+            }
+            if (HIDEN_until_in_area6 != null)
+            {
+                HIDEN_until_in_area6.Stop();
+
+            }
         }
     }
   

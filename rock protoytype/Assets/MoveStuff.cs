@@ -15,6 +15,14 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class move22 : MonoBehaviour
 {
+    private enum Derection
+    {
+     Left,
+     Right
+    }
+
+    private Derection lastDerection;
+    public GameObject OG_earth_spike;
     public AudioClip DIE_sound;
     public AudioClip DIE_sound_lava;
     public AudioClip DIE_sound_quicksand;
@@ -270,7 +278,75 @@ public class move22 : MonoBehaviour
         SceneManager.LoadScene(scenceString.name);
 
     }
+    IEnumerator spikeattack()
+    {
+        GameObject spike1 = Instantiate(OG_earth_spike);
+        GameObject spike2 = Instantiate(OG_earth_spike);
+        GameObject spike3 = Instantiate(OG_earth_spike);
+        float oldPlayerx = outsidemove.position.x;
+        if (lastDerection == Derection.Left)
+        {
+            spike1.transform.position = new Vector2(outsidemove.position.x - 0.5f, outsidemove.position.y - 0.8f);
+            spike1.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
 
+            spike2.transform.position = new Vector2(outsidemove.position.x - 1.2f, outsidemove.position.y - 1f);
+            spike2.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
+
+            spike3.transform.position = new Vector2(outsidemove.position.x - 3.1f, outsidemove.position.y - 1.2f);
+            spike3.transform.localScale = new Vector3(1.6f, 1.6f, 1.6f);
+        }
+        else
+        {
+            spike1.transform.position = new Vector2(outsidemove.position.x + 0.5f, outsidemove.position.y - 0.8f);
+            spike1.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+
+            spike2.transform.position = new Vector2(outsidemove.position.x + 1.2f, outsidemove.position.y - 1f);
+            spike2.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
+
+            spike3.transform.position = new Vector2(outsidemove.position.x + 3.1f, outsidemove.position.y - 1.2f);
+            spike3.transform.localScale = new Vector3(1.6f, 1.6f, 1.6f);
+        }
+        float s1_pos = spike1.transform.position.y + 0.6f;
+        float s2_pos = spike1.transform.position.y + 1f;
+        float s3_pos = spike1.transform.position.y + 1.4f;
+        for (int i = 0; i < 12; i++)
+        {
+            if (spike1.transform.position.y < s1_pos)
+            {
+                spike1.transform.position = new Vector2(spike1.transform.position.x, spike1.transform.position.y + 0.2f);
+            }
+
+            if (spike2.transform.position.y < s2_pos)
+            {
+                spike2.transform.position = new Vector2(spike2.transform.position.x, spike2.transform.position.y + 0.2f);
+
+            }
+
+            if (spike3.transform.position.y < s3_pos)
+            {
+                spike3.transform.position = new Vector2(spike3.transform.position.x, spike3.transform.position.y + 0.2f);
+
+            }
+
+
+
+            yield return null;
+        }
+        yield return new WaitForSeconds(2f);
+        for (int i = 0; i < 60; i++)
+        {
+          
+                spike1.transform.position = new Vector2(spike1.transform.position.x, spike1.transform.position.y - 0.05f);
+                spike2.transform.position = new Vector2(spike2.transform.position.x, spike2.transform.position.y - 0.05f);
+                spike3.transform.position = new Vector2(spike3.transform.position.x, spike3.transform.position.y - 0.05f);
+
+            yield return null;
+        }
+        Destroy(spike1);
+        Destroy(spike2);
+        Destroy(spike3);
+
+    }
     IEnumerator PlaceTNT()
     {
         
@@ -744,11 +820,12 @@ public class move22 : MonoBehaviour
             }
         }
 
-        else if (choosenPath == "none")
+        else if (choosenPath == "none" || choosenPath== "rigid")
         {
 
             if (Input.GetKey(KeyCode.D) && blockMultiplier==1)
             {
+                lastDerection = Derection.Right;
                 bool onFLoor = false;
 
                 Collider2D[] floordetect = Physics2D.OverlapCircleAll(new Vector2(outsidemove.position.x, outsidemove.position.y), 1.2f);
@@ -804,12 +881,16 @@ public class move22 : MonoBehaviour
                     }
                     audeo.Play();
                 }
-                outsidemove.AddForce(Vector2.right * 10f * outsidemove.mass * Time.deltaTime, ForceMode2D.Force);
+                if (choosenPath == "none")
+                {
 
+
+                    outsidemove.AddForce(Vector2.right * 10f * outsidemove.mass * Time.deltaTime, ForceMode2D.Force);
+                }
             }
             if (Input.GetKey(KeyCode.A) && blockMultiplier == 1)
             {
-
+                lastDerection = Derection.Left;
                 bool onFLoor = false;
 
                 Collider2D[] floordetect = Physics2D.OverlapCircleAll(new Vector2(outsidemove.position.x, outsidemove.position.y), 1.2f);
@@ -865,9 +946,12 @@ public class move22 : MonoBehaviour
                     }
                     audeo.Play();
                 }
-               
 
-                outsidemove.AddForce(Vector2.right * -10f * outsidemove.mass * Time.deltaTime, ForceMode2D.Force);
+                if (choosenPath == "none")
+                {
+                    outsidemove.AddForce(Vector2.right * -10f * outsidemove.mass * Time.deltaTime, ForceMode2D.Force);
+
+                }
 
             }
 
@@ -947,6 +1031,22 @@ public class move22 : MonoBehaviour
 
                 }
             }
+
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2) && blockMultiplier == 1f && stone>=3 && move2.text=="earth surge")
+        {
+            //12345678987654321
+            if (canpunch == true)
+            {
+                stone -= 3;
+                canpunch = false;
+                StartCoroutine(waitCanPUNCH());
+
+                StartCoroutine(spikeattack());
+
+
+            }
+
 
         }
 
