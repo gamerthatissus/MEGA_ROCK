@@ -6,6 +6,7 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.U2D;
 using UnityEngine.UI;
@@ -118,7 +119,13 @@ public class move22 : MonoBehaviour
     private string choosenPath="none";
     private int start = 0;
 
-    private float timer = 0f;
+    private Vector2 aimDirection;
+
+    public void OnAim(InputAction.CallbackContext context) // bug where this doesnt get called at all by the controller input thingy so idk
+    {
+        aimDirection = context.ReadValue<Vector2>();
+        Debug.Log(aimDirection);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -1000,8 +1007,9 @@ public class move22 : MonoBehaviour
                     Vector3 gopoint = new Vector3(outsidemove.position.x, outsidemove.position.y, 1);
                     Vector2 go = new Vector2(gopoint.x, gopoint.y);
 
+                    //Vector2 mouseeee = aimDirection;
                     Vector2 mouseeee = new Vector2(mousepos.x, mousepos.y);
-
+                    // ^^^ swap these 2 lines for mouse or controller launch aiming since theres no controller detection yet
 
                     Vector2 facingDir = (mouseeee - go).normalized;
                     float angle = Mathf.Atan2(facingDir.y, facingDir.x) * Mathf.Rad2Deg - 90f;

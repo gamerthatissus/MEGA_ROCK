@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "name": "controllerInput",
+    "maps": [
+        {
+            "name": "Controller",
+            "id": "14a71e51-a79e-4e8e-8b5d-4834140329da",
+            "actions": [
+                {
+                    "name": "OnAim",
+                    "type": "Value",
+                    "id": "4fb67663-b774-4121-b3ae-d0166791c1b1",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "76bc6f95-8d75-4d33-a01b-1ad7750e919d",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OnAim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
