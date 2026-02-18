@@ -9740,7 +9740,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -20.602478, y: -264.50012}
+  m_AnchoredPosition: {x: -20.602417, y: -264.50012}
   m_SizeDelta: {x: -1720, y: -1021.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &319528528
@@ -32172,6 +32172,7 @@ GameObject:
   - component: {fileID: 1274541434}
   - component: {fileID: 1274541433}
   - component: {fileID: 1274541432}
+  - component: {fileID: 1274541435}
   m_Layer: 0
   m_Name: OG earth spike
   m_TagString: Untagged
@@ -32294,6 +32295,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1274541435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274541431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd8647818cc93244e8d293045cb57bed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collide: {fileID: 1274541432}
+  hits: 2
+  enemys:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1277868643
 GameObject:
   m_ObjectHideFlags: 0
@@ -43917,7 +43935,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98dee303a8f0f9b4d98ad676d0cfa689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OG_earth_spike: {fileID: 0}
+  OG_earth_spike: {fileID: 1274541431}
   DIE_sound: {fileID: 8300000, guid: 840f7ef2a5e60fb47a3ec407cda4b18f, type: 3}
   DIE_sound_lava: {fileID: 8300000, guid: cf75c28f0610fd24cbc91e7f8cc44f1f, type: 3}
   DIE_sound_quicksand: {fileID: 8300000, guid: 72ba7250bf698e6499b0815208ae8c7d, type: 3}

@@ -251,6 +251,9 @@ public class move22 : MonoBehaviour
             choosenPath = "rigid";
             mana1.text = "2 stone";
             move1.text = "stone launch";
+
+            mana2.text = "3 stone";
+            move2.text = "earth surge";
             phisics.friction = 1.5f;
         }
 
@@ -283,6 +286,8 @@ public class move22 : MonoBehaviour
         GameObject spike1 = Instantiate(OG_earth_spike);
         GameObject spike2 = Instantiate(OG_earth_spike);
         GameObject spike3 = Instantiate(OG_earth_spike);
+                GameObject spike4 = Instantiate(OG_earth_spike);
+
         float oldPlayerx = outsidemove.position.x;
         if (lastDerection == Derection.Left)
         {
@@ -290,26 +295,34 @@ public class move22 : MonoBehaviour
             spike1.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
 
             spike2.transform.position = new Vector2(outsidemove.position.x - 1.2f, outsidemove.position.y - 1f);
-            spike2.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
+            spike2.transform.localScale = new Vector3(1.3f, 1.3f, 1.3f);
 
-            spike3.transform.position = new Vector2(outsidemove.position.x - 3.1f, outsidemove.position.y - 1.2f);
-            spike3.transform.localScale = new Vector3(1.6f, 1.6f, 1.6f);
+            spike3.transform.position = new Vector2(outsidemove.position.x - 2.1f, outsidemove.position.y - 1.2f);
+            spike3.transform.localScale = new Vector3(1.7f, 1.7f, 1.7f);
+
+            spike4.transform.position = new Vector2(outsidemove.position.x - 3.8f, outsidemove.position.y - 1.2f);
+            spike4.transform.localScale = new Vector3(2.2f, 2.2f, 2.2f);
         }
         else
         {
-            spike1.transform.position = new Vector2(outsidemove.position.x + 0.5f, outsidemove.position.y - 0.8f);
-            spike1.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+            spike1.transform.position = new Vector2(outsidemove.position.x + 0.8f, outsidemove.position.y - 0.8f);
+            spike1.transform.localScale = new Vector3(0.9f, 0.9f, 0.9f);
 
-            spike2.transform.position = new Vector2(outsidemove.position.x + 1.2f, outsidemove.position.y - 1f);
-            spike2.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
+            spike2.transform.position = new Vector2(outsidemove.position.x + 1.7f, outsidemove.position.y - 1f);
+            spike2.transform.localScale = new Vector3(1.3f, 1.3f, 1.3f);
 
-            spike3.transform.position = new Vector2(outsidemove.position.x + 3.1f, outsidemove.position.y - 1.2f);
-            spike3.transform.localScale = new Vector3(1.6f, 1.6f, 1.6f);
+            spike3.transform.position = new Vector2(outsidemove.position.x + 2.8f, outsidemove.position.y - 1.2f);
+            spike3.transform.localScale = new Vector3(1.7f, 1.7f, 1.7f);
+
+            spike4.transform.position = new Vector2(outsidemove.position.x + 3.8f, outsidemove.position.y - 1.2f);
+            spike4.transform.localScale = new Vector3(2.2f, 2.2f, 2.2f);
         }
         float s1_pos = spike1.transform.position.y + 0.6f;
-        float s2_pos = spike1.transform.position.y + 1f;
-        float s3_pos = spike1.transform.position.y + 1.4f;
-        for (int i = 0; i < 12; i++)
+        float s2_pos = spike1.transform.position.y + 0.8f;
+        float s3_pos = spike1.transform.position.y + 1.2f;
+        float s4_pos = spike1.transform.position.y + 1.4f;
+
+        for (int i = 0; i < 15; i++)
         {
             if (spike1.transform.position.y < s1_pos)
             {
@@ -328,6 +341,12 @@ public class move22 : MonoBehaviour
 
             }
 
+            if (spike4.transform.position.y < s4_pos)
+            {
+                spike4.transform.position = new Vector2(spike4.transform.position.x, spike4.transform.position.y + 0.2f);
+
+            }
+
 
 
             yield return null;
@@ -340,9 +359,14 @@ public class move22 : MonoBehaviour
                 spike2.transform.position = new Vector2(spike2.transform.position.x, spike2.transform.position.y - 0.05f);
                 spike3.transform.position = new Vector2(spike3.transform.position.x, spike3.transform.position.y - 0.05f);
 
+                spike4.transform.position = new Vector2(spike4.transform.position.x, spike4.transform.position.y - 0.05f);
+
+            
             yield return null;
         }
         Destroy(spike1);
+        Destroy(spike4);
+
         Destroy(spike2);
         Destroy(spike3);
 
