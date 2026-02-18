@@ -6,6 +6,7 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.U2D;
@@ -119,12 +120,42 @@ public class move22 : MonoBehaviour
     private string choosenPath="none";
     private int start = 0;
 
+    private float moveDirection;
     private Vector2 aimDirection;
+    private bool launched;
+    private bool attacked;
+    private bool blocking;
 
-    public void OnAim(InputAction.CallbackContext context) // bug where this doesnt get called at all by the controller input thingy so idk
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        moveDirection = math.sign(context.ReadValue<Vector2>().x);
+        //Debug.Log(moveDirection);
+    }
+
+    public void OnAim(InputAction.CallbackContext context)
     {
         aimDirection = context.ReadValue<Vector2>();
-        Debug.Log(aimDirection);
+        //Debug.Log(aimDirection);
+    }
+
+    public void LaunchTrigger(InputAction.CallbackContext context)
+    {
+        if (context.ReadValueAsButton())
+            launched = true;
+        //Debug.Log(launched);
+    }
+
+    public void AttackPressed(InputAction.CallbackContext context)
+    {
+        if (context.ReadValueAsButton())
+            attacked = true;
+        //Debug.Log(attacked);
+    }
+
+    public void BlockHeld(InputAction.CallbackContext context)
+    {
+        blocking = context.ReadValueAsButton();
+        Debug.Log(blocking);
     }
 
     // Start is called before the first frame update
@@ -830,7 +861,7 @@ public class move22 : MonoBehaviour
 
         if (choosenPath == "smooth")
         {
-            if (Input.GetKey(KeyCode.D) && blockMultiplier == 1)
+            if ((Input.GetKey(KeyCode.D) || moveDirection == 1f) && blockMultiplier == 1)
             {
                 if (Mathf.Abs(outsidemove.velocity.magnitude) <= 15)
                 {
@@ -840,7 +871,7 @@ public class move22 : MonoBehaviour
 
             }
 
-            if (Input.GetKey(KeyCode.A) && blockMultiplier == 1)
+            if ((Input.GetKey(KeyCode.A) || moveDirection == -1f) && blockMultiplier == 1)
             {
                 if (Mathf.Abs(outsidemove.velocity.magnitude) <= 15)
                 {
@@ -854,7 +885,7 @@ public class move22 : MonoBehaviour
         else if (choosenPath == "none" || choosenPath== "rigid")
         {
 
-            if (Input.GetKey(KeyCode.D) && blockMultiplier==1)
+            if ((Input.GetKey(KeyCode.D) || moveDirection == 1f) && blockMultiplier==1)
             {
                 lastDerection = Derection.Right;
                 bool onFLoor = false;
@@ -919,7 +950,7 @@ public class move22 : MonoBehaviour
                     outsidemove.AddForce(Vector2.right * 10f * outsidemove.mass * Time.deltaTime, ForceMode2D.Force);
                 }
             }
-            if (Input.GetKey(KeyCode.A) && blockMultiplier == 1)
+            if ((Input.GetKey(KeyCode.A) || moveDirection == -1f) && blockMultiplier == 1)
             {
                 lastDerection = Derection.Left;
                 bool onFLoor = false;
@@ -992,12 +1023,14 @@ public class move22 : MonoBehaviour
 
 
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || launched)
         {
+            launched = false;
+
             // abcdefghi
             if (move1.text == "stone launch")
             {
-
+                
                 if (stone >= 2)
                 {
                     AudioSource audeo = outsidemove.GetComponent<AudioSource>();
@@ -1031,9 +1064,11 @@ public class move22 : MonoBehaviour
                     Vector3 gopoint = new Vector3(outsidemove.position.x, outsidemove.position.y, 1);
                     Vector2 go = new Vector2(gopoint.x, gopoint.y);
 
-                    //Vector2 mouseeee = aimDirection;
-                    Vector2 mouseeee = new Vector2(mousepos.x, mousepos.y);
-                    // ^^^ swap these 2 lines for mouse or controller launch aiming since theres no controller detection yet
+                    Vector2 mouseeee;
+                    if (aimDirection == Vector2.zero)
+                        mouseeee = new Vector2(mousepos.x, mousepos.y);
+                    else
+                        mouseeee = aimDirection + go;
 
                     Vector2 facingDir = (mouseeee - go).normalized;
                     float angle = Mathf.Atan2(facingDir.y, facingDir.x) * Mathf.Rad2Deg - 90f;
@@ -1101,8 +1136,10 @@ public class move22 : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.Alpha4) && blockMultiplier==1f)
+        if ((Input.GetKeyDown(KeyCode.Alpha4) || attacked) && blockMultiplier==1f)
         {
+            attacked = false;
+
             if (canpunch == true)
             {
 
@@ -1149,7 +1186,7 @@ public class move22 : MonoBehaviour
 
            
         }
-        if (Input.GetKey(KeyCode.F)) // block ability
+        if (Input.GetKey(KeyCode.F) || blocking) // block ability
         {
             if (blockMultiplier == 1)
             {
@@ -1344,7 +1381,7 @@ public class move22 : MonoBehaviour
             eye2.position = eyeoneCOlider2.position;
         }
 
-        if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A)) && blockMultiplier == 1f) // can only move if not blocking
+        if (((Input.GetKey(KeyCode.D) || moveDirection == 1f) || (Input.GetKey(KeyCode.A) || moveDirection == -1f)) && blockMultiplier == 1f) // can only move if not blocking
         {
           
             if (speed < 2f)
@@ -1369,7 +1406,7 @@ public class move22 : MonoBehaviour
 
                 case "rigid":
 
-                    if (Input.GetKey(KeyCode.D))
+                    if ((Input.GetKey(KeyCode.D) || moveDirection == 1f))
                     {
                         if (Mathf.Abs(outsidemove.angularVelocity) <= 2000f)
                         {
@@ -1392,7 +1429,7 @@ public class move22 : MonoBehaviour
                     break;
 
                 case "none":
-                    if (Input.GetKey(KeyCode.D))
+                    if ((Input.GetKey(KeyCode.D) || moveDirection == 1f))
                     {
                         if (Mathf.Abs(outsidemove.angularVelocity) <= 1800f)
                         {
@@ -1418,7 +1455,7 @@ public class move22 : MonoBehaviour
 
 
                 case "smooth":
-                    if (Input.GetKey(KeyCode.D))
+                    if ((Input.GetKey(KeyCode.D) || moveDirection == 1f))
                     {
                         if (Mathf.Abs(outsidemove.angularVelocity) <= 1500f)
                         {
@@ -1438,13 +1475,13 @@ public class move22 : MonoBehaviour
                     }
                     break;
             }
-           
+
 
             //if (insidemove.mass < maxmas)
             //{
             //    if (insidemove.mass == minmas)
             //    {
-            //        if (Input.GetKey(KeyCode.D))
+            //        if ((Input.GetKey(KeyCode.D) || moveDirection == 1f))
             //        {
             //            outsidemove.AddTorque(-70);
 

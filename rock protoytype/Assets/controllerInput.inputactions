@@ -7,6 +7,15 @@
             "id": "14a71e51-a79e-4e8e-8b5d-4834140329da",
             "actions": [
                 {
+                    "name": "OnMove",
+                    "type": "Value",
+                    "id": "cda93500-28e5-4b12-8b54-8413a6680e2c",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "OnAim",
                     "type": "Value",
                     "id": "4fb67663-b774-4121-b3ae-d0166791c1b1",
@@ -14,6 +23,33 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "LaunchTrigger",
+                    "type": "Button",
+                    "id": "73d2c5cc-796c-4a91-85d4-717f3de2c01d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "AttackPressed",
+                    "type": "Button",
+                    "id": "7bdd47d9-ad68-4a9e-9d4a-adf388c75bd7",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "BlockHeld",
+                    "type": "Button",
+                    "id": "592aa1e7-c3a4-460c-9605-09760bd7ae70",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -25,6 +61,50 @@
                     "processors": "",
                     "groups": "",
                     "action": "OnAim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "804eb133-bb6d-458b-959b-c70d94eeb2be",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LaunchTrigger",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "36045272-d0da-4b8f-8b01-ee0f20dc5bbd",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OnMove",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f92ece0b-e292-4778-9649-822750bdbf88",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AttackPressed",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "78e2a45b-8d32-4551-8195-110688492840",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BlockHeld",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
