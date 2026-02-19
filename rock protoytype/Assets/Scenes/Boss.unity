@@ -5583,6 +5583,7 @@ GameObject:
   - component: {fileID: 1755495508}
   - component: {fileID: 1755495505}
   - component: {fileID: 1755495507}
+  - component: {fileID: 1755495511}
   m_Layer: 9
   m_Name: move
   m_TagString: Untagged
@@ -5602,7 +5603,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98dee303a8f0f9b4d98ad676d0cfa689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OG_earth_spike: {fileID: 0}
   DIE_sound: {fileID: 0}
+  DIE_sound_lava: {fileID: 0}
+  DIE_sound_quicksand: {fileID: 0}
+  ATTACKsound: {fileID: 0}
+  BLOCKsound: {fileID: 0}
+  eye1: {fileID: 0}
+  eye2: {fileID: 0}
+  Roll_rock: {fileID: 0}
+  Roll_sand: {fileID: 0}
+  Roll_Grass: {fileID: 0}
+  LAUNCH: {fileID: 0}
   tntSOUND: {fileID: 8300000, guid: 93b30729187b44445a6d2edca57b3d9e, type: 3}
   KABOOM: {fileID: 8300000, guid: 786aac119d35c394a83ba39442f38586, type: 3}
   tnt_OBJECT: {fileID: 661399744}
@@ -5772,6 +5784,164 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1755495511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1755495504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: d8df41fca6590f64d8d9a65a2f4043aa, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1755495505}
+        m_TargetAssemblyTypeName: move22, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: cda93500-28e5-4b12-8b54-8413a6680e2c
+    m_ActionName: Controller/OnMove[/XInputControllerWindows/leftStick]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1755495505}
+        m_TargetAssemblyTypeName: move22, Assembly-CSharp
+        m_MethodName: OnAim
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4fb67663-b774-4121-b3ae-d0166791c1b1
+    m_ActionName: Controller/OnAim[/XInputControllerWindows/rightStick]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1755495505}
+        m_TargetAssemblyTypeName: move22, Assembly-CSharp
+        m_MethodName: LaunchTrigger
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 73d2c5cc-796c-4a91-85d4-717f3de2c01d
+    m_ActionName: Controller/LaunchTrigger[/XInputControllerWindows/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1755495505}
+        m_TargetAssemblyTypeName: move22, Assembly-CSharp
+        m_MethodName: AttackPressed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7bdd47d9-ad68-4a9e-9d4a-adf388c75bd7
+    m_ActionName: Controller/AttackPressed[/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1755495505}
+        m_TargetAssemblyTypeName: move22, Assembly-CSharp
+        m_MethodName: BlockHeld
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 592aa1e7-c3a4-460c-9605-09760bd7ae70
+    m_ActionName: Controller/BlockHeld[/XInputControllerWindows/leftTrigger]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1755495505}
+        m_TargetAssemblyTypeName: move22, Assembly-CSharp
+        m_MethodName: EarthSurged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f8ca59bb-efcc-4636-af10-409b1d6b80ec
+    m_ActionName: Controller/EarthSurged[/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1755495505}
+        m_TargetAssemblyTypeName: move22, Assembly-CSharp
+        m_MethodName: TntPlaced
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: fdb85699-3c61-47ea-a673-817391b11699
+    m_ActionName: Controller/TntPlaced[/XInputControllerWindows/buttonWest]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1755495505}
+        m_TargetAssemblyTypeName: move22, Assembly-CSharp
+        m_MethodName: Restarted
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0e3823cb-44aa-447b-ac62-39876d633f0e
+    m_ActionName: Controller/Restarted[/XInputControllerWindows/buttonNorth]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: 
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1814195602
 GameObject:
   m_ObjectHideFlags: 0

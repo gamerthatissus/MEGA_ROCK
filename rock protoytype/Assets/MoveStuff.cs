@@ -125,37 +125,53 @@ public class move22 : MonoBehaviour
     private bool launched;
     private bool attacked;
     private bool blocking;
+    private bool surged;
+    private bool placed;
+    private bool restarted;
 
     public void OnMove(InputAction.CallbackContext context)
     {
         moveDirection = math.sign(context.ReadValue<Vector2>().x);
-        //Debug.Log(moveDirection);
     }
 
     public void OnAim(InputAction.CallbackContext context)
     {
         aimDirection = context.ReadValue<Vector2>();
-        //Debug.Log(aimDirection);
     }
 
     public void LaunchTrigger(InputAction.CallbackContext context)
     {
         if (context.ReadValueAsButton())
             launched = true;
-        //Debug.Log(launched);
     }
 
     public void AttackPressed(InputAction.CallbackContext context)
     {
         if (context.ReadValueAsButton())
             attacked = true;
-        //Debug.Log(attacked);
     }
 
     public void BlockHeld(InputAction.CallbackContext context)
     {
         blocking = context.ReadValueAsButton();
-        Debug.Log(blocking);
+    }
+
+    public void EarthSurged(InputAction.CallbackContext context)
+    {
+        if (context.ReadValueAsButton())
+            surged = true;
+    }
+
+    public void TntPlaced(InputAction.CallbackContext context)
+    {
+        if (context.ReadValueAsButton())
+            placed = true;
+    }
+
+    public void Restarted(InputAction.CallbackContext context)
+    {
+        if (context.ReadValueAsButton())
+            restarted = true;
     }
 
     // Start is called before the first frame update
@@ -459,8 +475,10 @@ public class move22 : MonoBehaviour
     {
         TNT_GUI.text = "Amount of TnT: " + TnT;
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) || restarted)
         {
+            restarted = false;
+
             Scene scenceString = SceneManager.GetActiveScene();
             SceneManager.LoadScene(scenceString.name);
 
@@ -473,11 +491,11 @@ public class move22 : MonoBehaviour
             outsidemove.simulated = false;
             StartCoroutine(rocky_DIE());
         }
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Scene scenceString = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(scenceString.name);
-        }
+        //if (Input.GetKeyDown(KeyCode.R))
+        //{
+        //    Scene scenceString = SceneManager.GetActiveScene();
+        //    SceneManager.LoadScene(scenceString.name);
+        //}
         hpbar.value = hp;
         if (start == 1)
         {
@@ -1100,8 +1118,10 @@ public class move22 : MonoBehaviour
             }
 
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2) && blockMultiplier == 1f && stone>=3 && move2.text=="earth surge")
+        if ((Input.GetKeyDown(KeyCode.Alpha2) || surged) && blockMultiplier == 1f && stone>=3 && move2.text=="earth surge")
         {
+            surged = false;
+
             //12345678987654321
             if (canpunch == true)
             {
@@ -1117,8 +1137,10 @@ public class move22 : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        if (Input.GetKeyDown(KeyCode.Alpha3) || placed)
         {
+            placed = false;
+
             if (canpunch == true)
             {
                 if (move3.text == "Place TNT" && TnT >= 1)
@@ -1381,7 +1403,7 @@ public class move22 : MonoBehaviour
             eye2.position = eyeoneCOlider2.position;
         }
 
-        if (((Input.GetKey(KeyCode.D) || moveDirection == 1f) || (Input.GetKey(KeyCode.A) || moveDirection == -1f)) && blockMultiplier == 1f) // can only move if not blocking
+        if ((Input.GetKey(KeyCode.D) || moveDirection == 1f || Input.GetKey(KeyCode.A) || moveDirection == -1f) && blockMultiplier == 1f) // can only move if not blocking
         {
           
             if (speed < 2f)
@@ -1406,7 +1428,7 @@ public class move22 : MonoBehaviour
 
                 case "rigid":
 
-                    if ((Input.GetKey(KeyCode.D) || moveDirection == 1f))
+                    if (Input.GetKey(KeyCode.D) || moveDirection == 1f)
                     {
                         if (Mathf.Abs(outsidemove.angularVelocity) <= 2000f)
                         {
@@ -1429,7 +1451,7 @@ public class move22 : MonoBehaviour
                     break;
 
                 case "none":
-                    if ((Input.GetKey(KeyCode.D) || moveDirection == 1f))
+                    if (Input.GetKey(KeyCode.D) || moveDirection == 1f)
                     {
                         if (Mathf.Abs(outsidemove.angularVelocity) <= 1800f)
                         {
@@ -1455,7 +1477,7 @@ public class move22 : MonoBehaviour
 
 
                 case "smooth":
-                    if ((Input.GetKey(KeyCode.D) || moveDirection == 1f))
+                    if (Input.GetKey(KeyCode.D) || moveDirection == 1f)
                     {
                         if (Mathf.Abs(outsidemove.angularVelocity) <= 1500f)
                         {
@@ -1481,7 +1503,7 @@ public class move22 : MonoBehaviour
             //{
             //    if (insidemove.mass == minmas)
             //    {
-            //        if ((Input.GetKey(KeyCode.D) || moveDirection == 1f))
+            //        if (Input.GetKey(KeyCode.D) || moveDirection == 1f)
             //        {
             //            outsidemove.AddTorque(-70);
 
