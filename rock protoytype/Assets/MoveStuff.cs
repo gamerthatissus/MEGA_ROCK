@@ -125,7 +125,7 @@ public class move22 : MonoBehaviour
     private int start = 0;
 
     private float moveDirection;
-    private Vector2 aimDirection;
+    public Vector2 aimDirection;
     private bool launched;
     private bool attacked;
     private bool blocking;

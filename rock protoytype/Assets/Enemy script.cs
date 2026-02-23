@@ -305,16 +305,16 @@ public class Enemyscript : MonoBehaviour
         if (animatttte2 != null)
         {
             animatttte2.transform.position = Enemy_RB.position;
-        }
 
-        if (Player_RB.position.x > Enemy_RB.position.x)
-        {
-            animatttte2.transform.localScale = new Vector3(-0.3f, 0.3f, 0.3f);
-        }
-        else
-        {
-            animatttte2.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+            if (Player_RB.position.x > Enemy_RB.position.x)
+            {
+                animatttte2.transform.localScale = new Vector3(-0.3f, 0.3f, 0.3f);
+            }
+            else
+            {
+                animatttte2.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
 
+            }
         }
     }
     void FixedUpdate()
