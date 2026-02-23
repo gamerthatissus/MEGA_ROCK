@@ -15020,7 +15020,7 @@ GameObject:
   - component: {fileID: 351730741}
   - component: {fileID: 351730745}
   - component: {fileID: 351730746}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: staligtite (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15072,6 +15072,7 @@ MonoBehaviour:
   mousepos: {x: 0, y: 0, z: 0}
   stalag_sprite: {fileID: 351730743}
   player: {fileID: 1161303639}
+  move: {fileID: 1694147097}
 --- !u!212 &351730743
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -22652,8 +22653,8 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   m_LocalAABB:
-    m_Center: {x: -3.9599142, y: -1.3406036, z: 0}
-    m_Extent: {x: 0.7334453, y: 0.57758737, z: 0}
+    m_Center: {x: -3.9599636, y: -1.3406044, z: 0}
+    m_Extent: {x: 0.7333958, y: 0.57758915, z: 0}
   m_SpriteSortPoint: 0
 --- !u!4 &723965637
 Transform:
@@ -33614,7 +33615,7 @@ GameObject:
   - component: {fileID: 1344675921}
   - component: {fileID: 1344675925}
   - component: {fileID: 1344675926}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: staligtite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33666,6 +33667,7 @@ MonoBehaviour:
   mousepos: {x: 0, y: 0, z: 0}
   stalag_sprite: {fileID: 1344675923}
   player: {fileID: 1161303639}
+  move: {fileID: 1694147097}
 --- !u!212 &1344675923
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -36320,7 +36322,7 @@ GameObject:
   - component: {fileID: 1512232150}
   - component: {fileID: 1512232149}
   - component: {fileID: 1512232154}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: staligtite (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36420,6 +36422,7 @@ MonoBehaviour:
   mousepos: {x: 0, y: 0, z: 0}
   stalag_sprite: {fileID: 1512232152}
   player: {fileID: 1161303639}
+  move: {fileID: 1694147097}
 --- !u!212 &1512232152
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -36460,7 +36463,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   m_Color: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 1}
   m_FlipX: 0
@@ -37648,7 +37651,7 @@ GameObject:
   - component: {fileID: 1580226581}
   - component: {fileID: 1580226580}
   - component: {fileID: 1580226585}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: staligtite (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37748,6 +37751,7 @@ MonoBehaviour:
   mousepos: {x: 0, y: 0, z: 0}
   stalag_sprite: {fileID: 1580226583}
   player: {fileID: 1161303639}
+  move: {fileID: 1694147097}
 --- !u!212 &1580226583
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -44391,6 +44395,7 @@ MonoBehaviour:
   blockMultiplier: 1
   mouseposstart: {x: 0, y: 0, z: 0}
   mousepos: {x: 0, y: 0, z: 0}
+  aimDirection: {x: 0, y: 0}
 --- !u!114 &1694147103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50911,7 +50916,7 @@ GameObject:
   - component: {fileID: 1829156022}
   - component: {fileID: 1829156026}
   - component: {fileID: 1829156027}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: staligtite (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50963,6 +50968,7 @@ MonoBehaviour:
   mousepos: {x: 0, y: 0, z: 0}
   stalag_sprite: {fileID: 1829156024}
   player: {fileID: 1161303639}
+  move: {fileID: 1694147097}
 --- !u!212 &1829156024
 SpriteRenderer:
   m_ObjectHideFlags: 0
