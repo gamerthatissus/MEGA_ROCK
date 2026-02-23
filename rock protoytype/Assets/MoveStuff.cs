@@ -28,6 +28,8 @@ public class move22 : MonoBehaviour
     public AudioClip DIE_sound;
     public AudioClip DIE_sound_lava;
     public AudioClip DIE_sound_quicksand;
+    public AudioClip spike_enter;
+    public AudioClip spike_leave;
 
     public AudioClip ATTACKsound;
     public AudioClip BLOCKsound;
@@ -55,6 +57,8 @@ public class move22 : MonoBehaviour
     public Button path_smooth;
     public Button path_choose;
     public LayerMask PLAYER_layermask;
+    public LayerMask floor;
+
     public LayerMask distructable_Layermask;
 
     public bool canspend = true;
@@ -303,7 +307,7 @@ public class move22 : MonoBehaviour
             path_rigid.gameObject.SetActive(false);
             path_smooth.gameObject.SetActive(false);
             choosenPath = "rigid";
-            mana1.text = "2 stone";
+            mana1.text = "1 stone";
             move1.text = "stone launch";
 
             mana2.text = "3 stone";
@@ -335,8 +339,30 @@ public class move22 : MonoBehaviour
         SceneManager.LoadScene(scenceString.name);
 
     }
+
+    IEnumerator stoneSINK(Rigidbody2D RIG2d)
+    {
+
+       
+        yield return new WaitForSeconds(3f);
+       for (int i = 1; i < 500; i++)
+        {
+            yield return null;
+            RIG2d.position = new Vector2(RIG2d.position.x, RIG2d.position.y - 0.01f);
+            yield return null;
+
+        }
+
+
+    }
     IEnumerator spikeattack()
     {
+        AudioSource rocky_sound=outsidemove.GetComponent<AudioSource>();
+        rocky_sound.Stop();
+        rocky_sound.loop = false;
+        rocky_sound.clip = spike_enter;
+        rocky_sound.Play();
+
         GameObject spike1 = Instantiate(OG_earth_spike);
         GameObject spike2 = Instantiate(OG_earth_spike);
         GameObject spike3 = Instantiate(OG_earth_spike);
@@ -360,7 +386,7 @@ public class move22 : MonoBehaviour
         else
         {
             spike1.transform.position = new Vector2(outsidemove.position.x + 0.8f, outsidemove.position.y - 0.8f);
-            spike1.transform.localScale = new Vector3(0.9f, 0.9f, 0.9f);
+            spike1.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
 
             spike2.transform.position = new Vector2(outsidemove.position.x + 1.7f, outsidemove.position.y - 1f);
             spike2.transform.localScale = new Vector3(1.3f, 1.3f, 1.3f);
@@ -373,31 +399,31 @@ public class move22 : MonoBehaviour
         }
         float s1_pos = spike1.transform.position.y + 0.6f;
         float s2_pos = spike1.transform.position.y + 0.8f;
-        float s3_pos = spike1.transform.position.y + 1.2f;
-        float s4_pos = spike1.transform.position.y + 1.4f;
+        float s3_pos = spike1.transform.position.y + 1f;
+        float s4_pos = spike1.transform.position.y + 1.2f;
 
-        for (int i = 0; i < 15; i++)
+        for (int i = 0; i < 60; i++)
         {
             if (spike1.transform.position.y < s1_pos)
             {
-                spike1.transform.position = new Vector2(spike1.transform.position.x, spike1.transform.position.y + 0.2f);
+                spike1.transform.position = new Vector2(spike1.transform.position.x, spike1.transform.position.y + 0.05f);
             }
 
             if (spike2.transform.position.y < s2_pos)
             {
-                spike2.transform.position = new Vector2(spike2.transform.position.x, spike2.transform.position.y + 0.2f);
+                spike2.transform.position = new Vector2(spike2.transform.position.x, spike2.transform.position.y + 0.05f);
 
             }
 
             if (spike3.transform.position.y < s3_pos)
             {
-                spike3.transform.position = new Vector2(spike3.transform.position.x, spike3.transform.position.y + 0.2f);
+                spike3.transform.position = new Vector2(spike3.transform.position.x, spike3.transform.position.y + 0.05f);
 
             }
 
             if (spike4.transform.position.y < s4_pos)
             {
-                spike4.transform.position = new Vector2(spike4.transform.position.x, spike4.transform.position.y + 0.2f);
+                spike4.transform.position = new Vector2(spike4.transform.position.x, spike4.transform.position.y + 0.05f);
 
             }
 
@@ -406,6 +432,10 @@ public class move22 : MonoBehaviour
             yield return null;
         }
         yield return new WaitForSeconds(2f);
+        rocky_sound.Stop();
+        rocky_sound.loop = false;
+        rocky_sound.clip = spike_leave;
+        rocky_sound.Play();
         for (int i = 0; i < 60; i++)
         {
           
@@ -1049,7 +1079,7 @@ public class move22 : MonoBehaviour
             if (move1.text == "stone launch")
             {
                 
-                if (stone >= 2)
+                if (stone >= 1)
                 {
                     AudioSource audeo = outsidemove.GetComponent<AudioSource>();
                     audeo.loop = false;
@@ -1058,9 +1088,10 @@ public class move22 : MonoBehaviour
                     audeo.Play();
 
                     canspend = true;
-                    StartCoroutine(spendstone(2));
+                    StartCoroutine(spendstone(1));
 
                     Object block = Instantiate(launcher);
+                    Destroy(block, 6f);
 
                     Object thingy = GameObject.Find("pow6");
                     if (thingy != null)
@@ -1077,6 +1108,7 @@ public class move22 : MonoBehaviour
                     }
                     UnityEngine.Transform blockT = block.GetComponent<UnityEngine.Transform>();
                     Rigidbody2D rigggg = block.GetComponent<Rigidbody2D>();
+                    StartCoroutine(stoneSINK(rigggg));
 
                     rigggg.simulated = true;
                     Vector3 gopoint = new Vector3(outsidemove.position.x, outsidemove.position.y, 1);
@@ -1125,11 +1157,25 @@ public class move22 : MonoBehaviour
             //12345678987654321
             if (canpunch == true)
             {
-                stone -= 3;
-                canpunch = false;
                 StartCoroutine(waitCanPUNCH());
 
-                StartCoroutine(spikeattack());
+                 canpunch = false;
+                bool on_floor = false;
+                Collider2D[] floorparts = Physics2D.OverlapCircleAll(outsidemove.position, 1f, floor);
+                foreach (Collider2D floooor in floorparts)
+                {
+                    on_floor = true;
+
+                }
+
+                if (on_floor == true)
+                {
+                    StartCoroutine(spikeattack());
+
+                    stone -= 3;
+
+                }
+
 
 
             }
@@ -1310,7 +1356,7 @@ public class move22 : MonoBehaviour
         path_rigid.gameObject.SetActive(false);
         path_smooth.gameObject.SetActive(false);
         choosenPath = "rigid";
-        mana1.text = "2 stone";
+        mana1.text = "1 stone";
         move1.text = "stone launch";
         phisics.friction = 1.5f;
     }

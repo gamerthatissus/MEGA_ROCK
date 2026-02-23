@@ -14,8 +14,10 @@ public class Enemyscript : MonoBehaviour
 {
     //enemy types:   1=fall  2=normal 3=burried    4=smasher
     public int enemyType=0;
-
+    private GameObject animatttte2;
+    private bool animateeeeed = false;
     public GameObject GolemAnimator;
+    public GameObject GolemAnimator2;
     private int ISdiigingUp = 0;
     public LayerMask playerMASK;
     private bool awakened = false;
@@ -58,6 +60,7 @@ public class Enemyscript : MonoBehaviour
         {
             //sets enemy type to normal if no enemy type is sellected
             enemyType = 2;
+            
         }
 
         if (enemyType == 1)
@@ -117,6 +120,7 @@ public class Enemyscript : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
             enemy_box.gameObject.layer = 7;
             enemyType = 2;
+            Enemy_RB.gravityScale = 3;
         }
  
     }
@@ -225,13 +229,20 @@ public class Enemyscript : MonoBehaviour
 
 
     }
-
+    IEnumerator wait_run_again()
+    {
+        yield return new WaitForSeconds(0.6f);
+        animateeeeed = false;
+    }
     IEnumerator waitPUNCH()
     {
         SpriteRenderer Enmy_spriteREND = Enemy_RB.gameObject.GetComponent<SpriteRenderer>();
 
         if (Enemy_RB.mass == 50)
         {
+            Destroy(animatttte2);
+            animatttte2 = null;
+            StartCoroutine(wait_run_again());
                 GameObject animator_CLONE = Instantiate(GolemAnimator);
             Transform CLone_transform = animator_CLONE.GetComponent<Transform>();
 
@@ -289,9 +300,26 @@ public class Enemyscript : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        if (animatttte2 != null)
+        {
+            animatttte2.transform.position = Enemy_RB.position;
+        }
+
+        if (Player_RB.position.x > Enemy_RB.position.x)
+        {
+            animatttte2.transform.localScale = new Vector3(-0.3f, 0.3f, 0.3f);
+        }
+        else
+        {
+            animatttte2.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+
+        }
+    }
     void FixedUpdate()
     {
-
+        
        
 
         if (HP <= maxHp * 0.75f)
@@ -325,7 +353,16 @@ public class Enemyscript : MonoBehaviour
                 musicc.Play();
                 Enemy_RB.position = new Vector2(99999, 87532);
                 Destroy(Enemy_RB.gameObject, 1);
-                move.stone += 4;
+                if (Enemy_RB.mass == 50)
+                {
+                    move.stone += 2;
+
+                }
+                else
+                {
+                    move.stone += 3;
+
+                }
                 move.hp += 10;
                 if (move.hp > 100)
                     move.hp = 100;
@@ -346,6 +383,27 @@ public class Enemyscript : MonoBehaviour
 
             if (distance <= 20 && slowed == false)
             {
+                if (Enemy_RB.mass == 50 && animateeeeed==false)
+                {
+                    animateeeeed = true;
+                    SpriteRenderer Enmy_spriteREND = Enemy_RB.gameObject.GetComponent<SpriteRenderer>();
+
+                    GameObject animator_CLONE = Instantiate(GolemAnimator2);
+                    Transform CLone_transform = animator_CLONE.GetComponent<Transform>();
+                    animatttte2 = animator_CLONE;
+                    CLone_transform.position = Enemy_RB.position;
+                    Enmy_spriteREND.enabled = false;
+                    if (Player_RB.position.x > Enemy_RB.position.x)
+                    {
+                        CLone_transform.localScale = new Vector3(-0.3f, 0.3f, 0.3f);
+                    }
+                    else
+                    {
+                        CLone_transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+
+                    }
+                }
+
                 Enemy_RB.WakeUp();
 
                 if (awakened == false || Mathf.Abs(Enemy_RB.angularVelocity) < 5 )
@@ -632,6 +690,45 @@ public class Enemyscript : MonoBehaviour
             
             if (enemyType == 1)
             {
+
+              
+
+
+                Collider2D[] enemyPunch = Physics2D.OverlapCircleAll(Enemy_RB.position, 1.2f, playerMASK);
+
+                foreach (Collider2D enemyObject in enemyPunch)
+                {
+                    if (enemyObject.gameObject.name == "player")
+                    {
+                        if (Enemy_RB.mass == 50)
+                        {
+                            move.hp -= 22 * move.blockMultiplier;
+
+                        }
+                        else if (Enemy_RB.mass == 6)
+                        {
+                            move.hp -= 10 * move.blockMultiplier;
+
+                        }
+                        else
+                        {
+                            move.hp -= 20 * move.blockMultiplier;
+
+                        }
+                        if (Player_RB.position.x > Enemy_RB.position.x)
+                        {
+                            Player_RB.velocity = new Vector2(Player_RB.velocity.x + 8, Player_RB.velocity.y + 3);
+                        }
+                        else
+                        {
+                            Player_RB.velocity = new Vector2(Player_RB.velocity.x - 8, Player_RB.velocity.y + 3);
+
+                        }
+                    }
+
+                }
+
+
                 PointEffector2D enemy_knockback = Enemy_RB.gameObject.GetComponent<PointEffector2D>();
 
                 if (enemy_knockback == null)

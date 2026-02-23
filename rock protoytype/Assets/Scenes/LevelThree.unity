@@ -17586,6 +17586,8 @@ MonoBehaviour:
   DIE_sound: {fileID: 8300000, guid: 840f7ef2a5e60fb47a3ec407cda4b18f, type: 3}
   DIE_sound_lava: {fileID: 8300000, guid: 753057a89e4c3d04ebc5e28163e130d2, type: 3}
   DIE_sound_quicksand: {fileID: 8300000, guid: 72ba7250bf698e6499b0815208ae8c7d, type: 3}
+  spike_enter: {fileID: 8300000, guid: f38131e8548b12b4491efc4705b9e40a, type: 3}
+  spike_leave: {fileID: 8300000, guid: d490fdd1ca16ba047acc85d6d1be1960, type: 3}
   ATTACKsound: {fileID: 8300000, guid: 01ed2f7f172eb9f49a41ac5eee3c2560, type: 3}
   BLOCKsound: {fileID: 8300000, guid: 0b846bf152facca48a399732843e1b30, type: 3}
   eye1: {fileID: 1178511411}
@@ -17607,6 +17609,9 @@ MonoBehaviour:
   PLAYER_layermask:
     serializedVersion: 2
     m_Bits: 128
+  floor:
+    serializedVersion: 2
+    m_Bits: 1048576
   distructable_Layermask:
     serializedVersion: 2
     m_Bits: 64
@@ -23027,7 +23032,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30.35
+  m_fontSize: 31.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
