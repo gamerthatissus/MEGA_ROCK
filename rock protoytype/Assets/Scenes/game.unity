@@ -44238,7 +44238,7 @@ Rigidbody2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1694147097}
   m_BodyType: 0
-  m_Simulated: 1
+  m_Simulated: 0
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 0.2
@@ -44395,7 +44395,7 @@ MonoBehaviour:
   blockMultiplier: 1
   mouseposstart: {x: 0, y: 0, z: 0}
   mousepos: {x: 0, y: 0, z: 0}
-  aimDirection: {x: 0, y: 0}
+  dropped: 0
 --- !u!114 &1694147103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44657,6 +44657,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 0e3823cb-44aa-447b-ac62-39876d633f0e
     m_ActionName: Controller/Restarted[/XInputControllerWindows/buttonNorth]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1694147102}
+        m_TargetAssemblyTypeName: move22, Assembly-CSharp
+        m_MethodName: StalagtiteDropped
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d743e650-caf2-4c17-8732-a5a062d91fae
+    m_ActionName: Controller/StalagtiteDropped[/XInputControllerWindows/rightShoulder]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: 

@@ -480,7 +480,7 @@ GameObject:
   - component: {fileID: 23898021}
   - component: {fileID: 23898020}
   - component: {fileID: 23898024}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: staligtite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -595,6 +595,7 @@ MonoBehaviour:
   mousepos: {x: 0, y: 0, z: 0}
   stalag_sprite: {fileID: 23898023}
   player: {fileID: 1740564172}
+  move: {fileID: 1331664286}
 --- !u!212 &23898023
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -29455,7 +29456,7 @@ GameObject:
   - component: {fileID: 1126572980}
   - component: {fileID: 1126572979}
   - component: {fileID: 1126572983}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: staligtite (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29570,6 +29571,7 @@ MonoBehaviour:
   mousepos: {x: 0, y: 0, z: 0}
   stalag_sprite: {fileID: 1126572982}
   player: {fileID: 1740564172}
+  move: {fileID: 1331664286}
 --- !u!212 &1126572982
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -33137,6 +33139,7 @@ MonoBehaviour:
   blockMultiplier: 1
   mouseposstart: {x: 0, y: 0, z: 0}
   mousepos: {x: 0, y: 0, z: 0}
+  dropped: 0
 --- !u!50 &1331664288
 Rigidbody2D:
   serializedVersion: 4
@@ -33512,6 +33515,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 0e3823cb-44aa-447b-ac62-39876d633f0e
     m_ActionName: Controller/Restarted[/XInputControllerWindows/buttonNorth]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1331664287}
+        m_TargetAssemblyTypeName: move22, Assembly-CSharp
+        m_MethodName: StalagtiteDropped
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d743e650-caf2-4c17-8732-a5a062d91fae
+    m_ActionName: Controller/StalagtiteDropped[/XInputControllerWindows/rightShoulder]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: 
