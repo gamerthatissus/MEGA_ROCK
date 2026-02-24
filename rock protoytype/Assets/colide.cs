@@ -9,9 +9,13 @@ public class colide : MonoBehaviour
   
     public bool canspike = true;
     public move22 thingyyyy;
-    
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void Start()
+    {
+             canspike = true;
+
+}
+private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("TNT"))
         {
@@ -71,10 +75,11 @@ public class colide : MonoBehaviour
             {
                 canspike = false;
                 thingyyyy.dmg();
-                StartCoroutine(waitforspike(0.4f));
+                StartCoroutine(waitforspike(0.1f));
             }
 
         }
+        
     }
 
 
