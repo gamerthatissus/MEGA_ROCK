@@ -18,20 +18,17 @@ public class staligtite : MonoBehaviour
     public GameObject move;
 
     private move22 moveScript;
-    private Vector2 aimDirection;
 
     // Start is called before the first frame update
     void Start()
     {
-        stalag.simulated = false;
+        stalag.constraints = RigidbodyConstraints2D.FreezeAll;
         moveScript = move.GetComponent<move22>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        aimDirection = moveScript.aimDirection;
-
         mouseposstart = Input.mousePosition;
         mousepos = maincam.ScreenToWorldPoint(mouseposstart);
         mousepos.z = 0;
@@ -46,16 +43,14 @@ public class staligtite : MonoBehaviour
 
         float distance2 = Mathf.Sqrt((distanceX2 * distanceX2) + (distanceY2 * distanceY2));
 
-        RaycastHit2D hit = Physics2D.Raycast(new Vector2(player.position.x, player.position.y), aimDirection, 20f, 1 << 10);
-        if (hit.collider != null)
-            Debug.Log(hit.collider);
-
-        if (distance <= 0.5 && distance2<=6.5)
+        if ((distance <= 0.5 || moveScript.hit.rigidbody == stalag) && distance2<=6.5)
         {
             stalag_sprite.color = Color.green;
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (Input.GetKeyDown(KeyCode.Mouse0) || moveScript.dropped)
             {
-                stalag.simulated = true;
+                moveScript.dropped = false;
+
+                stalag.constraints = RigidbodyConstraints2D.None;
                 AudioSource st_sound = stalag.gameObject.GetComponent<AudioSource>();
                 st_sound.Play();
             }
@@ -64,7 +59,6 @@ public class staligtite : MonoBehaviour
         else
         {
             stalag_sprite.color = Color.gray;
-
 
         }
 

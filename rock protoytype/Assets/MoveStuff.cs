@@ -125,13 +125,15 @@ public class move22 : MonoBehaviour
     private int start = 0;
 
     private float moveDirection;
-    public Vector2 aimDirection;
+    private Vector2 aimDirection;
+    public RaycastHit2D hit;
     private bool launched;
     private bool attacked;
     private bool blocking;
     private bool surged;
     private bool placed;
     private bool restarted;
+    public bool dropped;
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -141,6 +143,7 @@ public class move22 : MonoBehaviour
     public void OnAim(InputAction.CallbackContext context)
     {
         aimDirection = context.ReadValue<Vector2>();
+        hit = Physics2D.Raycast(new Vector2(outsidemove.position.x, outsidemove.position.y), aimDirection, 20f, 1 << 10);
     }
 
     public void LaunchTrigger(InputAction.CallbackContext context)
@@ -176,6 +179,12 @@ public class move22 : MonoBehaviour
     {
         if (context.ReadValueAsButton())
             restarted = true;
+    }
+
+    public void StalagtiteDropped(InputAction.CallbackContext context)
+    {
+        if (context.ReadValueAsButton() && hit)
+            dropped = true;
     }
 
     // Start is called before the first frame update
