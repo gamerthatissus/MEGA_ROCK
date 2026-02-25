@@ -156,7 +156,7 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
         {
             float A_rand = UnityEngine.Random.Range(1, 20);
 
-           if (A_rand < 8)
+           if (A_rand < 9)
             {
                 sound.loop = false;
                 sound.Stop();
@@ -186,7 +186,7 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
 
                
             }              
-            else if (A_rand > 8 && A_rand<13)
+            else if (A_rand > 8 && A_rand<14)
             {
                 sound.loop = false;
                 sound.Stop();
