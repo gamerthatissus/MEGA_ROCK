@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -8,10 +9,11 @@ using UnityEngine.UIElements;
 
 public class boss_FIGHT_SCRIPT : MonoBehaviour
 {
+    public AudioClip audioSUMMON;
     public AudioSource sound;
     public AudioClip lavarise;
     public AudioClip PRE_lavarise;
-
+    public TextMeshProUGUI TEXT_HP;
     public AudioSource CAM;
     public AudioClip INTENSE;
 
@@ -33,7 +35,7 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
 
     public bool ULTUIMANTFAISE = false;
 
-    public float Boss_Hp = 3000;
+    public float Boss_Hp = 1000;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,7 +43,7 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
         canattack = true;
         attacking = false;
 
-        Boss_Hp = 3000;
+        Boss_Hp = 1000;
         canattack = false;
 
         StartCoroutine(Beweenattacks());
@@ -140,8 +142,8 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-
-        if (Boss_Hp < 1000 && ULTUIMANTFAISE==false)
+        TEXT_HP.text = "HP: " + Boss_Hp + "/1000";
+        if (Boss_Hp < 300 && ULTUIMANTFAISE==false)
         {
             CAM.Stop();
             CAM.clip = INTENSE;
@@ -184,7 +186,7 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
 
                
             }              
-            else if (A_rand > 8 && A_rand<11)
+            else if (A_rand > 8 && A_rand<13)
             {
                 sound.loop = false;
                 sound.Stop();
@@ -200,35 +202,217 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
             }
            else
             {
+                sound.loop = false;
+                sound.Stop();
+                sound.clip = audioSUMMON;
+                sound.Play();
+
+                attacking = true;
+                canattack = false;
+
+                StartCoroutine(Beweenattacks());
+
                 //840,70.1
                 int rand_golem = Mathf.RoundToInt(UnityEngine.Random.Range(1, 4));
+                int rand_place = Mathf.RoundToInt(UnityEngine.Random.Range(1, 4));
 
-                if (rand_golem == 1)
+                if (rand_place == 1)
                 {
-                    GameObject enemyclone = Instantiate<GameObject>(golem_Cave);
-                    enemyclone.name = "MINION";
-                    Rigidbody2D moveee = enemyclone.GetComponent<Rigidbody2D>();
-                    enemyclone.transform.position = new Vector2(840+UnityEngine.Random.Range(-5,5), 74);
+                    if (rand_golem == 1)
+                    {
+                        GameObject enemyclone = Instantiate<GameObject>(golem_Cave);
+                        enemyclone.name = "MINION";
+                        Rigidbody2D moveee = enemyclone.GetComponent<Rigidbody2D>();
+                        enemyclone.transform.position = new Vector2(840 + UnityEngine.Random.Range(-5, 5), 74);
+                    }
+                    else if (rand_golem == 2)
+                    {
+                        GameObject enemyclone = Instantiate<GameObject>(golem_Sand);
+                        enemyclone.name = "MINION";
+                        enemyclone.transform.position = new Vector2(840 + UnityEngine.Random.Range(-5, 5), 69.2f);
+                    }
+                    else
+                    {
+                        GameObject enemyclone = Instantiate<GameObject>(golem_Normal);
+                        enemyclone.name = "MINION";
+                        enemyclone.transform.position = new Vector2(840 + UnityEngine.Random.Range(-5, 5), 70);
+                    }
                 }
-                else if (rand_golem==2)
+                else if (rand_place == 2)
                 {
-                    GameObject enemyclone = Instantiate<GameObject>(golem_Sand);
-                    enemyclone.name = "MINION";
-                    enemyclone.transform.position = new Vector2(840 + UnityEngine.Random.Range(-5, 5), 69.2f);
+                    if (rand_golem == 1)
+                    {
+                        
+                    }
+                    else if (rand_golem == 2)
+                    {
+                        GameObject enemyclone = Instantiate<GameObject>(golem_Sand);
+                        enemyclone.name = "MINION";
+                        enemyclone.transform.position = new Vector2(840 + UnityEngine.Random.Range(-5, 5), 76.2f);
+                    }
+                    else
+                    {
+                        GameObject enemyclone = Instantiate<GameObject>(golem_Normal);
+                        enemyclone.name = "MINION";
+                        enemyclone.transform.position = new Vector2(840 + UnityEngine.Random.Range(-5, 5), 77);
+                    }
+                }
+                else if(rand_place==3)
+                {
+
+                    if (rand_golem == 1)
+                    {
+                        GameObject enemyclone = Instantiate<GameObject>(golem_Cave);
+                        enemyclone.name = "MINION";
+                        Rigidbody2D moveee = enemyclone.GetComponent<Rigidbody2D>();
+                        enemyclone.transform.position = new Vector2(829 + UnityEngine.Random.Range(-2.5f, 2.5f), 80);
+                    }
+                    else if (rand_golem == 2)
+                    {
+                        GameObject enemyclone = Instantiate<GameObject>(golem_Sand);
+                        enemyclone.name = "MINION";
+                        enemyclone.transform.position = new Vector2(829 + UnityEngine.Random.Range(-2.5f, 2.5f), 81);
+                    }
+                    else
+                    {
+                        GameObject enemyclone = Instantiate<GameObject>(golem_Normal);
+                        enemyclone.name = "MINION";
+                        enemyclone.transform.position = new Vector2(829 + UnityEngine.Random.Range(-2.5f, 2.5f), 80);
+                    }
+
+
+
+
                 }
                 else
                 {
-                    GameObject enemyclone = Instantiate<GameObject>(golem_Normal);
-                    enemyclone.name = "MINION";
-                    enemyclone.transform.position = new Vector2(840 + UnityEngine.Random.Range(-5, 5), 70);
+                    if (rand_golem == 1)
+                    {
+                        GameObject enemyclone = Instantiate<GameObject>(golem_Cave);
+                        enemyclone.name = "MINION";
+                        Rigidbody2D moveee = enemyclone.GetComponent<Rigidbody2D>();
+                        enemyclone.transform.position = new Vector2(850 + UnityEngine.Random.Range(-2.5f, 2.5f), 80);
+                    }
+                    else if (rand_golem == 2)
+                    {
+                        GameObject enemyclone = Instantiate<GameObject>(golem_Sand);
+                        enemyclone.name = "MINION";
+                        enemyclone.transform.position = new Vector2(850 + UnityEngine.Random.Range(-2.5f, 2.5f), 81);
+                    }
+                    else
+                    {
+                        GameObject enemyclone = Instantiate<GameObject>(golem_Normal);
+                        enemyclone.name = "MINION";
+                        enemyclone.transform.position = new Vector2(850 + UnityEngine.Random.Range(-2.5f, 2.5f), 80);
+                    }
                 }
+
+                if (UnityEngine.Random.Range(0, 10) > 6)
+                {
+                    rand_golem = Mathf.RoundToInt(UnityEngine.Random.Range(1, 4));
+                    rand_place = Mathf.RoundToInt(UnityEngine.Random.Range(1, 4));
+
+                    if (rand_place == 1)
+                    {
+                        if (rand_golem == 1)
+                        {
+                            GameObject enemyclone = Instantiate<GameObject>(golem_Cave);
+                            enemyclone.name = "MINION";
+                            Rigidbody2D moveee = enemyclone.GetComponent<Rigidbody2D>();
+                            enemyclone.transform.position = new Vector2(840 + UnityEngine.Random.Range(-5, 5), 74);
+                        }
+                        else if (rand_golem == 2)
+                        {
+                            GameObject enemyclone = Instantiate<GameObject>(golem_Sand);
+                            enemyclone.name = "MINION";
+                            enemyclone.transform.position = new Vector2(840 + UnityEngine.Random.Range(-5, 5), 69.2f);
+                        }
+                        else
+                        {
+                            GameObject enemyclone = Instantiate<GameObject>(golem_Normal);
+                            enemyclone.name = "MINION";
+                            enemyclone.transform.position = new Vector2(840 + UnityEngine.Random.Range(-5, 5), 70);
+                        }
+                    }
+                    else if (rand_place == 2)
+                    {
+                        if (rand_golem == 1)
+                        {
+
+                        }
+                        else if (rand_golem == 2)
+                        {
+                            GameObject enemyclone = Instantiate<GameObject>(golem_Sand);
+                            enemyclone.name = "MINION";
+                            enemyclone.transform.position = new Vector2(840 + UnityEngine.Random.Range(-5, 5), 76.2f);
+                        }
+                        else
+                        {
+                            GameObject enemyclone = Instantiate<GameObject>(golem_Normal);
+                            enemyclone.name = "MINION";
+                            enemyclone.transform.position = new Vector2(840 + UnityEngine.Random.Range(-5, 5), 77);
+                        }
+                    }
+                    else if (rand_place == 3)
+                    {
+
+                        if (rand_golem == 1)
+                        {
+                            GameObject enemyclone = Instantiate<GameObject>(golem_Cave);
+                            enemyclone.name = "MINION";
+                            Rigidbody2D moveee = enemyclone.GetComponent<Rigidbody2D>();
+                            enemyclone.transform.position = new Vector2(829 + UnityEngine.Random.Range(-2.5f, 2.5f), 80);
+                        }
+                        else if (rand_golem == 2)
+                        {
+                            GameObject enemyclone = Instantiate<GameObject>(golem_Sand);
+                            enemyclone.name = "MINION";
+                            enemyclone.transform.position = new Vector2(829 + UnityEngine.Random.Range(-2.5f, 2.5f), 81);
+                        }
+                        else
+                        {
+                            GameObject enemyclone = Instantiate<GameObject>(golem_Normal);
+                            enemyclone.name = "MINION";
+                            enemyclone.transform.position = new Vector2(829 + UnityEngine.Random.Range(-2.5f, 2.5f), 80);
+                        }
+
+
+
+
+                    }
+                    else
+                    {
+                        if (rand_golem == 1)
+                        {
+                            GameObject enemyclone = Instantiate<GameObject>(golem_Cave);
+                            enemyclone.name = "MINION";
+                            Rigidbody2D moveee = enemyclone.GetComponent<Rigidbody2D>();
+                            enemyclone.transform.position = new Vector2(850 + UnityEngine.Random.Range(-2.5f, 2.5f), 80);
+                        }
+                        else if (rand_golem == 2)
+                        {
+                            GameObject enemyclone = Instantiate<GameObject>(golem_Sand);
+                            enemyclone.name = "MINION";
+                            enemyclone.transform.position = new Vector2(850 + UnityEngine.Random.Range(-2.5f, 2.5f), 81);
+                        }
+                        else
+                        {
+                            GameObject enemyclone = Instantiate<GameObject>(golem_Normal);
+                            enemyclone.name = "MINION";
+                            enemyclone.transform.position = new Vector2(850 + UnityEngine.Random.Range(-2.5f, 2.5f), 80);
+                        }
+                    }
+                }
+                
+
+                attacking = false;
 
 
 
 
 
             }
-            
+
 
         }
 

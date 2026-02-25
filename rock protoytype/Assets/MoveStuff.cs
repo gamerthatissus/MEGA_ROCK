@@ -23,6 +23,7 @@ public class move22 : MonoBehaviour
      Right
     }
 
+    public bool boss = false;
     private Derection lastDerection;
     public GameObject OG_earth_spike;
     public AudioClip DIE_sound;
@@ -30,6 +31,7 @@ public class move22 : MonoBehaviour
     public AudioClip DIE_sound_quicksand;
     public AudioClip spike_enter;
     public AudioClip spike_leave;
+    public boss_FIGHT_SCRIPT BOSS;
 
     public AudioClip ATTACKsound;
     public AudioClip BLOCKsound;
@@ -190,6 +192,7 @@ public class move22 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         Died = false;
         jumpCooldown = false;
         choosenPath = "none";
@@ -1255,7 +1258,10 @@ public class move22 : MonoBehaviour
 
                         Enemyscript enmtScript = enemyObject.gameObject.GetComponent<Enemyscript>();
                         enmtScript.HP -= 50;
-
+                        if (enemyObject.gameObject.name == "MINION")
+                        {
+                            BOSS.Boss_Hp -= 50;
+                        }
                     }
                 }
 
@@ -1432,6 +1438,16 @@ public class move22 : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (boss == true)
+        {
+        if (hp < 100)
+            {
+                hp += 0.005f;
+
+            }
+
+
+        }
         StartCoroutine(waitforspeed());
         UnityEngine.Transform eyeoneCOlider = outsidemove.gameObject.transform.Find("coll1");
         UnityEngine.Transform eyeoneCOlider2 = outsidemove.gameObject.transform.Find("coll2");

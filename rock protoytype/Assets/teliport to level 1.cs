@@ -37,7 +37,7 @@ public class teliporttolevel1 : MonoBehaviour
             }
             else if (mode == 5)
             {
-                SceneManager.LoadScene("Boss");
+                SceneManager.LoadScene("THE BOSS FIGHT");
             }
         }
 

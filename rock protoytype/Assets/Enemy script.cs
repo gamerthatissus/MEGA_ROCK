@@ -12,6 +12,7 @@ using UnityEngine.UI;
 
 public class Enemyscript : MonoBehaviour
 {
+
     //enemy types:   1=fall  2=normal 3=burried    4=smasher
     public int enemyType=0;
     private GameObject animatttte2;
@@ -21,6 +22,7 @@ public class Enemyscript : MonoBehaviour
     private int ISdiigingUp = 0;
     public LayerMask playerMASK;
     private bool awakened = false;
+
     public float HP = 100;
     public float maxHp = 100;
     private int canfall=0;
