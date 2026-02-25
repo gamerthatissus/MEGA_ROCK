@@ -8,6 +8,16 @@ using UnityEngine.UIElements;
 
 public class boss_FIGHT_SCRIPT : MonoBehaviour
 {
+    public AudioSource sound;
+    public AudioClip lavarise;
+    public AudioClip PRE_lavarise;
+
+    public AudioSource CAM;
+    public AudioClip INTENSE;
+
+    public AudioClip errupt;
+    public AudioClip PRE_errupt;
+
     public GameObject METIOR_WARNING;
     private bool canattack = true;
     public bool attacking = false;
@@ -21,12 +31,13 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
     public GameObject golem_Sand;
     public GameObject golem_Cave;
 
-
+    public bool ULTUIMANTFAISE = false;
 
     public float Boss_Hp = 3000;
     // Start is called before the first frame update
     void Start()
     {
+        ULTUIMANTFAISE = false;
         canattack = true;
         attacking = false;
 
@@ -39,9 +50,20 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
 
     IEnumerator Beweenattacks()
     {
-        canattack = false;
-        yield return new WaitForSeconds(UnityEngine.Random.Range(3,8));
-        canattack = true;
+        if (ULTUIMANTFAISE == false)
+        {
+            canattack = false;
+            yield return new WaitForSeconds(UnityEngine.Random.Range(4, 12));
+            canattack = true;
+        }
+        else
+        {
+            canattack = false;
+            yield return new WaitForSeconds(UnityEngine.Random.Range(3, 8));
+            canattack = true;
+        }
+
+       
     }
     IEnumerator summonFIREBALL()
     {
@@ -61,8 +83,21 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
     }
     IEnumerator LAVA_RISE()
     {
+        if (ULTUIMANTFAISE == false)
+        {
+            yield return new WaitForSeconds(1f);
 
-        yield return new WaitForSeconds(1f);
+        }
+        else
+        {
+         
+
+        }
+
+        sound.loop = false;
+        sound.Stop();
+        sound.clip = lavarise;
+        sound.Play();
 
         for (float i = 0; i < 5; i+=Time.deltaTime)
         {  
@@ -105,25 +140,57 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+
+        if (Boss_Hp < 1000 && ULTUIMANTFAISE==false)
+        {
+            CAM.Stop();
+            CAM.clip = INTENSE;
+            CAM.loop = true;
+            CAM.Play();
+            ULTUIMANTFAISE = true;
+
+        }
         if (canattack == true && attacking==false)
         {
             float A_rand = UnityEngine.Random.Range(1, 20);
 
            if (A_rand < 8)
             {
+                sound.loop = false;
+                sound.Stop();
+                sound.clip = PRE_errupt;
+                sound.Play();
+
                 attacking = true;
                 canattack = false;
-                int numb_fireballs =  Mathf.RoundToInt(UnityEngine.Random.Range(5,15));
-                for (int i = 0; i < numb_fireballs; i++)
+                if (ULTUIMANTFAISE == false)
                 {
-                    StartCoroutine(summonFIREBALL());
+                    int numb_fireballs = Mathf.RoundToInt(UnityEngine.Random.Range(5, 15));
+                    for (int i = 0; i < numb_fireballs; i++)
+                    {
+                        StartCoroutine(summonFIREBALL());
+                    }
+                    StartCoroutine(Beweenattacks());
                 }
-                StartCoroutine(Beweenattacks());
-            }
-            
-            
-            if (A_rand > 8 && A_rand<11)
+                else
+                {
+                    int numb_fireballs = Mathf.RoundToInt(UnityEngine.Random.Range(8, 18));
+                    for (int i = 0; i < numb_fireballs; i++)
+                    {
+                        StartCoroutine(summonFIREBALL());
+                    }
+                    StartCoroutine(Beweenattacks());
+                }
+
+               
+            }              
+            else if (A_rand > 8 && A_rand<11)
             {
+                sound.loop = false;
+                sound.Stop();
+                sound.clip = PRE_lavarise;
+                sound.Play();
+
                 attacking = true;
                 canattack = false;
                 StartCoroutine(Beweenattacks());
@@ -131,6 +198,38 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
                 StartCoroutine(WARNING_LAVA_RISE());
 
             }
+           else
+            {
+                //840,70.1
+                int rand_golem = Mathf.RoundToInt(UnityEngine.Random.Range(1, 4));
+
+                if (rand_golem == 1)
+                {
+                    GameObject enemyclone = Instantiate<GameObject>(golem_Cave);
+                    enemyclone.name = "MINION";
+                    Rigidbody2D moveee = enemyclone.GetComponent<Rigidbody2D>();
+                    enemyclone.transform.position = new Vector2(840+UnityEngine.Random.Range(-5,5), 74);
+                }
+                else if (rand_golem==2)
+                {
+                    GameObject enemyclone = Instantiate<GameObject>(golem_Sand);
+                    enemyclone.name = "MINION";
+                    enemyclone.transform.position = new Vector2(840 + UnityEngine.Random.Range(-5, 5), 69.2f);
+                }
+                else
+                {
+                    GameObject enemyclone = Instantiate<GameObject>(golem_Normal);
+                    enemyclone.name = "MINION";
+                    enemyclone.transform.position = new Vector2(840 + UnityEngine.Random.Range(-5, 5), 70);
+                }
+
+
+
+
+
+            }
+            
+
         }
 
     }
