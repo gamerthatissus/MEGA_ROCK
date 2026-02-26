@@ -212,9 +212,6 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
                     }
                     StartCoroutine(Beweenattacks());
                 }
-
-               
-            }              
             else if (A_rand > 9 && A_rand<=14)
             {
                 sound.loop = false;
