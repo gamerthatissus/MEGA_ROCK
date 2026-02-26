@@ -136,6 +136,7 @@ public class move22 : MonoBehaviour
     private bool placed;
     private bool restarted;
     public bool dropped;
+    public GameObject AimRay;
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -145,7 +146,12 @@ public class move22 : MonoBehaviour
     public void OnAim(InputAction.CallbackContext context)
     {
         aimDirection = context.ReadValue<Vector2>();
+        if (aimDirection.x > .1 || aimDirection.x < -.1 || aimDirection.y > .1 || aimDirection.y < -.1)
+            aimDirection.Normalize();
+        else
+            aimDirection = Vector2.zero;
         hit = Physics2D.Raycast(new Vector2(outsidemove.position.x, outsidemove.position.y), aimDirection, 20f, 1 << 10);
+        AimRay.transform.rotation = Quaternion.Euler(0, 0, math.atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg);
     }
 
     public void LaunchTrigger(InputAction.CallbackContext context)
@@ -515,6 +521,21 @@ public class move22 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (hit)
+        {
+            AimRay.transform.position = new Vector3((hit.point.x + outsidemove.position.x) / 2, (hit.point.y + outsidemove.position.y) / 2, 0);
+            AimRay.transform.localScale = new Vector3(hit.distance, .1f, 1);
+        }
+        else if (aimDirection != Vector2.zero)
+        {
+            AimRay.transform.position = new Vector3((aimDirection.x * 20 + outsidemove.position.x * 2) / 2, (aimDirection.y * 20 + outsidemove.position.y * 2) / 2, 0);
+            AimRay.transform.localScale = new Vector3(20, .1f, 1);
+        }
+        else
+        {
+            AimRay.transform.localScale = Vector3.zero;
+        }
+
         TNT_GUI.text = "Amount of TnT: " + TnT;
 
         if (Input.GetKeyDown(KeyCode.R) || restarted)
