@@ -1290,6 +1290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8bf922a309879d4d955d1389f056cd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boss: 0
   mode: 2
   move2222: {fileID: 1694147102}
   pathRememberer: {fileID: 416128829}
@@ -15403,6 +15404,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 118b76d80926bed41ad36cfa96b578c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BOSS_scipt: {fileID: 0}
+  boss: 0
   enemyType: 1
   GolemAnimator: {fileID: 1702283114}
   GolemAnimator2: {fileID: 1415788113}
@@ -20189,6 +20192,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 118b76d80926bed41ad36cfa96b578c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BOSS_scipt: {fileID: 0}
+  boss: 0
   enemyType: 1
   GolemAnimator: {fileID: 1702283114}
   GolemAnimator2: {fileID: 1415788113}
@@ -20811,6 +20816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8bf922a309879d4d955d1389f056cd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boss: 1
   mode: 2
   move2222: {fileID: 1694147102}
   pathRememberer: {fileID: 416128829}
@@ -21661,6 +21667,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 118b76d80926bed41ad36cfa96b578c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BOSS_scipt: {fileID: 0}
+  boss: 0
   enemyType: 1
   GolemAnimator: {fileID: 1702283114}
   GolemAnimator2: {fileID: 1415788113}
@@ -22657,8 +22665,8 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   m_LocalAABB:
-    m_Center: {x: -3.9599636, y: -1.3406044, z: 0}
-    m_Extent: {x: 0.7333958, y: 0.57758915, z: 0}
+    m_Center: {x: -3.9599142, y: -1.3406036, z: 0}
+    m_Extent: {x: 0.7334453, y: 0.57758737, z: 0}
   m_SpriteSortPoint: 0
 --- !u!4 &723965637
 Transform:
@@ -26128,6 +26136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 118b76d80926bed41ad36cfa96b578c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BOSS_scipt: {fileID: 0}
+  boss: 0
   enemyType: 1
   GolemAnimator: {fileID: 1702283114}
   GolemAnimator2: {fileID: 1415788113}
@@ -33215,6 +33225,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 118b76d80926bed41ad36cfa96b578c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BOSS_scipt: {fileID: 0}
+  boss: 0
   enemyType: 1
   GolemAnimator: {fileID: 1702283114}
   GolemAnimator2: {fileID: 1415788113}
@@ -34927,6 +34939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8bf922a309879d4d955d1389f056cd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boss: 0
   mode: 1
   move2222: {fileID: 1694147102}
   pathRememberer: {fileID: 0}
@@ -54576,6 +54589,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 118b76d80926bed41ad36cfa96b578c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BOSS_scipt: {fileID: 0}
+  boss: 0
   enemyType: 4
   GolemAnimator: {fileID: 1702283114}
   GolemAnimator2: {fileID: 0}
@@ -54791,6 +54806,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 118b76d80926bed41ad36cfa96b578c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BOSS_scipt: {fileID: 0}
+  boss: 0
   enemyType: 2
   GolemAnimator: {fileID: 1702283114}
   GolemAnimator2: {fileID: 0}
@@ -55962,6 +55979,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 118b76d80926bed41ad36cfa96b578c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BOSS_scipt: {fileID: 0}
+  boss: 0
   enemyType: 1
   GolemAnimator: {fileID: 1702283114}
   GolemAnimator2: {fileID: 1415788113}
@@ -61415,6 +61434,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 118b76d80926bed41ad36cfa96b578c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BOSS_scipt: {fileID: 0}
+  boss: 0
   enemyType: 4
   GolemAnimator: {fileID: 1702283114}
   GolemAnimator2: {fileID: 0}

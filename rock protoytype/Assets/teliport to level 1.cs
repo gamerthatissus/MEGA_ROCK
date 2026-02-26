@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class teliporttolevel1 : MonoBehaviour
 {
+    public bool boss = false;
     public int mode = 1;
     public move22 move2222;
     public GameObject pathRememberer;
@@ -17,28 +18,40 @@ public class teliporttolevel1 : MonoBehaviour
     {
       if (collision.gameObject.name =="player")
         {
-            if (mode == 1)
-            {
-                move2222.RIGID();
 
-            }
-            else if (mode==2)
-            {
-                DontDestroyOnLoad(pathRememberer.gameObject);
-                SceneManager.LoadScene("LevelOne");
-            }
-            else if (mode == 3)
-            {
-                SceneManager.LoadScene("LevelTwo");
-            }
-            else if (mode == 4)
-            {
-                SceneManager.LoadScene("LevelThree");
-            }
-            else if (mode == 5)
+            if (boss == true)
             {
                 SceneManager.LoadScene("THE BOSS FIGHT");
+
             }
+            else
+            {
+                if (mode == 1)
+                {
+                    move2222.RIGID();
+
+                }
+                else if (mode == 2)
+                {
+                    DontDestroyOnLoad(pathRememberer.gameObject);
+                    SceneManager.LoadScene("LevelOne");
+                }
+                else if (mode == 3)
+                {
+                    SceneManager.LoadScene("LevelTwo");
+                }
+                else if (mode == 4)
+                {
+                    SceneManager.LoadScene("LevelThree");
+                }
+                else if (mode == 5)
+                {
+                    SceneManager.LoadScene("THE BOSS FIGHT");
+                }
+            }
+
+
+          
         }
 
     }
