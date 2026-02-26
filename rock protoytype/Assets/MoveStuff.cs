@@ -1442,7 +1442,7 @@ public class move22 : MonoBehaviour
         {
         if (hp < 100)
             {
-                hp += 0.005f;
+                hp += 0.01f;
 
             }
 

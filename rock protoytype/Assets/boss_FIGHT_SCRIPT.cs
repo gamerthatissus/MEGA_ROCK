@@ -16,16 +16,17 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
     public TextMeshProUGUI TEXT_HP;
     public AudioSource CAM;
     public AudioClip INTENSE;
-
     public AudioClip errupt;
     public AudioClip PRE_errupt;
-
+    public GameObject boss;
     public GameObject METIOR_WARNING;
     private bool canattack = true;
     public bool attacking = false;
     public move22 MAIN;
     public Rigidbody2D Player_RB;
     public GameObject OG_fireball;
+    public GameObject OG_fireballMEGA;
+
     public GameObject LAVA;
     public GameObject WARNING_LAVA;
 
@@ -76,12 +77,34 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
         yield return new WaitForSeconds(UnityEngine.Random.Range(0,1.5f));
         GameObject WARNING_CLONE = Instantiate(METIOR_WARNING);
         WARNING_CLONE.transform.position = new Vector2(840 + randx, 70);
-        Destroy(WARNING_CLONE, 0.4f);
-        GameObject FIREball_CLONE = Instantiate(OG_fireball);
+    if (ULTUIMANTFAISE == false)
+        {
+            Destroy(WARNING_CLONE, 0.5f);
 
-        FIREball_CLONE.name = "FIREBALL";
-        Rigidbody2D fire_RB = FIREball_CLONE.GetComponent<Rigidbody2D>();
-        fire_RB.position = new Vector2(840 + randx, 100+UnityEngine.Random.Range(0,1f));
+        }
+        else
+        {
+            Destroy(WARNING_CLONE, 0.2f);
+
+        }
+    if (ULTUIMANTFAISE == false)
+        {
+            GameObject FIREball_CLONE = Instantiate(OG_fireball);
+           
+            FIREball_CLONE.name = "FIREBALL";
+            Rigidbody2D fire_RB = FIREball_CLONE.GetComponent<Rigidbody2D>();
+            fire_RB.position = new Vector2(840 + randx, 100 + UnityEngine.Random.Range(0, 1f));
+        }
+        else
+        {
+            GameObject FIREball_CLONE = Instantiate(OG_fireballMEGA);
+          
+            FIREball_CLONE.name = "FIREBALL";
+            Rigidbody2D fire_RB = FIREball_CLONE.GetComponent<Rigidbody2D>();
+            fire_RB.position = new Vector2(840 + randx, 100 + UnityEngine.Random.Range(0, 1f));
+        }
+
+       
     }
     IEnumerator LAVA_RISE()
     {
@@ -92,7 +115,7 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
         }
         else
         {
-         
+            yield return new WaitForSeconds(0.2f);
 
         }
 
@@ -142,9 +165,15 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        TEXT_HP.text = "HP: " + Boss_Hp + "/1000";
-        if (Boss_Hp < 300 && ULTUIMANTFAISE==false)
+        if (Boss_Hp <= 0)
         {
+            Destroy(boss);
+        }
+        TEXT_HP.text = "HP: " + Boss_Hp + "/1000";
+        if (Boss_Hp <= 400 && ULTUIMANTFAISE==false)
+        {
+          
+
             CAM.Stop();
             CAM.clip = INTENSE;
             CAM.loop = true;
@@ -152,11 +181,11 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
             ULTUIMANTFAISE = true;
 
         }
-        if (canattack == true && attacking==false)
+        if (canattack == true && attacking==false && Boss_Hp>0)
         {
             float A_rand = UnityEngine.Random.Range(1, 20);
 
-           if (A_rand < 9)
+           if (A_rand <= 9)
             {
                 sound.loop = false;
                 sound.Stop();
@@ -176,9 +205,9 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
                 }
                 else
                 {
-                    int numb_fireballs = Mathf.RoundToInt(UnityEngine.Random.Range(8, 18));
+                    int numb_fireballs = Mathf.RoundToInt(UnityEngine.Random.Range(7, 16));
                     for (int i = 0; i < numb_fireballs; i++)
-                    {
+                    
                         StartCoroutine(summonFIREBALL());
                     }
                     StartCoroutine(Beweenattacks());
@@ -186,7 +215,7 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
 
                
             }              
-            else if (A_rand > 8 && A_rand<14)
+            else if (A_rand > 9 && A_rand<=14)
             {
                 sound.loop = false;
                 sound.Stop();

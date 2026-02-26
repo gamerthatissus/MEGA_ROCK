@@ -12,7 +12,8 @@ using UnityEngine.UI;
 
 public class Enemyscript : MonoBehaviour
 {
-
+    public boss_FIGHT_SCRIPT BOSS_scipt;
+    public bool boss = false;
     //enemy types:   1=fall  2=normal 3=burried    4=smasher
     public int enemyType=0;
     private GameObject animatttte2;
@@ -22,7 +23,7 @@ public class Enemyscript : MonoBehaviour
     private int ISdiigingUp = 0;
     public LayerMask playerMASK;
     private bool awakened = false;
-
+    
     public float HP = 100;
     public float maxHp = 100;
     private int canfall=0;
@@ -272,10 +273,11 @@ public class Enemyscript : MonoBehaviour
         {
             if (enemyObject.gameObject.name == "player")
             {
+                
                 if (Enemy_RB.mass == 50)
                 {
-                    move.hp -= 5*move.blockMultiplier;
-
+                    move.hp -= 22*move.blockMultiplier;
+                    
                 }
                 else if (Enemy_RB.mass == 6)
                 {
@@ -284,7 +286,7 @@ public class Enemyscript : MonoBehaviour
                 }
                 else
                 {
-                    move.hp -= 15 * move.blockMultiplier;
+                    move.hp -= 20 * move.blockMultiplier;
 
                 }
                 if (Player_RB.position.x > Enemy_RB.position.x)
@@ -355,6 +357,10 @@ public class Enemyscript : MonoBehaviour
                 musicc.Play();
                 Enemy_RB.position = new Vector2(99999, 87532);
                 Destroy(Enemy_RB.gameObject, 1);
+                if (boss == true)
+                {
+                    BOSS_scipt.Boss_Hp -= 25;
+                }
                 if (Enemy_RB.mass == 50)
                 {
                     move.stone += 2;
@@ -367,7 +373,10 @@ public class Enemyscript : MonoBehaviour
                 }
                 move.hp += 10;
                 if (move.hp > 100)
+                {
                     move.hp = 100;
+
+                }
             }
           
 
@@ -682,7 +691,10 @@ public class Enemyscript : MonoBehaviour
                 move.stone += 4;
                 move.hp += 10;
                 if (move.hp > 100)
+                {
                     move.hp = 100;
+
+                }
                 Destroy(Enemy_RB.gameObject);
 
             }
