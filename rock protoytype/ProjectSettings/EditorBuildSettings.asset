@@ -29,5 +29,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LevelThree.unity
     guid: 20de48d34d3ff0148911b6b7c14347c4
+  - enabled: 1
+    path: Assets/Scenes/THE BOSS FIGHT.unity
+    guid: cd643ec8f10c4c74d9836c0341abee75
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: d8df41fca6590f64d8d9a65a2f4043aa, type: 3}
