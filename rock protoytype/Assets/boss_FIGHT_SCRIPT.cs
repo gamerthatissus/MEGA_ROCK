@@ -136,6 +136,9 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
             yield return null;
 
         }
+        LAVA.transform.position = new Vector2(LAVA.transform.position.x, -23.36f);
+
+        
         attacking = false;
     }
 
@@ -161,6 +164,7 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
             
 
         }
+        WARNING_LAVA.transform.position = new Vector2(WARNING_LAVA.transform.position.x, -23.36f);
     }
     // Update is called once per frame
     void FixedUpdate()
@@ -168,6 +172,8 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
         if (Boss_Hp <= 0)
         {
             Destroy(boss);
+            CAM.Stop();
+            Boss_Hp = 0;
         }
         TEXT_HP.text = "HP: " + Boss_Hp + "/1000";
         if (Boss_Hp <= 400 && ULTUIMANTFAISE==false)

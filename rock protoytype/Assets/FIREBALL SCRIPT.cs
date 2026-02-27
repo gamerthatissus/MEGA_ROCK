@@ -16,22 +16,23 @@ public class FIREBALLSCRIPT : MonoBehaviour
 
         IEnumerator explode(UnityEngine.Transform EXPLOSHION, SpriteRenderer spriteEXPLOSHION)
         {
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.1f);
             Rigidbody2D fireRB=gameObject.GetComponent<Rigidbody2D>(); ;
-            Collider2D[] kaboom = Physics2D.OverlapCircleAll(fireRB.position, 3.5f, player);
+            Collider2D[] kaboom = Physics2D.OverlapCircleAll(fireRB.position, 4f, player);
             foreach (Collider2D thingy in kaboom)
             {
-                main.hp -= 5;
-                if (thingy.name == "player")
+                if (thingy.gameObject.name == "player")
                 {
+                    main.hp -= 5;
+
                     Rigidbody2D playerRB = thingy.gameObject.GetComponent<Rigidbody2D>();
                     if (playerRB.position.x > fireRB.position.x)
                     {
-                        playerRB.velocity = new Vector2(fireRB.velocity.x + 5, playerRB.velocity.y + 2);
+                        playerRB.velocity = new Vector2(fireRB.velocity.x + 8, playerRB.velocity.y + 3);
                     }
                     else
                     {
-                        playerRB.velocity = new Vector2(playerRB.velocity.x - 5, playerRB.velocity.y + 2);
+                        playerRB.velocity = new Vector2(playerRB.velocity.x - 8, playerRB.velocity.y + 3);
 
                     }
                 }
@@ -43,7 +44,7 @@ public class FIREBALLSCRIPT : MonoBehaviour
 
                 yield return null;
             }
-            Destroy(EXPLOSHION);
+            Destroy(EXPLOSHION.gameObject);
         }
         
         if (collision.gameObject.CompareTag("floor") && name== "FIREBALL")
@@ -68,7 +69,7 @@ public class FIREBALLSCRIPT : MonoBehaviour
                 UnityEngine.Transform EXPLOSHION = OBJECT_exploshion.GetComponent<UnityEngine.Transform>();
                 SpriteRenderer spriteEXPLOSHION = OBJECT_exploshion.GetComponent<SpriteRenderer>();
                 spriteEXPLOSHION.enabled = true;
-                Destroy(gameObject, 0.4f);
+                Destroy(gameObject, 0.3f);
                 StartCoroutine(explode(EXPLOSHION, spriteEXPLOSHION));
                 
             }
