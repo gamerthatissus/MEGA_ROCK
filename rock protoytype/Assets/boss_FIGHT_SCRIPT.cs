@@ -9,6 +9,11 @@ using UnityEngine.UIElements;
 
 public class boss_FIGHT_SCRIPT : MonoBehaviour
 {
+    public TextMeshProUGUI diologe;
+    
+    public Camera MAINCAMERA;
+
+    public bool FIGHT_started = false;
     public AudioClip audioSUMMON;
     public AudioSource sound;
     public AudioClip lavarise;
@@ -16,6 +21,8 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
     public TextMeshProUGUI TEXT_HP;
     public AudioSource CAM;
     public AudioClip INTENSE;
+    public AudioClip normal;
+
     public AudioClip errupt;
     public AudioClip PRE_errupt;
     public GameObject boss;
@@ -26,10 +33,10 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
     public Rigidbody2D Player_RB;
     public GameObject OG_fireball;
     public GameObject OG_fireballMEGA;
-
+    public int talkstage=0;
     public GameObject LAVA;
     public GameObject WARNING_LAVA;
-
+    public Button diologe_button;
     public GameObject golem_Normal;
     public GameObject golem_Sand;
     public GameObject golem_Cave;
@@ -41,15 +48,17 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
     void Start()
     {
         ULTUIMANTFAISE = false;
-        canattack = true;
+        canattack = false;
         attacking = false;
 
         Boss_Hp = 1000;
         canattack = false;
 
-        StartCoroutine(Beweenattacks());
-
+        //5.5
+        MAINCAMERA.orthographicSize = 8;
+        diologe.text = "so, we finaly meet face to face";
     }
+
 
     IEnumerator Beweenattacks()
     {
@@ -167,8 +176,56 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
         WARNING_LAVA.transform.position = new Vector2(WARNING_LAVA.transform.position.x, -23.36f);
     }
     // Update is called once per frame
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            switch (talkstage)
+            {
+                case 0:
+                    diologe.text = "What? you dont know who i am?";
+                    talkstage++;
+                    break;
+
+                case 1:
+                    diologe.text = "Well, who do you think has been sommoning all of those golems you have been fighting?";
+                    talkstage++;
+                    break;
+                case 2:
+                    diologe.text = "i am volcanoy, the strongest pet rock in the WORLD!";
+                    talkstage++;
+                    break;
+                case 3:
+                    diologe.text = "and i will DESTORY you for daring to chalenge me!";
+                    talkstage++;
+                    break;
+                case 4:
+                    canattack = true;
+                    Destroy(diologe.transform.parent.gameObject);
+                    
+
+                    CAM.Stop();
+                    FIGHT_started = true;
+                    CAM.clip = normal;
+                    CAM.loop = true;
+                    CAM.Play();
+                    MAINCAMERA.orthographicSize = 5.5f;
+                    StartCoroutine(Beweenattacks());
+
+
+
+                    break;
+
+
+            }
+
+
+
+        }
+    }
     void FixedUpdate()
     {
+    
         if (Boss_Hp <= 0)
         {
             Destroy(boss);
