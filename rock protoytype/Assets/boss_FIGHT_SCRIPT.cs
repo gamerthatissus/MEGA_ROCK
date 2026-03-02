@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 
@@ -44,6 +45,15 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
     public bool ULTUIMANTFAISE = false;
 
     public float Boss_Hp = 1000;
+
+    private bool talked;
+
+    public void NextDialogue(InputAction.CallbackContext context)
+    {
+        if (context.ReadValueAsButton())
+            talked = true;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -178,8 +188,10 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) || talked)
         {
+            talked = false;
+
             switch (talkstage)
             {
                 case 0:
