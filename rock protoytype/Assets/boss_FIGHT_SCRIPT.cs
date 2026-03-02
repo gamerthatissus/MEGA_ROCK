@@ -6,12 +6,13 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
+using UnityEngine.UIElements.Experimental;
 
 
 public class boss_FIGHT_SCRIPT : MonoBehaviour
 {
     public TextMeshProUGUI diologe;
-    
+    public int typeCount = 0;
     public Camera MAINCAMERA;
 
     public bool FIGHT_started = false;
@@ -23,7 +24,7 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
     public AudioSource CAM;
     public AudioClip INTENSE;
     public AudioClip normal;
-
+    private bool textdone=true;
     public AudioClip errupt;
     public AudioClip PRE_errupt;
     public GameObject boss;
@@ -65,8 +66,69 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
         canattack = false;
 
         //5.5
-        MAINCAMERA.orthographicSize = 8;
-        diologe.text = "so, we finaly meet face to face";
+        MAINCAMERA.orthographicSize = 9;
+        StartCoroutine(SLOW_TEXT(("so, we finaly meet face to face"),0.05f,true,false));
+
+    }
+
+
+    IEnumerator SLOW_TEXT(string textt, float Wait_time, bool clear, bool delay)
+    {
+        if (delay == true)
+        {
+            yield return new WaitForSeconds(1f);
+
+        }
+
+        int faketime = typeCount;
+        if (textdone == false)
+        {
+            for (int i = 0; i < 2; i--)
+            {
+                if (textdone == true && typeCount == faketime + 1)
+                {
+                    i = 5;
+                    
+                }
+                yield return null;
+
+            }
+        }
+       
+            textdone = false;
+
+        
+
+
+
+        char[] textSLOW = textt.ToCharArray();
+        if (clear == true)
+        {
+            string text_thusfarr = " ";
+            for (int i = 0; i < textSLOW.Length; i++)
+            {
+                text_thusfarr = text_thusfarr + textSLOW[i];
+                diologe.text = text_thusfarr+" ";
+                yield return new WaitForSeconds(Wait_time);
+
+            }
+        }
+        else
+        {
+            string text_thusfarr = diologe.text;
+            for (int i = 0; i < textSLOW.Length; i++)
+            {
+                text_thusfarr = text_thusfarr + textSLOW[i];
+                diologe.text = text_thusfarr;
+                yield return new WaitForSeconds(Wait_time);
+
+            }
+        }
+      
+        textdone = true;
+        
+            typeCount++;
+       
     }
 
 
@@ -188,30 +250,63 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) || talked)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && textdone==true || talked && textdone==true)
         {
             talked = false;
 
             switch (talkstage)
             {
                 case 0:
-                    diologe.text = "What? you dont know who i am?";
+                    StartCoroutine(SLOW_TEXT(("What?"), 0.05f, true,false));
+                    StartCoroutine(SLOW_TEXT(("you dont know who i am?"), 0.05f, false, true));
+
                     talkstage++;
                     break;
 
                 case 1:
-                    diologe.text = "Well, who do you think has been sommoning all of those golems you have been fighting?";
+                    StartCoroutine(SLOW_TEXT(("Well, who do you think has been sommoning all of those golems you have been fighting?"), 0.05f, true,false));
+
                     talkstage++;
                     break;
                 case 2:
-                    diologe.text = "i am volcanoy, the strongest pet rock in the WORLD!";
+                    StartCoroutine(SLOW_TEXT(("i am"), 0.03f, true,false));
+
+                    StartCoroutine(SLOW_TEXT((" VOLCANOY"), 0.1f, false,false));
+                    typeCount++;
+                    StartCoroutine(SLOW_TEXT((" the"), 0.03f, false,false));
+
+                    typeCount++;
+                    StartCoroutine(SLOW_TEXT((" Strongest"), 0.06f, false,false));
+                    typeCount++;
+                    StartCoroutine(SLOW_TEXT((" pet rock in the"), 0.03f, false,false));
+                    typeCount++;
+                    StartCoroutine(SLOW_TEXT((" WHOLE WORLD"), 0.1f, false,false));
+                    typeCount -= 4;
                     talkstage++;
                     break;
                 case 3:
-                    diologe.text = "and i will DESTORY you for daring to chalenge me!";
+                    StartCoroutine(SLOW_TEXT(("and i will"), 0.03f, true,false));
+
+                    StartCoroutine(SLOW_TEXT((" DESTROY"), 0.1f, false,false));
+                    typeCount++;
+                        StartCoroutine(SLOW_TEXT((" you for"), 0.03f, false,false));
+         
+                    typeCount++;
+                    StartCoroutine(SLOW_TEXT((" DARING"), 0.1f, false,false));
+                    typeCount++;
+                    StartCoroutine(SLOW_TEXT((" to defeat me!"), 0.03f, false,false));
+                    typeCount -= 3;
+
+                    
+                   
+
+
+
+
                     talkstage++;
                     break;
                 case 4:
+
                     canattack = true;
                     Destroy(diologe.transform.parent.gameObject);
                     

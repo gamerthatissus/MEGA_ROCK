@@ -5744,7 +5744,7 @@ Transform:
   m_GameObject: {fileID: 746773862}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 840.57, y: 71.703, z: 0}
+  m_LocalPosition: {x: 840.57, y: 77.27, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13780,7 +13780,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30.35
+  m_fontSize: 31.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -14330,7 +14330,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -20.60205, y: -264.50012}
+  m_AnchoredPosition: {x: -20.602173, y: -264.5001}
   m_SizeDelta: {x: -1720, y: -1021.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1264806515
@@ -15374,7 +15374,7 @@ Transform:
   m_GameObject: {fileID: 1381542367}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 840.57, y: 71.356, z: 0}
+  m_LocalPosition: {x: 840.57, y: 76.923, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -16091,7 +16091,7 @@ Transform:
   m_GameObject: {fileID: 1440716601}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 840.57, y: 71.356, z: 0}
+  m_LocalPosition: {x: 840.57, y: 76.923, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -23515,6 +23515,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   diologe: {fileID: 148338958}
+  typeCount: 0
   MAINCAMERA: {fileID: 178359704}
   FIGHT_started: 0
   audioSUMMON: {fileID: 8300000, guid: 0897483394dd4e441864058d8eb38cb4, type: 3}
