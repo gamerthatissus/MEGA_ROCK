@@ -46,7 +46,8 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
     public bool ULTUIMANTFAISE = false;
 
     public float Boss_Hp = 1000;
-
+    public AudioClip TALK_SOUND;
+    public AudioSource soooounnnnd;
     private bool talked;
 
     public void NextDialogue(InputAction.CallbackContext context)
@@ -74,6 +75,7 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
 
     IEnumerator SLOW_TEXT(string textt, float Wait_time, bool clear, bool delay)
     {
+        
         if (delay == true)
         {
             yield return new WaitForSeconds(1f);
@@ -94,8 +96,12 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
 
             }
         }
-       
-            textdone = false;
+        soooounnnnd.Stop();
+        soooounnnnd.clip = TALK_SOUND;
+        soooounnnnd.loop = false;
+        soooounnnnd.Play();
+
+        textdone = false;
 
         
 
