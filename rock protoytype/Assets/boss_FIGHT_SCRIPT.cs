@@ -250,85 +250,89 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && textdone==true || talked && textdone==true)
+        if (FIGHT_started == false)
         {
-            talked = false;
-
-            switch (talkstage)
+            if (Input.GetKeyDown(KeyCode.Mouse0) && textdone == true || talked && textdone == true)
             {
-                case 0:
-                    StartCoroutine(SLOW_TEXT(("What?"), 0.05f, true,false));
-                    StartCoroutine(SLOW_TEXT(("you dont know who i am?"), 0.05f, false, true));
+                talked = false;
 
-                    talkstage++;
-                    break;
+                switch (talkstage)
+                {
+                    case 0:
+                        StartCoroutine(SLOW_TEXT(("What?"), 0.05f, true, false));
+                        StartCoroutine(SLOW_TEXT(("you dont know who i am?"), 0.05f, false, true));
 
-                case 1:
-                    StartCoroutine(SLOW_TEXT(("Well, who do you think has been sommoning all of those golems you have been fighting?"), 0.05f, true,false));
+                        talkstage++;
+                        break;
 
-                    talkstage++;
-                    break;
-                case 2:
-                    StartCoroutine(SLOW_TEXT(("i am"), 0.03f, true,false));
+                    case 1:
+                        StartCoroutine(SLOW_TEXT(("Well, who do you think has been sommoning all of those golems you have been fighting?"), 0.05f, true, false));
 
-                    StartCoroutine(SLOW_TEXT((" VOLCANOY"), 0.1f, false,false));
-                    typeCount++;
-                    StartCoroutine(SLOW_TEXT((" the"), 0.03f, false,false));
+                        talkstage++;
+                        break;
+                    case 2:
+                        StartCoroutine(SLOW_TEXT(("i am"), 0.03f, true, false));
 
-                    typeCount++;
-                    StartCoroutine(SLOW_TEXT((" Strongest"), 0.06f, false,false));
-                    typeCount++;
-                    StartCoroutine(SLOW_TEXT((" pet rock in the"), 0.03f, false,false));
-                    typeCount++;
-                    StartCoroutine(SLOW_TEXT((" WHOLE WORLD"), 0.1f, false,false));
-                    typeCount -= 4;
-                    talkstage++;
-                    break;
-                case 3:
-                    StartCoroutine(SLOW_TEXT(("and i will"), 0.03f, true,false));
+                        StartCoroutine(SLOW_TEXT((" VOLCANOY"), 0.1f, false, false));
+                        typeCount++;
+                        StartCoroutine(SLOW_TEXT((" the"), 0.03f, false, false));
 
-                    StartCoroutine(SLOW_TEXT((" DESTROY"), 0.1f, false,false));
-                    typeCount++;
-                        StartCoroutine(SLOW_TEXT((" you for"), 0.03f, false,false));
-         
-                    typeCount++;
-                    StartCoroutine(SLOW_TEXT((" DARING"), 0.1f, false,false));
-                    typeCount++;
-                    StartCoroutine(SLOW_TEXT((" to defeat me!"), 0.03f, false,false));
-                    typeCount -= 3;
+                        typeCount++;
+                        StartCoroutine(SLOW_TEXT((" Strongest"), 0.06f, false, false));
+                        typeCount++;
+                        StartCoroutine(SLOW_TEXT((" pet rock in the"), 0.03f, false, false));
+                        typeCount++;
+                        StartCoroutine(SLOW_TEXT((" WHOLE WORLD"), 0.1f, false, false));
+                        typeCount -= 4;
+                        talkstage++;
+                        break;
+                    case 3:
+                        StartCoroutine(SLOW_TEXT(("and i will"), 0.03f, true, false));
 
-                    
-                   
+                        StartCoroutine(SLOW_TEXT((" DESTROY"), 0.1f, false, false));
+                        typeCount++;
+                        StartCoroutine(SLOW_TEXT((" you for"), 0.03f, false, false));
 
-
-
-
-                    talkstage++;
-                    break;
-                case 4:
-
-                    canattack = true;
-                    Destroy(diologe.transform.parent.gameObject);
-                    
-
-                    CAM.Stop();
-                    FIGHT_started = true;
-                    CAM.clip = normal;
-                    CAM.loop = true;
-                    CAM.Play();
-                    MAINCAMERA.orthographicSize = 5.5f;
-                    StartCoroutine(Beweenattacks());
+                        typeCount++;
+                        StartCoroutine(SLOW_TEXT((" DARING"), 0.1f, false, false));
+                        typeCount++;
+                        StartCoroutine(SLOW_TEXT((" to defeat me!"), 0.03f, false, false));
+                        typeCount -= 3;
 
 
 
-                    break;
+
+
+
+
+                        talkstage++;
+                        break;
+                    case 4:
+
+                        canattack = true;
+                        Destroy(diologe.transform.parent.gameObject);
+
+
+                        CAM.Stop();
+                        FIGHT_started = true;
+                        CAM.clip = normal;
+                        CAM.loop = true;
+                        CAM.Play();
+                        MAINCAMERA.orthographicSize = 5.5f;
+                        StartCoroutine(Beweenattacks());
+
+
+
+                        break;
+
+
+                }
+
 
 
             }
-
-
-
         }
+       
     }
     void FixedUpdate()
     {
