@@ -915,7 +915,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.748
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -23724,7 +23724,7 @@ MonoBehaviour:
   golem_Cave: {fileID: 1755698731}
   ULTUIMANTFAISE: 0
   Boss_Hp: 3000
-  TALK_SOUND: {fileID: 8300000, guid: c9bb42c9e3d4a9045aea43a46a3b0fb3, type: 3}
+  TALK_SOUND: {fileID: 8300000, guid: e501eafaba22e9748964be97455f1a58, type: 3}
   soooounnnnd: {fileID: 107819723}
 --- !u!82 &1863542036
 AudioSource:

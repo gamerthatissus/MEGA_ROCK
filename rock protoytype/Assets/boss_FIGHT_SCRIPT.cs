@@ -96,10 +96,8 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
 
             }
         }
-        soooounnnnd.Stop();
-        soooounnnnd.clip = TALK_SOUND;
-        soooounnnnd.loop = false;
-        soooounnnnd.Play();
+
+       
 
         textdone = false;
 
@@ -113,6 +111,11 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
             string text_thusfarr = " ";
             for (int i = 0; i < textSLOW.Length; i++)
             {
+                soooounnnnd.Stop();
+
+                soooounnnnd.clip = TALK_SOUND;
+                soooounnnnd.loop = false;
+                soooounnnnd.Play();
                 text_thusfarr = text_thusfarr + textSLOW[i];
                 diologe.text = text_thusfarr+" ";
                 yield return new WaitForSeconds(Wait_time);
@@ -124,6 +127,10 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
             string text_thusfarr = diologe.text;
             for (int i = 0; i < textSLOW.Length; i++)
             {
+                soooounnnnd.Stop();
+                soooounnnnd.clip = TALK_SOUND;
+                soooounnnnd.loop = false;
+                soooounnnnd.Play();
                 text_thusfarr = text_thusfarr + textSLOW[i];
                 diologe.text = text_thusfarr;
                 yield return new WaitForSeconds(Wait_time);
