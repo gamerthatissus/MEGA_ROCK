@@ -29,7 +29,7 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
     public AudioClip PRE_errupt;
     public GameObject boss;
     public GameObject METIOR_WARNING;
-    private bool canattack = true;
+    public bool canattack = true;
     public bool attacking = false;
     public move22 MAIN;
     public Rigidbody2D Player_RB;
@@ -147,10 +147,11 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
 
     IEnumerator Beweenattacks()
     {
+        canattack = false;
         if (ULTUIMANTFAISE == false)
         {
             canattack = false;
-            yield return new WaitForSeconds(UnityEngine.Random.Range(4, 12));
+            yield return new WaitForSeconds(UnityEngine.Random.Range(4, 13));
             canattack = true;
         }
         else
@@ -321,8 +322,7 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
                         talkstage++;
                         break;
                     case 4:
-
-                        canattack = true;
+                        talkstage++;
                         Destroy(diologe.transform.parent.gameObject);
 
 
@@ -616,11 +616,14 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
                         }
                     }
                 }
+
+
+
+                    attacking = false;
                 
-
-                attacking = false;
-
-
+        
+                  
+                
 
 
 
