@@ -27,6 +27,11 @@ public class eeee : MonoBehaviour
             SceneManager.LoadScene("TEST");
 
         }
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            SceneManager.LoadScene("game");
+
+        }
         if (Input.GetKeyDown(KeyCode.Y))
         {
             SceneManager.LoadScene("LevelOne");

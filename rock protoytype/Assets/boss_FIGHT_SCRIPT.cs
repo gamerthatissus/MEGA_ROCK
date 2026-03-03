@@ -48,6 +48,7 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
     public float Boss_Hp = 1000;
     public AudioClip TALK_SOUND;
     public AudioSource soooounnnnd;
+    
     private bool talked;
 
     public void NextDialogue(InputAction.CallbackContext context)
@@ -78,8 +79,8 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
         
         if (delay == true)
         {
-            yield return new WaitForSeconds(1f);
 
+            yield return new WaitForSeconds(1f);
         }
 
         int faketime = typeCount;
@@ -274,9 +275,13 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
                 {
                     case 0:
                         StartCoroutine(SLOW_TEXT(("What?"), 0.05f, true, false));
-                        StartCoroutine(SLOW_TEXT(("you dont know who i am?"), 0.05f, false, true));
-
                         talkstage++;
+                        textdone = false;
+                        StartCoroutine(SLOW_TEXT(("you dont know who i am?"), 0.05f, false, true));
+                        textdone = false;
+
+                        typeCount -= 1;
+
                         break;
 
                     case 1:
