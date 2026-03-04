@@ -4630,6 +4630,7 @@ GameObject:
   m_Component:
   - component: {fileID: 601587820}
   - component: {fileID: 601587819}
+  - component: {fileID: 601587821}
   m_Layer: 0
   m_Name: boss
   m_TagString: Untagged
@@ -4705,6 +4706,24 @@ Transform:
   - {fileID: 939223883}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &601587821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 601587818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b848b5c952af544ba3af7517e2fda7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OG_x: 0
+  OG_y: 0
+  maincam: {fileID: 178359704}
+  paralax_x: 0.2
+  paralax_y: 0.1
+  OG_campos: {x: 0, y: 0}
 --- !u!1 &623865384
 GameObject:
   m_ObjectHideFlags: 0
@@ -11840,6 +11859,7 @@ GameObject:
   m_Component:
   - component: {fileID: 939223883}
   - component: {fileID: 939223882}
+  - component: {fileID: 939223884}
   m_Layer: 0
   m_Name: Boss Concept (1)
   m_TagString: Untagged
@@ -11908,12 +11928,30 @@ Transform:
   m_GameObject: {fileID: 939223881}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.199417, y: -0.4940695, z: 0}
-  m_LocalScale: {x: -0.9100274, y: 1.2393937, z: 1}
+  m_LocalPosition: {x: 11.4839, y: -0.1854, z: 0}
+  m_LocalScale: {x: -0.9143549, y: 1.0829583, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 601587820}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &939223884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 939223881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b848b5c952af544ba3af7517e2fda7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OG_x: 0
+  OG_y: 0
+  maincam: {fileID: 178359704}
+  paralax_x: 0.2
+  paralax_y: 0.1
+  OG_campos: {x: 0, y: 0}
 --- !u!1 &942347040
 GameObject:
   m_ObjectHideFlags: 0
@@ -23580,8 +23618,8 @@ Transform:
   m_GameObject: {fileID: 1863542031}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: -6.1, y: -20.31, z: -1}
-  m_LocalScale: {x: 67.72788, y: 7.5176597, z: 1}
+  m_LocalPosition: {x: -6.1, y: -23.066, z: -1}
+  m_LocalScale: {x: 67.72788, y: 13.029608, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 165052285}
