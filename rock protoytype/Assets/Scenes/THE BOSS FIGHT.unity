@@ -23744,7 +23744,7 @@ MonoBehaviour:
   PRE_lavarise: {fileID: 8300000, guid: 13ed4b3d2c4e67d4da01815a86440987, type: 3}
   TEXT_HP: {fileID: 128307601}
   CAM: {fileID: 178359705}
-  INTENSE: {fileID: 8300000, guid: 53f316df561f66c40872c93e9b187f30, type: 3}
+  INTENSE: {fileID: 8300000, guid: a28942551dbbdba4b8decc3214a50837, type: 3}
   normal: {fileID: 8300000, guid: e499e32b97a9ba34fa2d968211cd6d0d, type: 3}
   errupt: {fileID: 8300000, guid: 9e51245160ee3844ab54a75e83e4cebb, type: 3}
   PRE_errupt: {fileID: 8300000, guid: bc72de00cc1cb6c49ad8a678bdfb9c37, type: 3}
