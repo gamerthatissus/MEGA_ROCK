@@ -354,7 +354,16 @@ public class move22 : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
 
         Scene scenceString = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(scenceString.name);
+        if (scenceString.name == "THE BOSS FIGHT")
+        {
+            SceneManager.LoadScene("2 THE BOSS FIGHT");
+
+        }
+        else
+        {
+            SceneManager.LoadScene(scenceString.name);
+        }
+
 
     }
 

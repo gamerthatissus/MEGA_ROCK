@@ -11,6 +11,7 @@ using UnityEngine.UIElements.Experimental;
 
 public class boss_FIGHT_SCRIPT : MonoBehaviour
 {
+    public bool skipdiologe = false;
     public TextMeshProUGUI diologe;
     public int typeCount = 0;
     public Camera MAINCAMERA;
@@ -267,9 +268,25 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
     {
         if (FIGHT_started == false)
         {
+            if (skipdiologe == true)
+            {
+                FIGHT_started = true;
+                talkstage++;
+                Destroy(diologe.transform.parent.gameObject);
+
+
+                CAM.Stop();
+                FIGHT_started = true;
+                CAM.clip = normal;
+                CAM.loop = true;
+                CAM.Play();
+                MAINCAMERA.orthographicSize = 5.5f;
+                StartCoroutine(Beweenattacks());
+            }
             if (Input.GetKeyDown(KeyCode.Mouse0) && textdone == true || talked && textdone == true)
             {
                 talked = false;
+               
 
                 switch (talkstage)
                 {
