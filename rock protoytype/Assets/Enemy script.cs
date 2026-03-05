@@ -276,6 +276,8 @@ public class Enemyscript : MonoBehaviour
                 
                 if (Enemy_RB.mass == 50)
                 {
+                  
+
                     move.hp -= 22*move.blockMultiplier;
                     
                 }
@@ -372,9 +374,9 @@ public class Enemyscript : MonoBehaviour
 
                 }
                 move.hp += 10;
-                if (move.hp > 100)
+                if (move.hp > 120)
                 {
-                    move.hp = 100;
+                    move.hp = 120;
 
                 }
             }

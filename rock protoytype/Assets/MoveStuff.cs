@@ -198,7 +198,7 @@ public class move22 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        hpbar.maxValue = 120;
         Died = false;
         jumpCooldown = false;
         choosenPath = "none";
@@ -232,7 +232,7 @@ public class move22 : MonoBehaviour
 
        
         
-        hp = 100;
+        hp = 120;
         
         maxmas = 1.2f;
         minmas = 0.3f;
@@ -1461,7 +1461,7 @@ public class move22 : MonoBehaviour
     {
         if (boss == true)
         {
-        if (hp < 100)
+        if (hp < 120)
             {
                 hp += 0.01f;
 
