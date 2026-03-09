@@ -9,7 +9,9 @@ public class AchievementScript : MonoBehaviour
 {
     private string lastSceneName;
     private bool hitless;
+    private bool violent;
     private move22 moveScript;
+    private GameObject enemyList;
 
     private void GiveAchievement(string achievement)
     {
@@ -47,9 +49,26 @@ public class AchievementScript : MonoBehaviour
             Debug.Log("achievements cleared");
         }
 
+        if (!moveScript && (thisSceneName == "game" || thisSceneName == "LevelOne" || thisSceneName == "LevelTwo" || thisSceneName == "LevelThree" || thisSceneName == "THE BOSS FIGHT"))
+        {
+            GameObject move = GameObject.Find("move");
+            if (move)
+                moveScript = move.GetComponent<move22>();
+        }
+
+        if (!enemyList && (thisSceneName == "game" || thisSceneName == "LevelOne" || thisSceneName == "LevelTwo" || thisSceneName == "LevelThree"))
+        {
+            enemyList = GameObject.Find("enemyList");
+        }
+
         if (hitless && moveScript && moveScript.hp < 120)
         {
             hitless = false;
+        }
+
+        if (!violent && enemyList && enemyList.transform.hierarchyCount == 1)
+        {
+            violent = true;
         }
 
         if (thisSceneName != lastSceneName)
@@ -59,6 +78,11 @@ public class AchievementScript : MonoBehaviour
                 if (thisSceneName == "LevelOne")
                 {
                     GiveAchievement("Tutorial completed!");
+
+                    if (violent)
+                    {
+                        GiveAchievement("Tutorial completed after defeating all enemies!");
+                    }
                 }
                 else if (thisSceneName == "THE BOSS FIGHT")
                 {
@@ -73,6 +97,11 @@ public class AchievementScript : MonoBehaviour
                 {
                     GiveAchievement("Level 1 completed without taking damage!");
                 }
+
+                if (violent)
+                {
+                    GiveAchievement("Level 1 completed after defeating all enemies!");
+                }
             }
             else if (lastSceneName == "LevelTwo" && thisSceneName == "LevelThree")
             {
@@ -81,6 +110,11 @@ public class AchievementScript : MonoBehaviour
                 if (hitless)
                 {
                     GiveAchievement("Level 2 completed without taking damage!");
+                }
+
+                if (violent)
+                {
+                    GiveAchievement("Level 2 completed after defeating all enemies!");
                 }
             }
             else if (lastSceneName == "LevelThree" && thisSceneName == "THE BOSS FIGHT")
@@ -91,13 +125,15 @@ public class AchievementScript : MonoBehaviour
                 {
                     GiveAchievement("Level 3 completed without taking damage!");
                 }
+
+                if (violent)
+                {
+                    GiveAchievement("Level 3 completed after defeating all enemies!");
+                }
             }
 
-            GameObject move = GameObject.Find("move");
-            if (move)
-                moveScript = move.GetComponent<move22>();
-
             hitless = true;
+            violent = false;
             lastSceneName = thisSceneName;
         }
     }
