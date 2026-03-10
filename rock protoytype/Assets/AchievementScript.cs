@@ -2,19 +2,63 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class AchievementScript : MonoBehaviour
 {
+    public GameObject a_get_pannel;
+    public TextMeshProUGUI a_get_text;
     private string lastSceneName;
     private bool hitless;
     private bool violent;
     private move22 moveScript;
     private GameObject enemyList;
+    private RectTransform a_get_pos;
+    
+    IEnumerator waitDesableAcchevments()
+    {
+        //610, 462.32
 
+        for (float i = 0; i < 2; i += Time.deltaTime)
+          {
+            if (a_get_pos.position.y > 462.32)
+            {
+                a_get_pos.position = new Vector2(-133.22f, a_get_pos.position.y-(10*Time.deltaTime));
+
+            }
+            else
+            {
+                a_get_pos.position = new Vector2(-133.22f, 462.32f);
+            }
+            yield return null;
+          }
+
+        yield return new WaitForSeconds(8);
+        for (float i = 0; i < 2; i += Time.deltaTime)
+        {
+            if (a_get_pos.position.y < 610)
+            {
+                a_get_pos.position = new Vector2(-133.22f, a_get_pos.position.y + (10 * Time.deltaTime));
+
+            }
+            else
+            {
+                a_get_pos.position = new Vector2(-133.22f, 610);
+            }
+            yield return null;
+        }
+        a_get_pannel.SetActive(false);
+
+    }
     private void GiveAchievement(string achievement)
     {
+        a_get_pos.position = new Vector3(-133.22f, 610, 0);
+        a_get_pannel.SetActive(true);
+        a_get_text.text = achievement;
+        StartCoroutine(waitDesableAcchevments());
+
         string currentAchievements = PlayerPrefs.GetString("achievements");
 
         if (!currentAchievements.Split(";").Contains(achievement))
@@ -25,9 +69,12 @@ public class AchievementScript : MonoBehaviour
             Debug.Log(achievement);
         }
     }
-
+    //610, 462.32
     private void Start()
     {
+        a_get_pos = a_get_pannel.GetComponent<RectTransform>();
+        a_get_pos.position = new Vector2(-133.22f, 610);
+        a_get_pannel.SetActive(false);
         if (GameObject.Find("AchievementHandler"))
         {
             Destroy(gameObject);
