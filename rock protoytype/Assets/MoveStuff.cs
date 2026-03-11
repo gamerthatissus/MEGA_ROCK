@@ -17,6 +17,7 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class move22 : MonoBehaviour
 {
+    
     private enum Derection
     {
      Left,
