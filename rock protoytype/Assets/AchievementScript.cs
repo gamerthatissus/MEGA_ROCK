@@ -20,15 +20,8 @@ public class AchievementScript : MonoBehaviour
     IEnumerator waitDesableAcchevments()
     {
         //610, 462.32
-        a_get_pos.localPosition = new Vector3(-133.22f, 430, 0);
-        yield return new WaitForSeconds(0.1f);
-
-        a_get_pos.localPosition = new Vector3(-133.22f, 430, 0); 
-        if (Camera.main.orthographicSize >5.5)
-        {
-            a_get_pos.localPosition = new Vector3(-133.22f, 600, 0); 
-
-        }
+        a_get_pos.localPosition = new Vector3(-133.22f, 600, 0);
+        
 
         for (float i = 0; i < 1.1f; i += Time.deltaTime)
           {
