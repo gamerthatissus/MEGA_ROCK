@@ -21884,6 +21884,8 @@ MonoBehaviour:
   HIDEN_until_in_area4: {fileID: 1903744658}
   HIDEN_until_in_area5: {fileID: 292728056}
   HIDEN_until_in_area6: {fileID: 1745576990}
+  moveScript: {fileID: 0}
+  givebadge: 0
 --- !u!61 &670197091
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -23084,6 +23086,8 @@ MonoBehaviour:
   HIDEN_until_in_area4: {fileID: 1483556407}
   HIDEN_until_in_area5: {fileID: 1149558052}
   HIDEN_until_in_area6: {fileID: 0}
+  moveScript: {fileID: 0}
+  givebadge: 1
 --- !u!61 &726897588
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -45367,6 +45371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98dee303a8f0f9b4d98ad676d0cfa689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BURNT: 0
   boss: 0
   OG_earth_spike: {fileID: 1274541431}
   DIE_sound: {fileID: 8300000, guid: 840f7ef2a5e60fb47a3ec407cda4b18f, type: 3}
@@ -45429,8 +45434,11 @@ MonoBehaviour:
   blockMultiplier: 1
   mouseposstart: {x: 0, y: 0, z: 0}
   mousepos: {x: 0, y: 0, z: 0}
+  unlockedLAUNCH: 0
   dropped: 0
   AimRay: {fileID: 1001973973}
+  ranout: 0
+  discovedSecret: 0
 --- !u!114 &1694147103
 MonoBehaviour:
   m_ObjectHideFlags: 0

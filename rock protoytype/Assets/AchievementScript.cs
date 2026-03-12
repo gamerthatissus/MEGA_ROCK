@@ -16,7 +16,33 @@ public class AchievementScript : MonoBehaviour
     private move22 moveScript;
     private GameObject enemyList;
     public RectTransform a_get_pos;
-    
+    public bool ACEIVEMENTING=false;
+    IEnumerator waitdie()
+    {
+        yield return new WaitForSeconds(1.6f);
+        GiveAchievement("moten rock-y: note to self, lava is not fun to swim in");
+
+    }
+    IEnumerator waitNEXT(string ashevmenttt_text)
+    {
+       for (int i = 0; i < 2; i--)
+        {
+            if (ACEIVEMENTING == false)
+            {
+                GiveAchievement(ashevmenttt_text);
+                yield return null;
+
+
+            }
+            yield return null;
+        }
+    }
+    IEnumerator delayedachevment(string ashevmenttt_text, float delaytime)
+    {
+        yield return new WaitForSeconds(delaytime);
+                GiveAchievement(ashevmenttt_text);
+
+    }
     IEnumerator waitDesableAcchevments()
     {
         //610, 462.32
@@ -41,27 +67,45 @@ public class AchievementScript : MonoBehaviour
             
             yield return null;
         }
-
+        a_get_pos.localPosition = new Vector3(-133.22f, 600, 0);
+        yield return null;
+        ACEIVEMENTING = false;
     }
     public void GiveAchievement(string achievement)
     {
-        a_get_pannel.SetActive(true);
-        a_get_text.text = achievement;
-        StartCoroutine(waitDesableAcchevments());
-
-        string currentAchievements = PlayerPrefs.GetString("achievements");
-
-        if (!currentAchievements.Split(";").Contains(achievement))
+        if (ACEIVEMENTING == true)
         {
-            PlayerPrefs.SetString("achievements", currentAchievements + achievement + ";");
-            PlayerPrefs.Save();
-
-            Debug.Log(achievement);
+            StartCoroutine(waitNEXT(achievement));
         }
+        else
+        {
+            string currentAchievements = PlayerPrefs.GetString("achievements");
+
+            if (!currentAchievements.Split(";").Contains(achievement))
+            {
+                ACEIVEMENTING = true;
+
+                a_get_pannel.SetActive(true);
+                a_get_text.text = achievement;
+                StartCoroutine(waitDesableAcchevments());
+
+                PlayerPrefs.SetString("achievements", currentAchievements + achievement + ";");
+                PlayerPrefs.Save();
+
+                Debug.Log(achievement);
+            }
+        }
+
+       
+      
     }
     //610, 462.32
     private void Start()
     {
+        PlayerPrefs.DeleteKey("achievements");
+        PlayerPrefs.Save();
+
+
         if (GameObject.Find("achevment panel") && GameObject.Find("achevment text"))
         {
             a_get_pannel = GameObject.Find("achevment panel");
@@ -87,6 +131,33 @@ public class AchievementScript : MonoBehaviour
 
     private void Update()
     {
+        if (moveScript != null)
+        {
+            if (moveScript.stone == 0 && moveScript.ranout==false)
+            {
+                moveScript.ranout = true;
+                GiveAchievement("BROKE: run out of stone");
+
+            }
+            if (moveScript.unlockedLAUNCH == true)
+            {
+                moveScript.unlockedLAUNCH = false;
+                GiveAchievement("SPACE TO LAUNCH: unlock the rock launch ability!");
+
+            }
+            if (moveScript.discovedSecret == true)
+            {
+                moveScript.discovedSecret = false;
+                GiveAchievement("SECRET ROOM: discover your first secret room");
+
+            }
+            if (moveScript.BURNT == true)
+            {
+                moveScript.BURNT = false;
+                StartCoroutine(waitdie());
+
+            }
+        }
         if (GameObject.Find("achevment panel") && GameObject.Find("achevment text"))
         {
             a_get_pannel = GameObject.Find("achevment panel");
@@ -105,7 +176,7 @@ public class AchievementScript : MonoBehaviour
             Debug.Log("achievements cleared");
         }
 
-        if (!moveScript && (thisSceneName == "game" || thisSceneName == "LevelOne" || thisSceneName == "LevelTwo" || thisSceneName == "LevelThree" || thisSceneName == "THE BOSS FIGHT"))
+        if (!moveScript && (thisSceneName == "game" || thisSceneName == "LevelOne" || thisSceneName == "LevelTwo" || thisSceneName == "LevelThree" || thisSceneName == "THE BOSS FIGHT" || thisSceneName == "2 THE BOSS FIGHT"))
         {
             GameObject move = GameObject.Find("move");
             if (move)
@@ -129,62 +200,81 @@ public class AchievementScript : MonoBehaviour
 
         if (thisSceneName != lastSceneName)
         {
+            if (lastSceneName != "Titlescreen" || lastSceneName != "MainMenu")
+            {
+                if (moveScript.hp < 5)
+                {
+                    StartCoroutine(delayedachevment("tis but a scratch: compelte a level with less then 5hp left", 0.1f));
+                   
+
+                }
+            }
             if (lastSceneName == "game")
             {
                 if (thisSceneName == "LevelOne")
                 {
-                    GiveAchievement("Tutorial completed!");
+                    GiveAchievement("BEGINER: complete the totoreal!");
+                    StartCoroutine(delayedachevment("2 TO SURGE!: unlock the stone surge ability!", 0.3f));
 
                     if (violent)
                     {
-                        GiveAchievement("Tutorial completed after defeating all enemies!");
+                        StartCoroutine(delayedachevment("MURDERHOBO BEGINER: complete the totorial after defeating all enemies!", 0.15f));
+
                     }
                 }
                 else if (thisSceneName == "THE BOSS FIGHT")
                 {
-                    GiveAchievement("Secret portal found!");
+                    GiveAchievement("???: find the secret in level 1!");
                 }
             }
             else if (lastSceneName == "LevelOne" && thisSceneName == "LevelTwo")
             {
-                GiveAchievement("Level 1 completed!");
+                GiveAchievement("NOVICE: complete level 1!");
 
                 if (hitless)
                 {
-                    GiveAchievement("Level 1 completed without taking damage!");
+                    StartCoroutine(delayedachevment("CANT TOTCH THIS: complete Level 1 without taking damage!", 0.13f));
+
                 }
 
                 if (violent)
                 {
-                    GiveAchievement("Level 1 completed after defeating all enemies!");
+                    StartCoroutine(delayedachevment("MUDERHOBO NOVICE: complete level one after defeating all enemys", 0.08f));
+
+                   
                 }
             }
             else if (lastSceneName == "LevelTwo" && thisSceneName == "LevelThree")
             {
-                GiveAchievement("Level 2 completed!");
+                GiveAchievement("EXPERIENCED: completed level 2!");
 
                 if (hitless)
                 {
-                    GiveAchievement("Level 2 completed without taking damage!");
+                    StartCoroutine(delayedachevment("IMMAGINE BEING HIT: complete level 2 without taking damage!", 0.05f));
+
                 }
 
                 if (violent)
                 {
-                    GiveAchievement("Level 2 completed after defeating all enemies!");
+                    StartCoroutine(delayedachevment("EXPERIENCED MURDERHOBO: complete level 2 after defeating all enemies!", 0.2f));
+
                 }
             }
             else if (lastSceneName == "LevelThree" && thisSceneName == "THE BOSS FIGHT")
             {
-                GiveAchievement("Level 3 completed!");
+                GiveAchievement("PROFESHONAL: complete level 3!");
+
 
                 if (hitless)
                 {
-                    GiveAchievement("Level 3 completed without taking damage!");
+                    StartCoroutine(delayedachevment("THE UNTUTCHABLE ONE: complete level 3 without taking damage!", 0.09f));
+
                 }
 
                 if (violent)
                 {
-                    GiveAchievement("Level 3 completed after defeating all enemies!");
+                    StartCoroutine(delayedachevment("PROFESHONAL MURDERHOBO: complete level 3 after deating all enemys!", 0.04f));
+
                 }
             }
 

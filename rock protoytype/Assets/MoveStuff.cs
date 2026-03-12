@@ -24,6 +24,8 @@ public class move22 : MonoBehaviour
      Right
     }
 
+    public bool BURNT = false;
+
     public bool boss = false;
     private Derection lastDerection;
     public GameObject OG_earth_spike;
@@ -126,6 +128,7 @@ public class move22 : MonoBehaviour
     private RawImage stone16;
     private string choosenPath="none";
     private int start = 0;
+    public bool unlockedLAUNCH = false;
 
     private float moveDirection;
     private Vector2 aimDirection;
@@ -138,7 +141,8 @@ public class move22 : MonoBehaviour
     private bool restarted;
     public bool dropped;
     public GameObject AimRay;
-
+    public bool ranout=false;
+    public bool discovedSecret = false;
     public void OnMove(InputAction.CallbackContext context)
     {
         moveDirection = math.sign(context.ReadValue<Vector2>().x);
@@ -199,6 +203,7 @@ public class move22 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        BURNT = false;
         hpbar.maxValue = 120;
         Died = false;
         jumpCooldown = false;
@@ -352,7 +357,10 @@ public class move22 : MonoBehaviour
         audeo.Stop();
         audeo.clip = DIE_sound;
         audeo.Play();
-        yield return new WaitForSeconds(1.5f);
+        
+            yield return new WaitForSeconds(1.5f);
+
+        
 
         Scene scenceString = SceneManager.GetActiveScene();
         if (scenceString.name == "THE BOSS FIGHT")
@@ -1396,7 +1404,8 @@ public class move22 : MonoBehaviour
     {
         //if (pathRememberer != null)
 
-            //pathRememberer.gameObject.transform.position = Vector3.one;
+        //pathRememberer.gameObject.transform.position = Vector3.one;
+        unlockedLAUNCH = true;
 
         path_choose.gameObject.SetActive(false);
         path_rigid.gameObject.SetActive(false);
@@ -1441,6 +1450,7 @@ public class move22 : MonoBehaviour
     public void KILL()
     {
         hp = 0;
+        BURNT = true;
     }
 
     public void HOLE()

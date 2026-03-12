@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -11,11 +12,18 @@ public class fakestonescript : MonoBehaviour
     public Light2D HIDEN_until_in_area4;
     public SpriteRenderer HIDEN_until_in_area5;
     public ParticleSystem HIDEN_until_in_area6;
-
-
+    public move22 moveScript;
+    public bool givebadge = false;
     // Start is called before the first frame update
     void Start()
     {
+        if (!moveScript )
+        {
+            GameObject move = GameObject.Find("move");
+            if (move)
+                moveScript = move.GetComponent<move22>();
+        }
+
         if (HIDEN_until_in_area != null)
         {
             HIDEN_until_in_area.enabled = false;
@@ -54,6 +62,10 @@ public class fakestonescript : MonoBehaviour
     {
         if (collision.CompareTag("player"))
         {
+            if (moveScript != null && givebadge==true)
+            {
+                moveScript.discovedSecret = true;
+            }
             if (HIDEN_until_in_area != null)
             {
                 HIDEN_until_in_area.enabled = true;
