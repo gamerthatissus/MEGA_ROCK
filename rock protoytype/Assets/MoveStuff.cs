@@ -25,7 +25,7 @@ public class move22 : MonoBehaviour
     }
 
     public bool BURNT = false;
-
+    public bool starteeed=false;
     public bool boss = false;
     private Derection lastDerection;
     public GameObject OG_earth_spike;
@@ -201,8 +201,17 @@ public class move22 : MonoBehaviour
     }
 
     // Start is called before the first frame update
+
+    IEnumerator waitstart()
+    {
+        starteeed = false;
+        yield return new WaitForSeconds(2f);
+        starteeed = true;
+    }
     void Start()
     {
+        starteeed = false;
+        StartCoroutine(waitstart());
         BURNT = false;
         hpbar.maxValue = 120;
         Died = false;
@@ -539,6 +548,7 @@ public class move22 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      
         if (hit)
         {
             AimRay.transform.position = new Vector3((hit.point.x + outsidemove.position.x) / 2, (hit.point.y + outsidemove.position.y) / 2, 0);

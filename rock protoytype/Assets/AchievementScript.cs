@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class AchievementScript : MonoBehaviour
 {
+    private float oldhp=100;
     public GameObject a_get_pannel;
     public TextMeshProUGUI a_get_text;
     private string lastSceneName;
@@ -131,8 +132,14 @@ public class AchievementScript : MonoBehaviour
 
     private void Update()
     {
+
+       
         if (moveScript != null)
         {
+            if (moveScript.starteeed == true)
+            {
+                oldhp = moveScript.hp;
+            }
             if (moveScript.stone == 0 && moveScript.ranout==false)
             {
                 moveScript.ranout = true;
@@ -213,18 +220,18 @@ public class AchievementScript : MonoBehaviour
             {
                 if (thisSceneName == "LevelOne")
                 {
-                    GiveAchievement("BEGINER: complete the totoreal!");
-                    StartCoroutine(delayedachevment("2 TO SURGE!: unlock the stone surge ability!", 0.3f));
+                    GiveAchievement("BEGINER: complete the tutorial!");
+                    StartCoroutine(delayedachevment("2 TO SURGE: unlock the stone surge ability!", 0.3f));
 
                     if (violent)
                     {
-                        StartCoroutine(delayedachevment("MURDERHOBO BEGINER: complete the totorial after defeating all enemies!", 0.15f));
+                        StartCoroutine(delayedachevment("MURDERHOBO BEGINER: complete the tutorial after defeating all enemies!", 0.15f));
 
                     }
                 }
                 else if (thisSceneName == "THE BOSS FIGHT")
                 {
-                    GiveAchievement("???: find the secret in level 1!");
+                    GiveAchievement("???: Find the secret in the tutorial level!");
                 }
             }
             else if (lastSceneName == "LevelOne" && thisSceneName == "LevelTwo")
