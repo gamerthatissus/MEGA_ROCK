@@ -2023,6 +2023,7 @@ GameObject:
   - component: {fileID: 1296097392}
   - component: {fileID: 1296097391}
   - component: {fileID: 1296097390}
+  - component: {fileID: 1296097393}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2058,6 +2059,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   optionsPanel: {fileID: 1385146507}
+  playButton: {fileID: 1538856286}
+  titleButton: {fileID: 840911981}
+  optionsButton: {fileID: 1151405919}
 --- !u!114 &1296097390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2082,6 +2086,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48552785eef29cd41b469149d669bd95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startButton: {fileID: 0}
+  quitButton: {fileID: 0}
 --- !u!114 &1296097392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2096,6 +2102,116 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   masterSlider: {fileID: 684770362}
   fullscreenToggle: {fileID: 1027834299}
+--- !u!114 &1296097393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296097386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: d8df41fca6590f64d8d9a65a2f4043aa, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cda93500-28e5-4b12-8b54-8413a6680e2c
+    m_ActionName: Controller/OnMove[/XInputControllerWindows/leftStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4fb67663-b774-4121-b3ae-d0166791c1b1
+    m_ActionName: Controller/OnAim[/XInputControllerWindows/rightStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 73d2c5cc-796c-4a91-85d4-717f3de2c01d
+    m_ActionName: Controller/LaunchTrigger[/XInputControllerWindows/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1296097386}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7bdd47d9-ad68-4a9e-9d4a-adf388c75bd7
+    m_ActionName: Controller/AttackPressed[/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 592aa1e7-c3a4-460c-9605-09760bd7ae70
+    m_ActionName: Controller/BlockHeld[/XInputControllerWindows/leftTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f8ca59bb-efcc-4636-af10-409b1d6b80ec
+    m_ActionName: Controller/EarthSurged[/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: fdb85699-3c61-47ea-a673-817391b11699
+    m_ActionName: Controller/TntPlaced[/XInputControllerWindows/buttonWest]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0e3823cb-44aa-447b-ac62-39876d633f0e
+    m_ActionName: Controller/Restarted[/XInputControllerWindows/buttonNorth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d743e650-caf2-4c17-8732-a5a062d91fae
+    m_ActionName: Controller/StalagtiteDropped[/XInputControllerWindows/rightShoulder]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1296097389}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: MenuUp
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 472bf802-a354-4ec5-b037-3f38dc3d8f42
+    m_ActionName: Controller/MenuUp[/XInputControllerWindows/leftStick/up]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1296097389}
+        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+        m_MethodName: MenuDown
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 960c7ac7-dbad-4062-ade4-db721778f427
+    m_ActionName: Controller/MenuDown[/XInputControllerWindows/leftStick/down]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: 
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1385146507
 GameObject:
   m_ObjectHideFlags: 0

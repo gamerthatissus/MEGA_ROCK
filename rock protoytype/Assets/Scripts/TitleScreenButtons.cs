@@ -17,7 +17,6 @@ public class TitleScreenButtons : MonoBehaviour
     private void Start()
     {
         selectedButton = TitleStartButton;
-        ExecuteEvents.Execute(quitButton, new PointerEventData(EventSystem.current), ExecuteEvents.pointerExitHandler);
         ExecuteEvents.Execute(startButton, new PointerEventData(EventSystem.current), ExecuteEvents.pointerEnterHandler);
     }
 
