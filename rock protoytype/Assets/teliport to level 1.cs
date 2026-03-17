@@ -29,7 +29,12 @@ public class teliporttolevel1 : MonoBehaviour
                 if (mode == 1)
                 {
                     move2222.RIGID();
+                    
+                    if (move2222.showedLAUNCH == false)
+                    {
+                        move2222.SHOW_LAUNCH();
 
+                    }
                 }
                 else if (mode == 2)
                 {
@@ -47,6 +52,10 @@ public class teliporttolevel1 : MonoBehaviour
                 else if (mode == 5)
                 {
                     SceneManager.LoadScene("THE BOSS FIGHT");
+                }
+                else if (mode==100 && move2222.showedCOMbat==false)
+                {
+                    move2222.SHOW_COMBAT();
                 }
             }
 

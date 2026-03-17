@@ -24,6 +24,9 @@ public class move22 : MonoBehaviour
      Right
     }
 
+    public bool showedCOMbat = false;
+    public bool showedLAUNCH = false;
+
     public bool BURNT = false;
     public bool starteeed=false;
     public bool boss = false;
@@ -143,6 +146,13 @@ public class move22 : MonoBehaviour
     public GameObject AimRay;
     public bool ranout=false;
     public bool discovedSecret = false;
+    public GameObject controls_BASIC;
+
+    public GameObject controls_COMBAT;
+    public GameObject controls_ROCK_LAUNCH;
+
+
+
     public void OnMove(InputAction.CallbackContext context)
     {
         moveDirection = math.sign(context.ReadValue<Vector2>().x);
@@ -208,8 +218,57 @@ public class move22 : MonoBehaviour
         yield return new WaitForSeconds(2f);
         starteeed = true;
     }
+
+    IEnumerator ShowControls(SpriteRenderer thing_that_will_disaapere)
+    {
+        thing_that_will_disaapere.color = new Color(thing_that_will_disaapere.color.r, thing_that_will_disaapere.color.g, thing_that_will_disaapere.color.b, 255);
+        
+        yield return new WaitForSeconds(6);
+
+        for (float i = 0; i<=(255/60); i += Time.deltaTime)
+        {
+
+            thing_that_will_disaapere.color = new Color32(255,255,255, (byte) Mathf.Clamp( 255 - (i * 65) ,0,255)  );
+            
+            yield return null;
+        }
+
+    }
+    public void SHOW_COMBAT()
+    {
+        showedCOMbat = true;
+        SpriteRenderer SR_combat = controls_COMBAT.GetComponent<SpriteRenderer>();
+        StartCoroutine(ShowControls(SR_combat));
+
+    }
+    public void SHOW_LAUNCH()
+    {
+        showedLAUNCH = true;
+        SpriteRenderer SR_LAUNCH = controls_ROCK_LAUNCH.GetComponent<SpriteRenderer>();
+        StartCoroutine(ShowControls(SR_LAUNCH));
+
+    }
     void Start()
     {
+        showedCOMbat = false;
+        showedLAUNCH = false;
+        if (controls_BASIC != null)
+        {
+            SpriteRenderer SR_basic = controls_BASIC.GetComponent<SpriteRenderer>();
+            StartCoroutine(ShowControls(SR_basic));
+        }
+        if (controls_COMBAT != null)
+        {
+            SpriteRenderer SR_combat = controls_COMBAT.GetComponent<SpriteRenderer>();
+            SR_combat.color = new Color32(255,255,255, (byte)0);
+
+        }
+        if (controls_ROCK_LAUNCH != null)
+        {
+            SpriteRenderer SR_launch = controls_ROCK_LAUNCH.GetComponent<SpriteRenderer>();
+            SR_launch.color = new Color32(255, 255, 255, (byte)0);
+
+        }
         starteeed = false;
         StartCoroutine(waitstart());
         BURNT = false;
