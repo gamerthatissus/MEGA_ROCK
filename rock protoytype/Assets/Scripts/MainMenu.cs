@@ -24,7 +24,7 @@ public class MainMenu : MonoBehaviour
 
     public void MenuUp(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && !optionsPanel.activeSelf)
         {
             if (selectedButton == PlayGame)
             {
@@ -49,7 +49,7 @@ public class MainMenu : MonoBehaviour
 
     public void MenuDown(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && !optionsPanel.activeSelf)
         {
             if (selectedButton == OpenOptions)
             {
@@ -69,6 +69,14 @@ public class MainMenu : MonoBehaviour
                 ExecuteEvents.Execute(playButton, new PointerEventData(EventSystem.current), ExecuteEvents.pointerExitHandler);
                 ExecuteEvents.Execute(optionsButton, new PointerEventData(EventSystem.current), ExecuteEvents.pointerEnterHandler);
             }
+        }
+    }
+
+    public void PressButton(InputAction.CallbackContext context)
+    {
+        if (context.performed && !optionsPanel.activeSelf)
+        {
+            selectedButton.Invoke();
         }
     }
 
