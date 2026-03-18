@@ -14,7 +14,7 @@ public class OptionsMenu : MonoBehaviour
     public GameObject FSButton;
     public GameObject menuButton;
 
-    private Action selectedButton;
+    private GameObject selectedOption;
 
     //AudioListener.volume = PlayerPrefs.GetFloat("MasterVol", 1f);
 
@@ -23,7 +23,7 @@ public class OptionsMenu : MonoBehaviour
     {
         masterSlider.value = PlayerPrefs.GetFloat("MasterVol", 1f);
         fullscreenToggle.isOn = PlayerPrefs.GetInt("Fullscreen", 1) == 1;
-        selectedButton = SetMasterVolume;
+        selectedOption = volumeBar;
         ExecuteEvents.Execute(volumeBar, new PointerEventData(EventSystem.current), ExecuteEvents.pointerEnterHandler);
     }
 
@@ -31,21 +31,21 @@ public class OptionsMenu : MonoBehaviour
     {
         if (context.performed)
         {
-            if (selectedButton == SetMasterVolume)
+            if (selectedOption == volumeBar)
             {
-                selectedButton = CloseOptions;
+                selectedOption = menuButton;
                 ExecuteEvents.Execute(volumeBar, new PointerEventData(EventSystem.current), ExecuteEvents.pointerExitHandler);
                 ExecuteEvents.Execute(menuButton, new PointerEventData(EventSystem.current), ExecuteEvents.pointerEnterHandler);
             }
-            else if (selectedButton == SetFullscreen)
+            else if (selectedOption == FSButton)
             {
-                selectedButton = SetMasterVolume;
+                selectedOption = volumeBar;
                 ExecuteEvents.Execute(FSButton, new PointerEventData(EventSystem.current), ExecuteEvents.pointerExitHandler);
                 ExecuteEvents.Execute(volumeBar, new PointerEventData(EventSystem.current), ExecuteEvents.pointerEnterHandler);
             }
             else
             {
-                selectedButton = SetFullscreen;
+                selectedOption = FSButton;
                 ExecuteEvents.Execute(menuButton, new PointerEventData(EventSystem.current), ExecuteEvents.pointerExitHandler);
                 ExecuteEvents.Execute(FSButton, new PointerEventData(EventSystem.current), ExecuteEvents.pointerEnterHandler);
             }
@@ -56,21 +56,21 @@ public class OptionsMenu : MonoBehaviour
     {
         if (context.performed)
         {
-            if (selectedButton == SetFullscreen)
+            if (selectedOption == FSButton)
             {
-                selectedButton = CloseOptions;
+                selectedOption = menuButton;
                 ExecuteEvents.Execute(FSButton, new PointerEventData(EventSystem.current), ExecuteEvents.pointerExitHandler);
                 ExecuteEvents.Execute(menuButton, new PointerEventData(EventSystem.current), ExecuteEvents.pointerEnterHandler);
             }
-            else if (selectedButton == CloseOptions)
+            else if (selectedOption == menuButton)
             {
-                selectedButton = SetMasterVolume;
+                selectedOption = volumeBar;
                 ExecuteEvents.Execute(menuButton, new PointerEventData(EventSystem.current), ExecuteEvents.pointerExitHandler);
                 ExecuteEvents.Execute(volumeBar, new PointerEventData(EventSystem.current), ExecuteEvents.pointerEnterHandler);
             }
             else
             {
-                selectedButton = SetFullscreen;
+                selectedOption = FSButton;
                 ExecuteEvents.Execute(volumeBar, new PointerEventData(EventSystem.current), ExecuteEvents.pointerExitHandler);
                 ExecuteEvents.Execute(FSButton, new PointerEventData(EventSystem.current), ExecuteEvents.pointerEnterHandler);
             }
@@ -81,7 +81,23 @@ public class OptionsMenu : MonoBehaviour
     {
         if (context.performed)
         {
-            selectedButton.Invoke();
+            if (selectedOption == FSButton)
+            {
+                if (fullscreenToggle.isOn)
+                {
+                    fullscreenToggle.isOn = false;
+                }
+                else
+                {
+                    fullscreenToggle.isOn = true;
+                }
+
+                SetFullscreen(fullscreenToggle.isOn);
+            }
+            else if (selectedOption == menuButton)
+            {
+                CloseOptions();
+            }
         }
     }
 
