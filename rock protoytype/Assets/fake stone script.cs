@@ -111,7 +111,15 @@ public class fakestonescript : MonoBehaviour
         {
             if (HIDEN_until_in_area != null)
             {
-                HIDEN_until_in_area.enabled = false;
+                if (HIDEN_until_in_area.gameObject.name == "hiden stalagtite")
+                {
+
+                }
+                else
+                {
+                    HIDEN_until_in_area.enabled = false;
+
+                }
 
             }
             if (HIDEN_until_in_area2 != null)
