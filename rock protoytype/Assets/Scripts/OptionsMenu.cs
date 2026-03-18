@@ -1,5 +1,6 @@
 using System;
 using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -15,11 +16,12 @@ public class OptionsMenu : MonoBehaviour
     public GameObject menuButton;
 
     private GameObject selectedOption;
+    private float slideValue = 0f;
 
     //AudioListener.volume = PlayerPrefs.GetFloat("MasterVol", 1f);
 
 
-    void Start()
+    void OnEnable()
     {
         masterSlider.value = PlayerPrefs.GetFloat("MasterVol", 1f);
         fullscreenToggle.isOn = PlayerPrefs.GetInt("Fullscreen", 1) == 1;
@@ -27,9 +29,17 @@ public class OptionsMenu : MonoBehaviour
         ExecuteEvents.Execute(volumeBar, new PointerEventData(EventSystem.current), ExecuteEvents.pointerEnterHandler);
     }
 
+    private void Update()
+    {
+        if (selectedOption == volumeBar)
+        {
+            masterSlider.value += 5 * slideValue * Time.deltaTime;
+        }
+    }
+
     public void MenuUp(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && gameObject.activeSelf)
         {
             if (selectedOption == volumeBar)
             {
@@ -54,7 +64,7 @@ public class OptionsMenu : MonoBehaviour
 
     public void MenuDown(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && gameObject.activeSelf)
         {
             if (selectedOption == FSButton)
             {
@@ -79,19 +89,11 @@ public class OptionsMenu : MonoBehaviour
 
     public void PressButton(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && gameObject.activeSelf)
         {
             if (selectedOption == FSButton)
             {
-                if (fullscreenToggle.isOn)
-                {
-                    fullscreenToggle.isOn = false;
-                }
-                else
-                {
-                    fullscreenToggle.isOn = true;
-                }
-
+                fullscreenToggle.isOn = !fullscreenToggle.isOn;
                 SetFullscreen(fullscreenToggle.isOn);
             }
             else if (selectedOption == menuButton)
@@ -99,6 +101,11 @@ public class OptionsMenu : MonoBehaviour
                 CloseOptions();
             }
         }
+    }
+
+    public void SlideBar(InputAction.CallbackContext context)
+    {
+        slideValue = context.ReadValue<Vector2>().x;
     }
 
     public void SetMasterVolume(float vol)
