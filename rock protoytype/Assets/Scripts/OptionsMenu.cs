@@ -1,5 +1,6 @@
 using System;
 using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -14,38 +15,47 @@ public class OptionsMenu : MonoBehaviour
     public GameObject FSButton;
     public GameObject menuButton;
 
-    private Action selectedButton;
+    private GameObject selectedOption;
+    private float slideValue = 0f;
 
     //AudioListener.volume = PlayerPrefs.GetFloat("MasterVol", 1f);
 
 
-    void Start()
+    void OnEnable()
     {
         masterSlider.value = PlayerPrefs.GetFloat("MasterVol", 1f);
         fullscreenToggle.isOn = PlayerPrefs.GetInt("Fullscreen", 1) == 1;
-        selectedButton = SetMasterVolume;
+        selectedOption = volumeBar;
         ExecuteEvents.Execute(volumeBar, new PointerEventData(EventSystem.current), ExecuteEvents.pointerEnterHandler);
+    }
+
+    private void Update()
+    {
+        if (selectedOption == volumeBar)
+        {
+            masterSlider.value += 5 * slideValue * Time.deltaTime;
+        }
     }
 
     public void MenuUp(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && gameObject.activeSelf)
         {
-            if (selectedButton == SetMasterVolume)
+            if (selectedOption == volumeBar)
             {
-                selectedButton = CloseOptions;
+                selectedOption = menuButton;
                 ExecuteEvents.Execute(volumeBar, new PointerEventData(EventSystem.current), ExecuteEvents.pointerExitHandler);
                 ExecuteEvents.Execute(menuButton, new PointerEventData(EventSystem.current), ExecuteEvents.pointerEnterHandler);
             }
-            else if (selectedButton == SetFullscreen)
+            else if (selectedOption == FSButton)
             {
-                selectedButton = SetMasterVolume;
+                selectedOption = volumeBar;
                 ExecuteEvents.Execute(FSButton, new PointerEventData(EventSystem.current), ExecuteEvents.pointerExitHandler);
                 ExecuteEvents.Execute(volumeBar, new PointerEventData(EventSystem.current), ExecuteEvents.pointerEnterHandler);
             }
             else
             {
-                selectedButton = SetFullscreen;
+                selectedOption = FSButton;
                 ExecuteEvents.Execute(menuButton, new PointerEventData(EventSystem.current), ExecuteEvents.pointerExitHandler);
                 ExecuteEvents.Execute(FSButton, new PointerEventData(EventSystem.current), ExecuteEvents.pointerEnterHandler);
             }
@@ -54,23 +64,23 @@ public class OptionsMenu : MonoBehaviour
 
     public void MenuDown(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && gameObject.activeSelf)
         {
-            if (selectedButton == SetFullscreen)
+            if (selectedOption == FSButton)
             {
-                selectedButton = CloseOptions;
+                selectedOption = menuButton;
                 ExecuteEvents.Execute(FSButton, new PointerEventData(EventSystem.current), ExecuteEvents.pointerExitHandler);
                 ExecuteEvents.Execute(menuButton, new PointerEventData(EventSystem.current), ExecuteEvents.pointerEnterHandler);
             }
-            else if (selectedButton == CloseOptions)
+            else if (selectedOption == menuButton)
             {
-                selectedButton = SetMasterVolume;
+                selectedOption = volumeBar;
                 ExecuteEvents.Execute(menuButton, new PointerEventData(EventSystem.current), ExecuteEvents.pointerExitHandler);
                 ExecuteEvents.Execute(volumeBar, new PointerEventData(EventSystem.current), ExecuteEvents.pointerEnterHandler);
             }
             else
             {
-                selectedButton = SetFullscreen;
+                selectedOption = FSButton;
                 ExecuteEvents.Execute(volumeBar, new PointerEventData(EventSystem.current), ExecuteEvents.pointerExitHandler);
                 ExecuteEvents.Execute(FSButton, new PointerEventData(EventSystem.current), ExecuteEvents.pointerEnterHandler);
             }
@@ -79,10 +89,23 @@ public class OptionsMenu : MonoBehaviour
 
     public void PressButton(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && gameObject.activeSelf)
         {
-            selectedButton.Invoke();
+            if (selectedOption == FSButton)
+            {
+                fullscreenToggle.isOn = !fullscreenToggle.isOn;
+                SetFullscreen(fullscreenToggle.isOn);
+            }
+            else if (selectedOption == menuButton)
+            {
+                CloseOptions();
+            }
         }
+    }
+
+    public void SlideBar(InputAction.CallbackContext context)
+    {
+        slideValue = context.ReadValue<Vector2>().x;
     }
 
     public void SetMasterVolume(float vol)
