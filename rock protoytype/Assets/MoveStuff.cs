@@ -146,6 +146,8 @@ public class move22 : MonoBehaviour
     public GameObject AimRay;
     public bool ranout=false;
     public bool discovedSecret = false;
+    public bool discovedSecret2 = false;
+
     public GameObject controls_BASIC;
 
     public GameObject controls_COMBAT;

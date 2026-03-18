@@ -158,6 +158,12 @@ public class AchievementScript : MonoBehaviour
                 GiveAchievement("SECRET ROOM: discover your first secret room");
 
             }
+            if (moveScript.discovedSecret2 == true)
+            {
+                moveScript.discovedSecret2 = false;
+                GiveAchievement("HIDDEN METHOD: find an ''alternitive'' way to get past the lava pool");
+
+            }
             if (moveScript.BURNT == true)
             {
                 moveScript.BURNT = false;

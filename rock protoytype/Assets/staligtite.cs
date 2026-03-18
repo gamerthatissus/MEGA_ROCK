@@ -18,10 +18,14 @@ public class staligtite : MonoBehaviour
     public GameObject move;
 
     private move22 moveScript;
+    private Vector2 OG_POS;
+    private float og_rot;
 
     // Start is called before the first frame update
     void Start()
     {
+        OG_POS = stalag.position;
+        og_rot = stalag.rotation;
         stalag.constraints = RigidbodyConstraints2D.FreezeAll;
         moveScript = move.GetComponent<move22>();
     }
@@ -29,6 +33,12 @@ public class staligtite : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            stalag.constraints = RigidbodyConstraints2D.FreezeAll;
+              stalag.position=OG_POS;
+            stalag.rotation = og_rot;
+        }
         mouseposstart = Input.mousePosition;
         mousepos = maincam.ScreenToWorldPoint(mouseposstart);
         mousepos.z = 0;

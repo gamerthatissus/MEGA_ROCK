@@ -14,6 +14,7 @@ public class fakestonescript : MonoBehaviour
     public ParticleSystem HIDEN_until_in_area6;
     public move22 moveScript;
     public bool givebadge = false;
+    public bool giveBadge2 = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -65,6 +66,10 @@ public class fakestonescript : MonoBehaviour
             if (moveScript != null && givebadge==true)
             {
                 moveScript.discovedSecret = true;
+            }
+            if (moveScript != null && giveBadge2 == true)
+            {
+                moveScript.discovedSecret2 = true;
             }
             if (HIDEN_until_in_area != null)
             {
