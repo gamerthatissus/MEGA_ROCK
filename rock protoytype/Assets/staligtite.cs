@@ -33,8 +33,10 @@ public class staligtite : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha0))
+        if (Input.GetKeyDown(KeyCode.Alpha0) || moveScript.reset)
         {
+            moveScript.reset = false;
+
             stalag.constraints = RigidbodyConstraints2D.FreezeAll;
               stalag.position=OG_POS;
             stalag.rotation = og_rot;
