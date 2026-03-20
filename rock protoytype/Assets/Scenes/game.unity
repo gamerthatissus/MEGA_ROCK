@@ -19707,7 +19707,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'press 0 to reset stalagtites
+  m_text: 'press 0 or left bumper to reset stalagtites
 
 '
   m_isRightToLeft: 0
@@ -19736,7 +19736,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.3
+  m_fontSize: 0.25
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -28489,9 +28489,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'that stalagtite looks loose...
 
-    (click or right bumper)
-
-'
+    (click or right bumper)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -40212,7 +40210,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'press 0 to reset stalagtites
+  m_text: 'press 0 or left bumper to reset stalagtites
 
 '
   m_isRightToLeft: 0
@@ -40241,7 +40239,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.3
+  m_fontSize: 0.25
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -51876,6 +51874,7 @@ MonoBehaviour:
   mousepos: {x: 0, y: 0, z: 0}
   unlockedLAUNCH: 0
   dropped: 0
+  reset: 0
   AimRay: {fileID: 1001973973}
   ranout: 0
   discovedSecret: 0
@@ -52168,6 +52167,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 960c7ac7-dbad-4062-ade4-db721778f427
     m_ActionName: Controller/MenuDown
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1694147102}
+        m_TargetAssemblyTypeName: move22, Assembly-CSharp
+        m_MethodName: ResetStalag
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b770deaf-0e35-4d82-9060-713cd6b69ef7
+    m_ActionName: Controller/ResetStalag
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: 

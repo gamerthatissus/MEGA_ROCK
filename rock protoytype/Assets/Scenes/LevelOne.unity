@@ -10898,7 +10898,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.17658693, y: 0.5}
   m_AnchorMax: {x: 0.22939675, y: 0.5}
-  m_AnchoredPosition: {x: 27.699978, y: 9.6}
+  m_AnchoredPosition: {x: 27.699976, y: 9.6}
   m_SizeDelta: {x: 103.57687, y: 34.77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &463949109
@@ -13103,7 +13103,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.17658693, y: 0.5}
   m_AnchorMax: {x: 0.22939675, y: 0.5}
-  m_AnchoredPosition: {x: 27.500023, y: 9}
+  m_AnchoredPosition: {x: 27.500025, y: 9}
   m_SizeDelta: {x: 103.04878, y: 34.77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &677224505
@@ -33627,6 +33627,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98dee303a8f0f9b4d98ad676d0cfa689, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showedCOMbat: 0
+  showedLAUNCH: 0
+  BURNT: 0
+  starteeed: 0
   boss: 0
   OG_earth_spike: {fileID: 1636435694}
   DIE_sound: {fileID: 8300000, guid: 840f7ef2a5e60fb47a3ec407cda4b18f, type: 3}
@@ -33689,8 +33693,16 @@ MonoBehaviour:
   blockMultiplier: 1
   mouseposstart: {x: 0, y: 0, z: 0}
   mousepos: {x: 0, y: 0, z: 0}
+  unlockedLAUNCH: 0
   dropped: 0
+  reset: 0
   AimRay: {fileID: 845716971}
+  ranout: 0
+  discovedSecret: 0
+  discovedSecret2: 0
+  controls_BASIC: {fileID: 0}
+  controls_COMBAT: {fileID: 0}
+  controls_ROCK_LAUNCH: {fileID: 0}
 --- !u!50 &1331664288
 Rigidbody2D:
   serializedVersion: 4
@@ -34082,6 +34094,30 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: d743e650-caf2-4c17-8732-a5a062d91fae
     m_ActionName: Controller/StalagtiteDropped[/XInputControllerWindows/rightShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 472bf802-a354-4ec5-b037-3f38dc3d8f42
+    m_ActionName: Controller/MenuUp
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 960c7ac7-dbad-4062-ade4-db721778f427
+    m_ActionName: Controller/MenuDown
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1331664287}
+        m_TargetAssemblyTypeName: move22, Assembly-CSharp
+        m_MethodName: ResetStalag
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b770deaf-0e35-4d82-9060-713cd6b69ef7
+    m_ActionName: Controller/ResetStalag
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: 
@@ -36903,7 +36939,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.17658693, y: 0.5}
   m_AnchorMax: {x: 0.22939675, y: 0.5}
-  m_AnchoredPosition: {x: 29.600025, y: 15.46}
+  m_AnchoredPosition: {x: 29.600027, y: 15.46}
   m_SizeDelta: {x: 109.05, y: 34.77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1601955529
@@ -37976,7 +38012,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.17658693, y: 0.5}
   m_AnchorMax: {x: 0.22939675, y: 0.5}
-  m_AnchoredPosition: {x: 26.500023, y: 9.9}
+  m_AnchoredPosition: {x: 26.500025, y: 9.9}
   m_SizeDelta: {x: 103.04878, y: 34.77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1677496849

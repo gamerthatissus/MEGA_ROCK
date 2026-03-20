@@ -143,6 +143,7 @@ public class move22 : MonoBehaviour
     private bool placed;
     private bool restarted;
     public bool dropped;
+    public bool reset;
     public GameObject AimRay;
     public bool ranout=false;
     public bool discovedSecret = false;
@@ -209,7 +210,15 @@ public class move22 : MonoBehaviour
     public void StalagtiteDropped(InputAction.CallbackContext context)
     {
         if (context.ReadValueAsButton() && hit)
+            Debug.Log("dropped");
             dropped = true;
+    }
+
+    public void ResetStalag(InputAction.CallbackContext context)
+    {
+        if (context.ReadValueAsButton())
+            Debug.Log("reset");
+            reset = true;
     }
 
     // Start is called before the first frame update
