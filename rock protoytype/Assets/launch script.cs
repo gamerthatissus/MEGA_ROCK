@@ -52,19 +52,26 @@ public class launchscript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-     
-        
-           
- if (collision.gameObject.CompareTag("floor"))
+
+
+
+        if (collision.gameObject.CompareTag("floor"))
         {
+
             insidefloor += 1;
+
+        }
+        else if (collision.gameObject.CompareTag("SPIKE"))
+        {
+
+            insidefloor = -100;
 
         }
         else
         {
 
-
         }
+
 
 
     }
@@ -79,6 +86,12 @@ public class launchscript : MonoBehaviour
             }
 
         }
+        else if (other.gameObject.CompareTag("SPIKE"))
+        {
+
+            insidefloor = -100;
+
+        }
         else
         {
 
@@ -91,6 +104,12 @@ public class launchscript : MonoBehaviour
         if (collision.gameObject.CompareTag("floor"))
         {
             insidefloor -= 1;
+
+        }
+        else if (collision.gameObject.CompareTag("SPIKE"))
+        {
+
+            insidefloor =0;
 
         }
         else

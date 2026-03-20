@@ -221,6 +221,36 @@ public class move22 : MonoBehaviour
         starteeed = true;
     }
 
+    IEnumerator stone_SURGE_LOCK(Rigidbody2D launchhher)
+    {
+        float intitalrotation = launchhher.rotation;
+        
+        for (float i = 0; i < 20; i+=Time.deltaTime)
+        {
+            Collider2D[] floors = Physics2D.OverlapCircleAll(launchhher.position, 1f, floor);
+            bool conected = false;
+            foreach (Collider2D thingy in floors)
+            {
+                if (thingy.gameObject.CompareTag("floor"))
+                {
+                    conected = true;
+
+                }
+            }
+            if (conected == false && launchhher.simulated==true)
+            {
+                launchhher.velocity = new Vector2(0, 0);
+                launchhher.angularVelocity =0;
+            }
+
+
+            if (launchhher.rotation!= intitalrotation)
+            {
+                launchhher.rotation = intitalrotation;
+            }
+            yield return null;
+        }
+    }
     IEnumerator ShowControls(SpriteRenderer thing_that_will_disaapere)
     {
         thing_that_will_disaapere.color = new Color(thing_that_will_disaapere.color.r, thing_that_will_disaapere.color.g, thing_that_will_disaapere.color.b, 255);
@@ -428,7 +458,7 @@ public class move22 : MonoBehaviour
         audeo.clip = DIE_sound;
         audeo.Play();
         
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(1f);
 
         
 
@@ -450,11 +480,15 @@ public class move22 : MonoBehaviour
     {
 
        
-        yield return new WaitForSeconds(3f);
-       for (int i = 1; i < 500; i++)
+        yield return new WaitForSeconds(2f);
+       for (float i = 1; i < 6; i+=Time.deltaTime)
         {
             yield return null;
-            RIG2d.position = new Vector2(RIG2d.position.x, RIG2d.position.y - 0.01f);
+            if (RIG2d != null)
+            {
+                RIG2d.position = new Vector2(RIG2d.position.x, RIG2d.position.y - (1.5f * Time.deltaTime));
+
+            }
             yield return null;
 
         }
@@ -1035,7 +1069,7 @@ public class move22 : MonoBehaviour
             {
                 if (Mathf.Abs(outsidemove.velocity.magnitude) <= 15)
                 {
-                    outsidemove.AddForce(Vector2.right * 300f * outsidemove.mass * Time.deltaTime, ForceMode2D.Force);
+                    outsidemove.AddForce(Vector2.right * 350f * outsidemove.mass * Time.deltaTime, ForceMode2D.Force);
 
                 }
 
@@ -1051,6 +1085,8 @@ public class move22 : MonoBehaviour
 
             }
         }
+
+
 
         else if (choosenPath == "none" || choosenPath== "rigid")
         {
@@ -1246,12 +1282,14 @@ public class move22 : MonoBehaviour
                     float angle = Mathf.Atan2(facingDir.y, facingDir.x) * Mathf.Rad2Deg - 90f;
                     blockT.rotation = Quaternion.Euler(0, 0, angle);
                     rigggg.rotation = angle;
+                    //spaceeeee
                     Vector2 newpos = ((Vector2)(blockT.transform.up) * -1.5f);
                     rigggg.position = (go + newpos);
 
 
 
-                    rigggg.AddRelativeForce(Vector2.up * 4200f, ForceMode2D.Impulse);
+                    rigggg.AddRelativeForce(Vector2.up * 4150f, ForceMode2D.Impulse);
+                    StartCoroutine(stone_SURGE_LOCK(rigggg));
 
                 }
             } //e
