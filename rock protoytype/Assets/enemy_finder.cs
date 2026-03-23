@@ -10,7 +10,7 @@ public class enemy_finder : MonoBehaviour
     public Camera Mmaincamera;
     private Vector2 enemySreenPos;
     private SpriteRenderer find_render;
-    public bool invisLastframe=false;
+    public int invisLastframe=0;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +38,8 @@ public class enemy_finder : MonoBehaviour
             FINDER.transform.position = finalpos;
 
             find_render.enabled = false;
+            invisLastframe = 150;
+
         }
         else
         {
@@ -45,17 +47,22 @@ public class enemy_finder : MonoBehaviour
             if (enemy.name.Contains("OG"))
             {
                 find_render.enabled = false;
-                invisLastframe = true;
             }
             else
             {
-                if (invisLastframe == true)
+                if (invisLastframe <= 0)
                 {
-                    invisLastframe = false;
+                    find_render.enabled = true;
+
                 }
                 else
                 {
-                    find_render.enabled = true;
+                    
+                        find_render.enabled = false;
+
+                        invisLastframe -= 1;
+
+                    
 
                 }
 

@@ -262,7 +262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 10132859}
   - component: {fileID: 10132861}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: background_stone
   m_TagString: floor
   m_Icon: {fileID: 0}
@@ -2134,7 +2134,7 @@ GameObject:
   - component: {fileID: 220778027}
   - component: {fileID: 220778026}
   - component: {fileID: 220778025}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: platform (1)
   m_TagString: floor
   m_Icon: {fileID: 0}
@@ -2630,7 +2630,7 @@ GameObject:
   m_Component:
   - component: {fileID: 261473876}
   - component: {fileID: 261473877}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: background_stone
   m_TagString: floor
   m_Icon: {fileID: 0}
@@ -3121,7 +3121,7 @@ GameObject:
   - component: {fileID: 357547548}
   - component: {fileID: 357547547}
   - component: {fileID: 357547546}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: platform (2)
   m_TagString: floor
   m_Icon: {fileID: 0}
@@ -3789,7 +3789,7 @@ GameObject:
   m_Component:
   - component: {fileID: 513957137}
   - component: {fileID: 513957139}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: background_stone
   m_TagString: floor
   m_Icon: {fileID: 0}
@@ -4954,7 +4954,7 @@ GameObject:
   m_Component:
   - component: {fileID: 652164843}
   - component: {fileID: 652164844}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: background_stone
   m_TagString: floor
   m_Icon: {fileID: 0}
@@ -5206,7 +5206,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.15, y: 0.06, z: -1}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1673443886}
@@ -5225,6 +5225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 1673443880}
   Mmaincamera: {fileID: 178359704}
+  invisLastframe: 0
 --- !u!212 &668336040
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5266,7 +5267,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 100
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b099f287339980744b8ccedd658d67cb, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 0.8}
   m_FlipX: 0
   m_FlipY: 0
@@ -5927,6 +5928,7 @@ MonoBehaviour:
   mousepos: {x: 0, y: 0, z: 0}
   unlockedLAUNCH: 0
   dropped: 0
+  reset: 0
   AimRay: {fileID: 623865384}
   ranout: 0
   discovedSecret: 0
@@ -6483,7 +6485,7 @@ GameObject:
   m_Component:
   - component: {fileID: 777193309}
   - component: {fileID: 777193310}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: background_stone
   m_TagString: floor
   m_Icon: {fileID: 0}
@@ -11749,7 +11751,7 @@ GameObject:
   m_Component:
   - component: {fileID: 885404303}
   - component: {fileID: 885404305}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: background_stone
   m_TagString: floor
   m_Icon: {fileID: 0}
@@ -12074,7 +12076,7 @@ GameObject:
   - component: {fileID: 942347044}
   - component: {fileID: 942347043}
   - component: {fileID: 942347042}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: platform
   m_TagString: floor
   m_Icon: {fileID: 0}
@@ -12244,7 +12246,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.15, y: 0.06, z: -1}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1080107446}
@@ -12263,6 +12265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 1080107445}
   Mmaincamera: {fileID: 178359704}
+  invisLastframe: 0
 --- !u!212 &989684042
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12304,8 +12307,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 100
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 0.8}
+  m_Sprite: {fileID: 21300000, guid: b099f287339980744b8ccedd658d67cb, type: 3}
+  m_Color: {r: 1, g: 0, b: 0, a: 0.72156864}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -13639,7 +13642,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1174720251}
   - component: {fileID: 1174720252}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: background_stone
   m_TagString: floor
   m_Icon: {fileID: 0}
@@ -14491,7 +14494,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1245241820}
   - component: {fileID: 1245241821}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: background_stone
   m_TagString: floor
   m_Icon: {fileID: 0}
@@ -14651,7 +14654,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1262471296}
   - component: {fileID: 1262471297}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: background_stone
   m_TagString: floor
   m_Icon: {fileID: 0}
@@ -17060,7 +17063,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.15, y: 0.06, z: -1}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1755698739}
@@ -17079,6 +17082,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 1755698731}
   Mmaincamera: {fileID: 178359704}
+  invisLastframe: 0
 --- !u!212 &1537824391
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17120,7 +17124,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 100
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b099f287339980744b8ccedd658d67cb, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 0.8}
   m_FlipX: 0
   m_FlipY: 0
@@ -23472,7 +23476,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1782131766}
   - component: {fileID: 1782131767}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: background_stone
   m_TagString: floor
   m_Icon: {fileID: 0}
@@ -23692,7 +23696,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1821254279}
   - component: {fileID: 1821254281}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: background_stone
   m_TagString: floor
   m_Icon: {fileID: 0}
@@ -24044,6 +24048,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 555f2845c97d6054aa8f74952a3eabec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gggolemeeed: 4
+  laved: 5
+  meitiored: 3
   skipdiologe: 1
   diologe: {fileID: 148338958}
   typeCount: 0
@@ -24330,7 +24337,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1879171342}
   - component: {fileID: 1879171343}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: background_stone
   m_TagString: floor
   m_Icon: {fileID: 0}

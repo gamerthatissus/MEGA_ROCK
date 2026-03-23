@@ -11,6 +11,10 @@ using UnityEngine.UIElements.Experimental;
 
 public class boss_FIGHT_SCRIPT : MonoBehaviour
 {
+    public int gggolemeeed = 4;
+    public int laved = 5;
+    public int meitiored = 3;
+    private float lavastart;
     public bool skipdiologe = false;
     public TextMeshProUGUI diologe;
     public int typeCount = 0;
@@ -61,6 +65,10 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        lavastart = LAVA.transform.position.y;
+        laved = 0;
+        meitiored = 0;
+        gggolemeeed = 0;
         ULTUIMANTFAISE = false;
         canattack = false;
         attacking = false;
@@ -205,6 +213,8 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
     }
     IEnumerator LAVA_RISE()
     {
+        LAVA.transform.position = new Vector2(LAVA.transform.position.x, lavastart);
+
         if (ULTUIMANTFAISE == false)
         {
             yield return new WaitForSeconds(1f);
@@ -233,7 +243,7 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
             yield return null;
 
         }
-        LAVA.transform.position = new Vector2(LAVA.transform.position.x, -23.36f);
+        LAVA.transform.position = new Vector2(LAVA.transform.position.x, lavastart);
 
         
         attacking = false;
@@ -242,6 +252,7 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
     IEnumerator WARNING_LAVA_RISE()
     {
 
+        WARNING_LAVA.transform.position = new Vector2(WARNING_LAVA.transform.position.x, lavastart);
 
         for (float i = 0; i < 1; i+= Time.deltaTime)
         {
@@ -261,7 +272,7 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
             
 
         }
-        WARNING_LAVA.transform.position = new Vector2(WARNING_LAVA.transform.position.x, -23.36f);
+        WARNING_LAVA.transform.position = new Vector2(WARNING_LAVA.transform.position.x, lavastart);
     }
     // Update is called once per frame
     private void Update()
@@ -392,10 +403,37 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
         }
         if (canattack == true && attacking==false && Boss_Hp>0)
         {
-            float A_rand = UnityEngine.Random.Range(1, 20);
 
-           if (A_rand <= 9)
+            float A_rand;
+
+            if (gggolemeeed >= 4)
             {
+                
+                A_rand = 20;
+            }
+            else if (laved >= 5)
+            {
+                A_rand = 12;
+
+            }
+            else if (meitiored>=3)
+            {
+                A_rand = 1;
+            }
+            else
+            {
+                A_rand = UnityEngine.Random.Range(1, 20);
+
+            }
+
+
+
+            if (A_rand <= 9)
+            {
+                laved += 1;
+                gggolemeeed += 1;
+                meitiored = 0;
+
                 sound.loop = false;
                 sound.Stop();
                 sound.clip = PRE_errupt;
@@ -423,6 +461,10 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
                 }
             else if (A_rand > 9 && A_rand<=14)
             {
+                gggolemeeed += 1;
+                meitiored += 1;
+                laved = 0;
+
                 sound.loop = false;
                 sound.Stop();
                 sound.clip = PRE_lavarise;
@@ -437,6 +479,10 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
             }
            else
             {
+                meitiored += 1;
+                laved += 1;
+                gggolemeeed = 0;
+
                 sound.loop = false;
                 sound.Stop();
                 sound.clip = audioSUMMON;
