@@ -232,32 +232,40 @@ public class move22 : MonoBehaviour
 
     IEnumerator stone_SURGE_LOCK(Rigidbody2D launchhher)
     {
-        float intitalrotation = launchhher.rotation;
-        
-        for (float i = 0; i < 20; i+=Time.deltaTime)
+        if (launchhher != null)
         {
-            Collider2D[] floors = Physics2D.OverlapCircleAll(launchhher.position, 1f, floor);
-            bool conected = false;
-            foreach (Collider2D thingy in floors)
+            float intitalrotation = launchhher.rotation;
+
+
+            for (float i = 0; i < 20; i += Time.deltaTime)
             {
-                if (thingy.gameObject.CompareTag("floor"))
+                if (launchhher != null)
                 {
-                    conected = true;
+                    Collider2D[] floors = Physics2D.OverlapCircleAll(launchhher.position, 1f, floor);
+                    bool conected = false;
+                    foreach (Collider2D thingy in floors)
+                    {
+                        if (thingy.gameObject.CompareTag("floor"))
+                        {
+                            conected = true;
 
+                        }
+                    }
+                    if (conected == false && launchhher.simulated == true)
+                    {
+                        launchhher.velocity = new Vector2(0, 0);
+                        launchhher.angularVelocity = 0;
+                    }
+
+
+                    if (launchhher.rotation != intitalrotation)
+                    {
+                        launchhher.rotation = intitalrotation;
+                    }
+                    yield return null;
                 }
-            }
-            if (conected == false && launchhher.simulated==true)
-            {
-                launchhher.velocity = new Vector2(0, 0);
-                launchhher.angularVelocity =0;
-            }
 
-
-            if (launchhher.rotation!= intitalrotation)
-            {
-                launchhher.rotation = intitalrotation;
             }
-            yield return null;
         }
     }
     IEnumerator ShowControls(SpriteRenderer thing_that_will_disaapere)

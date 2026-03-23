@@ -15,8 +15,22 @@ public class colide : MonoBehaviour
              canspike = true;
 
 }
-private void OnCollisionEnter2D(Collision2D collision)
+
+    IEnumerator waitBREAK(GameObject colliidderrrr)
     {
+        yield return new WaitForSeconds(2.5f);
+        colliidderrrr.SetActive(false);
+        yield return new WaitForSeconds(5f);
+        colliidderrrr.SetActive(true);
+
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "CRACKED_SAND")
+        {
+            StartCoroutine(waitBREAK(collision.gameObject));
+        }
+
         if (collision.gameObject.CompareTag("TNT"))
         {
             thingyyyy.TnT ++;

@@ -1657,7 +1657,7 @@ GameObject:
   - component: {fileID: 169471544}
   - component: {fileID: 169471543}
   - component: {fileID: 169471542}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: platform (3)
   m_TagString: floor
   m_Icon: {fileID: 0}
@@ -2792,7 +2792,7 @@ GameObject:
   - component: {fileID: 263419343}
   - component: {fileID: 263419342}
   - component: {fileID: 263419341}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: platform (5)
   m_TagString: floor
   m_Icon: {fileID: 0}

@@ -26,7 +26,7 @@ public class launchscript : MonoBehaviour
 
         yield return new WaitForSeconds(0.02f);
        
-        if (insidefloor == 0)
+        if (insidefloor <= 0)
         {
             if (gameObject.name == "launch")
             {
@@ -64,7 +64,7 @@ public class launchscript : MonoBehaviour
         else if (collision.gameObject.CompareTag("SPIKE"))
         {
 
-            insidefloor = -100;
+            insidefloor = -10000;
 
         }
         else
@@ -89,7 +89,7 @@ public class launchscript : MonoBehaviour
         else if (other.gameObject.CompareTag("SPIKE"))
         {
 
-            insidefloor = -100;
+            insidefloor = -10000;
 
         }
         else
