@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class quicksandscript : MonoBehaviour
 {
+    public bool goUP = false;
     public bool sink = false;
     private float OG_PosY;
     private float OG_PosY_NoNSOLID;
@@ -22,8 +23,17 @@ public class quicksandscript : MonoBehaviour
     {
         if (sink == true)
         {
-          Non_solidTransform.position = new Vector2(Non_solidTransform.position.x, Non_solidTransform.position.y - 0.01f);
-            solidTransform.position = new Vector2(solidTransform.position.x, solidTransform.position.y-0.01f);
+            if (goUP == true)
+            {
+                Non_solidTransform.position = new Vector2(Non_solidTransform.position.x, Non_solidTransform.position.y + 0.01f);
+                solidTransform.position = new Vector2(solidTransform.position.x, solidTransform.position.y + 0.01f);
+            }
+            else
+            {
+                Non_solidTransform.position = new Vector2(Non_solidTransform.position.x, Non_solidTransform.position.y - 0.01f);
+                solidTransform.position = new Vector2(solidTransform.position.x, solidTransform.position.y - 0.01f);
+            }
+             
         }
         else
         {
