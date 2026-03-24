@@ -1570,6 +1570,12 @@ public class move22 : MonoBehaviour
 
     }
 
+    public void MILD_OW()
+    {
+        hp -= 2 ; // NOTE FOR FUTURE: multiply all damage by blockMultiplier if you think it should be able to be blocked
+
+
+    }
     public void refundStone()
     {
         canspend = false;
