@@ -660,806 +660,808 @@ public class move22 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
-        if (hit)
+        if (Time.timeScale > 0)
         {
-            AimRay.transform.position = new Vector3((hit.point.x + outsidemove.position.x) / 2, (hit.point.y + outsidemove.position.y) / 2, 0);
-            AimRay.transform.localScale = new Vector3(hit.distance, .1f, 1);
-        }
-        else if (aimDirection != Vector2.zero)
-        {
-            AimRay.transform.position = new Vector3((aimDirection.x * 20 + outsidemove.position.x * 2) / 2, (aimDirection.y * 20 + outsidemove.position.y * 2) / 2, 0);
-            AimRay.transform.localScale = new Vector3(20, .1f, 1);
-        }
-        else
-        {
-            AimRay.transform.localScale = Vector3.zero;
-        }
-
-        TNT_GUI.text = "Amount of TnT: " + TnT;
-
-        if (Input.GetKeyDown(KeyCode.R) || restarted)
-        {
-            restarted = false;
-
-            Scene scenceString = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(scenceString.name);
-
-        }
-        if (hp < 1 && Died==false)
-        {
-            Died = true;
-            SpriteRenderer REEEND = outsidemove.gameObject.GetComponent<SpriteRenderer>();
-            REEEND.enabled = false;
-            outsidemove.simulated = false;
-            StartCoroutine(rocky_DIE());
-        }
-        //if (Input.GetKeyDown(KeyCode.R))
-        //{
-        //    Scene scenceString = SceneManager.GetActiveScene();
-        //    SceneManager.LoadScene(scenceString.name);
-        //}
-        hpbar.value = hp;
-        if (start == 1)
-        {
-            switch (stone)
+            if (hit)
             {
-                case 0:
-                    stone_IMG.enabled = false;
-                    stone2.enabled = false;
-                    stone3.enabled = false;
-                    stone4.enabled = false;
-                    stone5.enabled = false;
-                    stone6.enabled = false;
-                    stone7.enabled = false;
-                    stone8.enabled = false;
-                    stone9.enabled = false;
-                    stone10.enabled = false;
+                AimRay.transform.position = new Vector3((hit.point.x + outsidemove.position.x) / 2, (hit.point.y + outsidemove.position.y) / 2, 0);
+                AimRay.transform.localScale = new Vector3(hit.distance, .1f, 1);
+            }
+            else if (aimDirection != Vector2.zero)
+            {
+                AimRay.transform.position = new Vector3((aimDirection.x * 20 + outsidemove.position.x * 2) / 2, (aimDirection.y * 20 + outsidemove.position.y * 2) / 2, 0);
+                AimRay.transform.localScale = new Vector3(20, .1f, 1);
+            }
+            else
+            {
+                AimRay.transform.localScale = Vector3.zero;
+            }
 
-                    stone11.enabled = false;
-                    stone12.enabled = false;
-                    stone13.enabled = false;
-                    stone14.enabled = false;
+            TNT_GUI.text = "Amount of TnT: " + TnT;
 
-                    stone15.enabled = false;
-                    stone16.enabled = false;
-                    break;
-                case 1:
-                    stone_IMG.enabled = true;
-                    stone2.enabled = false;
-                    stone3.enabled = false;
-                    stone4.enabled = false;
-                    stone5.enabled = false;
-                    stone6.enabled = false;
-                    stone7.enabled = false;
-                    stone8.enabled = false;
-                    stone9.enabled = false;
-                    stone10.enabled = false;
+            if (Input.GetKeyDown(KeyCode.R) || restarted)
+            {
+                restarted = false;
 
-                    stone11.enabled = false;
-                    stone12.enabled = false;
-                    stone13.enabled = false;
-                    stone14.enabled = false;
-
-
-                    stone15.enabled = false;
-                    stone16.enabled = false;
-
-                    break;
-
-                case 2:
-                    stone_IMG.enabled = true;
-                    stone2.enabled = true;
-                    stone3.enabled = false;
-                    stone4.enabled = false;
-                    stone5.enabled = false;
-                    stone6.enabled = false;
-                    stone7.enabled = false;
-                    stone8.enabled = false;
-                    stone9.enabled = false;
-                    stone10.enabled = false;
-
-                    stone11.enabled = false;
-                    stone12.enabled = false;
-                    stone13.enabled = false;
-                    stone14.enabled = false;
-
-                    stone15.enabled = false;
-                    stone16.enabled = false;
-                    break;
-
-                case 3:
-                    stone_IMG.enabled = true;
-                    stone2.enabled = true;
-                    stone3.enabled = true;
-                    stone4.enabled = false;
-                    stone5.enabled = false;
-                    stone6.enabled = false;
-                    stone7.enabled = false;
-                    stone8.enabled = false;
-                    stone9.enabled = false;
-                    stone10.enabled = false;
-
-                    stone11.enabled = false;
-                    stone12.enabled = false;
-                    stone13.enabled = false;
-                    stone14.enabled = false;
-
-                    stone15.enabled = false;
-                    stone16.enabled = false;
-                    break;
-
-                case 4:
-                    stone_IMG.enabled = true;
-                    stone2.enabled = true;
-                    stone3.enabled = true;
-                    stone4.enabled = true;
-                    stone5.enabled = false;
-                    stone6.enabled = false;
-                    stone7.enabled = false;
-                    stone8.enabled = false;
-                    stone9.enabled = false;
-                    stone10.enabled = false;
-
-                    stone11.enabled = false;
-                    stone12.enabled = false;
-                    stone13.enabled = false;
-                    stone14.enabled = false;
-
-                    stone15.enabled = false;
-                    stone16.enabled = false;
-                    break;
-
-                case 5:
-                    stone_IMG.enabled = true;
-                    stone2.enabled = true;
-                    stone3.enabled = true;
-                    stone4.enabled = true;
-                    stone5.enabled = true;
-                    stone6.enabled = false;
-                    stone7.enabled = false;
-                    stone8.enabled = false;
-                    stone9.enabled = false;
-                    stone10.enabled = false;
-
-                    stone11.enabled = false;
-                    stone12.enabled = false;
-                    stone13.enabled = false;
-                    stone14.enabled = false;
-
-                    stone15.enabled = false;
-                    stone16.enabled = false;
-                    break;
-
-                case 6:
-                    stone_IMG.enabled = true;
-                    stone2.enabled = true;
-                    stone3.enabled = true;
-                    stone4.enabled = true;
-                    stone5.enabled = true;
-                    stone6.enabled = true;
-                    stone7.enabled = false;
-                    stone8.enabled = false;
-                    stone9.enabled = false;
-                    stone10.enabled = false;
-
-                    stone11.enabled = false;
-                    stone12.enabled = false;
-                    stone13.enabled = false;
-                    stone14.enabled = false;
-
-                    stone15.enabled = false;
-                    stone16.enabled = false;
-                    break;
-
-                case 7:
-                    stone_IMG.enabled = true;
-                    stone2.enabled = true;
-                    stone3.enabled = true;
-                    stone4.enabled = true;
-                    stone5.enabled = true;
-                    stone6.enabled = true;
-                    stone7.enabled = true;
-                    stone8.enabled = false;
-                    stone9.enabled = false;
-                    stone10.enabled = false;
-
-                    stone11.enabled = false;
-                    stone12.enabled = false;
-                    stone13.enabled = false;
-                    stone14.enabled = false;
-
-                    stone15.enabled = false;
-                    stone16.enabled = false;
-                    break;
-
-                case 8:
-                    stone_IMG.enabled = true;
-                    stone2.enabled = true;
-                    stone3.enabled = true;
-                    stone4.enabled = true;
-                    stone5.enabled = true;
-                    stone6.enabled = true;
-                    stone7.enabled = true;
-                    stone8.enabled = true;
-                    stone9.enabled = false;
-                    stone10.enabled = false;
-
-                    stone11.enabled = false;
-                    stone12.enabled = false;
-                    stone13.enabled = false;
-                    stone14.enabled = false;
-
-                    stone15.enabled = false;
-                    stone16.enabled = false;
-                    break;
-
-                case 9:
-                    stone_IMG.enabled = true;
-                    stone2.enabled = true;
-                    stone3.enabled = true;
-                    stone4.enabled = true;
-                    stone5.enabled = true;
-                    stone6.enabled = true;
-                    stone7.enabled = true;
-                    stone8.enabled = true;
-                    stone9.enabled = true;
-                    stone10.enabled = false;
-
-                    stone11.enabled = false;
-                    stone12.enabled = false;
-                    stone13.enabled = false;
-                    stone14.enabled = false;
-
-                    stone15.enabled = false;
-                    stone16.enabled = false;
-                    break;
-
-                case 10:
-                    stone_IMG.enabled = true;
-                    stone2.enabled = true;
-                    stone3.enabled = true;
-                    stone4.enabled = true;
-                    stone5.enabled = true;
-                    stone6.enabled = true;
-                    stone7.enabled = true;
-                    stone8.enabled = true;
-                    stone9.enabled = true;
-                    stone10.enabled = true;
-
-                    stone11.enabled = false;
-                    stone12.enabled = false;
-                    stone13.enabled = false;
-                    stone14.enabled = false;
-
-                    stone15.enabled = false;
-                    stone16.enabled = false;
-                    break;
-
-                case 11:
-                    stone_IMG.enabled = true;
-                    stone2.enabled = true;
-                    stone3.enabled = true;
-                    stone4.enabled = true;
-                    stone5.enabled = true;
-                    stone6.enabled = true;
-                    stone7.enabled = true;
-                    stone8.enabled = true;
-                    stone9.enabled = true;
-                    stone10.enabled = true;
-
-                    stone11.enabled = true;
-                    stone12.enabled = false;
-                    stone13.enabled = false;
-                    stone14.enabled = false;
-
-                    stone15.enabled = false;
-                    stone16.enabled = false;
-                    break;
-
-                case 12:
-                    stone_IMG.enabled = true;
-                    stone2.enabled = true;
-                    stone3.enabled = true;
-                    stone4.enabled = true;
-                    stone5.enabled = true;
-                    stone6.enabled = true;
-                    stone7.enabled = true;
-                    stone8.enabled = true;
-                    stone9.enabled = true;
-                    stone10.enabled = true;
-
-                    stone11.enabled = true;
-                    stone12.enabled = true;
-                    stone13.enabled = false;
-                    stone14.enabled = false;
-
-                    stone15.enabled = false;
-                    stone16.enabled = false;
-                    break;
-
-                case 13:
-                    stone_IMG.enabled = true;
-                    stone2.enabled = true;
-                    stone3.enabled = true;
-                    stone4.enabled = true;
-                    stone5.enabled = true;
-                    stone6.enabled = true;
-                    stone7.enabled = true;
-                    stone8.enabled = true;
-                    stone9.enabled = true;
-                    stone10.enabled = true;
-
-                    stone11.enabled = true;
-                    stone12.enabled = true;
-                    stone13.enabled = true;
-                    stone14.enabled = false;
-
-                    stone15.enabled = false;
-                    stone16.enabled = false;
-                    break;
-
-                case 14:
-                    stone_IMG.enabled = true;
-                    stone2.enabled = true;
-                    stone3.enabled = true;
-                    stone4.enabled = true;
-                    stone5.enabled = true;
-                    stone6.enabled = true;
-                    stone7.enabled = true;
-                    stone8.enabled = true;
-                    stone9.enabled = true;
-                    stone10.enabled = true;
-
-                    stone11.enabled = true;
-                    stone12.enabled = true;
-                    stone13.enabled = true;
-                    stone14.enabled = true;
-
-                    stone15.enabled = false;
-                    stone16.enabled = false;
-                    break;
-
-                case 15:
-                    stone_IMG.enabled = true;
-                    stone2.enabled = true;
-                    stone3.enabled = true;
-                    stone4.enabled = true;
-                    stone5.enabled = true;
-                    stone6.enabled = true;
-                    stone7.enabled = true;
-                    stone8.enabled = true;
-                    stone9.enabled = true;
-                    stone10.enabled = true;
-
-                    stone11.enabled = true;
-                    stone12.enabled = true;
-                    stone13.enabled = true;
-                    stone14.enabled = true;
-
-                    stone15.enabled = true;
-                    stone16.enabled = false;
-                    break;
-
-                case 16:
-                    stone_IMG.enabled = true;
-                    stone2.enabled = true;
-                    stone3.enabled = true;
-                    stone4.enabled = true;
-                    stone5.enabled = true;
-                    stone6.enabled = true;
-                    stone7.enabled = true;
-                    stone8.enabled = true;
-                    stone9.enabled = true;
-                    stone10.enabled = true;
-
-                    stone11.enabled = true;
-                    stone12.enabled = true;
-                    stone13.enabled = true;
-                    stone14.enabled = true;
-
-                    stone15.enabled = true;
-                    stone16.enabled = true;
-                    break;
-                default:
-
-                    break;
+                Scene scenceString = SceneManager.GetActiveScene();
+                SceneManager.LoadScene(scenceString.name);
 
             }
-        }
-
-
-        if (stone > stone_MAX)
-        {
-            stone = stone_MAX;
-        }
-        stoneTEXT.text = "stone: " + stone;
-
-        mouseposstart = Input.mousePosition;
-        mousepos = maincam.ScreenToWorldPoint(mouseposstart);
-        mousepos.z = 0;
-
-
-        if (choosenPath == "smooth")
-        {
-            if ((Input.GetKey(KeyCode.D) || moveDirection == 1f) && blockMultiplier == 1)
+            if (hp < 1 && Died==false)
             {
-                if (Mathf.Abs(outsidemove.velocity.magnitude) <= 15)
+                Died = true;
+                SpriteRenderer REEEND = outsidemove.gameObject.GetComponent<SpriteRenderer>();
+                REEEND.enabled = false;
+                outsidemove.simulated = false;
+                StartCoroutine(rocky_DIE());
+            }
+            //if (Input.GetKeyDown(KeyCode.R))
+            //{
+            //    Scene scenceString = SceneManager.GetActiveScene();
+            //    SceneManager.LoadScene(scenceString.name);
+            //}
+            hpbar.value = hp;
+            if (start == 1)
+            {
+                switch (stone)
                 {
-                    outsidemove.AddForce(Vector2.right * 350f * outsidemove.mass * Time.deltaTime, ForceMode2D.Force);
+                    case 0:
+                        stone_IMG.enabled = false;
+                        stone2.enabled = false;
+                        stone3.enabled = false;
+                        stone4.enabled = false;
+                        stone5.enabled = false;
+                        stone6.enabled = false;
+                        stone7.enabled = false;
+                        stone8.enabled = false;
+                        stone9.enabled = false;
+                        stone10.enabled = false;
+
+                        stone11.enabled = false;
+                        stone12.enabled = false;
+                        stone13.enabled = false;
+                        stone14.enabled = false;
+
+                        stone15.enabled = false;
+                        stone16.enabled = false;
+                        break;
+                    case 1:
+                        stone_IMG.enabled = true;
+                        stone2.enabled = false;
+                        stone3.enabled = false;
+                        stone4.enabled = false;
+                        stone5.enabled = false;
+                        stone6.enabled = false;
+                        stone7.enabled = false;
+                        stone8.enabled = false;
+                        stone9.enabled = false;
+                        stone10.enabled = false;
+
+                        stone11.enabled = false;
+                        stone12.enabled = false;
+                        stone13.enabled = false;
+                        stone14.enabled = false;
+
+
+                        stone15.enabled = false;
+                        stone16.enabled = false;
+
+                        break;
+
+                    case 2:
+                        stone_IMG.enabled = true;
+                        stone2.enabled = true;
+                        stone3.enabled = false;
+                        stone4.enabled = false;
+                        stone5.enabled = false;
+                        stone6.enabled = false;
+                        stone7.enabled = false;
+                        stone8.enabled = false;
+                        stone9.enabled = false;
+                        stone10.enabled = false;
+
+                        stone11.enabled = false;
+                        stone12.enabled = false;
+                        stone13.enabled = false;
+                        stone14.enabled = false;
+
+                        stone15.enabled = false;
+                        stone16.enabled = false;
+                        break;
+
+                    case 3:
+                        stone_IMG.enabled = true;
+                        stone2.enabled = true;
+                        stone3.enabled = true;
+                        stone4.enabled = false;
+                        stone5.enabled = false;
+                        stone6.enabled = false;
+                        stone7.enabled = false;
+                        stone8.enabled = false;
+                        stone9.enabled = false;
+                        stone10.enabled = false;
+
+                        stone11.enabled = false;
+                        stone12.enabled = false;
+                        stone13.enabled = false;
+                        stone14.enabled = false;
+
+                        stone15.enabled = false;
+                        stone16.enabled = false;
+                        break;
+
+                    case 4:
+                        stone_IMG.enabled = true;
+                        stone2.enabled = true;
+                        stone3.enabled = true;
+                        stone4.enabled = true;
+                        stone5.enabled = false;
+                        stone6.enabled = false;
+                        stone7.enabled = false;
+                        stone8.enabled = false;
+                        stone9.enabled = false;
+                        stone10.enabled = false;
+
+                        stone11.enabled = false;
+                        stone12.enabled = false;
+                        stone13.enabled = false;
+                        stone14.enabled = false;
+
+                        stone15.enabled = false;
+                        stone16.enabled = false;
+                        break;
+
+                    case 5:
+                        stone_IMG.enabled = true;
+                        stone2.enabled = true;
+                        stone3.enabled = true;
+                        stone4.enabled = true;
+                        stone5.enabled = true;
+                        stone6.enabled = false;
+                        stone7.enabled = false;
+                        stone8.enabled = false;
+                        stone9.enabled = false;
+                        stone10.enabled = false;
+
+                        stone11.enabled = false;
+                        stone12.enabled = false;
+                        stone13.enabled = false;
+                        stone14.enabled = false;
+
+                        stone15.enabled = false;
+                        stone16.enabled = false;
+                        break;
+
+                    case 6:
+                        stone_IMG.enabled = true;
+                        stone2.enabled = true;
+                        stone3.enabled = true;
+                        stone4.enabled = true;
+                        stone5.enabled = true;
+                        stone6.enabled = true;
+                        stone7.enabled = false;
+                        stone8.enabled = false;
+                        stone9.enabled = false;
+                        stone10.enabled = false;
+
+                        stone11.enabled = false;
+                        stone12.enabled = false;
+                        stone13.enabled = false;
+                        stone14.enabled = false;
+
+                        stone15.enabled = false;
+                        stone16.enabled = false;
+                        break;
+
+                    case 7:
+                        stone_IMG.enabled = true;
+                        stone2.enabled = true;
+                        stone3.enabled = true;
+                        stone4.enabled = true;
+                        stone5.enabled = true;
+                        stone6.enabled = true;
+                        stone7.enabled = true;
+                        stone8.enabled = false;
+                        stone9.enabled = false;
+                        stone10.enabled = false;
+
+                        stone11.enabled = false;
+                        stone12.enabled = false;
+                        stone13.enabled = false;
+                        stone14.enabled = false;
+
+                        stone15.enabled = false;
+                        stone16.enabled = false;
+                        break;
+
+                    case 8:
+                        stone_IMG.enabled = true;
+                        stone2.enabled = true;
+                        stone3.enabled = true;
+                        stone4.enabled = true;
+                        stone5.enabled = true;
+                        stone6.enabled = true;
+                        stone7.enabled = true;
+                        stone8.enabled = true;
+                        stone9.enabled = false;
+                        stone10.enabled = false;
+
+                        stone11.enabled = false;
+                        stone12.enabled = false;
+                        stone13.enabled = false;
+                        stone14.enabled = false;
+
+                        stone15.enabled = false;
+                        stone16.enabled = false;
+                        break;
+
+                    case 9:
+                        stone_IMG.enabled = true;
+                        stone2.enabled = true;
+                        stone3.enabled = true;
+                        stone4.enabled = true;
+                        stone5.enabled = true;
+                        stone6.enabled = true;
+                        stone7.enabled = true;
+                        stone8.enabled = true;
+                        stone9.enabled = true;
+                        stone10.enabled = false;
+
+                        stone11.enabled = false;
+                        stone12.enabled = false;
+                        stone13.enabled = false;
+                        stone14.enabled = false;
+
+                        stone15.enabled = false;
+                        stone16.enabled = false;
+                        break;
+
+                    case 10:
+                        stone_IMG.enabled = true;
+                        stone2.enabled = true;
+                        stone3.enabled = true;
+                        stone4.enabled = true;
+                        stone5.enabled = true;
+                        stone6.enabled = true;
+                        stone7.enabled = true;
+                        stone8.enabled = true;
+                        stone9.enabled = true;
+                        stone10.enabled = true;
+
+                        stone11.enabled = false;
+                        stone12.enabled = false;
+                        stone13.enabled = false;
+                        stone14.enabled = false;
+
+                        stone15.enabled = false;
+                        stone16.enabled = false;
+                        break;
+
+                    case 11:
+                        stone_IMG.enabled = true;
+                        stone2.enabled = true;
+                        stone3.enabled = true;
+                        stone4.enabled = true;
+                        stone5.enabled = true;
+                        stone6.enabled = true;
+                        stone7.enabled = true;
+                        stone8.enabled = true;
+                        stone9.enabled = true;
+                        stone10.enabled = true;
+
+                        stone11.enabled = true;
+                        stone12.enabled = false;
+                        stone13.enabled = false;
+                        stone14.enabled = false;
+
+                        stone15.enabled = false;
+                        stone16.enabled = false;
+                        break;
+
+                    case 12:
+                        stone_IMG.enabled = true;
+                        stone2.enabled = true;
+                        stone3.enabled = true;
+                        stone4.enabled = true;
+                        stone5.enabled = true;
+                        stone6.enabled = true;
+                        stone7.enabled = true;
+                        stone8.enabled = true;
+                        stone9.enabled = true;
+                        stone10.enabled = true;
+
+                        stone11.enabled = true;
+                        stone12.enabled = true;
+                        stone13.enabled = false;
+                        stone14.enabled = false;
+
+                        stone15.enabled = false;
+                        stone16.enabled = false;
+                        break;
+
+                    case 13:
+                        stone_IMG.enabled = true;
+                        stone2.enabled = true;
+                        stone3.enabled = true;
+                        stone4.enabled = true;
+                        stone5.enabled = true;
+                        stone6.enabled = true;
+                        stone7.enabled = true;
+                        stone8.enabled = true;
+                        stone9.enabled = true;
+                        stone10.enabled = true;
+
+                        stone11.enabled = true;
+                        stone12.enabled = true;
+                        stone13.enabled = true;
+                        stone14.enabled = false;
+
+                        stone15.enabled = false;
+                        stone16.enabled = false;
+                        break;
+
+                    case 14:
+                        stone_IMG.enabled = true;
+                        stone2.enabled = true;
+                        stone3.enabled = true;
+                        stone4.enabled = true;
+                        stone5.enabled = true;
+                        stone6.enabled = true;
+                        stone7.enabled = true;
+                        stone8.enabled = true;
+                        stone9.enabled = true;
+                        stone10.enabled = true;
+
+                        stone11.enabled = true;
+                        stone12.enabled = true;
+                        stone13.enabled = true;
+                        stone14.enabled = true;
+
+                        stone15.enabled = false;
+                        stone16.enabled = false;
+                        break;
+
+                    case 15:
+                        stone_IMG.enabled = true;
+                        stone2.enabled = true;
+                        stone3.enabled = true;
+                        stone4.enabled = true;
+                        stone5.enabled = true;
+                        stone6.enabled = true;
+                        stone7.enabled = true;
+                        stone8.enabled = true;
+                        stone9.enabled = true;
+                        stone10.enabled = true;
+
+                        stone11.enabled = true;
+                        stone12.enabled = true;
+                        stone13.enabled = true;
+                        stone14.enabled = true;
+
+                        stone15.enabled = true;
+                        stone16.enabled = false;
+                        break;
+
+                    case 16:
+                        stone_IMG.enabled = true;
+                        stone2.enabled = true;
+                        stone3.enabled = true;
+                        stone4.enabled = true;
+                        stone5.enabled = true;
+                        stone6.enabled = true;
+                        stone7.enabled = true;
+                        stone8.enabled = true;
+                        stone9.enabled = true;
+                        stone10.enabled = true;
+
+                        stone11.enabled = true;
+                        stone12.enabled = true;
+                        stone13.enabled = true;
+                        stone14.enabled = true;
+
+                        stone15.enabled = true;
+                        stone16.enabled = true;
+                        break;
+                    default:
+
+                        break;
 
                 }
-
             }
 
-            if ((Input.GetKey(KeyCode.A) || moveDirection == -1f) && blockMultiplier == 1)
+
+            if (stone > stone_MAX)
             {
-                if (Mathf.Abs(outsidemove.velocity.magnitude) <= 15)
-                {
-                    outsidemove.AddForce(Vector2.right * -300f * outsidemove.mass * Time.deltaTime, ForceMode2D.Force);
-
-                }
-
+                stone = stone_MAX;
             }
-        }
+            stoneTEXT.text = "stone: " + stone;
+
+            mouseposstart = Input.mousePosition;
+            mousepos = maincam.ScreenToWorldPoint(mouseposstart);
+            mousepos.z = 0;
 
 
-
-        else if (choosenPath == "none" || choosenPath== "rigid")
-        {
-
-            if ((Input.GetKey(KeyCode.D) || moveDirection == 1f) && blockMultiplier==1)
+            if (choosenPath == "smooth")
             {
-                lastDerection = Derection.Right;
-                bool onFLoor = false;
-
-                Collider2D[] floordetect = Physics2D.OverlapCircleAll(new Vector2(outsidemove.position.x, outsidemove.position.y), 1.2f);
-
-                onFLoor = false;
-                foreach (Collider2D enemyObjectfggsrwws in floordetect)
+                if ((Input.GetKey(KeyCode.D) || moveDirection == 1f) && blockMultiplier == 1)
                 {
-
-                    if (enemyObjectfggsrwws.gameObject.CompareTag("floor"))
+                    if (Mathf.Abs(outsidemove.velocity.magnitude) <= 15)
                     {
-                        onFLoor = true;
+                        outsidemove.AddForce(Vector2.right * 350f * outsidemove.mass * Time.deltaTime, ForceMode2D.Force);
 
                     }
 
                 }
 
-                AudioSource audeo = insidemove.GetComponent<AudioSource>();
-                audeo.loop = false;
-
-                if (audeo.isPlaying == true && onFLoor == false)
+                if ((Input.GetKey(KeyCode.A) || moveDirection == -1f) && blockMultiplier == 1)
                 {
-                    audeo.Stop();
-                }
-
-                if (audeo.isPlaying != true && onFLoor == true)
-                {
-                    Scene current_sceane = SceneManager.GetActiveScene();
-                    switch (current_sceane.name)
+                    if (Mathf.Abs(outsidemove.velocity.magnitude) <= 15)
                     {
-                        case "game":
-                            audeo.clip = Roll_rock;
-
-                            break;
-
-                        case "LevelOne":
-                            audeo.clip = Roll_rock;
-                            break;
-
-                        case "LevelTwo":
-                            audeo.clip = Roll_sand;
-
-                            break;
-
-                        case "LevelThree":
-                            audeo.clip = Roll_Grass;
-                            break;
+                        outsidemove.AddForce(Vector2.right * -300f * outsidemove.mass * Time.deltaTime, ForceMode2D.Force);
 
                     }
-                    audeo.volume = 0.05f + Mathf.Abs((outsidemove.angularVelocity / 200f) + (outsidemove.velocity.magnitude / 100f));
-                   if (audeo.volume > 0.4f)
-                    {
-                        audeo.volume = 0.4f;
-                    }
-                    audeo.Play();
-                }
-                if (choosenPath == "none")
-                {
 
-
-                    outsidemove.AddForce(Vector2.right * 10f * outsidemove.mass * Time.deltaTime, ForceMode2D.Force);
                 }
             }
-            if ((Input.GetKey(KeyCode.A) || moveDirection == -1f) && blockMultiplier == 1)
+
+
+
+            else if (choosenPath == "none" || choosenPath== "rigid")
             {
-                lastDerection = Derection.Left;
-                bool onFLoor = false;
 
-                Collider2D[] floordetect = Physics2D.OverlapCircleAll(new Vector2(outsidemove.position.x, outsidemove.position.y), 1.2f);
-
-                onFLoor = false;
-                foreach (Collider2D enemyObjecttttt in floordetect)
+                if ((Input.GetKey(KeyCode.D) || moveDirection == 1f) && blockMultiplier==1)
                 {
+                    lastDerection = Derection.Right;
+                    bool onFLoor = false;
 
-                    if (enemyObjecttttt.gameObject.CompareTag("floor"))
+                    Collider2D[] floordetect = Physics2D.OverlapCircleAll(new Vector2(outsidemove.position.x, outsidemove.position.y), 1.2f);
+
+                    onFLoor = false;
+                    foreach (Collider2D enemyObjectfggsrwws in floordetect)
                     {
-                        onFLoor = true;
+
+                        if (enemyObjectfggsrwws.gameObject.CompareTag("floor"))
+                        {
+                            onFLoor = true;
+
+                        }
 
                     }
+
+                    AudioSource audeo = insidemove.GetComponent<AudioSource>();
+                    audeo.loop = false;
+
+                    if (audeo.isPlaying == true && onFLoor == false)
+                    {
+                        audeo.Stop();
+                    }
+
+                    if (audeo.isPlaying != true && onFLoor == true)
+                    {
+                        Scene current_sceane = SceneManager.GetActiveScene();
+                        switch (current_sceane.name)
+                        {
+                            case "game":
+                                audeo.clip = Roll_rock;
+
+                                break;
+
+                            case "LevelOne":
+                                audeo.clip = Roll_rock;
+                                break;
+
+                            case "LevelTwo":
+                                audeo.clip = Roll_sand;
+
+                                break;
+
+                            case "LevelThree":
+                                audeo.clip = Roll_Grass;
+                                break;
+
+                        }
+                        audeo.volume = 0.05f + Mathf.Abs((outsidemove.angularVelocity / 200f) + (outsidemove.velocity.magnitude / 100f));
+                       if (audeo.volume > 0.4f)
+                        {
+                            audeo.volume = 0.4f;
+                        }
+                        audeo.Play();
+                    }
+                    if (choosenPath == "none")
+                    {
+
+
+                        outsidemove.AddForce(Vector2.right * 10f * outsidemove.mass * Time.deltaTime, ForceMode2D.Force);
+                    }
+                }
+                if ((Input.GetKey(KeyCode.A) || moveDirection == -1f) && blockMultiplier == 1)
+                {
+                    lastDerection = Derection.Left;
+                    bool onFLoor = false;
+
+                    Collider2D[] floordetect = Physics2D.OverlapCircleAll(new Vector2(outsidemove.position.x, outsidemove.position.y), 1.2f);
+
+                    onFLoor = false;
+                    foreach (Collider2D enemyObjecttttt in floordetect)
+                    {
+
+                        if (enemyObjecttttt.gameObject.CompareTag("floor"))
+                        {
+                            onFLoor = true;
+
+                        }
                    
-                }
+                    }
 
-                AudioSource audeo = insidemove.GetComponent<AudioSource>();
-                audeo.loop = false;
+                    AudioSource audeo = insidemove.GetComponent<AudioSource>();
+                    audeo.loop = false;
 
-                if (audeo.isPlaying == true && onFLoor == false)
-                {
-                    audeo.Stop();
-                }
-
-                if (audeo.isPlaying != true && onFLoor==true)
-                {
-                    Scene current_sceane = SceneManager.GetActiveScene();
-                    switch (current_sceane.name)
+                    if (audeo.isPlaying == true && onFLoor == false)
                     {
-                        case "game":
-                            audeo.clip = Roll_rock;
+                        audeo.Stop();
+                    }
 
-                            break;
+                    if (audeo.isPlaying != true && onFLoor==true)
+                    {
+                        Scene current_sceane = SceneManager.GetActiveScene();
+                        switch (current_sceane.name)
+                        {
+                            case "game":
+                                audeo.clip = Roll_rock;
 
-                        case "LevelOne":
-                            audeo.clip = Roll_rock;
-                            break;
+                                break;
 
-                        case "LevelTwo":
-                            audeo.clip = Roll_sand;
+                            case "LevelOne":
+                                audeo.clip = Roll_rock;
+                                break;
 
-                            break;
+                            case "LevelTwo":
+                                audeo.clip = Roll_sand;
 
-                        case "LevelThree":
-                            audeo.clip =Roll_Grass;
-                            break;
+                                break;
+
+                            case "LevelThree":
+                                audeo.clip =Roll_Grass;
+                                break;
+
+                        }
+                        audeo.volume = 0.01f + Mathf.Abs((outsidemove.angularVelocity / 200f) + (outsidemove.velocity.magnitude / 100f));
+                        if (audeo.volume > 0.4f)
+                        {
+                            audeo.volume = 0.4f;
+                        }
+                        audeo.Play();
+                    }
+
+                    if (choosenPath == "none")
+                    {
+                        outsidemove.AddForce(Vector2.right * -10f * outsidemove.mass * Time.deltaTime, ForceMode2D.Force);
 
                     }
-                    audeo.volume = 0.01f + Mathf.Abs((outsidemove.angularVelocity / 200f) + (outsidemove.velocity.magnitude / 100f));
-                    if (audeo.volume > 0.4f)
-                    {
-                        audeo.volume = 0.4f;
-                    }
-                    audeo.Play();
+
                 }
 
-                if (choosenPath == "none")
+
+
+
+
+
+            }
+            if (Input.GetKeyDown(KeyCode.Space) || launched)
+            {
+                launched = false;
+
+                // abcdefghi
+                if (move1.text == "stone launch")
                 {
-                    outsidemove.AddForce(Vector2.right * -10f * outsidemove.mass * Time.deltaTime, ForceMode2D.Force);
+                
+                    if (stone >= 1)
+                    {
+                        AudioSource audeo = outsidemove.GetComponent<AudioSource>();
+                        audeo.loop = false;
+                        audeo.Stop();
+                        audeo.clip = LAUNCH;
+                        audeo.Play();
+
+                        canspend = true;
+                        StartCoroutine(spendstone(1));
+
+                        Object block = Instantiate(launcher);
+                        Destroy(block, 6f);
+
+                        Object thingy = GameObject.Find("pow6");
+                        if (thingy != null)
+                        {
+                            Destroy(thingy);
+                            block.name = "pow" + amountoflanchers;
+
+                        }
+                        else
+                        {
+                            amountoflanchers++;
+                            block.name = "pow" + amountoflanchers;
+
+                        }
+                        UnityEngine.Transform blockT = block.GetComponent<UnityEngine.Transform>();
+                        Rigidbody2D rigggg = block.GetComponent<Rigidbody2D>();
+                        StartCoroutine(stoneSINK(rigggg));
+
+                        rigggg.simulated = true;
+                        Vector3 gopoint = new Vector3(outsidemove.position.x, outsidemove.position.y, 1);
+                        Vector2 go = new Vector2(gopoint.x, gopoint.y);
+
+                        Vector2 mouseeee;
+                        if (aimDirection == Vector2.zero)
+                            mouseeee = new Vector2(mousepos.x, mousepos.y);
+                        else
+                            mouseeee = aimDirection + go;
+
+                        Vector2 facingDir = (mouseeee - go).normalized;
+                        float angle = Mathf.Atan2(facingDir.y, facingDir.x) * Mathf.Rad2Deg - 90f;
+                        blockT.rotation = Quaternion.Euler(0, 0, angle);
+                        rigggg.rotation = angle;
+                        //spaceeeee
+                        Vector2 newpos = ((Vector2)(blockT.transform.up) * -1.5f);
+                        rigggg.position = (go + newpos);
+
+
+
+                        rigggg.AddRelativeForce(Vector2.up * 4150f, ForceMode2D.Impulse);
+                        StartCoroutine(stone_SURGE_LOCK(rigggg));
+
+                    }
+                } //e
+
+                if (move1.text == "jump")
+                {
+                    if (stone >= 1 && jumpCooldown==false)
+                    {
+                        canspend = true;
+                        stone -= 1;
+
+                        jumpCooldown = true;
+                        StartCoroutine(jumpwait());
+
+                        outsidemove.AddForce(Vector2.up * 20f, ForceMode2D.Impulse);
+
+                    }
+                }
+
+            }
+            if ((Input.GetKeyDown(KeyCode.Alpha2) || surged) && blockMultiplier == 1f && stone>=3 && move2.text=="earth surge")
+            {
+                surged = false;
+
+                //12345678987654321
+                if (canpunch == true)
+                {
+                    StartCoroutine(waitCanPUNCH());
+
+                     canpunch = false;
+                    bool on_floor = false;
+                    Collider2D[] floorparts = Physics2D.OverlapCircleAll(outsidemove.position, 1f, floor);
+                    foreach (Collider2D floooor in floorparts)
+                    {
+                        on_floor = true;
+
+                    }
+
+                    if (on_floor == true)
+                    {
+                        StartCoroutine(spikeattack());
+
+                        stone -= 3;
+
+                    }
+
+
 
                 }
+
+
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha3) || placed)
+            {
+                placed = false;
+
+                if (canpunch == true)
+                {
+                    if (move3.text == "Place TNT" && TnT >= 1)
+                    {
+
+                        TnT -= 1;
+                        StartCoroutine(PlaceTNT());
+
+
+                    }
+
+                }
+
 
             }
 
 
-
-
-
-
-        }
-        if (Input.GetKeyDown(KeyCode.Space) || launched)
-        {
-            launched = false;
-
-            // abcdefghi
-            if (move1.text == "stone launch")
+            if ((Input.GetKeyDown(KeyCode.Alpha4) || attacked) && blockMultiplier==1f)
             {
-                
-                if (stone >= 1)
+                attacked = false;
+
+                if (canpunch == true)
+                {
+
+                    AudioSource audeo = outsidemove.GetComponent<AudioSource>();
+                    audeo.loop = false;
+                    audeo.Stop();
+                    audeo.clip = ATTACKsound;
+                    audeo.Play();
+
+                    if (move4.text == "punch" && stone >= 1)
+                    {
+                        StartCoroutine(waitCanPUNCH());
+
+                        outsidemove.position = new Vector2(outsidemove.position.x, outsidemove.position.y + 0.3f);
+                        eye1.position = new Vector2(eye1.position.x, eye1.position.y + 0.3f);
+                        eye2.position = new Vector2(eye2.position.x, eye2.position.y + 0.3f);
+
+                        if (outsidemove.angularVelocity > 0)
+                        {
+                            outsidemove.AddTorque(120);
+                        }
+                  else 
+                        {
+                            outsidemove.AddTorque(-120);
+                        }
+                        outsidemove.totalTorque = outsidemove.totalTorque * 2;
+
+
+                        StartCoroutine(waitStopAttack());
+
+
+                        stone -= 1;
+                        Collider2D[] enemysUpunch = Physics2D.OverlapCircleAll(outsidemove.position, 1.5f, PLAYER_layermask);
+                        foreach (Collider2D enemyObject in enemysUpunch)
+                        {
+
+                            Enemyscript enmtScript = enemyObject.gameObject.GetComponent<Enemyscript>();
+                            enmtScript.HP -= 50;
+                            if (enemyObject.gameObject.name == "MINION")
+                            {
+                                BOSS.Boss_Hp -= 50;
+                            }
+                        }
+                    }
+
+                }
+
+           
+            }
+            if (Input.GetKey(KeyCode.F) || blocking) // block ability
+            {
+                if (blockMultiplier == 1)
                 {
                     AudioSource audeo = outsidemove.GetComponent<AudioSource>();
                     audeo.loop = false;
                     audeo.Stop();
-                    audeo.clip = LAUNCH;
+                    audeo.clip = BLOCKsound;
                     audeo.Play();
-
-                    canspend = true;
-                    StartCoroutine(spendstone(1));
-
-                    Object block = Instantiate(launcher);
-                    Destroy(block, 6f);
-
-                    Object thingy = GameObject.Find("pow6");
-                    if (thingy != null)
-                    {
-                        Destroy(thingy);
-                        block.name = "pow" + amountoflanchers;
-
-                    }
-                    else
-                    {
-                        amountoflanchers++;
-                        block.name = "pow" + amountoflanchers;
-
-                    }
-                    UnityEngine.Transform blockT = block.GetComponent<UnityEngine.Transform>();
-                    Rigidbody2D rigggg = block.GetComponent<Rigidbody2D>();
-                    StartCoroutine(stoneSINK(rigggg));
-
-                    rigggg.simulated = true;
-                    Vector3 gopoint = new Vector3(outsidemove.position.x, outsidemove.position.y, 1);
-                    Vector2 go = new Vector2(gopoint.x, gopoint.y);
-
-                    Vector2 mouseeee;
-                    if (aimDirection == Vector2.zero)
-                        mouseeee = new Vector2(mousepos.x, mousepos.y);
-                    else
-                        mouseeee = aimDirection + go;
-
-                    Vector2 facingDir = (mouseeee - go).normalized;
-                    float angle = Mathf.Atan2(facingDir.y, facingDir.x) * Mathf.Rad2Deg - 90f;
-                    blockT.rotation = Quaternion.Euler(0, 0, angle);
-                    rigggg.rotation = angle;
-                    //spaceeeee
-                    Vector2 newpos = ((Vector2)(blockT.transform.up) * -1.5f);
-                    rigggg.position = (go + newpos);
-
-
-
-                    rigggg.AddRelativeForce(Vector2.up * 4150f, ForceMode2D.Impulse);
-                    StartCoroutine(stone_SURGE_LOCK(rigggg));
-
                 }
-            } //e
-
-            if (move1.text == "jump")
-            {
-                if (stone >= 1 && jumpCooldown==false)
+                if (blockMultiplier == 1)
                 {
-                    canspend = true;
-                    stone -= 1;
-
-                    jumpCooldown = true;
-                    StartCoroutine(jumpwait());
-
-                    outsidemove.AddForce(Vector2.up * 20f, ForceMode2D.Impulse);
+                    blockMultiplier = 0.99f;
 
                 }
-            }
-
-        }
-        if ((Input.GetKeyDown(KeyCode.Alpha2) || surged) && blockMultiplier == 1f && stone>=3 && move2.text=="earth surge")
-        {
-            surged = false;
-
-            //12345678987654321
-            if (canpunch == true)
-            {
-                StartCoroutine(waitCanPUNCH());
-
-                 canpunch = false;
-                bool on_floor = false;
-                Collider2D[] floorparts = Physics2D.OverlapCircleAll(outsidemove.position, 1f, floor);
-                foreach (Collider2D floooor in floorparts)
-                {
-                    on_floor = true;
-
-                }
-
-                if (on_floor == true)
-                {
-                    StartCoroutine(spikeattack());
-
-                    stone -= 3;
-
-                }
-
-
-
-            }
-
-
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha3) || placed)
-        {
-            placed = false;
-
-            if (canpunch == true)
-            {
-                if (move3.text == "Place TNT" && TnT >= 1)
-                {
-
-                    TnT -= 1;
-                    StartCoroutine(PlaceTNT());
-
-
-                }
-
-            }
-
-
-        }
-
-
-        if ((Input.GetKeyDown(KeyCode.Alpha4) || attacked) && blockMultiplier==1f)
-        {
-            attacked = false;
-
-            if (canpunch == true)
-            {
-
-                AudioSource audeo = outsidemove.GetComponent<AudioSource>();
-                audeo.loop = false;
-                audeo.Stop();
-                audeo.clip = ATTACKsound;
-                audeo.Play();
-
-                if (move4.text == "punch" && stone >= 1)
-                {
-                    StartCoroutine(waitCanPUNCH());
-
-                    outsidemove.position = new Vector2(outsidemove.position.x, outsidemove.position.y + 0.3f);
-                    eye1.position = new Vector2(eye1.position.x, eye1.position.y + 0.3f);
-                    eye2.position = new Vector2(eye2.position.x, eye2.position.y + 0.3f);
-
-                    if (outsidemove.angularVelocity > 0)
-                    {
-                        outsidemove.AddTorque(120);
-                    }
-              else 
-                    {
-                        outsidemove.AddTorque(-120);
-                    }
-                    outsidemove.totalTorque = outsidemove.totalTorque * 2;
-
-
-                    StartCoroutine(waitStopAttack());
-
-
-                    stone -= 1;
-                    Collider2D[] enemysUpunch = Physics2D.OverlapCircleAll(outsidemove.position, 1.5f, PLAYER_layermask);
-                    foreach (Collider2D enemyObject in enemysUpunch)
-                    {
-
-                        Enemyscript enmtScript = enemyObject.gameObject.GetComponent<Enemyscript>();
-                        enmtScript.HP -= 50;
-                        if (enemyObject.gameObject.name == "MINION")
-                        {
-                            BOSS.Boss_Hp -= 50;
-                        }
-                    }
-                }
-
-            }
-
-           
-        }
-        if (Input.GetKey(KeyCode.F) || blocking) // block ability
-        {
-            if (blockMultiplier == 1)
-            {
-                AudioSource audeo = outsidemove.GetComponent<AudioSource>();
-                audeo.loop = false;
-                audeo.Stop();
-                audeo.clip = BLOCKsound;
-                audeo.Play();
-            }
-            if (blockMultiplier == 1)
-            {
-                blockMultiplier = 0.99f;
-
-            }
-            StartCoroutine(waitBLOCK());
+                StartCoroutine(waitBLOCK());
 
        
-        }
-        else // can only move if not blocking
-        {
-            blockMultiplier = 1f;
-            SpriteRenderer PSR = outsidemove.gameObject.GetComponent<SpriteRenderer>();
-            PSR.color = Color.white;
+            }
+            else // can only move if not blocking
+            {
+                blockMultiplier = 1f;
+                SpriteRenderer PSR = outsidemove.gameObject.GetComponent<SpriteRenderer>();
+                PSR.color = Color.white;
 
 
+            }
         }
     }
     IEnumerator waitBLOCK()
