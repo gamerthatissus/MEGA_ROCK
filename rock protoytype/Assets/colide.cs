@@ -9,7 +9,7 @@ public class colide : MonoBehaviour
   
     public bool canspike = true;
     public move22 thingyyyy;
-
+    public bool cansand = true;
     private void Start()
     {
              canspike = true;
@@ -24,6 +24,19 @@ public class colide : MonoBehaviour
         colliidderrrr.SetActive(true);
 
     }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("colapse"))
+        {
+            if (cansand == true)
+            {
+                cansand = false;
+                thingyyyy.MILD_OW();
+                StartCoroutine(waitforSAND(0.2f));
+            }
+
+        }
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.name == "CRACKED_SAND")
@@ -37,7 +50,16 @@ public class colide : MonoBehaviour
             Destroy(collision.gameObject);
             
         }
+        if (collision.gameObject.CompareTag("colapse"))
+        {
+            if (cansand == true)
+            {
+               cansand = false;
+              thingyyyy.MILD_OW();
+               StartCoroutine(waitforSAND(0.2f));
+            }
 
+        }
         if (collision.gameObject.CompareTag("SPIKE"))
         {
             if (canspike == true)
@@ -62,6 +84,15 @@ public class colide : MonoBehaviour
 
         yield return new WaitForSeconds(waitTime);
         canspike = true;
+
+
+    }
+
+    IEnumerator waitforSAND(float waitTime)
+    {
+
+        yield return new WaitForSeconds(waitTime);
+        cansand = true;
 
 
     }

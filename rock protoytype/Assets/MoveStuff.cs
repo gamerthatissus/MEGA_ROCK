@@ -1266,7 +1266,7 @@ public class move22 : MonoBehaviour
                     StartCoroutine(spendstone(1));
 
                     Object block = Instantiate(launcher);
-                    Destroy(block, 6f);
+                    Destroy(block, 8f);
 
                     Object thingy = GameObject.Find("pow6");
                     if (thingy != null)
@@ -1564,6 +1564,12 @@ public class move22 : MonoBehaviour
     public void dmg()
     {
         hp -= 30 * blockMultiplier; // NOTE FOR FUTURE: multiply all damage by blockMultiplier if you think it should be able to be blocked
+
+
+    }
+    public void MILD_OW()
+    {
+        hp -= 1; // NOTE FOR FUTURE: multiply all damage by blockMultiplier if you think it should be able to be blocked
 
 
     }
