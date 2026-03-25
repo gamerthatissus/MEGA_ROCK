@@ -6,6 +6,7 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Android;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -84,6 +85,7 @@ public class move22 : MonoBehaviour
     public Slider hpbar;
 
     public GameObject pathRememberer;
+    public GameObject PauseMenu;
 
     public Canvas gameScreen;
     public TextMeshProUGUI stoneTEXT;
@@ -144,6 +146,7 @@ public class move22 : MonoBehaviour
     private bool restarted;
     public bool dropped;
     public bool reset;
+    public bool paused;
     public GameObject AimRay;
     public bool ranout=false;
     public bool discovedSecret = false;
@@ -158,67 +161,96 @@ public class move22 : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        moveDirection = math.sign(context.ReadValue<Vector2>().x);
+        if (Time.timeScale > 0)
+        {
+            moveDirection = math.sign(context.ReadValue<Vector2>().x);
+        }
     }
 
     public void OnAim(InputAction.CallbackContext context)
     {
-        aimDirection = context.ReadValue<Vector2>();
-        if (aimDirection.x > .1 || aimDirection.x < -.1 || aimDirection.y > .1 || aimDirection.y < -.1)
-            aimDirection.Normalize();
-        else
-            aimDirection = Vector2.zero;
-        hit = Physics2D.Raycast(new Vector2(outsidemove.position.x, outsidemove.position.y), aimDirection, 20f, 1 << 10);
-        AimRay.transform.rotation = Quaternion.Euler(0, 0, math.atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg);
+        if (Time.timeScale > 0)
+        {
+            aimDirection = context.ReadValue<Vector2>();
+            if (aimDirection.x > .1 || aimDirection.x < -.1 || aimDirection.y > .1 || aimDirection.y < -.1)
+                aimDirection.Normalize();
+            else
+                aimDirection = Vector2.zero;
+            hit = Physics2D.Raycast(new Vector2(outsidemove.position.x, outsidemove.position.y), aimDirection, 20f, 1 << 10);
+            AimRay.transform.rotation = Quaternion.Euler(0, 0, math.atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg);
+        }
     }
 
     public void LaunchTrigger(InputAction.CallbackContext context)
     {
-        if (context.ReadValueAsButton())
+        if (context.ReadValueAsButton() && Time.timeScale > 0)
+        {
             launched = true;
+        }
     }
 
     public void AttackPressed(InputAction.CallbackContext context)
     {
-        if (context.ReadValueAsButton())
+        if (context.ReadValueAsButton() && Time.timeScale > 0)
+        {
             attacked = true;
+        }
     }
 
     public void BlockHeld(InputAction.CallbackContext context)
     {
-        blocking = context.ReadValueAsButton();
+        if (Time.timeScale > 0)
+        {
+            blocking = context.ReadValueAsButton();
+        }
     }
 
     public void EarthSurged(InputAction.CallbackContext context)
     {
-        if (context.ReadValueAsButton())
+        if (context.ReadValueAsButton() && Time.timeScale > 0)
+        {
             surged = true;
+        }
     }
 
     public void TntPlaced(InputAction.CallbackContext context)
     {
-        if (context.ReadValueAsButton())
+        if (context.ReadValueAsButton() && Time.timeScale > 0)
+        {
             placed = true;
+        }
     }
 
     public void Restarted(InputAction.CallbackContext context)
     {
-        if (context.ReadValueAsButton())
+        if (context.ReadValueAsButton() && Time.timeScale > 0)
+        {
             restarted = true;
+        }
     }
 
     public void StalagtiteDropped(InputAction.CallbackContext context)
     {
-        if (context.ReadValueAsButton() && hit)
-            Debug.Log("dropped");
+        if (context.ReadValueAsButton() && hit && Time.timeScale > 0)
+        {
             dropped = true;
+        }
     }
 
     public void ResetStalag(InputAction.CallbackContext context)
     {
-        if (context.ReadValueAsButton())
-            Debug.Log("reset");
+        if (context.ReadValueAsButton() && Time.timeScale > 0)
+        {
             reset = true;
+        }
+    }
+
+    public void PauseGame(InputAction.CallbackContext context)
+    {
+        if (context.ReadValueAsButton() && Time.timeScale > 0)
+        {
+            paused = true;
+        }
     }
 
     // Start is called before the first frame update
@@ -686,6 +718,14 @@ public class move22 : MonoBehaviour
                 Scene scenceString = SceneManager.GetActiveScene();
                 SceneManager.LoadScene(scenceString.name);
 
+            }
+            if (Input.GetKeyDown(KeyCode.Escape) || paused)
+            {
+                paused = false;
+
+                PauseMenu.transform.SetAsLastSibling();
+                PauseMenu.SetActive(true);
+                Time.timeScale = 0;
             }
             if (hp < 1 && Died==false)
             {
