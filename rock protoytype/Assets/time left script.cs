@@ -8,7 +8,7 @@ public class timeleftscript : MonoBehaviour
 {
     public TextMeshProUGUI timer;
     public GameObject[] colapse;
-    public int Timeer=300;
+    public int Timeer=100;
     public bool cannumber;
     public FindObjectsSortMode e;
     // Start is called before the first frame update
