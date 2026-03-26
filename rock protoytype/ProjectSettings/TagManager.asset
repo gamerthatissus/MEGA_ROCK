@@ -17,6 +17,7 @@ TagManager:
   - ROCK_PILE
   - eyeBall
   - colapse
+  - colapse1
   layers:
   - Default
   - TransparentFX

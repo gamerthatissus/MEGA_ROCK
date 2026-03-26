@@ -25,13 +25,21 @@ public class quicksandscript : MonoBehaviour
         {
             if (goUP == true)
             {
-                Non_solidTransform.position = new Vector2(Non_solidTransform.position.x, Non_solidTransform.position.y + 0.01f);
-                solidTransform.position = new Vector2(solidTransform.position.x, solidTransform.position.y + 0.01f);
+                Non_solidTransform.position = new Vector2(Non_solidTransform.position.x, Non_solidTransform.position.y + 0.05f);
+                solidTransform.position = new Vector2(solidTransform.position.x, solidTransform.position.y + 0.05f);
             }
             else
             {
                 Non_solidTransform.position = new Vector2(Non_solidTransform.position.x, Non_solidTransform.position.y - 0.01f);
                 solidTransform.position = new Vector2(solidTransform.position.x, solidTransform.position.y - 0.01f);
+
+
+                if (solidTransform.localPosition.y < -1.2)
+                {
+                    Non_solidTransform.localPosition = new Vector2(0, 0.0444f);
+                    solidTransform.localPosition = new Vector2(0,0);
+                }
+
             }
              
         }
@@ -52,6 +60,8 @@ public class quicksandscript : MonoBehaviour
         }
     }
 
+    
+    
     //IEnumerator waitforsink()
     //{
       //  cansink = false;

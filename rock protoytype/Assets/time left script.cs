@@ -11,18 +11,36 @@ public class timeleftscript : MonoBehaviour
     public int Timeer=100;
     public bool cannumber;
     public FindObjectsSortMode e;
+    public bool colapse1 = false;
     // Start is called before the first frame update
     void Start()
     {
-        colapse = GameObject.FindGameObjectsWithTag("colapse");
-        cannumber = true;
-        timer.enabled = false;
-        
-        foreach (GameObject tinghy in colapse)
+        Timeer = 100;
+        if (colapse1 == true)
         {
-          Rigidbody2D ee=  tinghy.GetComponent<Rigidbody2D>();
-            ee.simulated = false;
+            colapse = GameObject.FindGameObjectsWithTag("colapse1");
+            cannumber = true;
+            timer.enabled = false;
+
+            foreach (GameObject tinghy in colapse)
+            {
+                Rigidbody2D ee = tinghy.GetComponent<Rigidbody2D>();
+                ee.simulated = false;
+            }
         }
+        else
+        {
+            colapse = GameObject.FindGameObjectsWithTag("colapse");
+            cannumber = true;
+            timer.enabled = false;
+
+            foreach (GameObject tinghy in colapse)
+            {
+                Rigidbody2D ee = tinghy.GetComponent<Rigidbody2D>();
+                ee.simulated = false;
+            }
+        }
+           
     }
     IEnumerator waitsec()
     {
@@ -36,8 +54,13 @@ public class timeleftscript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("player"))
         {
+            cannumber = false;
+            StartCoroutine(waitsec());
+
+            Timeer = 100;
             timer.enabled = true;
-            
+            Timeer = 100;
+
         }
     }
     // Update is called once per frame
@@ -54,6 +77,7 @@ public class timeleftscript : MonoBehaviour
                 {
                     Rigidbody2D ee = tinghy.GetComponent<Rigidbody2D>();
                     ee.simulated = true;
+                    timer.enabled = false;
                 }
             }
             StartCoroutine(waitsec());
