@@ -34,6 +34,9 @@ public class OptionsMenu : MonoBehaviour
         if (selectedOption == volumeBar)
         {
             masterSlider.value += 5 * slideValue * Time.deltaTime;
+            AudioListener.volume = masterSlider.value;
+            PlayerPrefs.SetFloat("MasterVol", masterSlider.value);
+            PlayerPrefs.Save();
         }
     }
 

@@ -20,6 +20,7 @@ public class PauseMenu : MonoBehaviour
     {
         selectedButton = PlayGame;
         ExecuteEvents.Execute(playButton, new PointerEventData(EventSystem.current), ExecuteEvents.pointerEnterHandler);
+        Debug.Log("entered");
     }
 
     public void MenuUp(InputAction.CallbackContext context)

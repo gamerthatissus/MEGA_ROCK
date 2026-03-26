@@ -90,6 +90,6 @@ public class MainMenu : MonoBehaviour
     }
     public void BackToTitle()
     {
-        SceneManager.LoadScene("Titlescreen");
+        Application.Quit();
     }
 }
