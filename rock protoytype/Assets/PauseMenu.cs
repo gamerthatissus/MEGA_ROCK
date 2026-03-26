@@ -1,11 +1,12 @@
 using System;
+using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class PauseMenu : MonoBehaviour
 {
     public GameObject optionsPanel;
 
@@ -15,16 +16,16 @@ public class MainMenu : MonoBehaviour
 
     private Action selectedButton;
 
-    private void Start()
+    private void OnEnable()
     {
-        AudioListener.volume = PlayerPrefs.GetFloat("MasterVol", 1f); // Saves volume set
         selectedButton = PlayGame;
         ExecuteEvents.Execute(playButton, new PointerEventData(EventSystem.current), ExecuteEvents.pointerEnterHandler);
+        Debug.Log("entered");
     }
 
     public void MenuUp(InputAction.CallbackContext context)
     {
-        if (context.performed && !optionsPanel.activeSelf)
+        if (context.performed && !optionsPanel.activeSelf && gameObject.activeSelf)
         {
             if (selectedButton == PlayGame)
             {
@@ -49,7 +50,7 @@ public class MainMenu : MonoBehaviour
 
     public void MenuDown(InputAction.CallbackContext context)
     {
-        if (context.performed && !optionsPanel.activeSelf)
+        if (context.performed && !optionsPanel.activeSelf && gameObject.activeSelf)
         {
             if (selectedButton == OpenOptions)
             {
@@ -74,7 +75,7 @@ public class MainMenu : MonoBehaviour
 
     public void PressButton(InputAction.CallbackContext context)
     {
-        if (context.performed && !optionsPanel.activeSelf)
+        if (context.performed && !optionsPanel.activeSelf && gameObject.activeSelf)
         {
             selectedButton.Invoke();
         }
@@ -82,7 +83,8 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene("Game");
+        gameObject.SetActive(false);
+        Time.timeScale = 1;
     }
     public void OpenOptions()
     {
@@ -90,6 +92,7 @@ public class MainMenu : MonoBehaviour
     }
     public void BackToTitle()
     {
-        Application.Quit();
+        Time.timeScale = 1;
+        SceneManager.LoadScene("MainMenu");
     }
 }
