@@ -19,8 +19,14 @@ public class PauseMenu : MonoBehaviour
     private void OnEnable()
     {
         selectedButton = PlayGame;
-        ExecuteEvents.Execute(playButton, new PointerEventData(EventSystem.current), ExecuteEvents.pointerEnterHandler);
-        Debug.Log("entered");
+    }
+
+    private void Update()
+    {
+        if (selectedButton == PlayGame)
+        {
+            ExecuteEvents.Execute(playButton, new PointerEventData(EventSystem.current), ExecuteEvents.pointerEnterHandler);
+        }
     }
 
     public void MenuUp(InputAction.CallbackContext context)
