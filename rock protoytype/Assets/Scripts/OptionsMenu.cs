@@ -26,14 +26,14 @@ public class OptionsMenu : MonoBehaviour
         masterSlider.value = PlayerPrefs.GetFloat("MasterVol", 1f);
         fullscreenToggle.isOn = PlayerPrefs.GetInt("Fullscreen", 1) == 1;
         selectedOption = volumeBar;
-        ExecuteEvents.Execute(volumeBar, new PointerEventData(EventSystem.current), ExecuteEvents.pointerEnterHandler);
     }
 
     private void Update()
     {
         if (selectedOption == volumeBar)
         {
-            masterSlider.value += 5 * slideValue * Time.deltaTime;
+            ExecuteEvents.Execute(volumeBar, new PointerEventData(EventSystem.current), ExecuteEvents.pointerEnterHandler);
+            masterSlider.value += 5 * slideValue * Time.deltaTime; // deltatime doesnt work because time.timescale = 0
             AudioListener.volume = masterSlider.value;
             PlayerPrefs.SetFloat("MasterVol", masterSlider.value);
             PlayerPrefs.Save();
