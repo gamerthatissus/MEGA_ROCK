@@ -327,6 +327,7 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
                         talkstage++;
                         break;
                     case 2:
+
                         StartCoroutine(SLOW_TEXT(("i am"), 0.03f, true, false));
 
                         StartCoroutine(SLOW_TEXT((" VOLCANOY"), 0.1f, false, false));
@@ -398,7 +399,7 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
             CAM.Stop();
             Boss_Hp = 0;
         }
-        TEXT_HP.text = "HP: " + Boss_Hp + "/1000";
+        TEXT_HP.text = "VOLCANOY " + Boss_Hp + "/1000";
         if (Boss_Hp <= 400 && ULTUIMANTFAISE==false)
         {
           
