@@ -3021,7 +3021,7 @@ GameObject:
   - component: {fileID: 21885257}
   - component: {fileID: 21885256}
   m_Layer: 20
-  m_Name: CRACKED_SAND
+  m_Name: CRACKED_SAND HIDDEN 1
   m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14667,9 +14667,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.004995026, y: -0.44427657}
+  m_Offset: {x: 0.006069005, y: -0.4865896}
   serializedVersion: 2
-  m_Radius: 0.2649634
+  m_Radius: 0.14248295
 --- !u!50 &116172580
 Rigidbody2D:
   serializedVersion: 4
@@ -58905,6 +58905,7 @@ MonoBehaviour:
   hp: 100
   hpbar: {fileID: 848134961}
   pathRememberer: {fileID: 0}
+  PauseMenu: {fileID: 0}
   gameScreen: {fileID: 2087316701}
   stoneTEXT: {fileID: 317517479}
   insidemove: {fileID: 457430669}
@@ -58923,6 +58924,7 @@ MonoBehaviour:
   unlockedLAUNCH: 0
   dropped: 0
   reset: 0
+  paused: 0
   AimRay: {fileID: 850201927}
   ranout: 0
   discovedSecret: 0
@@ -95750,7 +95752,7 @@ GameObject:
   - component: {fileID: 756252308}
   - component: {fileID: 756252309}
   m_Layer: 20
-  m_Name: sand cave1
+  m_Name: SECOND SAND CAVE
   m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -95842,7 +95844,7 @@ MonoBehaviour:
   HIDEN_until_in_area5: {fileID: 0}
   HIDEN_until_in_area6: {fileID: 0}
   moveScript: {fileID: 457430668}
-  givebadge: 0
+  givebadge: 1
   giveBadge2: 0
 --- !u!114 &756252308
 MonoBehaviour:
@@ -123240,9 +123242,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.004995026, y: -0.44427657}
+  m_Offset: {x: -0.02497398, y: -0.4913769}
   serializedVersion: 2
-  m_Radius: 0.2649634
+  m_Radius: 0.17956638
 --- !u!50 &955663831
 Rigidbody2D:
   serializedVersion: 4
@@ -166388,7 +166390,7 @@ GameObject:
   - component: {fileID: 1271611701}
   - component: {fileID: 1271611700}
   m_Layer: 20
-  m_Name: CRACKED_SAND
+  m_Name: CRACKED_SAND hidden 3
   m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -170445,6 +170447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerrrr: {fileID: 335962044}
+  wwwwwww: {fileID: 756252308}
 --- !u!1 &1295269795
 GameObject:
   m_ObjectHideFlags: 0
@@ -175901,9 +175904,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.004995026, y: -0.44427657}
+  m_Offset: {x: 0.004750771, y: -0.4442765}
   serializedVersion: 2
-  m_Radius: 0.2649634
+  m_Radius: 0.17065246
 --- !u!50 &1336936571
 Rigidbody2D:
   serializedVersion: 4
@@ -175963,7 +175966,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0000061690807, y: 0.018596917}
+  m_Offset: {x: 0.0000061690807, y: 0.016885996}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -175974,7 +175977,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3840527, y: 1.1264634}
+  m_Size: {x: 0.3840527, y: 1.1230416}
   m_EdgeRadius: 0
 --- !u!114 &1336936573
 MonoBehaviour:
@@ -176071,7 +176074,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 798.05, y: 42.93, z: -0.16}
-  m_LocalScale: {x: 3.3339057, y: 2.8167164, z: 1}
+  m_LocalScale: {x: 3.3339057, y: 2.5350447, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -196779,7 +196782,7 @@ GameObject:
   - component: {fileID: 1487723841}
   - component: {fileID: 1487723840}
   m_Layer: 20
-  m_Name: CRACKED_SAND
+  m_Name: CRACKED_SAND hidden 2
   m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -248447,7 +248450,7 @@ GameObject:
   - component: {fileID: 1886690329}
   - component: {fileID: 1886690333}
   m_Layer: 20
-  m_Name: sand cave1 (1)
+  m_Name: FIRST SAND CAVE
   m_TagString: floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -248544,14 +248547,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f5b978516a308a4fbcb28755031664a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HIDEN_until_in_area: {fileID: 1768159839}
-  HIDEN_until_in_area2: {fileID: 930921904}
-  HIDEN_until_in_area3: {fileID: 0}
+  HIDEN_until_in_area: {fileID: 21885257}
+  HIDEN_until_in_area2: {fileID: 1487723841}
+  HIDEN_until_in_area3: {fileID: 1271611701}
   HIDEN_until_in_area4: {fileID: 0}
   HIDEN_until_in_area5: {fileID: 0}
   HIDEN_until_in_area6: {fileID: 0}
   moveScript: {fileID: 457430668}
-  givebadge: 0
+  givebadge: 1
   giveBadge2: 0
 --- !u!212 &1886690332
 SpriteRenderer:
@@ -254776,9 +254779,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.004995026, y: -0.44427657}
+  m_Offset: {x: 0.003847242, y: -0.597857}
   serializedVersion: 2
-  m_Radius: 0.2649634
+  m_Radius: 0.2030714
 --- !u!50 &1948707279
 Rigidbody2D:
   serializedVersion: 4
@@ -256667,6 +256670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerrrr: {fileID: 335962044}
+  wwwwwww: {fileID: 1886690330}
 --- !u!1 &1962465727
 GameObject:
   m_ObjectHideFlags: 0
@@ -257662,7 +257666,7 @@ MonoBehaviour:
   HIDEN_until_in_area4: {fileID: 0}
   HIDEN_until_in_area5: {fileID: 0}
   HIDEN_until_in_area6: {fileID: 0}
-  moveScript: {fileID: 0}
+  moveScript: {fileID: 457430668}
   givebadge: 0
   giveBadge2: 0
 --- !u!1 &1969660796

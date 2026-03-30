@@ -233,7 +233,7 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
 
         for (float i = 0; i < 5; i+=Time.deltaTime)
         {  
-            if (LAVA.transform.position.y < -12.5)
+            if (LAVA.transform.position.y > -12.5)
             {
                 LAVA.transform.position = new Vector2(LAVA.transform.position.x, LAVA.transform.position.y + (2f * Time.deltaTime));
                 yield return null;
@@ -261,7 +261,7 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
         for (float i = 0; i < 1; i+= Time.deltaTime)
         {
 
-            if (WARNING_LAVA.transform.position.y < -12)
+            if (WARNING_LAVA.transform.position.y > -12)
             {
                 WARNING_LAVA.transform.position = new Vector2(WARNING_LAVA.transform.position.x, WARNING_LAVA.transform.position.y + (10f * Time.deltaTime));
                 yield return null;

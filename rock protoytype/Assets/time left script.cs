@@ -19,7 +19,7 @@ public class timeleftscript : MonoBehaviour
         if (colapse1 == true)
         {
             colapse = GameObject.FindGameObjectsWithTag("colapse1");
-            cannumber = true;
+            cannumber = false;
             timer.enabled = false;
 
             foreach (GameObject tinghy in colapse)
@@ -54,8 +54,7 @@ public class timeleftscript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("player"))
         {
-            cannumber = false;
-            StartCoroutine(waitsec());
+            cannumber = true;
 
             Timeer = 100;
             timer.enabled = true;
@@ -66,9 +65,10 @@ public class timeleftscript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer.text = ""+Timeer;
         if (cannumber == true && timer.enabled==true)
         {
+            timer.text = "" + Timeer;
+
             cannumber = false;
             Timeer -= 1;
             if (Timeer == 0)

@@ -1605,7 +1605,7 @@ public class move22 : MonoBehaviour
     }
     public void dmg()
     {
-        hp -= 30 * blockMultiplier; // NOTE FOR FUTURE: multiply all damage by blockMultiplier if you think it should be able to be blocked
+        hp -= 20 ; // NOTE FOR FUTURE: multiply all damage by blockMultiplier if you think it should be able to be blocked
 
 
     }
