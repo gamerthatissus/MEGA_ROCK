@@ -22730,6 +22730,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BOSS_scipt: {fileID: 1863542035}
   boss: 1
+  bossHit: {fileID: 8300000, guid: 38cd34da92c4fe44f9b63e250ec1f663, type: 3}
   enemyType: 2
   GolemAnimator: {fileID: 0}
   GolemAnimator2: {fileID: 0}
@@ -37298,6 +37299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BOSS_scipt: {fileID: 1863542035}
   boss: 1
+  bossHit: {fileID: 8300000, guid: 38cd34da92c4fe44f9b63e250ec1f663, type: 3}
   enemyType: 6
   GolemAnimator: {fileID: 0}
   GolemAnimator2: {fileID: 0}
@@ -37664,6 +37666,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BOSS_scipt: {fileID: 1863542035}
   boss: 1
+  bossHit: {fileID: 8300000, guid: 38cd34da92c4fe44f9b63e250ec1f663, type: 3}
   enemyType: 1
   GolemAnimator: {fileID: 1497704944}
   GolemAnimator2: {fileID: 711210024}
@@ -38630,6 +38633,7 @@ MonoBehaviour:
   FIGHT_started: 0
   audioSUMMON: {fileID: 8300000, guid: 0897483394dd4e441864058d8eb38cb4, type: 3}
   sound: {fileID: 1863542036}
+  second_PHASE: {fileID: 8300000, guid: c49ad0c798a08154b8b5cd8524621903, type: 3}
   lavarise: {fileID: 8300000, guid: 1273e2a4e539f884f9a7714a539b255a, type: 3}
   PRE_lavarise: {fileID: 8300000, guid: 13ed4b3d2c4e67d4da01815a86440987, type: 3}
   YOUWIN: {fileID: 8300000, guid: b1a8533ec6560e941a0824ac0f1f4fb0, type: 3}

@@ -11,6 +11,7 @@ using UnityEngine.UIElements.Experimental;
 
 public class boss_FIGHT_SCRIPT : MonoBehaviour
 {
+    private bool canfight=true;
     public int gggolemeeed = 4;
     public int laved = 5;
     public int meitiored = 3;
@@ -23,11 +24,13 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
     public bool FIGHT_started = false;
     public AudioClip audioSUMMON;
     public AudioSource sound;
+    public AudioClip second_PHASE;
+
     public AudioClip lavarise;
     public AudioClip PRE_lavarise;
 
     public AudioClip YOUWIN;
-
+    public float randdddddddddddddddddd=8;
     public TextMeshProUGUI TEXT_HP;
     public AudioSource CAM;
     public AudioClip INTENSE;
@@ -81,10 +84,12 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
         gggolemeeed = 0;
         ULTUIMANTFAISE = false;
         canattack = false;
+        canfight = false;
         attacking = false;
 
         Boss_Hp = 1000;
         canattack = false;
+        canfight = false;
 
         //5.5
         MAINCAMERA.orthographicSize = 9;
@@ -178,16 +183,27 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
     IEnumerator Beweenattacks()
     {
         canattack = false;
+        canfight = false;
+
         if (ULTUIMANTFAISE == false)
         {
+            randdddddddddddddddddd = UnityEngine.Random.Range(4, 13);
+
             canattack = false;
-            yield return new WaitForSeconds(UnityEngine.Random.Range(4, 13));
+            canfight = false;
+            yield return new WaitForSeconds(randdddddddddddddddddd);
+            canfight = true;
             canattack = true;
         }
         else
         {
+            randdddddddddddddddddd = UnityEngine.Random.Range(3, 8);
             canattack = false;
-            yield return new WaitForSeconds(UnityEngine.Random.Range(3, 8));
+            canfight = false;
+
+            yield return new WaitForSeconds(randdddddddddddddddddd);
+            canfight = true;
+
             canattack = true;
         }
 
@@ -196,6 +212,7 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
 
     IEnumerator RIP_MOUNTAN()
     {
+        Debug.Log("DED");
         diologe.transform.parent.gameObject.SetActive(true);
         sound.loop = false;
         sound.Stop();
@@ -271,6 +288,8 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
 
        
     }
+
+    
     IEnumerator LAVA_RISE()
     {
         LAVA.transform.position = new Vector2(LAVA.transform.position.x, lavastart);
@@ -351,6 +370,11 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (canattack == true && canfight == false)
+        {
+            canattack = false;
+        }
+
         if (FIGHT_started == false)
         {
             if (skipdiologe == true)
@@ -431,7 +455,7 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
                         break;
                     case 4:
                         talkstage++;
-                        Destroy(diologe.transform.parent.gameObject);
+                        diologe.transform.parent.gameObject.SetActive(false);
 
 
                         CAM.Stop();
@@ -455,6 +479,21 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
         }
        
     }
+
+    IEnumerator secondPhase()
+    {
+        CAM.Stop();
+        CAM.clip = second_PHASE;
+        CAM.loop = false;
+        CAM.Play();
+        ULTUIMANTFAISE = true;
+        yield return new WaitForSeconds(1.5f);
+        CAM.Stop();
+        CAM.clip = INTENSE;
+        CAM.loop = true;
+        CAM.Play();
+        ULTUIMANTFAISE = true;
+    }
     void FixedUpdate()
     {
     
@@ -464,18 +503,16 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
             CAM.Stop();
             Boss_Hp = 0;
             StartCoroutine(RIP_MOUNTAN());
+            
         }
+
         TEXT_HP.text = "VOLCANOY " + Boss_Hp + "/1000";
         if (Boss_Hp <= 400 && ULTUIMANTFAISE==false)
         {
 
             if (diedyet == false)
             {
-                CAM.Stop();
-                CAM.clip = INTENSE;
-                CAM.loop = true;
-                CAM.Play();
-                ULTUIMANTFAISE = true;
+                StartCoroutine(secondPhase());
             }
 
 
@@ -529,11 +566,13 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
                 if (ULTUIMANTFAISE == false)
                 {
                     int numb_fireballs = Mathf.RoundToInt(UnityEngine.Random.Range(5, 15));
+
                     for (int i = 0; i < numb_fireballs; i++)
                     {
                         StartCoroutine(summonFIREBALL());
                     }
                     StartCoroutine(Beweenattacks());
+
                 }
                 else
                 {

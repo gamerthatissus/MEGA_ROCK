@@ -14,6 +14,8 @@ public class Enemyscript : MonoBehaviour
 {
     public boss_FIGHT_SCRIPT BOSS_scipt;
     public bool boss = false;
+    public AudioClip bossHit;
+    
     //enemy types:   1=fall  2=normal 3=burried    4=smasher
     public int enemyType=0;
     private GameObject animatttte2;
@@ -362,6 +364,11 @@ public class Enemyscript : MonoBehaviour
                 if (boss == true)
                 {
                     BOSS_scipt.Boss_Hp -= 25;
+                    BOSS_scipt.sound.Stop();
+                    BOSS_scipt.sound.loop = false;
+                    BOSS_scipt.sound.clip = bossHit;
+                    BOSS_scipt.sound.Play();
+
                 }
                 if (Enemy_RB.mass == 50)
                 {
