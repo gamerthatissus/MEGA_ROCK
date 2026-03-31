@@ -25,6 +25,9 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
     public AudioSource sound;
     public AudioClip lavarise;
     public AudioClip PRE_lavarise;
+
+    public AudioClip YOUWIN;
+
     public TextMeshProUGUI TEXT_HP;
     public AudioSource CAM;
     public AudioClip INTENSE;
@@ -47,6 +50,12 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
     public GameObject golem_Normal;
     public GameObject golem_Sand;
     public GameObject golem_Cave;
+    public ParticleSystem BLOWUP1;
+    public ParticleSystem BLOWUP2;
+    public ParticleSystem BLOWUP3;
+    public ParticleSystem BLOWUP4;
+
+    private bool diedyet = false;
 
     public bool ULTUIMANTFAISE = false;
 
@@ -65,6 +74,7 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        diedyet = false;
         lavastart = LAVA.transform.position.y;
         laved = 0;
         meitiored = 0;
@@ -89,7 +99,17 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
         if (delay == true)
         {
 
-            yield return new WaitForSeconds(1f);
+            
+            if (textt == "I am ThE STrOnnnNgEsT PeT roCk iN tHe WhOoleE WoR... ")
+            {
+                yield return new WaitForSeconds(2f);
+
+            }
+            else
+            {
+                yield return new WaitForSeconds(1f);
+
+            }
         }
 
         int faketime = typeCount;
@@ -173,6 +193,46 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
 
        
     }
+
+    IEnumerator RIP_MOUNTAN()
+    {
+        diologe.transform.parent.gameObject.SetActive(true);
+        sound.loop = false;
+        sound.Stop();
+        sound.clip = YOUWIN;
+        
+        sound.Play();
+        diologe.text = "";
+        StartCoroutine(SLOW_TEXT(("NoO0o-0ooo-OO0ooO0o-0ooo-OO0o"), 0.03f, true, false));
+        talkstage = 0;
+
+        yield return new WaitForSeconds(4);
+        StartCoroutine(SLOW_TEXT(("YOoouuUU wIll PAyY fOr ThIssSS!!!!"), 0.06f, true, false));
+
+        yield return new WaitForSeconds(3.5f);
+
+        StartCoroutine(SLOW_TEXT(("I MuStTT WiNN, i mUUuUsST!!!  "), 0.04f, true, false));
+        talkstage++;
+        textdone = false;
+     
+        StartCoroutine(SLOW_TEXT(( "I am ThE STrOnnnNgEsT PeT roCk iN tHe WhOoleE WoR... "), 0.04f, false, true));
+        textdone = false;
+
+        typeCount -= 1;
+        yield return new WaitForSeconds(4.5f);
+
+        diologe.transform.parent.gameObject.SetActive(false);
+        Destroy(boss);
+
+        diologe.enabled = false;
+        BLOWUP1.Play();
+        BLOWUP2.Play();
+        BLOWUP3.Play();
+        BLOWUP4.Play();
+
+
+      
+    }
     IEnumerator summonFIREBALL()
     {
 
@@ -226,10 +286,15 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
 
         }
 
-        sound.loop = false;
-        sound.Stop();
-        sound.clip = lavarise;
-        sound.Play();
+        if (diedyet == false)
+        {
+            sound.loop = false;
+            sound.Stop();
+            sound.clip = lavarise;
+            sound.Play();
+        }
+
+       
 
         for (float i = 0; i < 5; i+=Time.deltaTime)
         {  
@@ -292,7 +357,7 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
             {
                 FIGHT_started = true;
                 talkstage++;
-                Destroy(diologe.transform.parent.gameObject);
+                diologe.transform.parent.gameObject.SetActive(false);
 
 
                 CAM.Stop();
@@ -393,22 +458,28 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
     void FixedUpdate()
     {
     
-        if (Boss_Hp <= 0)
+        if (Boss_Hp <= 0 && diedyet==false)
         {
-            Destroy(boss);
+            diedyet = true;
             CAM.Stop();
             Boss_Hp = 0;
+            StartCoroutine(RIP_MOUNTAN());
         }
         TEXT_HP.text = "VOLCANOY " + Boss_Hp + "/1000";
         if (Boss_Hp <= 400 && ULTUIMANTFAISE==false)
         {
-          
 
-            CAM.Stop();
-            CAM.clip = INTENSE;
-            CAM.loop = true;
-            CAM.Play();
-            ULTUIMANTFAISE = true;
+            if (diedyet == false)
+            {
+                CAM.Stop();
+                CAM.clip = INTENSE;
+                CAM.loop = true;
+                CAM.Play();
+                ULTUIMANTFAISE = true;
+            }
+
+
+          
 
         }
         if (canattack == true && attacking==false && Boss_Hp>0)
@@ -444,10 +515,14 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
                 gggolemeeed += 1;
                 meitiored = 0;
 
-                sound.loop = false;
-                sound.Stop();
-                sound.clip = PRE_errupt;
-                sound.Play();
+                if (diedyet == false)
+                {
+                    sound.loop = false;
+                    sound.Stop();
+                    sound.clip = PRE_errupt;
+                    sound.Play();
+                }
+              
 
                 attacking = true;
                 canattack = false;
