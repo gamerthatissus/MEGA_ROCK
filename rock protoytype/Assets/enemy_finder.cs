@@ -62,7 +62,7 @@ public class enemy_finder : MonoBehaviour
             else
             {
                 gameObject.GetComponent<SpriteRenderer>().enabled = true; //gets spriterender and  enables it in the same line of code.
-                Debug.Log("enemy is far away");
+                //Debug.Log("enemy is far away");
             }
               
 
@@ -70,7 +70,7 @@ public class enemy_finder : MonoBehaviour
         else
         {
             gameObject.GetComponent<SpriteRenderer>().enabled = false; //gets spriterender and  disables it in the same line of code.
-            Debug.Log("you cannot sleep now, there are enemys nearby");
+            //Debug.Log("you cannot sleep now, there are enemys nearby");
             return;
         }
 

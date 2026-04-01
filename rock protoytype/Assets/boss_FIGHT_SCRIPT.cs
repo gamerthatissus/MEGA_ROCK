@@ -58,12 +58,14 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
     public ParticleSystem BLOWUP3;
     public ParticleSystem BLOWUP4;
 
-    private bool diedyet = false;
+    public bool diedyet = false;
 
     public bool ULTUIMANTFAISE = false;
 
     public float Boss_Hp = 1000;
     public AudioClip TALK_SOUND;
+    public AudioSource DEATH_SOUND;
+
     public AudioSource soooounnnnd;
     
     private bool talked;
@@ -214,11 +216,13 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
     {
         Debug.Log("DED");
         diologe.transform.parent.gameObject.SetActive(true);
+        DEATH_SOUND.loop = false;
         sound.loop = false;
         sound.Stop();
-        sound.clip = YOUWIN;
-        
-        sound.Play();
+        DEATH_SOUND.Stop();
+        DEATH_SOUND.clip = YOUWIN;
+
+        DEATH_SOUND.Play();
         diologe.text = "";
         StartCoroutine(SLOW_TEXT(("NoO0o-0ooo-OO0ooO0o-0ooo-OO0o"), 0.03f, true, false));
         talkstage = 0;
@@ -317,7 +321,7 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
 
         for (float i = 0; i < 5; i+=Time.deltaTime)
         {  
-            if (LAVA.transform.position.y > -12.5)
+            if (LAVA.transform.position.y < 73.5)
             {
                 LAVA.transform.position = new Vector2(LAVA.transform.position.x, LAVA.transform.position.y + (2f * Time.deltaTime));
                 yield return null;
@@ -325,6 +329,8 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
             
 
         }
+        Debug.Log(LAVA.transform.position.y);
+
         for (float i = 0; i < 5; i += Time.deltaTime)
         {
             LAVA.transform.position = new Vector2(LAVA.transform.position.x, LAVA.transform.position.y - (2f * Time.deltaTime));
@@ -345,7 +351,7 @@ public class boss_FIGHT_SCRIPT : MonoBehaviour
         for (float i = 0; i < 1; i+= Time.deltaTime)
         {
 
-            if (WARNING_LAVA.transform.position.y > -12)
+            if (WARNING_LAVA.transform.position.y < 73.5)
             {
                 WARNING_LAVA.transform.position = new Vector2(WARNING_LAVA.transform.position.x, WARNING_LAVA.transform.position.y + (10f * Time.deltaTime));
                 yield return null;
