@@ -10,6 +10,7 @@ public class fakestonescript : MonoBehaviour
     public SpriteRenderer HIDEN_until_in_area2;
     public SpriteRenderer HIDEN_until_in_area3;
     public Light2D HIDEN_until_in_area4;
+    public Light2D HIDEN_until_in_area7;
     public SpriteRenderer HIDEN_until_in_area5;
     public ParticleSystem HIDEN_until_in_area6;
     public move22 moveScript;
@@ -44,6 +45,11 @@ public class fakestonescript : MonoBehaviour
         {
             HIDEN_until_in_area4.enabled = true;
             HIDEN_until_in_area4.intensity = 0.05f;
+        }
+        if (HIDEN_until_in_area7 != null)
+        {
+            HIDEN_until_in_area7.enabled = true;
+            HIDEN_until_in_area7.intensity = 0.05f;
         }
         if (HIDEN_until_in_area5 != null)
         {
@@ -91,6 +97,11 @@ public class fakestonescript : MonoBehaviour
                 HIDEN_until_in_area4.enabled = true;
                 HIDEN_until_in_area4.intensity = 0.5f;
             }
+            if (HIDEN_until_in_area7 != null)
+            {
+                HIDEN_until_in_area7.enabled = true;
+                HIDEN_until_in_area7.intensity = 0.5f;
+            }
             if (HIDEN_until_in_area5 != null)
             {
                 HIDEN_until_in_area5.enabled = true;
@@ -137,6 +148,11 @@ public class fakestonescript : MonoBehaviour
             {
                 HIDEN_until_in_area4.enabled = true;
                 HIDEN_until_in_area4.intensity = 0.05f;
+            }
+            if (HIDEN_until_in_area7 != null)
+            {
+                HIDEN_until_in_area7.enabled = true;
+                HIDEN_until_in_area7.intensity = 0.05f;
             }
 
             if (HIDEN_until_in_area5 != null)
