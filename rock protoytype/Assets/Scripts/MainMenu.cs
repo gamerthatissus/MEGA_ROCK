@@ -19,7 +19,10 @@ public class MainMenu : MonoBehaviour
     {
         AudioListener.volume = PlayerPrefs.GetFloat("MasterVol", 1f); // Saves volume set
         selectedButton = PlayGame;
-        ExecuteEvents.Execute(playButton, new PointerEventData(EventSystem.current), ExecuteEvents.pointerEnterHandler);
+        if (Gamepad.current != null)
+        {
+            ExecuteEvents.Execute(playButton, new PointerEventData(EventSystem.current), ExecuteEvents.pointerEnterHandler);
+        }
     }
 
     public void MenuUp(InputAction.CallbackContext context)

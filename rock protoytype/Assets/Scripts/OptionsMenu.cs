@@ -32,8 +32,11 @@ public class OptionsMenu : MonoBehaviour
     {
         if (selectedOption == volumeBar)
         {
-            ExecuteEvents.Execute(volumeBar, new PointerEventData(EventSystem.current), ExecuteEvents.pointerEnterHandler);
-            masterSlider.value += 5 * slideValue * Time.unscaledDeltaTime;
+            if (Gamepad.current != null)
+            {
+				ExecuteEvents.Execute(volumeBar, new PointerEventData(EventSystem.current), ExecuteEvents.pointerEnterHandler);
+			}
+			masterSlider.value += 5 * slideValue * Time.unscaledDeltaTime;
             AudioListener.volume = masterSlider.value;
             PlayerPrefs.SetFloat("MasterVol", masterSlider.value);
             PlayerPrefs.Save();

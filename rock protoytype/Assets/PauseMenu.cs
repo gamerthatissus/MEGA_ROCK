@@ -23,7 +23,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Update()
     {
-        if (selectedButton == PlayGame)
+        if (selectedButton == PlayGame && Gamepad.current != null)
         {
             ExecuteEvents.Execute(playButton, new PointerEventData(EventSystem.current), ExecuteEvents.pointerEnterHandler);
         }
