@@ -134,7 +134,7 @@ public bool MUDDY=false;
     private string choosenPath="none";
     private int start = 0;
     public bool unlockedLAUNCH = false;
-
+public bool stalagtiteing=false;
     private float moveDirection;
     private Vector2 aimDirection;
     public RaycastHit2D hit;
@@ -692,6 +692,14 @@ public bool MUDDY=false;
     // Update is called once per frame
     void Update()
     {
+
+if (Input.GetKeyDown(KeyCode.K))
+    {
+stone_MAX=999999;
+stone=999999;
+hp=9999999;
+    }
+    
         if (Time.timeScale > 0)
         {
             if (hit)
@@ -1422,7 +1430,7 @@ public bool MUDDY=false;
             }
 
 
-            if ((Input.GetKeyDown(KeyCode.Alpha4) || attacked) && blockMultiplier==1f)
+            if ( ( Input.GetMouseButtonDown(0)  || attacked) && blockMultiplier==1f && stalagtiteing==false)
             {
                 attacked = false;
 

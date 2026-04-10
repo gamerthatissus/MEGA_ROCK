@@ -21,6 +21,7 @@ public class staligtite : MonoBehaviour
     private Vector2 OG_POS;
     private float og_rot;
 
+    private bool first = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -57,6 +58,20 @@ public class staligtite : MonoBehaviour
 
         if ((distance <= 0.5 || moveScript.hit.rigidbody == stalag) && distance2<=6.5)
         {
+            if (stalag_sprite.color == Color.green)
+            {
+                first = false;
+
+            }
+            else
+            {
+                first = true;
+            }
+            if (first == true)
+            {
+                moveScript.stalagtiteing = true;
+
+            }
             stalag_sprite.color = Color.green;
             if (Input.GetKeyDown(KeyCode.Mouse0) || moveScript.dropped)
             {
@@ -70,6 +85,23 @@ public class staligtite : MonoBehaviour
         }
         else
         {
+            if (stalag_sprite.color == Color.gray)
+            {
+                first = false;
+
+            }
+            else
+            {
+                first = true;
+            }
+
+            if (first == true)
+            {
+                moveScript.stalagtiteing = false;
+
+            }
+            
+
             stalag_sprite.color = Color.gray;
 
         }
