@@ -19,7 +19,7 @@ public class launchscript : MonoBehaviour
 
     }
 
-  
+   
 
     IEnumerator pashence()
     {
@@ -50,6 +50,74 @@ public class launchscript : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("floor"))
+        {
+
+            insidefloor += 1;
+
+        }
+        else if (collision.gameObject.CompareTag("mud"))
+        {
+
+            insidefloor = -10000;
+
+        }
+        else
+        {
+
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("floor"))
+        {
+            insidefloor -= 1;
+
+        }
+        else if (collision.gameObject.CompareTag("SPIKE"))
+        {
+
+            insidefloor =0;
+
+        }
+        else
+        {
+
+
+        }
+        
+    }
+    
+
+    
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("floor"))
+        {
+            if (insidefloor == 0)
+            {
+                insidefloor = 1;
+
+            }
+
+        }
+        else if (collision.gameObject.CompareTag("mud"))
+        {
+
+            insidefloor = -10000;
+
+        }
+        else
+        {
+
+
+        }
+
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
@@ -61,7 +129,7 @@ public class launchscript : MonoBehaviour
             insidefloor += 1;
 
         }
-        else if (collision.gameObject.CompareTag("SPIKE"))
+        else if (collision.gameObject.CompareTag("mud"))
         {
 
             insidefloor = -10000;
@@ -86,7 +154,7 @@ public class launchscript : MonoBehaviour
             }
 
         }
-        else if (other.gameObject.CompareTag("SPIKE"))
+        else if (other.gameObject.CompareTag("mud"))
         {
 
             insidefloor = -10000;
@@ -99,6 +167,9 @@ public class launchscript : MonoBehaviour
         }
 
     }
+    
+    
+    
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("floor"))

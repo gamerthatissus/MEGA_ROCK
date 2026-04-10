@@ -24,7 +24,7 @@ public class move22 : MonoBehaviour
      Left,
      Right
     }
-
+public bool MUDDY=false;
     public bool showedCOMbat = false;
     public bool showedLAUNCH = false;
 

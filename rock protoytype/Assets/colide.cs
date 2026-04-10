@@ -36,6 +36,17 @@ public class colide : MonoBehaviour
             }
 
         }
+        
+        if (collision.gameObject.CompareTag("mud"))
+        {
+            if (thingyyyy.MUDDY == false)
+            {
+                thingyyyy.MUDDY = true;
+            }
+           
+           
+
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -43,7 +54,17 @@ public class colide : MonoBehaviour
         {
             StartCoroutine(waitBREAK(collision.gameObject));
         }
+        if (collision.gameObject.CompareTag("mud"))
+        {
+            if (thingyyyy.MUDDY == false)
+            {
+                thingyyyy.MUDDY = true;
+            }
+           
+           
 
+        }
+        
         if (collision.gameObject.CompareTag("TNT"))
         {
             thingyyyy.TnT ++;
@@ -97,8 +118,32 @@ public class colide : MonoBehaviour
 
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("mud"))
+        {
+            if (thingyyyy.MUDDY == true)
+            {
+                thingyyyy.MUDDY = false;
+            }
+           
+           
+
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.CompareTag("mud"))
+        {
+            if (thingyyyy.MUDDY == false)
+            {
+                thingyyyy.MUDDY = true;
+            }
+           
+           
+
+        }
         if (collision.gameObject.CompareTag("LAVA"))
         {
             thingyyyy.KILL();
