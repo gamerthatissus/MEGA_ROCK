@@ -29,18 +29,22 @@ public class staligtite : MonoBehaviour
         og_rot = stalag.rotation;
         stalag.constraints = RigidbodyConstraints2D.FreezeAll;
         moveScript = move.GetComponent<move22>();
+        moveScript.stalagsReset += stalagResetResponse;
+    }
+
+    private void stalagResetResponse(int? stupidNum1, int? stupidNum2, int? stupidNum3, int? stupidNum4, int? stupidNum5)
+    {
+        stalag.constraints = RigidbodyConstraints2D.FreezeAll;
+        stalag.position = OG_POS;
+        stalag.rotation = og_rot;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha0) || moveScript.reset)
+        if (Input.GetKeyDown(KeyCode.Alpha0))
         {
-            moveScript.reset = false;
-
-            stalag.constraints = RigidbodyConstraints2D.FreezeAll;
-              stalag.position=OG_POS;
-            stalag.rotation = og_rot;
+            stalagResetResponse(null, null, null, null, null);
         }
         mouseposstart = Input.mousePosition;
         mousepos = maincam.ScreenToWorldPoint(mouseposstart);

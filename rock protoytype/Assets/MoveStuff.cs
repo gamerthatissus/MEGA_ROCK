@@ -145,7 +145,6 @@ public bool stalagtiteing=false;
     private bool placed;
     private bool restarted;
     public bool dropped;
-    public bool reset;
     public bool paused;
     public GameObject AimRay;
     public bool ranout=false;
@@ -157,7 +156,7 @@ public bool stalagtiteing=false;
     public GameObject controls_COMBAT;
     public GameObject controls_ROCK_LAUNCH;
 
-
+    public event Action<int?, int?, int?, int?, int?> stalagsReset;
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -241,7 +240,7 @@ public bool stalagtiteing=false;
     {
         if (context.ReadValueAsButton() && Time.timeScale > 0)
         {
-            reset = true;
+            stalagsReset.Invoke(null, null, null, null, null);
         }
     }
 
