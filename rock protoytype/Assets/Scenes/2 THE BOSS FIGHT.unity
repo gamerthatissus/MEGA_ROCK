@@ -15641,12 +15641,12 @@ MonoBehaviour:
   mana2: {fileID: 636405511}
   mana3: {fileID: 1093091839}
   mana4: {fileID: 1325685999}
-  mana5: {fileID: 0}
+  mana5: {fileID: 1222858064}
   move1: {fileID: 484670572}
   move2: {fileID: 931255621}
   move3: {fileID: 1292381922}
   move4: {fileID: 716986619}
-  move5: {fileID: 0}
+  move5: {fileID: 2053131671}
   hp: 100
   hpbar: {fileID: 2097067544}
   pathRememberer: {fileID: 0}
@@ -16068,6 +16068,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: d743e650-caf2-4c17-8732-a5a062d91fae
     m_ActionName: Controller/StalagtiteDropped
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 472bf802-a354-4ec5-b037-3f38dc3d8f42
+    m_ActionName: Controller/MenuUp
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 960c7ac7-dbad-4062-ade4-db721778f427
+    m_ActionName: Controller/MenuDown
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b770deaf-0e35-4d82-9060-713cd6b69ef7
+    m_ActionName: Controller/ResetStalag
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0fddc59e-d77f-4d76-a873-6105505c0d2b
+    m_ActionName: Controller/Pause
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: 
@@ -21296,7 +21312,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 17.75
+  m_fontSize: 17.7
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -24742,7 +24758,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -20.602234, y: -264.50012}
+  m_AnchoredPosition: {x: -20.602295, y: -264.50012}
   m_SizeDelta: {x: -1720, y: -1021.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1264806515
