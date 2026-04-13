@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Titlescreen.unity
+    path: Assets/Scenes/Unused Scenes/Titlescreen.unity
     guid: f594c8d22aff17c4c80da50ad6c73c90
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/game.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/100%menu.unity
+    path: Assets/Scenes/Unused Scenes/100%menu.unity
     guid: e423a32fe6b7aff4a8fc3895e60cd645
   - enabled: 1
     path: Assets/Scenes/LevelOne.unity
@@ -33,7 +33,7 @@ EditorBuildSettings:
     path: Assets/Scenes/THE BOSS FIGHT.unity
     guid: cd643ec8f10c4c74d9836c0341abee75
   - enabled: 1
-    path: Assets/Scenes/2 THE BOSS FIGHT.unity
+    path: Assets/Scenes/Unused Scenes/2 THE BOSS FIGHT.unity
     guid: 3b0cd103a9c2b804f8ad91d348a4a90b
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: d8df41fca6590f64d8d9a65a2f4043aa, type: 3}
