@@ -53,6 +53,10 @@ public class teliporttolevel1 : MonoBehaviour
                 {
                     SceneManager.LoadScene("THE BOSS FIGHT");
                 }
+                else if (mode == 200 && move2222.showedTnt == false)
+                {
+                    move2222.SHOW_TNT();
+                }
                 else if (mode==100 && move2222.showedCOMbat==false)
                 {
                     move2222.SHOW_COMBAT();

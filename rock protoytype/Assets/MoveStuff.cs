@@ -27,7 +27,7 @@ public class move22 : MonoBehaviour
 public bool MUDDY=false;
     public bool showedCOMbat = false;
     public bool showedLAUNCH = false;
-
+    public bool showedTnt = false;
     public bool BURNT = false;
     public bool starteeed=false;
     public bool boss = false;
@@ -75,12 +75,15 @@ public bool MUDDY=false;
     public TextMeshProUGUI mana2;
     public TextMeshProUGUI mana3;
     public TextMeshProUGUI mana4;
+    public TextMeshProUGUI mana5;
 
     public TextMeshProUGUI move1;
     public TextMeshProUGUI move2;
     public TextMeshProUGUI move3;
     public TextMeshProUGUI move4;
-    
+    public TextMeshProUGUI move5;
+
+
     public float hp;
     public Slider hpbar;
 
@@ -320,9 +323,26 @@ public bool stalagtiteing=false;
         SpriteRenderer SR_combat = controls_COMBAT.GetComponent<SpriteRenderer>();
         StartCoroutine(ShowControls(SR_combat));
 
+
+        move4.gameObject.transform.parent.gameObject.SetActive(true);
+        mana4.gameObject.transform.parent.gameObject.SetActive(true);
+        move5.gameObject.transform.parent.gameObject.SetActive(true);
+        mana5.gameObject.transform.parent.gameObject.SetActive(true);
+    }
+
+    public void SHOW_TNT()
+    {
+        showedTnt = true;
+     
+
+        move3.gameObject.transform.parent.gameObject.SetActive(true);
+        mana3.gameObject.transform.parent.gameObject.SetActive(true);
     }
     public void SHOW_LAUNCH()
     {
+
+        move1.gameObject.transform.parent.gameObject.SetActive(true);
+        mana1.gameObject.transform.parent.gameObject.SetActive(true);
         showedLAUNCH = true;
         SpriteRenderer SR_LAUNCH = controls_ROCK_LAUNCH.GetComponent<SpriteRenderer>();
         StartCoroutine(ShowControls(SR_LAUNCH));
@@ -332,6 +352,7 @@ public bool stalagtiteing=false;
     {
         showedCOMbat = false;
         showedLAUNCH = false;
+        showedTnt = false;
         if (controls_BASIC != null)
         {
             SpriteRenderer SR_basic = controls_BASIC.GetComponent<SpriteRenderer>();
@@ -364,10 +385,13 @@ public bool stalagtiteing=false;
         move2.text = "locked";
         move3.text = "Place TNT";
         move4.text = "punch";
+        move5.text = "block";
+
         mana1.text = "0";
         mana2.text = "0";
         mana3.text = "1 TNT";
         mana4.text = "1 stone";
+        mana5.text = "free";
 
         canspend = true;
         speed = 0;
@@ -469,11 +493,36 @@ public bool stalagtiteing=false;
 
         if (SceneManager.GetActiveScene().name == "game" || SceneManager.GetActiveScene().name == "MainMenu"|| SceneManager.GetActiveScene().name == "Titlescreen")
         {
+            //mmmmmmmmmmmmmmmmmmmm
+            move1.gameObject.transform.parent.gameObject.SetActive(false);
+            move2.gameObject.transform.parent.gameObject.SetActive(false);
+            move3.gameObject.transform.parent.gameObject.SetActive(false);
+            move4.gameObject.transform.parent.gameObject.SetActive(false);
+            move5.gameObject.transform.parent.gameObject.SetActive(false);
+            mana1.gameObject.transform.parent.gameObject.SetActive(false);
+            mana2.gameObject.transform.parent.gameObject.SetActive(false);
+            mana3.gameObject.transform.parent.gameObject.SetActive(false);
+            mana4.gameObject.transform.parent.gameObject.SetActive(false);
+            mana5.gameObject.transform.parent.gameObject.SetActive(false);
 
         }
         else
         {
+            showedCOMbat = true;
+            showedLAUNCH = true;
+            showedTnt = true;
+            
+            move1.gameObject.transform.parent.gameObject.SetActive(true);
+            move2.gameObject.transform.parent.gameObject.SetActive(true);
+            move3.gameObject.transform.parent.gameObject.SetActive(true);
+            move4.gameObject.transform.parent.gameObject.SetActive(true);
+            move5.gameObject.transform.parent.gameObject.SetActive(true);
 
+            mana1.gameObject.transform.parent.gameObject.SetActive(true);
+            mana2.gameObject.transform.parent.gameObject.SetActive(true);
+            mana3.gameObject.transform.parent.gameObject.SetActive(true);
+            mana4.gameObject.transform.parent.gameObject.SetActive(true);
+            mana5.gameObject.transform.parent.gameObject.SetActive(true);
 
             path_choose.gameObject.SetActive(false);
             path_rigid.gameObject.SetActive(false);
@@ -481,6 +530,8 @@ public bool stalagtiteing=false;
             choosenPath = "rigid";
             mana1.text = "1 stone";
             move1.text = "stone launch";
+
+            
 
             mana2.text = "3 stone";
             move2.text = "earth surge";
@@ -1429,7 +1480,7 @@ hp=9999999;
             }
 
 
-            if ( ( Input.GetMouseButtonDown(0)  || attacked) && blockMultiplier==1f && stalagtiteing==false)
+            if ( ( Input.GetMouseButtonDown(0)  || attacked) && blockMultiplier==1f && stalagtiteing==false && showedCOMbat == true)
             {
                 attacked = false;
 
@@ -1482,7 +1533,7 @@ hp=9999999;
 
            
             }
-            if (Input.GetKey(KeyCode.F) || blocking) // block ability
+            if ( (Input.GetKey(KeyCode.F) || blocking) && showedCOMbat==true ) // block ability
             {
                 if (blockMultiplier == 1)
                 {
@@ -1514,7 +1565,7 @@ hp=9999999;
     IEnumerator waitBLOCK()
     {
  
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.1f);
         if (blockMultiplier == 0.99f)
         {
             SpriteRenderer PSR = outsidemove.gameObject.GetComponent<SpriteRenderer>();
