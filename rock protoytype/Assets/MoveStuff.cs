@@ -193,7 +193,7 @@ public bool stalagtiteing=false;
 
     public void AttackPressed(InputAction.CallbackContext context)
     {
-        if (context.ReadValueAsButton() && Time.timeScale > 0)
+        if (context.ReadValueAsButton() && Time.timeScale > 0 && (BOSS == null || BOSS.FIGHT_started))
         {
             attacked = true;
         }

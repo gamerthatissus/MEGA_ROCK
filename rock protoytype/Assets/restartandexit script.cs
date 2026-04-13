@@ -12,16 +12,12 @@ public class eeee : MonoBehaviour
 
     public void GOtoMENU ()
     {
-        SceneManager.LoadScene("Titlescreen");
+        SceneManager.LoadScene("MainMenu");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
         if (Input.GetKeyDown(KeyCode.T))
         {
             SceneManager.LoadScene("TEST");

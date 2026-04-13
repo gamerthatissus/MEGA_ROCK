@@ -11298,6 +11298,7 @@ MonoBehaviour:
   MUDDY: 0
   showedCOMbat: 0
   showedLAUNCH: 0
+  showedTnt: 0
   BURNT: 0
   starteeed: 0
   boss: 1
@@ -11340,10 +11341,12 @@ MonoBehaviour:
   mana2: {fileID: 636405511}
   mana3: {fileID: 1093091839}
   mana4: {fileID: 1325685999}
+  mana5: {fileID: 0}
   move1: {fileID: 484670572}
   move2: {fileID: 931255621}
   move3: {fileID: 1292381922}
   move4: {fileID: 716986619}
+  move5: {fileID: 0}
   hp: 100
   hpbar: {fileID: 2097067544}
   pathRememberer: {fileID: 0}
@@ -11719,6 +11722,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1863542035}
+        m_TargetAssemblyTypeName: boss_FIGHT_SCRIPT, Assembly-CSharp
+        m_MethodName: NextDialogue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 7bdd47d9-ad68-4a9e-9d4a-adf388c75bd7
     m_ActionName: Controller/AttackPressed[/XInputControllerWindows/buttonSouth]
   - m_PersistentCalls:
@@ -11786,19 +11801,7 @@ MonoBehaviour:
     m_ActionId: 0e3823cb-44aa-447b-ac62-39876d633f0e
     m_ActionName: Controller/Restarted[/XInputControllerWindows/buttonNorth]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1863542035}
-        m_TargetAssemblyTypeName: boss_FIGHT_SCRIPT, Assembly-CSharp
-        m_MethodName: NextDialogue
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: d743e650-caf2-4c17-8732-a5a062d91fae
     m_ActionName: Controller/StalagtiteDropped
   - m_PersistentCalls:
@@ -17105,7 +17108,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20.5
+  m_fontSize: 20.25
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -27969,7 +27972,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 19.95
+  m_fontSize: 19.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
