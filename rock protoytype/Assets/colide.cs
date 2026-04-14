@@ -144,6 +144,18 @@ public class colide : MonoBehaviour
            
 
         }
+
+
+        if (collision.gameObject.CompareTag("CheckPoint"))
+        {
+
+            thingyyyy.spawn =collision.gameObject.transform.position;
+            thingyyyy.setnewspawn = true;
+
+
+        }
+
+
         if (collision.gameObject.CompareTag("LAVA"))
         {
             thingyyyy.KILL();

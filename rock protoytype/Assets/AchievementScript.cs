@@ -11,13 +11,18 @@ public class AchievementScript : MonoBehaviour
     private float oldhp=100;
     public GameObject a_get_pannel;
     public TextMeshProUGUI a_get_text;
-    private string lastSceneName;
+    public string lastSceneName;
     private bool hitless;
     private bool violent;
     private move22 moveScript;
     private GameObject enemyList;
     public RectTransform a_get_pos;
     public bool ACEIVEMENTING=false;
+    public Vector2 spawnpoint;
+    public bool samescene;
+    public bool first_checkpoint_achevment = false;
+   
+    
     IEnumerator waitdie()
     {
         yield return new WaitForSeconds(1.6f);
@@ -101,8 +106,13 @@ public class AchievementScript : MonoBehaviour
       
     }
     //610, 462.32
+
+    
     private void Start()
     {
+        first_checkpoint_achevment = false;
+        lastSceneName = "MENU";
+        spawnpoint = new Vector2(-13.66f, 8.69f);
         PlayerPrefs.DeleteKey("achievements");
         PlayerPrefs.Save();
 
@@ -136,6 +146,54 @@ public class AchievementScript : MonoBehaviour
        
         if (moveScript != null)
         {
+            if (moveScript.setnewspawn == true)
+            {
+                moveScript.setnewspawn = false;
+                spawnpoint = moveScript.spawn;
+
+                Vector2 firstcheckpoint = new Vector2(97, 7);
+                if (spawnpoint ==firstcheckpoint && first_checkpoint_achevment==false)
+                {
+                    first_checkpoint_achevment = true;
+                    GiveAchievement("SAVED: find your first checkpoint!");
+
+                }
+            }
+
+            if (moveScript.JustRespawned == true)
+            {
+                string thisSceneNamee = SceneManager.GetActiveScene().name;
+
+                if (samescene==false) 
+                {
+
+                    moveScript.JustRespawned = false;
+
+                    spawnpoint = moveScript.outsidemove.position;
+
+                   
+                }
+                else
+                {
+                    Vector2 firstcheckpoint = new Vector2(97, 7);
+
+                    if (spawnpoint == firstcheckpoint)
+                    {
+                        moveScript.SHOW_totoreal_respawn();
+                        moveScript.RIGID();
+                    }
+
+                    moveScript.JustRespawned = false;
+                    moveScript.insidemove.position = spawnpoint;
+                    moveScript.outsidemove.position = spawnpoint;
+                    Camera.main.transform.parent.gameObject.transform.position = spawnpoint;
+                
+                }
+                
+            }
+
+
+
             if (moveScript.starteeed == true)
             {
                 oldhp = moveScript.hp;
@@ -181,6 +239,15 @@ public class AchievementScript : MonoBehaviour
 
         string thisSceneName = SceneManager.GetActiveScene().name;
 
+
+        if (thisSceneName == lastSceneName)
+        {
+            samescene = true;
+        }
+        else
+        {
+            samescene = false;
+        }
         if (Input.GetKeyDown(KeyCode.P))
         {
             PlayerPrefs.DeleteKey("achievements");
@@ -213,6 +280,7 @@ public class AchievementScript : MonoBehaviour
 
         if (thisSceneName != lastSceneName)
         {
+
             if (lastSceneName != "Titlescreen" || lastSceneName != "MainMenu")
             {
                 if (moveScript.hp < 5)

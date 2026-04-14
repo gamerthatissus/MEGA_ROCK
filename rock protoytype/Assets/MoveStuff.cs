@@ -25,6 +25,8 @@ public class move22 : MonoBehaviour
      Right
     }
 public bool MUDDY=false;
+
+    public bool JustRespawned=true;
     public bool showedCOMbat = false;
     public bool showedLAUNCH = false;
     public bool showedTnt = false;
@@ -69,7 +71,8 @@ public bool MUDDY=false;
     public LayerMask floor;
 
     public LayerMask distructable_Layermask;
-
+    public bool setnewspawn=false;
+    public Vector2 spawn = new Vector2(0, 0);
     public bool canspend = true;
     public TextMeshProUGUI mana1;
     public TextMeshProUGUI mana2;
@@ -332,11 +335,37 @@ public bool stalagtiteing=false;
 
     public void SHOW_TNT()
     {
+
         showedTnt = true;
-     
+
 
         move3.gameObject.transform.parent.gameObject.SetActive(true);
         mana3.gameObject.transform.parent.gameObject.SetActive(true);
+
+
+    }
+
+    public void SHOW_totoreal_respawn()
+    {
+
+        showedTnt = true;
+        showedCOMbat = true;
+        showedLAUNCH = true;
+
+        mana1.gameObject.transform.parent.gameObject.SetActive(true);
+        move1.gameObject.transform.parent.gameObject.SetActive(true);
+
+        move3.gameObject.transform.parent.gameObject.SetActive(true);
+        mana3.gameObject.transform.parent.gameObject.SetActive(true);
+
+        move3.gameObject.transform.parent.gameObject.SetActive(true);
+        mana3.gameObject.transform.parent.gameObject.SetActive(true);
+
+        move4.gameObject.transform.parent.gameObject.SetActive(true);
+        mana4.gameObject.transform.parent.gameObject.SetActive(true);
+
+        move5.gameObject.transform.parent.gameObject.SetActive(true);
+        mana5.gameObject.transform.parent.gameObject.SetActive(true);
     }
     public void SHOW_LAUNCH()
     {

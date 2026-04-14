@@ -19,6 +19,7 @@ TagManager:
   - colapse
   - colapse1
   - mud
+  - CheckPoint
   layers:
   - Default
   - TransparentFX
