@@ -11373,6 +11373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MUDDY: 0
+  JustRespawned: 1
   showedCOMbat: 0
   showedLAUNCH: 0
   showedTnt: 0
@@ -11413,6 +11414,8 @@ MonoBehaviour:
   distructable_Layermask:
     serializedVersion: 2
     m_Bits: 64
+  setnewspawn: 0
+  spawn: {x: 0, y: 0}
   canspend: 1
   mana1: {fileID: 824172441}
   mana2: {fileID: 636405511}
@@ -17185,7 +17188,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20.95
+  m_fontSize: 20.5
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -27902,6 +27905,7 @@ MonoBehaviour:
   canspike: 0
   thingyyyy: {fileID: 746773863}
   cansand: 1
+  green: {fileID: 0}
 --- !u!60 &1440716605
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -27938,7 +27942,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.9448, y: 0.8776}
+    oldSize: {x: 1.6, y: 1.6}
     newSize: {x: 6.86, y: 5.97}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -28003,7 +28007,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d6b93000f1585d741a22f917fac7cb73, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 552a0ce81f843654e8430a7edcd72191, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -28321,7 +28325,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20.4
+  m_fontSize: 19.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

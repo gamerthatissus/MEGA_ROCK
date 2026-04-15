@@ -1938,7 +1938,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 13
   m_Sprite: {fileID: 21300000, guid: 84489e70d7595d84eb1f4a82510e01f1, type: 3}
   m_Color: {r: 0.7830189, g: 0.7830189, b: 0.7830189, a: 1}
   m_FlipX: 0
@@ -3764,7 +3764,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 14
   m_Sprite: {fileID: 21300000, guid: 0667e33318f28a84192b68305b5f9797, type: 3}
   m_Color: {r: 0.7830189, g: 0.7830189, b: 0.7830189, a: 0.5686275}
   m_FlipX: 0
@@ -4162,7 +4162,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 12
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.16487186, g: 0.8962264, b: 0.7870337, a: 0.40392157}
   m_FlipX: 0
@@ -6742,7 +6742,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 12
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.16487186, g: 0.8962264, b: 0.7870337, a: 0.40392157}
   m_FlipX: 0
@@ -12743,7 +12743,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.17658693, y: 0.5}
   m_AnchorMax: {x: 0.22939675, y: 0.5}
-  m_AnchoredPosition: {x: 27.69992, y: 9.6}
+  m_AnchoredPosition: {x: 27.699917, y: 9.6}
   m_SizeDelta: {x: 103.57687, y: 34.77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &463949109
@@ -16463,7 +16463,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 11
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -26238,7 +26238,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 11
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -27431,7 +27431,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 15
   m_Sprite: {fileID: 21300000, guid: 0667e33318f28a84192b68305b5f9797, type: 3}
   m_Color: {r: 0.7830189, g: 0.7830189, b: 0.7830189, a: 1}
   m_FlipX: 0
@@ -33636,7 +33636,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 13
   m_Sprite: {fileID: 21300000, guid: c2195585221545a4698d0b6b428ee616, type: 3}
   m_Color: {r: 0.7830189, g: 0.7830189, b: 0.7830189, a: 1}
   m_FlipX: 0
@@ -42484,7 +42484,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.17658693, y: 0.5}
   m_AnchorMax: {x: 0.22939675, y: 0.5}
-  m_AnchoredPosition: {x: 29.600082, y: 15.46}
+  m_AnchoredPosition: {x: 29.600086, y: 15.46}
   m_SizeDelta: {x: 109.05, y: 34.77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1601955529
@@ -43141,7 +43141,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 13
   m_Sprite: {fileID: 21300000, guid: 84489e70d7595d84eb1f4a82510e01f1, type: 3}
   m_Color: {r: 0.7830189, g: 0.7830189, b: 0.7830189, a: 1}
   m_FlipX: 0
@@ -43963,7 +43963,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.17658693, y: 0.5}
   m_AnchorMax: {x: 0.22939675, y: 0.5}
-  m_AnchoredPosition: {x: 26.50008, y: 9.9}
+  m_AnchoredPosition: {x: 26.500084, y: 9.9}
   m_SizeDelta: {x: 103.04878, y: 34.77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1677496849
@@ -44687,7 +44687,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.9448, y: 0.8776}
+    oldSize: {x: 1.6, y: 1.6}
     newSize: {x: 0.9448, y: 0.8776}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -44751,8 +44751,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d6b93000f1585d741a22f917fac7cb73, type: 3}
+  m_SortingOrder: 10
+  m_Sprite: {fileID: 21300000, guid: 552a0ce81f843654e8430a7edcd72191, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
