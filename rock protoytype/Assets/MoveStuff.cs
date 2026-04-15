@@ -18,20 +18,20 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class move22 : MonoBehaviour
 {
-    
+
     private enum Derection
     {
-     Left,
-     Right
+        Left,
+        Right
     }
-public bool MUDDY=false;
+    public bool MUDDY = false;
 
-    public bool JustRespawned=true;
+    public bool JustRespawned = true;
     public bool showedCOMbat = false;
     public bool showedLAUNCH = false;
     public bool showedTnt = false;
     public bool BURNT = false;
-    public bool starteeed=false;
+    public bool starteeed = false;
     public bool boss = false;
     private Derection lastDerection;
     public GameObject OG_earth_spike;
@@ -44,7 +44,7 @@ public bool MUDDY=false;
 
     public AudioClip ATTACKsound;
     public AudioClip BLOCKsound;
-    
+
     public UnityEngine.Transform eye1;
     public UnityEngine.Transform eye2;
 
@@ -60,7 +60,7 @@ public bool MUDDY=false;
     public TextMeshProUGUI TNT_GUI;
     public int TnT;
     private bool canpunch = true;
-    private bool jumpCooldown=false;
+    private bool jumpCooldown = false;
     public RawImage stone_IMG;
     public RawImage stone_DARK;
 
@@ -71,7 +71,7 @@ public bool MUDDY=false;
     public LayerMask floor;
 
     public LayerMask distructable_Layermask;
-    public bool setnewspawn=false;
+    public bool setnewspawn = false;
     public Vector2 spawn = new Vector2(0, 0);
     public bool canspend = true;
     public TextMeshProUGUI mana1;
@@ -106,15 +106,15 @@ public bool MUDDY=false;
     public Object launcher;
     //public float minfriction = 0.4f;
     //public float maxfriction = 1.2f;
-    public int amountoflanchers=0;
+    public int amountoflanchers = 0;
 
 
-    public int stone=5;
+    public int stone = 5;
     private float manaPOS = -17f;
     private float manaPOS2 = -17f;
     private float oldspeed = 0f;
 
-    private bool Died=false;
+    private bool Died = false;
     private float speed = 0;
     private float maxspeed = 8;
 
@@ -137,10 +137,10 @@ public bool MUDDY=false;
     private RawImage stone14;
     private RawImage stone15;
     private RawImage stone16;
-    private string choosenPath="none";
+    private string choosenPath = "none";
     private int start = 0;
     public bool unlockedLAUNCH = false;
-public bool stalagtiteing=false;
+    public bool stalagtiteing = false;
     private float moveDirection;
     private Vector2 aimDirection;
     public RaycastHit2D hit;
@@ -153,7 +153,7 @@ public bool stalagtiteing=false;
     public bool dropped;
     public bool paused;
     public GameObject AimRay;
-    public bool ranout=false;
+    public bool ranout = false;
     public bool discovedSecret = false;
     public bool discovedSecret2 = false;
 
@@ -308,14 +308,14 @@ public bool stalagtiteing=false;
     IEnumerator ShowControls(SpriteRenderer thing_that_will_disaapere)
     {
         thing_that_will_disaapere.color = new Color(thing_that_will_disaapere.color.r, thing_that_will_disaapere.color.g, thing_that_will_disaapere.color.b, 255);
-        
+
         yield return new WaitForSeconds(6);
 
-        for (float i = 0; i<=(255/60); i += Time.deltaTime)
+        for (float i = 0; i <= (255 / 60); i += Time.deltaTime)
         {
 
-            thing_that_will_disaapere.color = new Color32(255,255,255, (byte) Mathf.Clamp( 255 - (i * 65) ,0,255)  );
-            
+            thing_that_will_disaapere.color = new Color32(255, 255, 255, (byte)Mathf.Clamp(255 - (i * 65), 0, 255));
+
             yield return null;
         }
 
@@ -390,7 +390,7 @@ public bool stalagtiteing=false;
         if (controls_COMBAT != null)
         {
             SpriteRenderer SR_combat = controls_COMBAT.GetComponent<SpriteRenderer>();
-            SR_combat.color = new Color32(255,255,255, (byte)0);
+            SR_combat.color = new Color32(255, 255, 255, (byte)0);
 
         }
         if (controls_ROCK_LAUNCH != null)
@@ -426,21 +426,21 @@ public bool stalagtiteing=false;
         speed = 0;
         maxspeed = 8;
         oldspeed = 0f;
-        if (stone_MAX<=0)
+        if (stone_MAX <= 0)
         {
             stone_MAX = 5;
         }
         start = 0;
         RectTransform rockrect = stone_IMG.GetComponent<RectTransform>();
-        RectTransform rockrect2= stone_DARK.GetComponent<RectTransform>();
+        RectTransform rockrect2 = stone_DARK.GetComponent<RectTransform>();
 
         manaPOS = rockrect.localPosition.x;
         manaPOS = rockrect2.localPosition.x;
 
-       
-        
+
+
         hp = 120;
-        
+
         maxmas = 1.2f;
         minmas = 0.3f;
 
@@ -448,7 +448,7 @@ public bool stalagtiteing=false;
         //maxfriction = 5f;
         stoneTEXT.text = "stone: " + stone;
 
-       
+
 
         manaPOS2 -= ((70 * stone_MAX) / 2);
         rockrect2.localPosition = new Vector3(manaPOS2, -272, 0);
@@ -483,7 +483,7 @@ public bool stalagtiteing=false;
 
             CLONEpos.localScale = new Vector3(0.7f, 0.7f, 0);
             CLONEpos.localPosition = new Vector3(manaPOS, -272, 0);
-            NEWmana.name = "stone" + (i+1);
+            NEWmana.name = "stone" + (i + 1);
             if (i >= stone_MAX)
             {
                 CLONEpos.localPosition = new Vector3(manaPOS, -1272, 0);
@@ -492,7 +492,7 @@ public bool stalagtiteing=false;
 
 
         }
-    
+
         stone2 = GameObject.Find("stone2").GetComponent<RawImage>();
         stone3 = GameObject.Find("stone3").GetComponent<RawImage>();
         stone4 = GameObject.Find("stone4").GetComponent<RawImage>();
@@ -511,16 +511,16 @@ public bool stalagtiteing=false;
 
         //if (GameObject.Find("chosenPathRememberer").transform.position == Vector3.one)
         //{
-            //RIGID();
+        //RIGID();
         //}
         //else if (GameObject.Find("chosenPathRememberer").transform.position == Vector3.one * 2)
         //{
-            //SMOOTH();
+        //SMOOTH();
         //}
 
         start = 1;
 
-        if (SceneManager.GetActiveScene().name == "game" || SceneManager.GetActiveScene().name == "MainMenu"|| SceneManager.GetActiveScene().name == "Titlescreen")
+        if (SceneManager.GetActiveScene().name == "game" || SceneManager.GetActiveScene().name == "MainMenu" || SceneManager.GetActiveScene().name == "Titlescreen")
         {
             //mmmmmmmmmmmmmmmmmmmm
             move1.gameObject.transform.parent.gameObject.SetActive(false);
@@ -540,7 +540,7 @@ public bool stalagtiteing=false;
             showedCOMbat = true;
             showedLAUNCH = true;
             showedTnt = true;
-            
+
             move1.gameObject.transform.parent.gameObject.SetActive(true);
             move2.gameObject.transform.parent.gameObject.SetActive(true);
             move3.gameObject.transform.parent.gameObject.SetActive(true);
@@ -560,7 +560,7 @@ public bool stalagtiteing=false;
             mana1.text = "1 stone";
             move1.text = "stone launch";
 
-            
+
 
             mana2.text = "3 stone";
             move2.text = "earth surge";
@@ -579,16 +579,16 @@ public bool stalagtiteing=false;
 
     IEnumerator rocky_DIE()
     {
-       
+
         AudioSource audeo = maincam.GetComponent<AudioSource>();
         audeo.loop = false;
         audeo.Stop();
         audeo.clip = DIE_sound;
         audeo.Play();
-        
-            yield return new WaitForSeconds(1f);
 
-        
+        yield return new WaitForSeconds(1f);
+
+
 
         Scene scenceString = SceneManager.GetActiveScene();
         if (scenceString.name == "THE BOSS FIGHT")
@@ -607,9 +607,9 @@ public bool stalagtiteing=false;
     IEnumerator stoneSINK(Rigidbody2D RIG2d)
     {
 
-       
+
         yield return new WaitForSeconds(2f);
-       for (float i = 1; i < 6; i+=Time.deltaTime)
+        for (float i = 1; i < 6; i += Time.deltaTime)
         {
             yield return null;
             if (RIG2d != null)
@@ -625,7 +625,7 @@ public bool stalagtiteing=false;
     }
     IEnumerator spikeattack()
     {
-        AudioSource rocky_sound=outsidemove.GetComponent<AudioSource>();
+        AudioSource rocky_sound = outsidemove.GetComponent<AudioSource>();
         rocky_sound.Stop();
         rocky_sound.loop = false;
         rocky_sound.clip = spike_enter;
@@ -634,7 +634,7 @@ public bool stalagtiteing=false;
         GameObject spike1 = Instantiate(OG_earth_spike);
         GameObject spike2 = Instantiate(OG_earth_spike);
         GameObject spike3 = Instantiate(OG_earth_spike);
-                GameObject spike4 = Instantiate(OG_earth_spike);
+        GameObject spike4 = Instantiate(OG_earth_spike);
 
         float oldPlayerx = outsidemove.position.x;
         if (lastDerection == Derection.Left)
@@ -706,14 +706,14 @@ public bool stalagtiteing=false;
         rocky_sound.Play();
         for (int i = 0; i < 60; i++)
         {
-          
-                spike1.transform.position = new Vector2(spike1.transform.position.x, spike1.transform.position.y - 0.05f);
-                spike2.transform.position = new Vector2(spike2.transform.position.x, spike2.transform.position.y - 0.05f);
-                spike3.transform.position = new Vector2(spike3.transform.position.x, spike3.transform.position.y - 0.05f);
 
-                spike4.transform.position = new Vector2(spike4.transform.position.x, spike4.transform.position.y - 0.05f);
+            spike1.transform.position = new Vector2(spike1.transform.position.x, spike1.transform.position.y - 0.05f);
+            spike2.transform.position = new Vector2(spike2.transform.position.x, spike2.transform.position.y - 0.05f);
+            spike3.transform.position = new Vector2(spike3.transform.position.x, spike3.transform.position.y - 0.05f);
 
-            
+            spike4.transform.position = new Vector2(spike4.transform.position.x, spike4.transform.position.y - 0.05f);
+
+
             yield return null;
         }
         Destroy(spike1);
@@ -725,11 +725,11 @@ public bool stalagtiteing=false;
     }
     IEnumerator PlaceTNT()
     {
-        
+
         GameObject tntCLONE = Instantiate(tnt_OBJECT);
         UnityEngine.Transform tntCLONT_transform = tntCLONE.GetComponent<UnityEngine.Transform>();
         AudioSource tntCLONT_sound = tntCLONE.GetComponent<AudioSource>();
-        GameObject OBJECT_exploshion= tntCLONE.transform.Find("EXPLOSHION").gameObject;
+        GameObject OBJECT_exploshion = tntCLONE.transform.Find("EXPLOSHION").gameObject;
         UnityEngine.Transform EXPLOSHION = OBJECT_exploshion.GetComponent<UnityEngine.Transform>();
         SpriteRenderer spriteEXPLOSHION = OBJECT_exploshion.GetComponent<SpriteRenderer>();
         spriteEXPLOSHION.enabled = false;
@@ -744,11 +744,11 @@ public bool stalagtiteing=false;
         //after exploshion
 
         spriteEXPLOSHION.enabled = true;
-        
+
         tntCLONT_sound.clip = KABOOM;
         tntCLONT_sound.Play();
         Collider2D[] distructables = Physics2D.OverlapCircleAll(tntCLONT_transform.position, 3, distructable_Layermask);
-    
+
         foreach (Collider2D distructablePART in distructables)
         {
             Destroy(distructablePART.gameObject);
@@ -757,12 +757,12 @@ public bool stalagtiteing=false;
 
         Destroy(tntCLONE.GetComponent<SpriteRenderer>(), 0);
 
-        Destroy(tntCLONE,2);
+        Destroy(tntCLONE, 2);
 
         for (float grow = 0; grow < 4; grow += 0.1f)
         {
-            EXPLOSHION.localScale = new Vector2(0.1f+grow, 0.1f+grow);
-            spriteEXPLOSHION.color = new Color(200, 0, 0, 0.8f-(grow/5));
+            EXPLOSHION.localScale = new Vector2(0.1f + grow, 0.1f + grow);
+            spriteEXPLOSHION.color = new Color(200, 0, 0, 0.8f - (grow / 5));
 
             yield return null;
         }
@@ -771,14 +771,15 @@ public bool stalagtiteing=false;
     // Update is called once per frame
     void Update()
     {
+        if (SceneManager.GetActiveScene().name != "MainMenu")
+        {
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            stone_MAX = 999999;
+            stone = 999999;
+            hp = 9999999;
+        }
 
-if (Input.GetKeyDown(KeyCode.K))
-    {
-stone_MAX=999999;
-stone=999999;
-hp=9999999;
-    }
-    
         if (Time.timeScale > 0)
         {
             if (hit)
@@ -814,7 +815,7 @@ hp=9999999;
                 PauseMenu.SetActive(true);
                 Time.timeScale = 0;
             }
-            if (hp < 1 && Died==false)
+            if (hp < 1 && Died == false)
             {
                 Died = true;
                 SpriteRenderer REEEND = outsidemove.gameObject.GetComponent<SpriteRenderer>();
@@ -1233,10 +1234,10 @@ hp=9999999;
 
 
 
-            else if (choosenPath == "none" || choosenPath== "rigid")
+            else if (choosenPath == "none" || choosenPath == "rigid")
             {
 
-                if ((Input.GetKey(KeyCode.D) || moveDirection == 1f) && blockMultiplier==1)
+                if ((Input.GetKey(KeyCode.D) || moveDirection == 1f) && blockMultiplier == 1)
                 {
                     lastDerection = Derection.Right;
                     bool onFLoor = false;
@@ -1288,7 +1289,7 @@ hp=9999999;
 
                         }
                         audeo.volume = 0.05f + Mathf.Abs((outsidemove.angularVelocity / 200f) + (outsidemove.velocity.magnitude / 100f));
-                       if (audeo.volume > 0.4f)
+                        if (audeo.volume > 0.4f)
                         {
                             audeo.volume = 0.4f;
                         }
@@ -1317,7 +1318,7 @@ hp=9999999;
                             onFLoor = true;
 
                         }
-                   
+
                     }
 
                     AudioSource audeo = insidemove.GetComponent<AudioSource>();
@@ -1328,7 +1329,7 @@ hp=9999999;
                         audeo.Stop();
                     }
 
-                    if (audeo.isPlaying != true && onFLoor==true)
+                    if (audeo.isPlaying != true && onFLoor == true)
                     {
                         Scene current_sceane = SceneManager.GetActiveScene();
                         switch (current_sceane.name)
@@ -1348,7 +1349,7 @@ hp=9999999;
                                 break;
 
                             case "LevelThree":
-                                audeo.clip =Roll_Grass;
+                                audeo.clip = Roll_Grass;
                                 break;
 
                         }
@@ -1381,7 +1382,7 @@ hp=9999999;
                 // abcdefghi
                 if (move1.text == "stone launch")
                 {
-                
+
                     if (stone >= 1)
                     {
                         AudioSource audeo = outsidemove.GetComponent<AudioSource>();
@@ -1441,7 +1442,7 @@ hp=9999999;
 
                 if (move1.text == "jump")
                 {
-                    if (stone >= 1 && jumpCooldown==false)
+                    if (stone >= 1 && jumpCooldown == false)
                     {
                         canspend = true;
                         stone -= 1;
@@ -1455,7 +1456,7 @@ hp=9999999;
                 }
 
             }
-            if ((Input.GetKeyDown(KeyCode.Alpha2) || surged) && blockMultiplier == 1f && stone>=3 && move2.text=="earth surge")
+            if ((Input.GetKeyDown(KeyCode.Alpha2) || surged) && blockMultiplier == 1f && stone >= 3 && move2.text == "earth surge")
             {
                 surged = false;
 
@@ -1464,7 +1465,7 @@ hp=9999999;
                 {
                     StartCoroutine(waitCanPUNCH());
 
-                     canpunch = false;
+                    canpunch = false;
                     bool on_floor = false;
                     Collider2D[] floorparts = Physics2D.OverlapCircleAll(outsidemove.position, 1f, floor);
                     foreach (Collider2D floooor in floorparts)
@@ -1509,7 +1510,7 @@ hp=9999999;
             }
 
 
-            if ( ( Input.GetMouseButtonDown(0)  || attacked) && blockMultiplier==1f && stalagtiteing==false && showedCOMbat == true)
+            if ((Input.GetMouseButtonDown(0) || attacked) && blockMultiplier == 1f && stalagtiteing == false && showedCOMbat == true)
             {
                 attacked = false;
 
@@ -1534,7 +1535,7 @@ hp=9999999;
                         {
                             outsidemove.AddTorque(120);
                         }
-                  else 
+                        else
                         {
                             outsidemove.AddTorque(-120);
                         }
@@ -1560,9 +1561,9 @@ hp=9999999;
 
                 }
 
-           
+
             }
-            if ( (Input.GetKey(KeyCode.F) || blocking) && showedCOMbat==true ) // block ability
+            if ((Input.GetKey(KeyCode.F) || blocking) && showedCOMbat == true) // block ability
             {
                 if (blockMultiplier == 1)
                 {
@@ -1579,7 +1580,7 @@ hp=9999999;
                 }
                 StartCoroutine(waitBLOCK());
 
-       
+
             }
             else // can only move if not blocking
             {
@@ -1591,6 +1592,7 @@ hp=9999999;
             }
         }
     }
+}
     IEnumerator waitBLOCK()
     {
  
@@ -1775,7 +1777,8 @@ hp=9999999;
 
             eye2.position = eyeoneCOlider2.position;
         }
-
+        if (SceneManager.GetActiveScene().name != "MainMenu")
+        { 
         if ((Input.GetKey(KeyCode.D) || moveDirection == 1f || Input.GetKey(KeyCode.A) || moveDirection == -1f) && blockMultiplier == 1f) // can only move if not blocking
         {
           
@@ -1933,4 +1936,5 @@ hp=9999999;
     }
 
 
+}
 }
