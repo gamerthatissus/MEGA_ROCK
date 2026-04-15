@@ -559,6 +559,7 @@ public bool stalagtiteing=false;
             choosenPath = "rigid";
             mana1.text = "1 stone";
             move1.text = "stone launch";
+            move5.text = "block";
 
             
 

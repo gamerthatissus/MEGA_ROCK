@@ -10,6 +10,7 @@ public class colide : MonoBehaviour
     public bool canspike = true;
     public move22 thingyyyy;
     public bool cansand = true;
+    public Sprite green;
     private void Start()
     {
              canspike = true;
@@ -36,7 +37,17 @@ public class colide : MonoBehaviour
             }
 
         }
-        
+        if (collision.gameObject.CompareTag("colapse1"))
+        {
+            if (cansand == true)
+            {
+                cansand = false;
+                thingyyyy.MILD_OW();
+                StartCoroutine(waitforSAND(0.2f));
+            }
+
+        }
+
         if (collision.gameObject.CompareTag("mud"))
         {
             if (thingyyyy.MUDDY == false)
@@ -78,6 +89,16 @@ public class colide : MonoBehaviour
                cansand = false;
               thingyyyy.MILD_OW();
                StartCoroutine(waitforSAND(0.2f));
+            }
+
+        }
+        if (collision.gameObject.CompareTag("colapse1"))
+        {
+            if (cansand == true)
+            {
+                cansand = false;
+                thingyyyy.MILD_OW();
+                StartCoroutine(waitforSAND(0.2f));
             }
 
         }
@@ -151,6 +172,11 @@ public class colide : MonoBehaviour
 
             thingyyyy.spawn =collision.gameObject.transform.position;
             thingyyyy.setnewspawn = true;
+            SpriteRenderer spr = collision.gameObject.GetComponent<SpriteRenderer>();
+            if (spr != null)
+            {
+                spr.sprite = green;
+            }
 
 
         }
