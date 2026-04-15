@@ -53,6 +53,14 @@ public class teliporttolevel1 : MonoBehaviour
                 {
                     SceneManager.LoadScene("THE BOSS FIGHT");
                 }
+                else if (mode == 500)
+                {
+                    move2222.JustRespawned = false;
+                    move2222.insidemove.position = new Vector2(2,0);
+                    move2222.outsidemove.position = new Vector2(2,0);
+                    Camera.main.transform.parent.gameObject.transform.position = new Vector2(2,0);
+                    
+                }
                 else if (mode == 200 && move2222.showedTnt == false)
                 {
                     move2222.SHOW_TNT();
