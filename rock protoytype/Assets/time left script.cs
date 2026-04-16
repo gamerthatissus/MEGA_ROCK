@@ -92,7 +92,11 @@ public AudioClip middlemisic;
 
     public void awardEScapebadge()
     {
-        mainnnScriiipt.beat_sand_cave = true;
+        if (timer.enabled==true)
+        {
+            mainnnScriiipt.beat_sand_cave = true;
+
+        }
     }
 
     void Update()
@@ -127,9 +131,10 @@ public AudioClip middlemisic;
 
             if (Timeer == 0)
             {
+                mainnnScriiipt.discovered_sand_collapse = true;
+
                 foreach (GameObject tinghy in colapse)
                 {
-                    mainnnScriiipt.discovered_sand_collapse = true;
                     audio_sorceee.clip = CRASH;
                     audio_sorceee.Play();
                     BOOM.Play();

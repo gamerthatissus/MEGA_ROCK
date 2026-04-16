@@ -14,6 +14,7 @@ public class timerendscript : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         wwwwwww.awardEScapebadge();
+        
         timerrrr.enabled = false;
         wwwwwww.Timeer = 100;
         wwwwwww.cannumber = false;
