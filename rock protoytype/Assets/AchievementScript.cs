@@ -26,7 +26,7 @@ public class AchievementScript : MonoBehaviour
     IEnumerator waitdie()
     {
         yield return new WaitForSeconds(1.6f);
-        GiveAchievement("moten rock-y: note to self, lava is not fun to swim in");
+        GiveAchievement("molten rocky: note to self, lava is not fun to swim in");
 
     }
     IEnumerator waitNEXT(string ashevmenttt_text)
@@ -221,7 +221,7 @@ public class AchievementScript : MonoBehaviour
             if (moveScript.discovered_sand_collapse == true )
             {
                 moveScript.discovered_sand_collapse = false;
-                GiveAchievement("A TAD BIT SQUISHED: get caved in by the collaping sand cave!");
+                GiveAchievement("A TAD BIT SQUISHED: get caved in by the collapsing sand cave!");
 
             }
             if (moveScript.beat_sand_cave == true)
@@ -239,7 +239,7 @@ public class AchievementScript : MonoBehaviour
             if (moveScript.discovedSecret2 == true)
             {
                 moveScript.discovedSecret2 = false;
-                GiveAchievement("HIDDEN METHOD: find an ''alternitive'' way to get past the lava pool");
+                GiveAchievement("HIDDEN METHOD: find an ''alternative'' way to get past the lava pool");
 
             }
             if (moveScript.BURNT == true)
@@ -305,7 +305,7 @@ public class AchievementScript : MonoBehaviour
             {
                 if (moveScript.hp < 5)
                 {
-                    StartCoroutine(delayedachevment("tis but a scratch: compelte a level with less then 5hp left", 0.1f));
+                    StartCoroutine(delayedachevment("tis' but a scratch: complete a level with less than 5 hp left", 0.1f));
                    
 
                 }
@@ -314,12 +314,12 @@ public class AchievementScript : MonoBehaviour
             {
                 if (thisSceneName == "LevelOne")
                 {
-                    GiveAchievement("BEGINER: complete the tutorial!");
-                    StartCoroutine(delayedachevment("2 TO SURGE: unlock the stone surge ability!", 0.3f));
+                    GiveAchievement("BEGINNER: complete the tutorial!");
+                    StartCoroutine(delayedachevment("2 TO SURGE: unlock the earth surge ability!", 0.3f));
 
                     if (violent)
                     {
-                        StartCoroutine(delayedachevment("MURDERHOBO BEGINER: complete the tutorial after defeating all enemies!", 0.15f));
+                        StartCoroutine(delayedachevment("MURDERHOBO BEGINNER: complete the tutorial after defeating all enemies!", 0.15f));
 
                     }
                 }
@@ -334,13 +334,13 @@ public class AchievementScript : MonoBehaviour
 
                 if (hitless)
                 {
-                    StartCoroutine(delayedachevment("CANT TOTCH THIS: complete Level 1 without taking damage!", 0.13f));
+                    StartCoroutine(delayedachevment("CAN'T TOUCH THIS: complete Level 1 without taking damage!", 0.13f));
 
                 }
 
                 if (violent)
                 {
-                    StartCoroutine(delayedachevment("MUDERHOBO NOVICE: complete level one after defeating all enemys", 0.08f));
+                    StartCoroutine(delayedachevment("MURDERHOBO NOVICE: complete level one after defeating all enemies", 0.08f));
 
                    
                 }
@@ -351,7 +351,7 @@ public class AchievementScript : MonoBehaviour
 
                 if (hitless)
                 {
-                    StartCoroutine(delayedachevment("IMMAGINE BEING HIT: complete level 2 without taking damage!", 0.05f));
+                    StartCoroutine(delayedachevment("IMAGINE BEING HIT: complete level 2 without taking damage!", 0.05f));
 
                 }
 
@@ -363,18 +363,18 @@ public class AchievementScript : MonoBehaviour
             }
             else if (lastSceneName == "LevelThree" && thisSceneName == "THE BOSS FIGHT")
             {
-                GiveAchievement("PROFESHONAL: complete level 3!");
+                GiveAchievement("PROFESSIONAL: complete level 3!");
 
 
                 if (hitless)
                 {
-                    StartCoroutine(delayedachevment("THE UNTUTCHABLE ONE: complete level 3 without taking damage!", 0.09f));
+                    StartCoroutine(delayedachevment("THE UNTOUCHABLE ONE: complete level 3 without taking damage!", 0.09f));
 
                 }
 
                 if (violent)
                 {
-                    StartCoroutine(delayedachevment("PROFESHONAL MURDERHOBO: complete level 3 after deating all enemys!", 0.04f));
+                    StartCoroutine(delayedachevment("PROFESSIONAL MURDERHOBO: complete level 3 after defeating all enemies!", 0.04f));
 
                 }
             }
