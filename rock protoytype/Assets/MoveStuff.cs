@@ -413,8 +413,8 @@ public class move22 : MonoBehaviour
         move1.text = "locked";
         move2.text = "locked";
         move3.text = "Place TNT";
-        move4.text = "punch";
-        move5.text = "block";
+        move4.text = "Punch";
+        move5.text = "Block";
 
         mana1.text = "0";
         mana2.text = "0";
@@ -558,8 +558,8 @@ public class move22 : MonoBehaviour
             path_smooth.gameObject.SetActive(false);
             choosenPath = "rigid";
             mana1.text = "1 stone";
-            move1.text = "stone launch";
-            move5.text = "block";
+            move1.text = "Rock Launch";
+            move5.text = "Block";
 
 
 
@@ -1381,7 +1381,7 @@ public class move22 : MonoBehaviour
                 launched = false;
 
                 // abcdefghi
-                if (move1.text == "stone launch")
+                if (move1.text == "Rock Launch")
                 {
 
                     if (stone >= 1)
@@ -1524,7 +1524,7 @@ public class move22 : MonoBehaviour
                     audeo.clip = ATTACKsound;
                     audeo.Play();
 
-                    if (move4.text == "punch" && stone >= 1)
+                    if (move4.text == "Punch" && stone >= 1)
                     {
                         StartCoroutine(waitCanPUNCH());
 
@@ -1670,7 +1670,7 @@ public class move22 : MonoBehaviour
         path_smooth.gameObject.SetActive(false);
         choosenPath = "rigid";
         mana1.text = "1 stone";
-        move1.text = "stone launch";
+        move1.text = "Rock Launch";
         phisics.friction = 1.5f;
     }
     //public void SMOOTH()

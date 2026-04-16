@@ -3393,7 +3393,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.17658693, y: 0.5}
   m_AnchorMax: {x: 0.22939675, y: 0.5}
-  m_AnchoredPosition: {x: 760.3188, y: -333.0998}
+  m_AnchoredPosition: {x: 737.66, y: -333.0998}
   m_SizeDelta: {x: 6.37, y: 34.77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &318709805
@@ -10185,7 +10185,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 79cfa8fc525a0864c9fbf1e1b2a121af, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10205,9 +10205,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.1792453, g: 0.1792453, b: 0.1792453, a: 1}
+  m_SortingOrder: -1
+  m_Sprite: {fileID: 21300000, guid: 84489e70d7595d84eb1f4a82510e01f1, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -10227,7 +10227,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -12.3526, y: -0.9978, z: 0}
-  m_LocalScale: {x: 0.8529533, y: 2.4912047, z: 1}
+  m_LocalScale: {x: 0.8529533, y: 2.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -17138,7 +17138,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.17658693, y: 0.5}
   m_AnchorMax: {x: 0.22939675, y: 0.5}
-  m_AnchoredPosition: {x: 398.21875, y: -334.0998}
+  m_AnchoredPosition: {x: 379.09, y: -333.1}
   m_SizeDelta: {x: 27.42, y: 34.77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &812172812
@@ -17188,7 +17188,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20.5
+  m_fontSize: 20.2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -18644,7 +18644,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'amount of TnT:
+  m_text: 'amount of TNT:
 
 
 '
@@ -20321,7 +20321,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.17658693, y: 0.5}
   m_AnchorMax: {x: 0.22939675, y: 0.5}
-  m_AnchoredPosition: {x: 231.31879, y: -330.9998}
+  m_AnchoredPosition: {x: 213.24, y: -333.1}
   m_SizeDelta: {x: 35.2, y: 34.77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1198099827
@@ -28275,7 +28275,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.17658693, y: 0.5}
   m_AnchorMax: {x: 0.22939675, y: 0.5}
-  m_AnchoredPosition: {x: 575.6188, y: -333.0998}
+  m_AnchoredPosition: {x: 557.62, y: -333.0998}
   m_SizeDelta: {x: 23.73, y: 34.77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1491755906
@@ -28325,7 +28325,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 19.95
+  m_fontSize: 19.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

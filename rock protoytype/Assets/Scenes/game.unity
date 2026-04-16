@@ -376,7 +376,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.2121124, y: 3.2189293}
+  m_Offset: {x: -0.040099442, y: 3.2189293}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -387,7 +387,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8675995, y: 11.439871}
+  m_Size: {x: 3.2116256, y: 11.439871}
   m_EdgeRadius: 0
 --- !u!212 &8059428
 SpriteRenderer:
@@ -23207,7 +23207,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'press 0 or left bumper to reset stalagtites
+  m_text: 'press 0 or left bumper to reset stalactites
 
 '
   m_isRightToLeft: 0
@@ -25009,8 +25009,8 @@ Transform:
   m_GameObject: {fileID: 550374072}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 137.74, y: -2.9, z: 0}
-  m_LocalScale: {x: 0.05692349, y: 0.05692349, z: 0.05692349}
+  m_LocalPosition: {x: 137.803, y: -2.59, z: 0}
+  m_LocalScale: {x: 0.05835227, y: 0.05692349, z: 0.05692349}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -31588,7 +31588,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'amount of TnT:
+  m_text: 'amount of TNT:
 
 
 '
@@ -34607,11 +34607,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'that stalagtite looks loose...
+  m_text: 'that stalactite looks loose...
+
 
 
     (click, or use the right joystick
-    to aim and press right bumper)'
+    to aim and press right bumper)
+
+
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -34638,7 +34643,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.2
+  m_fontSize: 0.15
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -44028,9 +44033,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.1792453, g: 0.1792453, b: 0.1792453, a: 1}
+  m_SortingOrder: -1
+  m_Sprite: {fileID: 21300000, guid: 84489e70d7595d84eb1f4a82510e01f1, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -49466,7 +49471,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -9
+  m_SortingOrder: -6
   m_Sprite: {fileID: 21300000, guid: f6f23e7e43feb1b41a1385029b774e42, type: 3}
   m_Color: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 1}
   m_FlipX: 0
@@ -57113,7 +57118,7 @@ Transform:
   m_GameObject: {fileID: 1547588692}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 134.1, y: -8.552, z: 0}
+  m_LocalPosition: {x: 134.17, y: -8.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -74356,7 +74361,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: EWW, that mud is so sticky you cant even rock launch off of it
+  m_text: EWW, that mud is so sticky you can't even rock launch off of it
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
