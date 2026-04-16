@@ -21,7 +21,7 @@ public class AchievementScript : MonoBehaviour
     public Vector2 spawnpoint;
     public bool samescene;
     public bool first_checkpoint_achevment = false;
-   
+    public bool sandcave = false;
     
     IEnumerator waitdie()
     {
@@ -110,6 +110,7 @@ public class AchievementScript : MonoBehaviour
     
     private void Start()
     {
+        sandcave = false;
         first_checkpoint_achevment = false;
         lastSceneName = "MENU";
         spawnpoint = new Vector2(-13.66f, 8.69f);
@@ -208,6 +209,25 @@ public class AchievementScript : MonoBehaviour
             {
                 moveScript.unlockedLAUNCH = false;
                 GiveAchievement("SPACE TO LAUNCH: unlock the rock launch ability!");
+
+            }
+            if (moveScript.discovered_sand_cave == true && sandcave==false)
+            {
+                moveScript.discovered_sand_cave = false;
+                sandcave = true;
+                GiveAchievement("UNSTABLE CAVE: find one of the sand caves in level 2!");
+
+            }
+            if (moveScript.discovered_sand_collapse == true )
+            {
+                moveScript.discovered_sand_collapse = false;
+                GiveAchievement("A TAD BIT SQUISHED: get caved in by the collaping sand cave!");
+
+            }
+            if (moveScript.beat_sand_cave == true)
+            {
+                moveScript.beat_sand_cave = false;
+                GiveAchievement("NICK OF TIME: escape the sand cave before it collapses!");
 
             }
             if (moveScript.discovedSecret == true)

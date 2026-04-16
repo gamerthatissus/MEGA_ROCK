@@ -13830,7 +13830,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18.25
+  m_fontSize: 18.35
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -46493,7 +46493,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -20.602356, y: -264.50018}
+  m_AnchoredPosition: {x: -20.602234, y: -264.50015}
   m_SizeDelta: {x: -1720, y: -1021.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &309804803
@@ -66160,6 +66160,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MUDDY: 0
+  discovered_sand_cave: 0
+  discovered_sand_collapse: 0
+  beat_sand_cave: 0
   JustRespawned: 1
   showedCOMbat: 0
   showedLAUNCH: 0
@@ -110803,6 +110806,7 @@ MonoBehaviour:
   moveScript: {fileID: 457430668}
   givebadge: 1
   giveBadge2: 0
+  giveSAND_Badge1: 0
 --- !u!114 &756252308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110823,6 +110827,7 @@ MonoBehaviour:
   cannumber: 0
   e: 0
   colapse1: 0
+  mainnnScriiipt: {fileID: 457430668}
   stage: 0
   startmusic: {fileID: 8300000, guid: 70a653299c124434aba8e3d199b477ed, type: 3}
   middlemisic: {fileID: 8300000, guid: 9b84f34290d73df43b9c4b5894c1cedf, type: 3}
@@ -180956,7 +180961,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.17658693, y: 0.5}
   m_AnchorMax: {x: 0.22939675, y: 0.5}
-  m_AnchoredPosition: {x: 369.28, y: -330.6}
+  m_AnchoredPosition: {x: 369.27997, y: -330.6}
   m_SizeDelta: {x: 4.5144653, y: 34.77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1246321794
@@ -181006,7 +181011,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20.05
+  m_fontSize: 20.15
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -274364,6 +274369,7 @@ MonoBehaviour:
   cannumber: 0
   e: 0
   colapse1: 1
+  mainnnScriiipt: {fileID: 457430668}
   stage: 0
   startmusic: {fileID: 8300000, guid: 70a653299c124434aba8e3d199b477ed, type: 3}
   middlemisic: {fileID: 8300000, guid: 9b84f34290d73df43b9c4b5894c1cedf, type: 3}
@@ -274392,6 +274398,7 @@ MonoBehaviour:
   moveScript: {fileID: 457430668}
   givebadge: 1
   giveBadge2: 0
+  giveSAND_Badge1: 0
 --- !u!212 &1886690332
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -274466,6 +274473,7 @@ MonoBehaviour:
   moveScript: {fileID: 0}
   givebadge: 0
   giveBadge2: 0
+  giveSAND_Badge1: 0
 --- !u!82 &1886690334
 AudioSource:
   m_ObjectHideFlags: 0
@@ -284103,6 +284111,7 @@ MonoBehaviour:
   moveScript: {fileID: 457430668}
   givebadge: 0
   giveBadge2: 0
+  giveSAND_Badge1: 0
 --- !u!1 &1968971073
 GameObject:
   m_ObjectHideFlags: 0
@@ -302008,7 +302017,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.17658693, y: 0.5}
   m_AnchorMax: {x: 0.22939675, y: 0.5}
-  m_AnchoredPosition: {x: 191.9, y: -326.39}
+  m_AnchoredPosition: {x: 191.89998, y: -326.39}
   m_SizeDelta: {x: 4.5144653, y: 34.77}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2091244823

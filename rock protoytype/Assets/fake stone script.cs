@@ -16,6 +16,8 @@ public class fakestonescript : MonoBehaviour
     public move22 moveScript;
     public bool givebadge = false;
     public bool giveBadge2 = false;
+    public bool giveSAND_Badge1 = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -72,6 +74,10 @@ public class fakestonescript : MonoBehaviour
             if (moveScript != null && givebadge==true)
             {
                 moveScript.discovedSecret = true;
+            }
+            if (moveScript != null && giveSAND_Badge1 == true)
+            {
+                moveScript.discovered_sand_cave = true;
             }
             if (moveScript != null && giveBadge2 == true)
             {

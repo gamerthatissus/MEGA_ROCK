@@ -13,6 +13,7 @@ public class timeleftscript : MonoBehaviour
     public bool cannumber;
     public FindObjectsSortMode e;
     public bool colapse1 = false;
+    public move22 mainnnScriiipt;
 
     public int stage = 0;
     public AudioClip startmusic;
@@ -88,6 +89,12 @@ public AudioClip middlemisic;
         }
     }
     // Update is called once per frame
+
+    public void awardEScapebadge()
+    {
+        mainnnScriiipt.beat_sand_cave = true;
+    }
+
     void Update()
     {
         if (cannumber == true && timer.enabled==true)
@@ -122,6 +129,7 @@ public AudioClip middlemisic;
             {
                 foreach (GameObject tinghy in colapse)
                 {
+                    mainnnScriiipt.discovered_sand_collapse = true;
                     audio_sorceee.clip = CRASH;
                     audio_sorceee.Play();
                     BOOM.Play();

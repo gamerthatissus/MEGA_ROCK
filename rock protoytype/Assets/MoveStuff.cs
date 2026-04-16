@@ -25,6 +25,9 @@ public class move22 : MonoBehaviour
         Right
     }
     public bool MUDDY = false;
+    public bool discovered_sand_cave=false;
+    public bool discovered_sand_collapse = false;
+    public bool beat_sand_cave = false;
 
     public bool JustRespawned = true;
     public bool showedCOMbat = false;
@@ -379,7 +382,14 @@ public class move22 : MonoBehaviour
     }
     void Start()
     {
-        showedCOMbat = false;
+
+
+             discovered_sand_cave = false;
+      discovered_sand_collapse = false;
+      beat_sand_cave = false;
+
+
+    showedCOMbat = false;
         showedLAUNCH = false;
         showedTnt = false;
         if (controls_BASIC != null)
