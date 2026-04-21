@@ -808,7 +808,7 @@ public class move22 : MonoBehaviour
                 AimRay.transform.localScale = Vector3.zero;
             }
 
-            TNT_GUI.text = "Amount of TnT: " + TnT;
+            TNT_GUI.text = "Amount of TNT: " + TnT;
 
             if (Input.GetKeyDown(KeyCode.R) || restarted)
             {
