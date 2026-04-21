@@ -305,7 +305,7 @@ public class AchievementScript : MonoBehaviour
             {
                 if (moveScript.hp < 5)
                 {
-                    StartCoroutine(delayedachevment("tis' but a scratch: complete a level with less than 5 hp left", 0.1f));
+                    StartCoroutine(delayedachevment("'tis but a scratch: complete a level with less than 5 hp left", 0.1f));
                    
 
                 }
