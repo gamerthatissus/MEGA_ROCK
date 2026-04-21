@@ -1736,10 +1736,10 @@ public class move22 : MonoBehaviour
 
     IEnumerator holeeee()
     {
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(0.5f);
        
      
-        outsidemove.AddForce(Vector2.up * 100f/outsidemove.mass, ForceMode2D.Impulse);
+        outsidemove.AddForce(Vector2.up * 150f/outsidemove.mass, ForceMode2D.Impulse);
         
     }
 
